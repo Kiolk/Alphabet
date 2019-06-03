@@ -1,0 +1,38 @@
+ext.versions = [
+        okHttp   : '3.14.1',
+        retrofit : '2.5.0',
+        room     : '1.1.1',
+        rxJava2  : '2.2.8',
+        rxKotlin : '2.3.0',
+        rxAndroid: '2.1.1',
+
+        moxy                         : '1.5.6',
+
+        conductor                    : '2.1.5',
+        conductorDialog              : '1.0.0',
+]
+
+ext.libraries = [
+        okHttp                  : "com.squareup.okhttp3:okhttp:$versions.okHttp",
+        okHttpLoggingInterceptor: "com.squareup.okhttp3:logging-interceptor:$versions.okHttp",
+
+        retrofit                : "com.squareup.retrofit2:retrofit:$versions.retrofit",
+        retrofitGsonConverter   : "com.squareup.retrofit2:converter-gson:$versions.retrofit",
+        retrofitRxJavaAdapter   : "com.squareup.retrofit2:adapter-rxjava2:$versions.retrofit",
+
+        room                    : "android.arch.persistence.room:runtime:$versions.room",
+        roomRxJav2              : "android.arch.persistence.room:rxjava2:$versions.room",
+        roomCompiler            : "android.arch.persistence.room:compiler:$versions.room",
+
+        rxJava2                 : "io.reactivex.rxjava2:rxjava:$versions.rxJava2",
+        rxKotlin                : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
+        rxAndroid               : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
+
+        moxy                    : "com.arello-mobile:moxy:$versions.moxy",
+        moxyAppCompat           : "com.arello-mobile:moxy-app-compat:$versions.moxy",
+        moxyCompiler            : "com.arello-mobile:moxy-compiler:$versions.moxy",
+
+        conductor               : "com.bluelinelabs:conductor:$versions.conductor",
+        conductorSupport        : "com.bluelinelabs:conductor-support:$versions.conductor",
+        conductorDialog         : "com.github.mkhytarmkhoian:conductor-dialog:$versions.conductorDialog",
+]

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/menu_background">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rw_left_menu_alphabet"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Switch
+        android:id="@+id/sw_left_menu_sylabes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:switchMinWidth="100dp"
+        app:layout_constraintBottom_toTopOf="@id/sw_left_menu_sentence"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:text="сло-ва"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@id/sw_left_menu_sylabes"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/sw_left_menu_sylabes"
+        app:layout_constraintTop_toTopOf="@id/sw_left_menu_sylabes" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="слова"
+        android:textSize="32sp"
+        app:layout_constraintBottom_toBottomOf="@id/sw_left_menu_sylabes"
+        app:layout_constraintLeft_toRightOf="@id/sw_left_menu_sylabes"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@id/sw_left_menu_sylabes" />
+
+    <Switch
+        android:id="@+id/sw_left_menu_sentence"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:switchMinWidth="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sw_left_menu_sylabes"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:text="адно"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/sw_left_menu_sentence"
+        app:layout_constraintTop_toTopOf="@id/sw_left_menu_sentence"
+        app:layout_constraintBottom_toBottomOf="@id/sw_left_menu_sentence"
+        android:textSize="32sp"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:text="сказ са словамі"
+        android:gravity="center"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/sw_left_menu_sentence"
+        app:layout_constraintTop_toTopOf="@id/sw_left_menu_sentence"
+        app:layout_constraintBottom_toBottomOf="@id/sw_left_menu_sentence"
+        android:textSize="32sp"
+        android:layout_height="wrap_content" />
+
+
+</android.support.constraint.ConstraintLayout>

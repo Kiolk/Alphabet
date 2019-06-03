@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="black">#575656</color>
+    <color name="char_background">#DDDBDB</color>
+    <color name="menu_background">#FCFFF5</color>
+    <color name="glasnye">#FC0000</color>
+    <color name="soglasnye">#0727FF</color>
+    <color name="bg_right_menu">#CCC9C9</color>
+    <color name="bg_left_menu">#CCC9C9</color>
+
+    <color name="general_orange">#febe46</color>
+    <color name="general_gray">#c6c2c1</color>
+    <color name="general_gray_small">#88c6c2c1</color>
+    <color name="general_dark_gray">#5A5A5A</color>
+
+    <color name="general_white">#ffffff</color>
+</resources>
