@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.di.compomemts
 
 import com.github.kiolk.alphabet.di.compomemts.presenters.GamePresenterComponent
+import com.github.kiolk.alphabet.di.compomemts.presenters.GamePreviewComponenet
 import com.github.kiolk.alphabet.di.compomemts.presenters.HomePresenterComponent
 import com.github.kiolk.alphabet.di.compomemts.presenters.WordsPresenterComponent
 import com.github.kiolk.alphabet.di.modules.AppModule
@@ -24,6 +25,8 @@ interface ApplicationComponent {
     fun plusHomePresenter(module : HomePresenterModule): HomePresenterComponent
 
     fun plusGamePresenter(module : GamePresenterModule): GamePresenterComponent
+
+    fun plusGamePreviewComponent(): GamePreviewComponenet
 
 //    fun plusResultPresenter(module : ResultPresenterModule) : ResultPresenter
 

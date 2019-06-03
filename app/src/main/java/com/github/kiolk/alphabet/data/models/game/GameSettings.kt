@@ -21,4 +21,7 @@ data class GameSettings(
         @ColumnInfo(name = "third_query")
         val thirdQuery: String,
         @ColumnInfo(name = "number_asked")
-        val numberAskedWords : Int) : Parcelable
+        val numberAskedWords : Int) : Parcelable,
+        @ColumnInfo(mname = "game_type")
+        val gameType: String
+}
