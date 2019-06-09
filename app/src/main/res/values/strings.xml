@@ -1,6 +1,12 @@
 <resources>
     <string name="app_name">Alphabet</string>
 
+    <!-- controller_game_result.xml -->
+    <string name="title_game_result_congratulations">Перамога</string>
+    <string name="title_game_result_sad">Параза</string>
+    <string name="text_game_result_next">Наступная</string>
+    <string name="text_game_result_repeat">Паўтарыць</string>
+
     <string-array name="words">
         <!--<item>На дрэ-вах спя-ва-лі птуш-кі</item>-->
         <!--<item>Ра-зам з лож-кам</item>-->

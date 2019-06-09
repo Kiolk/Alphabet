@@ -7,5 +7,4 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class GameItem(
         val currentWord : Word,
-        val photoItems : List<Word>) : Parcelable {
-}
+        val photoItems : List<Word>) : Parcelable

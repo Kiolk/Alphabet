@@ -1,5 +1,9 @@
 package com.github.kiolk.alphabet.di.modules
 
+import com.github.kiolk.alphabet.data.source.game.GameDataSourse
+import com.github.kiolk.alphabet.data.source.game.GameRepository
+import com.github.kiolk.alphabet.data.source.game.RealGameRepository
+import com.github.kiolk.alphabet.data.source.game.local.LocalGameRepository
 import com.github.kiolk.alphabet.data.source.settings.RealSettingrepository
 import com.github.kiolk.alphabet.data.source.settings.SettingsDataSource
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
@@ -19,18 +23,27 @@ abstract class DataSourceModule {
     @LocalDataSource
     @Singleton
     @Binds
-    abstract fun provideLocalWordsDataSource(dataSource: LocalWordsDataSource) : WordsDataSource
+    abstract fun provideLocalWordsDataSource(dataSource: LocalWordsDataSource): WordsDataSource
 
     @Singleton
     @Binds
-    abstract fun provideRealWordsRepository(repository : RealWordsRepository) : WordsRepository
+    abstract fun provideRealWordsRepository(repository: RealWordsRepository): WordsRepository
 
     @LocalDataSource
     @Singleton
     @Binds
-    abstract fun provideLocalSettingsDataSource(dataSource : LocalSettingsDataSource) : SettingsDataSource
+    abstract fun provideLocalSettingsDataSource(dataSource: LocalSettingsDataSource): SettingsDataSource
 
     @Singleton
     @Binds
-    abstract fun provideRealSettingsRepository(repository: RealSettingrepository) : SettingsRepository
+    abstract fun provideRealSettingsRepository(repository: RealSettingrepository): SettingsRepository
+
+    @Singleton
+    @Binds
+    abstract fun providGmaeSettings(repository: RealGameRepository): GameRepository
+
+    @LocalDataSource
+    @Singleton
+    @Binds
+    abstract fun provideGameResult(datatasource: LocalGameRepository) : GameDataSourse
 }

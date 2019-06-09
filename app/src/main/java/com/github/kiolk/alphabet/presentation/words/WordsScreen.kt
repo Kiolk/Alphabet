@@ -28,6 +28,7 @@ import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BaseView
 import com.github.kiolk.alphabet.presentation.common.CharactersLayout
 import com.github.kiolk.alphabet.presentation.game.game.GameController
+import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.presentation.home.HomeController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
@@ -146,12 +147,14 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     override fun setTopic(gameSettings: GameSettings) {
-        router.pushController(RouterTransaction.with(GameController(gameSettings))
+        router.pushController(RouterTransaction.with(GamePreviewController(gameSettings))
                 .popChangeHandler(VerticalChangeHandler())
-                .pushChangeHandler(VerticalChangeHandler()))
+                .pushChangeHandler(VerticalChangeHandler()).tag(GamePreviewController.TAG))
         closeMenu()
 //        presenter.setTopic(gameSettings)
     }
+
+
 
     override fun setSelectedLetter(letter: Letter) {
         if(router.backstackSize != 0) {

@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.presentation.game.game
 
 import android.os.Bundle
+import android.os.Parcelable
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -14,22 +15,27 @@ import butterknife.BindView
 import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.bluelinelabs.conductor.RouterTransaction
+import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.github.kiolk.alphabet.R
+import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.common.CharactersLayout
+import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
+import com.github.kiolk.alphabet.presentation.game.result.ResultController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.BlurBuilder
 import com.github.kiolk.alphabet.utils.BundleBuilder
+import java.lang.Exception
 
 class GameController : BaseController, GameView {
 
-    constructor(gameSettings: GameSettings) : super(BundleBuilder(Bundle())
-            .setParseleable(BUNDLE_GAME_SETTINGS, gameSettings).build())
+    constructor(result: GameResult) : super(BundleBuilder(Bundle())
+            .setParseleable(BUNDLE_GAME_SETTINGS, result).build())
 
     constructor(args: Bundle) : super(args)
 
@@ -40,19 +46,19 @@ class GameController : BaseController, GameView {
     lateinit var wordsPhotots: RecyclerView
 
     @BindView(R.id.v_game_bluer_holder)
-    lateinit var vBlure : ImageView
+    lateinit var vBlure: ImageView
 
     @BindView(R.id.btn_word_screen_next_word)
     lateinit var btnOnNext: Button
 
     @BindView(R.id.iv_game_tap_button)
-    lateinit var ivTap : ImageButton
+    lateinit var ivTap: ImageButton
 
     @BindView(R.id.iv_word_blur)
-    lateinit var ivWordBlur : ImageView
+    lateinit var ivWordBlur: ImageView
 
     @BindView(R.id.tv_game_read_word)
-    lateinit var tvWord : TextView
+    lateinit var tvWord: TextView
 
     @InjectPresenter
     lateinit var presenter: GamePresenter
@@ -96,12 +102,15 @@ class GameController : BaseController, GameView {
     }
 
     override fun showResult(resullt: GameResult) {
-//        router.pushController()
+        router.pushController(RouterTransaction.with(ResultController(resullt))
+                .pushChangeHandler(HorizontalChangeHandler())
+                .popChangeHandler(HorizontalChangeHandler()).tag(ResultController.TAG))
+        router.getControllerWithTag(TAG)?.let { router.popController(it) }
     }
 
     override fun showBlurHolder() {
-        vBlure.setImageBitmap(activity?.baseContext?.let { BlurBuilder.blur(it, wordsPhotots) })
         vBlure.visibility = View.VISIBLE
+        vBlure.setImageBitmap(activity?.baseContext?.let { BlurBuilder.blur(it, wordsPhotots) })
     }
 
     override fun hideBlurHolder() {
@@ -110,7 +119,7 @@ class GameController : BaseController, GameView {
     }
 
     @OnClick(R.id.iv_game_tap_button)
-    fun onTapClick(){
+    fun onTapClick() {
         presenter.onTapClick()
     }
 
@@ -120,9 +129,7 @@ class GameController : BaseController, GameView {
 
     override fun hideTapButton() {
         ivTap.visibility = View.GONE
-        }
-
-
+    }
 
     override fun showWord() {
         ivWordBlur.visibility = View.GONE
@@ -134,7 +141,7 @@ class GameController : BaseController, GameView {
     }
 
     @OnClick(R.id.tv_game_read_word)
-    fun onWordClick(){
+    fun onWordClick() {
         presenter.onWordClick()
     }
 
@@ -146,12 +153,12 @@ class GameController : BaseController, GameView {
     @ProvidePresenter
     fun providePresenter(): GamePresenter {
         return getApplicationComponent()
-                .plusGamePresenter(GamePresenterModule(args.getParcelable(BUNDLE_GAME_SETTINGS)
-                        ?: GameSettings("", "", "", "", "", 0)))
+                .plusGamePresenter(GamePresenterModule(args.getParcelable(BUNDLE_GAME_SETTINGS)))
                 .presenter
     }
 
     companion object {
+        const val TAG = "GAME_CONTROLLER_TAG"
         const val BUNDLE_GAME_SETTINGS: String = "BUNDLE_GAME_SETTINGS"
     }
 }

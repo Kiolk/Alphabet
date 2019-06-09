@@ -1,6 +1,8 @@
 package com.github.kiolk.alphabet.utils
 
 import android.content.res.Resources
+import android.support.annotation.StringRes
+import com.bluelinelabs.conductor.Controller
 import java.util.*
 
 val Int.toPx: Int
@@ -17,3 +19,5 @@ fun <T> MutableList<T>.randomize() : MutableList<T>{
     }
     return tmp
 }
+
+fun Controller.getString(@StringRes resId: Int) = activity?.baseContext?.getString(resId) ?: ""

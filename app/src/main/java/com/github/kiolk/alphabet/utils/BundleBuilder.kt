@@ -18,4 +18,9 @@ class BundleBuilder(private val bundle : Bundle) {
     fun build() : Bundle{
         return bundle
     }
+
+    fun setParseleableArray(key: String, array: Array<Parcelable>): BundleBuilder{
+        bundle.putParcelableArray(key, array)
+        return this
+    }
 }

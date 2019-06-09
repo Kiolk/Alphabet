@@ -6,6 +6,6 @@ import kotlinx.android.parcel.Parcelize
 @Parcelize
 data class GameResult(
         val gameSettings: GameSettings,
-        val gameItems: List<GameItem>,
+        val gameItems: Array<GameItem>,
         var correctAnswers: Int,
         var wrongAnswers: Int) : Parcelable

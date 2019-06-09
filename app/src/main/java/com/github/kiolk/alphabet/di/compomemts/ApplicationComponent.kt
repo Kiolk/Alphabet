@@ -1,14 +1,14 @@
 package com.github.kiolk.alphabet.di.compomemts
 
-import com.github.kiolk.alphabet.di.compomemts.presenters.GamePresenterComponent
-import com.github.kiolk.alphabet.di.compomemts.presenters.GamePreviewComponenet
-import com.github.kiolk.alphabet.di.compomemts.presenters.HomePresenterComponent
-import com.github.kiolk.alphabet.di.compomemts.presenters.WordsPresenterComponent
+import com.github.kiolk.alphabet.di.compomemts.presenters.*
 import com.github.kiolk.alphabet.di.modules.AppModule
 import com.github.kiolk.alphabet.di.modules.DataSourceModule
 import com.github.kiolk.alphabet.di.modules.DbModule
 import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
+import com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule
+import com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule
+import com.github.kiolk.alphabet.presentation.game.result.ResultPresenter
 import dagger.Component
 import javax.inject.Singleton
 
@@ -26,8 +26,8 @@ interface ApplicationComponent {
 
     fun plusGamePresenter(module : GamePresenterModule): GamePresenterComponent
 
-    fun plusGamePreviewComponent(): GamePreviewComponenet
+    fun plusGamePreviewComponent(module: GamePreviewPresenterModule): GamePreviewComponent
 
-//    fun plusResultPresenter(module : ResultPresenterModule) : ResultPresenter
+    fun plusResultPresenter(module : ResultPresenterModule) : ResultPresenterCompomemt
 
 }
