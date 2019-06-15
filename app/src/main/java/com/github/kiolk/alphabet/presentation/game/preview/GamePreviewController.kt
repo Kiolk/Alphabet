@@ -37,7 +37,7 @@ class GamePreviewController : BaseController, GamePreviewView {
     fun providePresenter(): GamePreviewPresenter {
         return getApplicationComponent()
                 .plusGamePreviewComponent(GamePreviewPresenterModule(args.getParcelable(BUNDLE_GAME_SETTINGS) as GameSettings
-                        ?: GameSettings("", "", "", "", "", 5)))
+                        ?: GameSettings("", "", "", "", "", 5, false, false)))
                 .presenter
     }
 

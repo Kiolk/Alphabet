@@ -17,11 +17,12 @@ data class GameSettings(
         @ColumnInfo(name = "first_query")
         val queryRegex: String,
         @ColumnInfo(name = "second_query")
-        val secondQuery : String,
+        val secondQuery: String,
         @ColumnInfo(name = "third_query")
         val thirdQuery: String,
         @ColumnInfo(name = "number_asked")
-        val numberAskedWords : Int) : Parcelable
-//        @ColumnInfo(mname = "game_type")
-//        val gameType: String
-//}
+        val numberAskedWords: Int,
+        @ColumnInfo(name = "isAvailable")
+        val isAvailable: Boolean,
+        @ColumnInfo(name = "isCompleted")
+        val isCompleted: Boolean) : Parcelable
