@@ -24,7 +24,7 @@ class GamePreviewPresenter
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
 
-        addDisposable(repository.selectWords(gameSettings.queryRegex)
+        addDisposable(repository.selectWords(gameSettings)
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
                 .subscribe(this::onWordSuccess, this::onError))
     }

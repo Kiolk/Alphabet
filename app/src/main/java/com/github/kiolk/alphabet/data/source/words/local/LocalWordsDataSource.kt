@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.data.source.words.local
 
+import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
 import com.github.kiolk.alphabet.data.source.words.WordsDataSource
@@ -38,11 +39,15 @@ constructor(private val dao : DaoWords,
         }
     }
 
-    override fun selectWords(query: String): Flowable<List<Word>> {
-        return wordDao.getSelectedWord(query, "%")
+    override fun selectWords(settings: GameSettings): Flowable<List<Word>> {
+        return wordDao.getSelectedWord(settings.queryRegex, settings.secondQuery, settings.thirdQuery)
     }
 
     override fun getWordsByTags(query: String): Flowable<List<Word>> {
         return wordDao.getWordsByTag(query)
+    }
+
+    override fun isSettingsAvailable(gameSettings: GameSettings): Flowable<List<Word>> {
+       return  wordDao.getSelectedBySettingsWords(gameSettings.queryRegex, gameSettings.secondQuery, gameSettings.thirdQuery)
     }
 }

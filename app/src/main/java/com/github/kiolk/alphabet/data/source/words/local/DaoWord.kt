@@ -22,6 +22,9 @@ interface DaoWord {
     @Query("SELECT * FROM Word WHERE word_mean LIKE :query AND word_mean LIKE :second AND word_mean LIKE :s")
     fun getSelectedWord(query: String, second : String, s : String = "%"): Flowable<List<Word>>
 
+    @Query("SELECT * FROM Word WHERE word_mean LIKE :query AND word_mean LIKE :second AND word_mean LIKE :s")
+    fun getSelectedBySettingsWords(query: String, second : String, s : String = "%"): Flowable<List<Word>>
+
     @Query("SELECT * FROM Word WHERE tags LIKE :query")
     fun getWordsByTag(query : String) : Flowable<List<Word>>
 }

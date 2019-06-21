@@ -50,13 +50,13 @@ constructor(private val context: Context,
 //                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
 //                .subscribe(this::onSuccess, this::onError)
 
-        addDisposable(repository.setWordList(testSetOfWord)
-                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe(this::onSuccess, this::onError))
+//        addDisposable(repository.setWordList(testSetOfWord)
+//                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+//                .subscribe(this::onSuccess, this::onError))
 
-        addDisposable(settingsRepository.setSettings(testSettings)
-                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe({}, {}))
+//        addDisposable(settingsRepository.setSettings(testSettings)
+//                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+//                .subscribe({}, {}))
 
         addDisposable(settingsRepository.getAllSettings()
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())

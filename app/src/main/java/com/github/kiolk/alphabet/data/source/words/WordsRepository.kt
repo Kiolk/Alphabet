@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.data.source.words
 
+import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
 import io.reactivex.Completable
@@ -13,7 +14,9 @@ interface WordsRepository {
 
     fun setWordList(wordList : List<Word>) : Completable
 
-    fun selectWords(query: String) : Flowable<List<Word>>
+    fun selectWords(gameSettings: GameSettings) : Flowable<List<Word>>
 
     fun getWordsByTag(query : String) : Flowable<List<Word>>
+
+    fun isSettingsAvailable(gameSettings: GameSettings): Flowable<List<Word>>
 }

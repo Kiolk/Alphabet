@@ -11,7 +11,7 @@ import com.github.kiolk.alphabet.data.source.words.local.DaoWords
 
 @Database(entities = arrayOf(
         Words::class, Word::class, GameSettings::class
-), version = 2, exportSchema = false)
+), version = 3, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun wordsDao(): DaoWords

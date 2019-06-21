@@ -16,8 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.github.kiolk.alphabet.MainActivity"></activity>
-        <activity android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen">
+        <activity android:name="com.github.kiolk.alphabet.MainActivity">
+        </activity>
+        <activity android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen"/>
+        <activity android:name="com.github.kiolk.alphabet.presentation.splash.SplashController">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
