@@ -25,4 +25,6 @@ data class GameSettings(
         @ColumnInfo(name = "isAvailable")
         val isAvailable: Boolean,
         @ColumnInfo(name = "isCompleted")
-        val isCompleted: Boolean) : Parcelable
+        val isCompleted: Boolean,
+        @Embedded(prefix = "schema_")
+        var gameSchema: GameSchema) : Parcelable

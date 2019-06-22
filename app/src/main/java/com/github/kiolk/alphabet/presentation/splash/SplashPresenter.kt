@@ -35,7 +35,12 @@ constructor(private val initGameUseCase: InitGameUseCase,
         allSettings = mutableListOf()
         availableSettings = mutableListOf()
         for (letter in Data.alphabet) {
-            Data.testSettings.forEach { allSettings.add(GameSettings("${it.title} ${letter.letter}", it.pictureUrl, it.queryRegex, "%${letter.letterValue}%", it.thirdQuery, 4, false, false)) }
+            Data.gameSettingsPatterns.forEach { pattern ->
+                val tmp = pattern
+                tmp.setLetter(letter.letterValue)
+                allSettings.add(tmp.build())
+            }
+//            Data.testSettings.forEach { allSettings.add(GameSettings("${it.title} ${letter.letter}", it.pictureUrl, it.queryRegex, "%${letter.letterValue}%", it.thirdQuery, 4, false, false)) }
         }
 
         checkSettings(allSettings[counter])
