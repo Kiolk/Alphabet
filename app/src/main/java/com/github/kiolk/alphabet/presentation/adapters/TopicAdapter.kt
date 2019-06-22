@@ -1,23 +1,20 @@
 package com.github.kiolk.alphabet.presentation.adapters
 
 import android.content.Context
+import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
-
 import android.view.ViewGroup
-import android.widget.FrameLayout
-import android.widget.ImageView
-import android.widget.TextView
 import butterknife.BindView
-import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.presentation.views.GameIndicator
 import com.github.kiolk.alphabet.presentation.words.adapter.BaseViewHolder
 
 class TopicAdapter(val topics: List<GameSettings>, val context: Context, val listener: OnItemClickListener) : RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): TopicAdapter.TopicViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.item_book, p0, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.layout_topic, p0, false)
         return TopicViewHolder(view, listener)
     }
 
@@ -26,7 +23,7 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (topics.get(position) != null) {
+        return when (topics.get(position).isAvailable) {
             true -> AVAILABLE
             false -> UNAVAILABLE
         }
@@ -37,53 +34,31 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
     }
 
     class TopicViewHolder(itemView: View, val listener: OnItemClickListener) :BaseViewHolder<GameSettings>(itemView) {
-//
-//        init {
-//            ButterKnife.bind(this, itemView)
-//        }
 
-        @BindView(R.id.im_books_list_book_cover)
-        lateinit var imTopic: ImageView
+        @BindView(R.id.iv_topic_blur_layout)
+        lateinit var ivBlur: View
 
-        @BindView(R.id.tw_book_list_book_title)
-        lateinit var tvTitle: TextView
+        @BindView(R.id.gi_topic_item)
+        lateinit var giTopic: GameIndicator
 
-        @BindView(R.id.iv_topics_unlock_icon)
-        lateinit var ivUnlockIcon: ImageView
-
-        @BindView(R.id.fl_topics_lock_screen)
-        lateinit var flLockScreen: FrameLayout
+        @BindView(R.id.cv_topic)
+        lateinit var cvCard: CardView
 
         override fun onBindViewHolder(data: GameSettings) {
-                      Glide.with(itemView)
-                    .load(data.pictureUrl)
-                    .into(imTopic)
-
-            tvTitle.text = data.title
+            giTopic.setGameSchema(data.gameSchema)
 
             if (itemViewType == AVAILABLE) {
-                ivUnlockIcon.visibility = View.VISIBLE
-                itemView.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(v: View?) {
-                        listener.onItemClick(data)
-                    }
-                })
+                itemView.setOnClickListener { listener.onItemClick(data) }
+                ivBlur.visibility = View.GONE
+                cvCard.isEnabled = true
+                cvCard.isClickable = true
             } else {
-                flLockScreen.visibility = View.VISIBLE
-            }
-
-        }
-    }
-
-    fun updateTopic(updateTopic: Topic) {
-        var position: Int = 0
-        topics.forEachIndexed { index, topic ->
-            if (topic.title == updateTopic.title) {
-//                topic.isAvailable == updateTopic.isAvailable
-                position = index
+                ivBlur.visibility = View.VISIBLE
+                ivBlur.background = getContext().resources.getDrawable(R.drawable.bg_gray_lock)
+                cvCard.isClickable = false
+                cvCard.isEnabled = false
             }
         }
-        notifyItemChanged(position)
     }
 
     interface OnItemClickListener {

@@ -2,11 +2,13 @@ package com.github.kiolk.alphabet.presentation.words
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.GridLayout
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.github.kiolk.alphabet.R
@@ -25,7 +27,7 @@ class RightMenuFragment : Fragment() {
     }
 
     fun setTopics(topics : List<GameSettings>){
-        rwBooksList.layoutManager = LinearLayoutManager(context)
+        rwBooksList.layoutManager = GridLayoutManager(context, 2, GridLayout.VERTICAL, false)//LinearLayoutManager(context)
         rwBooksList.adapter = context?.let {
             TopicAdapter(topics, it, object : TopicAdapter.OnItemClickListener {
                 override fun onItemClick(settings: GameSettings) {

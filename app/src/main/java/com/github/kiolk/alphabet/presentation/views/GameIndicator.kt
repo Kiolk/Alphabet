@@ -7,6 +7,8 @@ import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.github.kiolk.alphabet.R
+import com.github.kiolk.alphabet.data.models.game.GameSchema
+import com.github.kiolk.alphabet.data.models.game.GameSettingBuilder
 
 class GameIndicator : LinearLayout {
 
@@ -16,6 +18,7 @@ class GameIndicator : LinearLayout {
     private lateinit var vSecondRight: View
     private lateinit var tvLetter: TextView
     private lateinit var tvCounter: TextView
+    private lateinit var tvWordLenght: TextView
 
     constructor(context: Context?) : super(context) {
         init(null)
@@ -45,6 +48,7 @@ class GameIndicator : LinearLayout {
         vSecondRight = findViewById(R.id.v_game_indicator_second_right)
         tvLetter = findViewById(R.id.tv_game_indicator_latter)
         tvCounter = findViewById(R.id.tv_game_indicator_counter)
+        tvWordLenght = findViewById(R.id.tv_game_indicator_word_length)
     }
 
     fun setLtter(letter: String){
@@ -54,6 +58,7 @@ class GameIndicator : LinearLayout {
         vFirstRight.visibility = View.GONE
         vSecondRight.visibility = View.GONE
         tvCounter.visibility = View.GONE
+        tvWordLenght.visibility = View.GONE
     }
 
     fun setInMiddle(){
@@ -74,5 +79,28 @@ class GameIndicator : LinearLayout {
     fun setIndicator(count: String){
         tvCounter.visibility = View.VISIBLE
         tvCounter.text = count
+    }
+
+    fun setWordLength(length: String){
+        tvWordLenght.visibility = View.VISIBLE
+        tvWordLenght.text = length
+    }
+
+    fun setGameSchema(schema: GameSchema){
+
+        setLtter(schema.letterValue)
+
+        when(GameSettingBuilder.Position.getPosition(schema.position)){
+            GameSettingBuilder.Position.START -> setInStart()
+            GameSettingBuilder.Position.END -> setInEnd()
+            GameSettingBuilder.Position.INSIDE -> setInMiddle()
+        }
+        if(schema.length > 0){
+            setWordLength(schema.length.toString())
+        }
+
+        if(schema.numberOfLetters > 1){
+            setIndicator(schema.numberOfLetters.toString())
+        }
     }
 }

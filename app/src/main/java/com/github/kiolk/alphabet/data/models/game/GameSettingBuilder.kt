@@ -6,7 +6,7 @@ class GameSettingBuilder {
 
     private var letter: String = ""
     private var numberOfLetters: Int = 1
-    private var lettersInWord: Int = 1
+    private var lettersInWord: Int = 0
     private var position: Position = Position.START
     private var title: String = ""
 
@@ -42,6 +42,10 @@ class GameSettingBuilder {
     }
 
     private fun formWordLenght(): String{
+        if(lettersInWord == 0){
+            return "%"
+        }
+
         val strinBuilder: StringBuilder = StringBuilder()
         for(number in 0 until lettersInWord){
             strinBuilder.append("_")

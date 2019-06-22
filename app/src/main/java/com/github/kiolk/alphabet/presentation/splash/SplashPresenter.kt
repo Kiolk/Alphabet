@@ -40,7 +40,6 @@ constructor(private val initGameUseCase: InitGameUseCase,
                 tmp.setLetter(letter.letterValue)
                 allSettings.add(tmp.build())
             }
-//            Data.testSettings.forEach { allSettings.add(GameSettings("${it.title} ${letter.letter}", it.pictureUrl, it.queryRegex, "%${letter.letterValue}%", it.thirdQuery, 4, false, false)) }
         }
 
         checkSettings(allSettings[counter])
@@ -54,7 +53,15 @@ constructor(private val initGameUseCase: InitGameUseCase,
 
     fun availableWords(words: List<Word>) {
         if (words.size > 3) {
-            availableSettings.add(allSettings[counter])
+            val needAddSettings = allSettings[counter]
+
+            if(availableSettings.size != 0 && needAddSettings.gameSchema.letterValue != availableSettings[availableSettings.size -1].gameSchema.letterValue){
+                needAddSettings.isAvailable = true
+            }else if(availableSettings.size == 0){
+                needAddSettings.isAvailable = true
+            }
+
+            availableSettings.add(needAddSettings)
         }
 
         ++counter

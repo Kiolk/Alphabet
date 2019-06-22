@@ -34,7 +34,9 @@ object Data{
             GameSettingBuilder().setTitle("Тры").setLettersInWord(3).setPosition(GameSettingBuilder.Position.ANY),
             GameSettingBuilder().setTitle("Чатыры").setLettersInWord(4).setPosition(GameSettingBuilder.Position.ANY),
             GameSettingBuilder().setTitle("Пяць").setLettersInWord(5).setPosition(GameSettingBuilder.Position.ANY),
-            GameSettingBuilder().setTitle("Шэсць").setLettersInWord(6).setPosition(GameSettingBuilder.Position.ANY)
+            GameSettingBuilder().setTitle("Шэсць").setLettersInWord(6).setPosition(GameSettingBuilder.Position.ANY),
+            GameSettingBuilder().setTitle("Літара").setPosition(GameSettingBuilder.Position.ANY),
+            GameSettingBuilder().setTitle("Пачатак").setPosition(GameSettingBuilder.Position.START)
     )
 
     val testSetOfWord = listOf<Word>(

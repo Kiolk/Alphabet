@@ -23,8 +23,8 @@ data class GameSettings(
         @ColumnInfo(name = "number_asked")
         val numberAskedWords: Int,
         @ColumnInfo(name = "isAvailable")
-        val isAvailable: Boolean,
+        var isAvailable: Boolean,
         @ColumnInfo(name = "isCompleted")
-        val isCompleted: Boolean,
+        var isCompleted: Boolean,
         @Embedded(prefix = "schema_")
         var gameSchema: GameSchema) : Parcelable

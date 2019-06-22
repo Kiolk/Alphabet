@@ -21,16 +21,13 @@ class SplashController : MvpAppCompatActivity(), SplashView, BaseView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
-        handler.postDelayed({ openMainScreen() }, 2000)
+        handler.postDelayed({ openMainScreen() }, 200000)
     }
 
     override fun openMainScreen() {
         val intent = Intent(this, WordsScreen::class.java)
         startActivity(intent)
-    }
-
-    override fun onStart() {
-        super.onStart()
+        finish()
     }
 
     override fun onDestroy() {
