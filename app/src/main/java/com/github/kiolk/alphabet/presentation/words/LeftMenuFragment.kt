@@ -18,12 +18,6 @@ import com.github.kiolk.alphabet.presentation.words.adapter.alphabet.AlphabetDec
 
 class LeftMenuFragment : Fragment() {
 
-    @BindView(R.id.sw_left_menu_sentence)
-    lateinit var swSentence : Switch
-
-    @BindView(R.id.sw_left_menu_sylabes)
-    lateinit var swSyllable : Switch
-
     @BindView(R.id.rw_left_menu_alphabet)
     lateinit var rwAlphabet : RecyclerView
 
@@ -33,24 +27,6 @@ class LeftMenuFragment : Fragment() {
         val view = inflater.inflate(R.layout.layout_left_menu, container, false)
         ButterKnife.bind(this, view)
         return view
-    }
-
-    @OnCheckedChanged(R.id.sw_left_menu_sylabes)
-    fun onCheckedSylaneChanged(enable : Boolean){
-        (activity as MenuListenerView).enableSyllable(enable)
-    }
-
-    @OnCheckedChanged(R.id.sw_left_menu_sentence)
-    fun onCheckedSentenceChanged(enable : Boolean){
-        (activity as MenuListenerView).enableSentence(enable)
-    }
-
-    fun setSyllableEnable(enable: Boolean) {
-        swSyllable.isChecked = enable
-    }
-
-    fun setSentanceEnable(enable: Boolean) {
-        swSentence.isChecked = enable
     }
 
     fun initAlphabet(listener : (Letter) -> Unit){

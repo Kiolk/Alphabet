@@ -38,17 +38,8 @@ import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
 
 class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerView {
 
-    @BindView(R.id.chars_layout)
-    lateinit var charsLayout: CharactersLayout
-
     @InjectPresenter
     lateinit var presenter: WordPresentor
-
-    @BindView(R.id.rw_words_photos)
-    lateinit var wordsPhotots: RecyclerView
-
-    @BindView(R.id.btn_word_screen_next_word)
-    lateinit var btnOnNext: Button
 
     @BindView(R.id.general_controller_container)
     lateinit var controllerContainer: ChangeHandlerFrameLayout
@@ -60,8 +51,6 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     lateinit var leftMenu: LeftMenuFragment
 
     lateinit var rightMenu: RightMenuFragment
-
-    lateinit var adapter: SelectPhotoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,25 +64,12 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         menuLeft.mode = SlidingMenu.LEFT_RIGHT
         menuLeft.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN or SlidingMenu.TOUCHMODE_FULLSCREEN)
         menuLeft.behindOffset = 60.toPx
-//        menuLeft.setBehindWidth(200.toPx)
-
-//        menuLeft.setBehindOffsetRes(50);
         menuLeft.setFadeDegree(0.35f)
         menuLeft.attachToActivity(this, SlidingMenu.SLIDING_CONTENT)
         menuLeft.setMenu(R.layout.right_menu_layout)
         supportFragmentManager.beginTransaction().replace(R.id.left_menu_container, leftMenu).commit()
         menuLeft.setSecondaryMenu(R.layout.left_menu_layout)
-//        leftMenu.initAlphabet()
-////        leftMenu.setAlphabet()
         supportFragmentManager.beginTransaction().replace(R.id.right_menu_container, rightMenu).commit()
-
-        val layout = GridLayoutManager(this, 2, GridLayoutManager.HORIZONTAL, false)
-        adapter = SelectPhotoAdapter(this, emptyList()) { word ->
-            presenter.onCheckAnswer(word)
-        }
-        wordsPhotots.layoutManager = layout
-        wordsPhotots.addItemDecoration(SelectPhotoDecorator(5))
-        wordsPhotots.adapter = adapter
 
         router = Conductor.attachRouter(this, findViewById(R.id.general_controller_container), savedInstanceState)
         if (!router.hasRootController()) {
@@ -101,21 +77,10 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         }
     }
 
-    override fun setWord(word: String) {
-        charsLayout.setWord(word)
-//        leftMenu.initAlphabet()
-//        leftMenu.setAlphabet()
-    }
-
     override fun showProgress() {
     }
 
     override fun hideProgress() {
-    }
-
-    @OnClick(R.id.btn_word_screen_next_word)
-    fun onNextClick() {
-        presenter.onNextWordPress()
     }
 
     override fun onBackPressed() {
@@ -128,33 +93,12 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         }
     }
 
-
-    override fun enableSyllable(enable: Boolean) {
-        openChoseFile()
-        presenter.onSyllableChanged(enable)
-    }
-
-    override fun enableSentence(enable: Boolean) {
-        presenter.onSentenceChanged(enable)
-    }
-
-    override fun setSyllableEnable(enable: Boolean) {
-        leftMenu.setSyllableEnable(enable)
-    }
-
-    override fun setSentanceEnable(enable: Boolean) {
-        leftMenu.setSentanceEnable(enable)
-    }
-
     override fun setTopic(gameSettings: GameSettings) {
         router.pushController(RouterTransaction.with(GamePreviewController(gameSettings))
                 .popChangeHandler(VerticalChangeHandler())
                 .pushChangeHandler(VerticalChangeHandler()).tag(GamePreviewController.TAG))
         closeMenu()
-//        presenter.setTopic(gameSettings)
     }
-
-
 
     override fun setSelectedLetter(letter: Letter) {
         if(router.backstackSize != 0) {
@@ -179,22 +123,6 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
     override fun closeMenu() {
         menuLeft.showContent()
-    }
-
-    override fun setWordPictures(list: List<Word>) {
-        adapter.setItems(list)
-    }
-
-    override fun setAnswer(userAnswer: Word, correct: Word) {
-        adapter.setCorrectAnswer(userAnswer, correct)
-    }
-
-    override fun enableNextButton() {
-        btnOnNext.isEnabled = true
-    }
-
-    override fun disableNext() {
-        btnOnNext.isEnabled = false
     }
 
     @ProvidePresenter
@@ -231,15 +159,6 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         cursor.moveToFirst();
         return cursor.getString(column_index)
     }
-
-//    public String getRealPathFromURI(Uri contentUri) {
-//    String [] proj      = {MediaStore.Images.Media.DATA};
-//    Cursor cursor       = getContentResolver().query( contentUri, proj, null, null,null);
-//    if (cursor == null) return null;
-//    int column_index    = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
-//    cursor.moveToFirst();
-//    return cursor.getString(column_index);
-//}
 
     companion object {
         private const val SELECT_FILE_RESULT : Int = 1

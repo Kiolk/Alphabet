@@ -17,6 +17,10 @@ interface ResultView : BaseView {
 
     fun setNextButtonTitle(resId: Int)
 
+    fun setNextButtonEnable()
+
+    fun setNextButtonDisable()
+
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun closeNext(result: GameSettings)
 }

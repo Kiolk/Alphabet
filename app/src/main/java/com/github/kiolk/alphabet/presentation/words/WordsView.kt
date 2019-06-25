@@ -7,23 +7,9 @@ import com.github.kiolk.alphabet.data.models.word.Word
 
 interface WordsView : MvpView {
 
-    fun setWord(word: String)
-
-    fun setSyllableEnable(enable : Boolean)
-
-    fun setSentanceEnable(enable : Boolean)
-
     fun setAvailableTopics(topics : List<GameSettings>)
 
     fun closeMenu()
-
-    fun setWordPictures( list: List<Word>)
-
-    fun setAnswer(userAnswer : Word, correct : Word)
-
-    fun enableNextButton()
-
-    fun disableNext()
 
     fun setAlphabet(alphabet : List<Letter>)
 

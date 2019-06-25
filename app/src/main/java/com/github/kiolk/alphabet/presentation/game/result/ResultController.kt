@@ -68,6 +68,14 @@ class ResultController : BaseController, ResultView {
         tvNext.text = getString(resId)
     }
 
+    override fun setNextButtonEnable() {
+        tvNext.isEnabled = true
+    }
+
+    override fun setNextButtonDisable() {
+        tvNext.isEnabled = false
+    }
+
     @ProvidePresenter
     fun provideResultPresenter(): ResultPresenter {
         return getApplicationComponent().plusResultPresenter(ResultPresenterModule(args.getParcelable(BUNDLE_GAME_RESULT)!!))
@@ -75,7 +83,7 @@ class ResultController : BaseController, ResultView {
     }
 
     @OnClick(R.id.tv_game_result_next)
-    fun onNexnClick(){
+    fun onNextClick(){
         presenter.onNextClick()
     }
 

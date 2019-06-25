@@ -19,16 +19,28 @@ object Data{
             Letter("з", "з", "d"),
             Letter("і", "і", "d"),
             Letter("й", "й", "d"),
-            Letter("к", "к", "d")
+            Letter("к", "к", "d"),
+            Letter("л", "л", "d"),
+            Letter("м", "м", "d"),
+            Letter("н", "н", "d"),
+            Letter("о", "о", "d"),
+            Letter("п", "п", "d"),
+            Letter("р", "р", "d"),
+            Letter("с", "с", "d"),
+            Letter("т", "т", "d"),
+            Letter("у", "у", "d"),
+            Letter("ў", "ў", "d"),
+            Letter("ф", "ф", "d"),
+            Letter("х", "х", "d"),
+            Letter("ц", "ц", "d"),
+            Letter("ч", "ч", "d"),
+            Letter("ш", "ш", "d"),
+            Letter("ы", "ы", "d"),
+            Letter("ь", "ь", "d"),
+            Letter("э", "э", "d"),
+            Letter("ю", "ю", "d"),
+            Letter("я", "я", "d")
     )
-
-
-//    val testSettings = listOf<GameSettings>(
-//            GameSettings("Тры", "https://upload.wikimedia.org/wikipedia/be/6/68/Try_%C4%8Darapachi_%28%D0%B2%D0%BE%D0%BA%D0%BB%D0%B0%D0%B4%D0%BA%D0%B0_%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%D0%B0%29.jpg", "___", "%", "%", 4, false, false),
-//            GameSettings("Чатыры", "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg", "____", "%", "%", 4,false, false),
-//            GameSettings("Пяць", "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg", "_____", "%", "%", 4, false, false),
-//            GameSettings("Шэсць", "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg", "______", "%", "%", 4, false, false)
-//    )
 
     val gameSettingsPatterns: List<GameSettingBuilder> = listOf<GameSettingBuilder>(
             GameSettingBuilder().setTitle("Тры").setLettersInWord(3).setPosition(GameSettingBuilder.Position.ANY),

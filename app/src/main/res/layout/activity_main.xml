@@ -10,40 +10,4 @@
         android:id="@+id/general_controller_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rw_words_photos"
-        android:layout_width="0dp"
-        android:visibility="invisible"
-        android:layout_height="0dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_margin="10dp"
-        app:layout_constraintDimensionRatio="H, 1: 1"
-        app:layout_constraintTop_toTopOf="parent"/>
-
-    <com.github.kiolk.alphabet.presentation.common.CharactersLayout
-        android:id="@+id/chars_layout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        android:layout_marginTop="10dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rw_words_photos">
-    </com.github.kiolk.alphabet.presentation.common.CharactersLayout>
-
-
-    <Button
-        android:id="@+id/btn_word_screen_next_word"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:text="слова"
-        android:backgroundTint="@color/colorPrimaryDark"
-        android:textSize="40sp"
-        android:layout_margin="30dp"/>
 </android.support.constraint.ConstraintLayout>
