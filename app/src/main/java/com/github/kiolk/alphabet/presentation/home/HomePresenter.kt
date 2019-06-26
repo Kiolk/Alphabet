@@ -15,7 +15,6 @@ constructor(private val context : Context, private val letter : Letter): BasePre
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
 
-
         val path = context.assets.list("")[0]
 
         val words = CsvParser.parserToWords(path ?: "")

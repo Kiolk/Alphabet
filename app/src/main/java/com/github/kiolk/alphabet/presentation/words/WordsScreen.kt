@@ -84,12 +84,12 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     override fun onBackPressed() {
+        if (menuLeft.isSecondaryMenuShowing || menuLeft.isMenuShowing) {
+            menuLeft.showContent(true)
+            return
+        }
         if (!router.handleBack()) {
-            if (menuLeft.isSecondaryMenuShowing || menuLeft.isMenuShowing) {
-                menuLeft.showContent(true)
-            } else {
-                super.onBackPressed()
-            }
+            super.onBackPressed()
         }
     }
 
@@ -101,13 +101,10 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     override fun setSelectedLetter(letter: Letter) {
-        if(router.backstackSize != 0) {
-            router.popCurrentController()
-        }
-            router.pushController(RouterTransaction.with(HomeController(letter))
-                    .popChangeHandler(VerticalChangeHandler())
-                    .pushChangeHandler(VerticalChangeHandler()))
-            closeMenu()
+        router.setRoot(RouterTransaction.with(HomeController(letter))
+                .popChangeHandler(VerticalChangeHandler())
+                .pushChangeHandler(VerticalChangeHandler()))
+        closeMenu()
     }
 
     override fun setAvailableTopics(topics: List<GameSettings>) {
@@ -118,7 +115,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         leftMenu.initAlphabet { letter ->
             presenter.onLetterSelected(letter)
         }
-       leftMenu.setAlphabet(alphabet)
+        leftMenu.setAlphabet(alphabet)
     }
 
     override fun closeMenu() {
@@ -132,8 +129,8 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
                 .presenter
     }
 
-    private fun openChoseFile(){
-        val choseIntent  = Intent(Intent.ACTION_GET_CONTENT)
+    private fun openChoseFile() {
+        val choseIntent = Intent(Intent.ACTION_GET_CONTENT)
         choseIntent.addCategory(Intent.CATEGORY_OPENABLE)
         choseIntent.setType("file/*")
         val intent = Intent.createChooser(choseIntent, "Select file")
@@ -141,8 +138,8 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        if(resultCode == Activity.RESULT_OK && requestCode == SELECT_FILE_RESULT){
-            val uri : Uri? = data?.data
+        if (resultCode == Activity.RESULT_OK && requestCode == SELECT_FILE_RESULT) {
+            val uri: Uri? = data?.data
             Log.d("MyLogs", "$uri")
             val words = CsvParser.parserToWords(getRealPathFromURI(uri))
             Log.d("MyLogs", "$words")
@@ -161,6 +158,6 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     companion object {
-        private const val SELECT_FILE_RESULT : Int = 1
+        private const val SELECT_FILE_RESULT: Int = 1
     }
 }
