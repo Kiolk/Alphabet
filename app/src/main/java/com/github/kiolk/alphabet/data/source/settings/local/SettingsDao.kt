@@ -14,7 +14,7 @@ interface SettingsDao {
     @Query("SELECT * FROM Settings")
     fun getAllSettings() : Flowable<List<GameSettings>>
 
-    @Query("SELECT * FROM Settings WHERE schema_letterValue LIKE :letter")
+    @Query("SELECT * FROM Settings WHERE schema_letterValue LIKE :letter ORDER BY level ASC")
     fun getSettingsByLetter(letter: String): Flowable<List<GameSettings>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

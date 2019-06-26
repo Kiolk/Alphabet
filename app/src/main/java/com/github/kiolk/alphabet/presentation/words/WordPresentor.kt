@@ -46,6 +46,7 @@ constructor(private val context: Context,
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         addDisposable(settingsRepository.getAllSettings()
+                .take(1)
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
                 .subscribe({ settings ->
                     currentSet = words.toMutableList()

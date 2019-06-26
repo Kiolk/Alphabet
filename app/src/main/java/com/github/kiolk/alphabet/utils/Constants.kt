@@ -43,12 +43,12 @@ object Data{
     )
 
     val gameSettingsPatterns: List<GameSettingBuilder> = listOf<GameSettingBuilder>(
-            GameSettingBuilder().setTitle("Тры").setLettersInWord(3).setPosition(GameSettingBuilder.Position.ANY),
-            GameSettingBuilder().setTitle("Чатыры").setLettersInWord(4).setPosition(GameSettingBuilder.Position.ANY),
-            GameSettingBuilder().setTitle("Пяць").setLettersInWord(5).setPosition(GameSettingBuilder.Position.ANY),
-            GameSettingBuilder().setTitle("Шэсць").setLettersInWord(6).setPosition(GameSettingBuilder.Position.ANY),
-            GameSettingBuilder().setTitle("Літара").setPosition(GameSettingBuilder.Position.ANY),
-            GameSettingBuilder().setTitle("Пачатак").setPosition(GameSettingBuilder.Position.START)
+            GameSettingBuilder().setTitle("Тры").setLettersInWord(3).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(1),
+            GameSettingBuilder().setTitle("Чатыры").setLettersInWord(4).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(2),
+            GameSettingBuilder().setTitle("Пяць").setLettersInWord(5).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(3),
+            GameSettingBuilder().setTitle("Шэсць").setLettersInWord(6).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(4),
+            GameSettingBuilder().setTitle("Літара").setPosition(GameSettingBuilder.Position.ANY).setGameLevel(5),
+            GameSettingBuilder().setTitle("Пачатак").setPosition(GameSettingBuilder.Position.START).setGameLevel(6)
     )
 
     val testSetOfWord = listOf<Word>(

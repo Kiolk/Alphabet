@@ -9,6 +9,7 @@ class GameSettingBuilder {
     private var lettersInWord: Int = 0
     private var position: Position = Position.START
     private var title: String = ""
+    private var level: Int = 0;
 
     fun setTitle(title: String): GameSettingBuilder{
         this.title = title
@@ -35,10 +36,15 @@ class GameSettingBuilder {
         return this
     }
 
+    fun setGameLevel(level: Int): GameSettingBuilder{
+        this.level = level
+        return this
+    }
+
     fun build(): GameSettings{
         return GameSettings("$title $letter", "", formWordLenght(), formNumberOfLeters(),
                 formPostion(), 4, false, false,
-                GameSchema(numberOfLetters, letter, position.value, lettersInWord))
+                GameSchema(numberOfLetters, letter, position.value, lettersInWord), level)
     }
 
     private fun formWordLenght(): String{
