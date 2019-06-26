@@ -30,6 +30,7 @@ import com.github.kiolk.alphabet.presentation.common.CharactersLayout
 import com.github.kiolk.alphabet.presentation.game.game.GameController
 import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.presentation.home.HomeController
+import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.CsvParser
@@ -73,7 +74,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
         router = Conductor.attachRouter(this, findViewById(R.id.general_controller_container), savedInstanceState)
         if (!router.hasRootController()) {
-            router.setRoot(RouterTransaction.with(HomeController(Letter("A", "F", "d"))))
+            router.setRoot(RouterTransaction.with(MainController()))
         }
     }
 
@@ -89,8 +90,18 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
             return
         }
         if (!router.handleBack()) {
-            super.onBackPressed()
+            presenter.onBackPressed()
         }
+    }
+
+    override fun endGame() {
+        super.onBackPressed()
+    }
+
+    override fun showMain() {
+        router.setRoot(RouterTransaction.with(MainController())
+                .pushChangeHandler(VerticalChangeHandler())
+                .popChangeHandler(VerticalChangeHandler()))
     }
 
     override fun setTopic(gameSettings: GameSettings) {

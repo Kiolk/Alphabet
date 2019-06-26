@@ -42,6 +42,7 @@ constructor(private val context: Context,
 
     private lateinit var workSet: MutableList<String>
     private lateinit var currentSet: MutableList<String>
+    private var isMainScreenOpened: Boolean = true
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -57,6 +58,7 @@ constructor(private val context: Context,
     }
 
     fun onLetterSelected(letter: Letter) {
+        isMainScreenOpened = false
         viewState.setSelectedLetter(letter)
         addDisposable(settingsRepository.getSettingsByLatter(letter)
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
@@ -71,5 +73,14 @@ constructor(private val context: Context,
        addDisposable(updateWordsFromFile.execute(UpdateWordsFromFile.Params(pathForFile)).
                 compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe({Log.d("MyLogs", "Succes")}, {Log.d("MyLogs", "Error$it")}))
+    }
+
+    fun onBackPressed() {
+        if(isMainScreenOpened){
+            viewState.endGame()
+        }else{
+            viewState.showMain()
+            isMainScreenOpened = true
+        }
     }
 }

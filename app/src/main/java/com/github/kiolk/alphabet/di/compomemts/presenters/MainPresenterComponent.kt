@@ -1,12 +1,12 @@
 package com.github.kiolk.alphabet.di.compomemts.presenters
 
 import com.github.kiolk.alphabet.di.scopes.Presenter
-import com.github.kiolk.alphabet.presentation.splash.SplashPresenter
+import com.github.kiolk.alphabet.presentation.main.MainPresenter
 import dagger.Subcomponent
 
 @Presenter
 @Subcomponent
-interface SplashPresenterComponent {
+interface MainPresenterComponent {
 
-    var presenter: SplashPresenter
+    var presenter: MainPresenter
 }

@@ -31,4 +31,5 @@ interface ApplicationComponent {
 
     fun plusSplashPresenter() : SplashPresenterComponent
 
+    fun plusMainPresenter(): MainPresenterComponent
 }
