@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.presentation.splash
 
+import android.content.SharedPreferences
 import android.net.Uri
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
@@ -20,7 +21,8 @@ class SplashPresenter
 constructor(private val initGameUseCase: InitGameUseCase,
             private val rxSchedulerProvider: RxSchedulerProvider,
             private val wordsRepository: WordsRepository,
-            private val settingsRepository: SettingsRepository) : BasePresenter<SplashView>() {
+            private val settingsRepository: SettingsRepository,
+            private val sharedPreferences: SharedPreferences) : BasePresenter<SplashView>() {
 
     private var counter = 0
     private lateinit var allSettings: MutableList<GameSettings>
@@ -29,9 +31,15 @@ constructor(private val initGameUseCase: InitGameUseCase,
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
 
-        addDisposable(initGameUseCase.execute(InitGameUseCase.Params())
-                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe(this::initSettings))
+        val isInited = sharedPreferences.getBoolean(KEY_INITED, false)
+
+        if (isInited) {
+           openMainScreen()
+        } else {
+            addDisposable(initGameUseCase.execute(InitGameUseCase.Params())
+                    .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                    .subscribe(this::initSettings))
+        }
     }
 
     fun initSettings() {
@@ -58,9 +66,9 @@ constructor(private val initGameUseCase: InitGameUseCase,
         if (words.size > 3) {
             val needAddSettings = allSettings[counter]
 
-            if(availableSettings.size != 0 && needAddSettings.gameSchema.letterValue != availableSettings[availableSettings.size -1].gameSchema.letterValue){
+            if (availableSettings.size != 0 && needAddSettings.gameSchema.letterValue != availableSettings[availableSettings.size - 1].gameSchema.letterValue) {
                 needAddSettings.isAvailable = true
-            }else if(availableSettings.size == 0){
+            } else if (availableSettings.size == 0) {
                 needAddSettings.isAvailable = true
             }
 
@@ -79,6 +87,15 @@ constructor(private val initGameUseCase: InitGameUseCase,
     fun setSettings() {
         addDisposable(settingsRepository.setSettings(availableSettings)
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe({viewState.openMainScreen()}))
+                .subscribe(this::openMainScreen))
+    }
+
+    private fun openMainScreen() {
+        sharedPreferences.edit().putBoolean(KEY_INITED, true).apply()
+        viewState.openMainScreen()
+    }
+
+    companion object {
+        private val KEY_INITED = "KEY_INITED"
     }
 }

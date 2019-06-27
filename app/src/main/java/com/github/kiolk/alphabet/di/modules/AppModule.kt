@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.di.modules
 
 import android.content.Context
+import android.content.SharedPreferences
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase
@@ -30,6 +31,10 @@ class AppModule(context : Context) {
     @Singleton
     @Provides
     fun provideSoundPull(context : Context) : SoundManager  = SoundManager(context)
+
+    @Singleton
+    @Provides
+    fun provideSharedPreferences(context: Context): SharedPreferences = context.getSharedPreferences("GameSettings", Context.MODE_PRIVATE)
 
     @Named(WORDS_TAG)
     @Singleton
