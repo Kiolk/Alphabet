@@ -6,7 +6,7 @@ import com.github.kiolk.alphabet.di.compomemts.DaggerApplicationComponent
 import com.github.kiolk.alphabet.di.modules.AppModule
 import com.github.kiolk.alphabet.di.modules.DbModule
 
-class App : Application() {
+open class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
