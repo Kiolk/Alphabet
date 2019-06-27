@@ -23,9 +23,12 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
     }
 
     override fun getItemViewType(position: Int): Int {
-        return when (topics.get(position).isAvailable) {
-            true -> AVAILABLE
-            false -> UNAVAILABLE
+        if(!topics.get(position).isAvailable){
+            return UNAVAILABLE
+        }else if(topics.get(position).isCompleted){
+            return COMPLETED
+        }else {
+            return AVAILABLE
         }
     }
 
@@ -52,11 +55,17 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
                 ivBlur.visibility = View.GONE
                 cvCard.isEnabled = true
                 cvCard.isClickable = true
-            } else {
+            } else if(itemViewType == UNAVAILABLE) {
                 ivBlur.visibility = View.VISIBLE
                 ivBlur.background = getContext().resources.getDrawable(R.drawable.bg_gray_lock)
                 cvCard.isClickable = false
                 cvCard.isEnabled = false
+            }else{
+                itemView.setOnClickListener { listener.onItemClick(data) }
+                ivBlur.visibility = View.VISIBLE
+                ivBlur.background = getContext().resources.getDrawable(R.drawable.bg_completed)
+                cvCard.isEnabled = true
+                cvCard.isClickable = true
             }
         }
     }
@@ -68,6 +77,7 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
     companion object {
         const val AVAILABLE: Int = 0
         const val UNAVAILABLE: Int = 1
+        const val COMPLETED: Int = 2
     }
 }
 
