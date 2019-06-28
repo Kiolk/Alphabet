@@ -6,6 +6,12 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -16,7 +22,66 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
+    signingConfigs{
+        dev{
+            storeFile file("../keys/dev.jks")
+            storePassword "alphabet-dev-key"
+            keyAlias "alphabet-dev-key"
+            keyPassword "alphabet-dev-key"
+        }
+
+        qa{
+            storeFile file("../keys/qa.jks")
+            storePassword "alphabet-qa-key"
+            keyAlias "alphabet-qa-key"
+            keyPassword "alphabet-qa-key"
+        }
+
+        prod{
+            storeFile file("../keys/prod.jks")
+            storePassword "asdfREWQ1234"
+            keyAlias "alphabet-prod-key"
+            keyPassword "jkdlf39JHUi09"
+        }
+    }
+
+    flavorDimensions "version"
+
+    productFlavors{
+        dev{
+            dimension "version"
+            applicationIdSuffix ".dev"
+            versionNameSuffix "-dev"
+
+            signingConfig signingConfigs.dev
+        }
+
+        qa{
+            dimension "version"
+            applicationIdSuffix ".qa"
+            versionNameSuffix "-qa"
+
+            signingConfig signingConfigs.qa
+
+            ext.betaDistributionReleaseNotes = "\"${formReleaseNote}\""
+            ext.betaDistributionEmails = "tyteishi@gmail.com"
+            ext.betaDistributionGroupAliases = "my-best-testers"
+        }
+
+        prod{
+            dimension "version"
+
+            signingConfig signingConfigs.prod
+        }
+    }
+
     buildTypes {
+        debug {
+            minifyEnabled false
+            debuggable true
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
@@ -31,6 +96,17 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+}
+
+task uploadeToCrashlytics{
+    def commit = getCurrentCommit()
+
+//    if(commit.matches("(.*)[B,b]ump(.*)")){
+        dependsOn("assembleQaRelease")
+        dependsOn('crashlyticsUploadDistributionQaRelease')
+//    }else{
+//        println commit
+//    }
 }
 
 dependencies {
@@ -89,7 +165,10 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    kapt 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
+        transitive = true;
+    }
 }
 
 //configurations.all {
