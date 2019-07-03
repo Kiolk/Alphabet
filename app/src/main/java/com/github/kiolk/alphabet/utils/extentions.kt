@@ -25,6 +25,8 @@ fun <T> MutableList<T>.randomize() : MutableList<T>{
 
 fun Controller.getString(@StringRes resId: Int) = activity?.baseContext?.getString(resId) ?: ""
 
+fun Controller.getString(@StringRes resId: Int, vararg vararg: Any) = activity?.baseContext?.resources?.getString(resId, vararg) ?: ""
+
 fun Context.getWindowSize(): Point {
     val manager = (getSystemService(Context.WINDOW_SERVICE) as WindowManager).defaultDisplay
     val size = Point()

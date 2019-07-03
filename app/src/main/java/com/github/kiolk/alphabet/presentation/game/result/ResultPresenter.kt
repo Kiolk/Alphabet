@@ -32,9 +32,9 @@ constructor(private val result: GameResult,
             viewState.setNextButtonTitle(R.string.text_game_result_next)
             result.gameSettings.isCompleted = isCompleted
 
-            addDisposable(updateGameUseCase.execute(UpdateGameUseCase.Params(result.gameSettings))
-                    .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
-                    .subscribe(this::onNextAvailableGame, this::onErrorAvailableGame))
+//            addDisposable(updateGameUseCase.execute(UpdateGameUseCase.Params(result.gameSettings))
+//                    .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
+//                    .subscribe(this::onNextAvailableGame, this::onErrorAvailableGame))
         } else {
             viewState.showCongratulations(R.string.title_game_result_sad)
             viewState.setNextButtonTitle(R.string.text_game_result_repeat)

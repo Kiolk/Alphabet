@@ -7,14 +7,13 @@
     <string name="text_game_result_next">Наступная</string>
     <string name="text_game_result_repeat">Паўтарыць</string>
 
+    <!-- controller_end_game -->
+    <string name="end_game_not_complete">Параза%1$s/%2$s</string>
+    <string name="end_game_complete">Выканана%1$s/%2$s</string>
+    <string name="end_game_good">Малайчына%1$s/%2$s</string>
+    <string name="end_game_excellent">Выдатна%1$s/%2$s</string>
+
     <string-array name="words">
-        <!--<item>На дрэ-вах спя-ва-лі птуш-кі</item>-->
-        <!--<item>Ра-зам з лож-кам</item>-->
-        <!--<item>Мне вель-мі ці-ка-ва</item>-->
-        <!--<item>Та-ды, мо-жа, ку-рэй</item>-->
-        <!--<item>Ты што, ба-іш-ся цем-ры?</item>-->
-        <!--<item>Ха-чу спаць з та-бой</item>-->
-        <!--<item>Ну та-ды да-мо-ві-лі-ся</item>-->
         <item>дом</item>
         <item>кот</item>
         <item>ру-ка</item>

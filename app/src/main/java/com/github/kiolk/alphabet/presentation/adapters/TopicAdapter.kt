@@ -60,7 +60,7 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
                 ivBlur.background = getContext().resources.getDrawable(R.drawable.bg_gray_lock)
                 cvCard.isClickable = false
                 cvCard.isEnabled = false
-            }else{
+            }else if(itemViewType == COMPLETED){
                 itemView.setOnClickListener { listener.onItemClick(data) }
                 ivBlur.visibility = View.VISIBLE
                 ivBlur.background = getContext().resources.getDrawable(R.drawable.bg_completed)

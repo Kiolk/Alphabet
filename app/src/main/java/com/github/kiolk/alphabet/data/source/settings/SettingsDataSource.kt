@@ -16,5 +16,5 @@ interface SettingsDataSource {
 
     fun updateSAetting(gameSetting: GameSettings): Completable
 
-    fun getNextAvailableSettings(gameSetting: GameSettings): Single<GameSettings>
+    fun getNextAvailableSettings(gameSetting: GameSettings): Single<Pair<GameSettings?, GameSettings?>>
 }

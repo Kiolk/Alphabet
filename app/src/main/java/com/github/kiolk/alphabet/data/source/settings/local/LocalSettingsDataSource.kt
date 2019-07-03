@@ -43,17 +43,19 @@ constructor(private val settingDao: SettingsDao) : SettingsDataSource {
             }}
     }
 
-    override fun getNextAvailableSettings(gameSetting: GameSettings): Single<GameSettings> {
+    override fun getNextAvailableSettings(gameSetting: GameSettings): Single<Pair<GameSettings?, GameSettings?>> {
         return Single.create {
             try {
                 val next = settingDao.getNextAvailableSettings(gameSetting.gameSchema.letterValue)
-                val nestGame = next.firstOrNull( {setting -> !setting.isAvailable && !setting.isCompleted})
-
-                if(nestGame != null){
-                    it.onSuccess(nestGame)
-                }else{
-                    it.onError(NoGameSettings())
-                }
+                val previewsGame = next.firstOrNull { setting -> setting.level < gameSetting.level}
+                val nextGame = next.firstOrNull{ setting -> setting.level > gameSetting.level && gameSetting.isCompleted}
+//                val nestGame = next.firstOrNull { setting -> !setting.isAvailable && !setting.isCompleted}
+                it.onSuccess(Pair(previewsGame, nextGame))
+//                if(nestGame != null){
+//
+//                }else{
+//                    it.onError(NoGameSettings())
+//                }
             }catch (e: Throwable){
                 it.onError(e)
             }

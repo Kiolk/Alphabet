@@ -7,9 +7,9 @@ import javax.inject.Inject
 
 class UpdateGameUseCase
 @Inject
-constructor(private val settingsRepository: SettingsRepository): UseCase<Single<GameSettings>, UpdateGameUseCase.Params>{
+constructor(private val settingsRepository: SettingsRepository): UseCase<Single<Pair<GameSettings?, GameSettings?>> , UpdateGameUseCase.Params>{
 
-    override fun execute(params: Params): Single<GameSettings> {
+    override fun execute(params: Params): Single<Pair<GameSettings?, GameSettings?>>  {
         return settingsRepository.updateSetting(params.settings)
                 .andThen(settingsRepository.getNextAvailableSettings(params.settings))
     }

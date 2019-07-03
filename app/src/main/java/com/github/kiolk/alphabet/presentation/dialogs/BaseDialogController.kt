@@ -16,11 +16,11 @@ abstract class BaseDialogController(args: Bundle) : DialogController(args) {
 
     private var unbinder: Unbinder? = null
 
-    override fun inflateDialogView(inflater: LayoutInflater, savedViewState: Bundle?) = inflater.inflate(getLayout(), null, false)
+    override fun inflateDialogView(inflater: LayoutInflater, savedViewState: Bundle?): View? = inflater.inflate(getLayout(), null, false)
 
     override fun onCreateDialog(): Dialog {
         val dialog = super.onCreateDialog()
-        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
+        dialog?.requestWindowFeature(Window.FEATURE_NO_TITLE)
         return dialog
     }
 
@@ -47,7 +47,7 @@ abstract class BaseDialogController(args: Bundle) : DialogController(args) {
         window?.let {
             val params = WindowManager.LayoutParams()
             params.copyFrom(it.attributes)
-//            params.windowAnimations = R.style.
+            params.windowAnimations = R.style.AppTheme_Dialog
             params.dimAmount = 0.2f
             params.flags = params.flags or WindowManager.LayoutParams.FLAG_DIM_BEHIND
             it.attributes = params

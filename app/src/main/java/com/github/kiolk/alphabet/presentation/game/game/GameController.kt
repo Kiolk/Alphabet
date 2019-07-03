@@ -1,7 +1,6 @@
 package com.github.kiolk.alphabet.presentation.game.game
 
 import android.os.Bundle
-import android.os.Parcelable
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -17,20 +16,22 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
+import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameResult
+import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.game.GameStats
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.common.CharactersLayout
+import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
 import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.presentation.game.result.ResultController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.BlurBuilder
 import com.github.kiolk.alphabet.utils.BundleBuilder
-import java.lang.Exception
 
 class GameController : BaseController, GameView {
 
@@ -101,12 +102,12 @@ class GameController : BaseController, GameView {
         tvWord.text = word
     }
 
-    override fun showResult(resullt: GameResult) {
-        router.pushController(RouterTransaction.with(ResultController(resullt))
-                .pushChangeHandler(HorizontalChangeHandler())
-                .popChangeHandler(HorizontalChangeHandler()).tag(ResultController.TAG))
-        router.getControllerWithTag(TAG)?.let { router.popController(it) }
-    }
+//    override fun showResult(resullt: GameResult) {
+//        router.pushController(RouterTransaction.with(ResultController(resullt))
+//                .pushChangeHandler(HorizontalChangeHandler())
+//                .popChangeHandler(HorizontalChangeHandler()).tag(ResultController.TAG))
+//        router.getControllerWithTag(TAG)?.let { router.popController(it) }
+//    }
 
     override fun showBlurHolder() {
         vBlure.visibility = View.VISIBLE
@@ -138,6 +139,37 @@ class GameController : BaseController, GameView {
     override fun hideWord() {
         ivWordBlur.setImageBitmap(activity?.baseContext?.let { BlurBuilder.blur(it, tvWord) })
         ivWordBlur.visibility = View.VISIBLE
+    }
+
+    override fun showResult(current: GameStats) {
+        val endGameController = EndGameDialog.getInstance(current, object : EndGameDialog.OnEndDialogClickListener{
+            override fun onRepeat() {
+               presenter.onRepeatClick()
+            }
+
+            override fun onNext() {
+                presenter.onNextClick()
+            }
+
+            override fun onPreview() {
+                presenter.onPreviewClick()
+            }
+        })
+        router.pushController(RouterTransaction.with(endGameController)
+                .popChangeHandler(VerticalChangeHandler())
+                .pushChangeHandler(VerticalChangeHandler(false)))
+    }
+
+    override fun startGame(gameSettings: GameSettings) {
+        router.getControllerWithTag(GamePreviewController.TAG)?.let { router.popController(it) }
+        router.pushController(RouterTransaction.with(GamePreviewController(gameSettings))
+                .pushChangeHandler(HorizontalChangeHandler())
+                .popChangeHandler(HorizontalChangeHandler()))
+        router.getControllerWithTag(GameController.TAG)?.let { router.popController(it) }
+    }
+
+    override fun showLevelComplete() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     @OnClick(R.id.tv_game_read_word)

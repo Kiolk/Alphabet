@@ -105,6 +105,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     override fun setTopic(gameSettings: GameSettings) {
+        router.getControllerWithTag(GamePreviewController.TAG)?.let { router.popController(it) }
         router.pushController(RouterTransaction.with(GamePreviewController(gameSettings))
                 .popChangeHandler(VerticalChangeHandler())
                 .pushChangeHandler(VerticalChangeHandler()).tag(GamePreviewController.TAG))

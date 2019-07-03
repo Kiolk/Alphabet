@@ -28,7 +28,6 @@
             android:id="@+id/iv_topic_blur_layout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="@+id/gi_topic_item"
             app:layout_constraintLeft_toLeftOf="@+id/gi_topic_item"
             app:layout_constraintRight_toRightOf="@+id/gi_topic_item"

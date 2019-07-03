@@ -3,7 +3,8 @@ package com.github.kiolk.alphabet.presentation.game.game
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.github.kiolk.alphabet.data.models.game.GameResult
+import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.game.GameStats
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BaseView
 
@@ -20,7 +21,9 @@ interface GameView : BaseView {
 
     fun disableNext()
 
-    fun showResult(resullt: GameResult)
+    fun showResult(current: GameStats)
+
+    fun showLevelComplete()
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showBlurHolder()
@@ -35,4 +38,6 @@ interface GameView : BaseView {
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun hideWord()
+
+    fun startGame(gameSettings: GameSettings)
 }

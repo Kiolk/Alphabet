@@ -12,12 +12,13 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
-import com.bumptech.glide.Glide
+import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
+import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
 import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.utils.BundleBuilder
 import com.github.kiolk.alphabet.utils.getString
@@ -48,11 +49,13 @@ class ResultController : BaseController, ResultView {
         tvIndicator.text = stats
     }
 
-
     override fun showCongratulations(resId: Int) {
         tvTitle.text = getString(resId)
+//        val endGameController = EndGameDialog.getInstance(current)
+//        router.pushController(RouterTransaction.with(endGameController)
+//                .popChangeHandler(VerticalChangeHandler())
+//                .pushChangeHandler(VerticalChangeHandler(false)))
     }
-
 
     override fun showPicture(resource: String) {
     }

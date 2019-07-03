@@ -28,7 +28,7 @@ constructor(@LocalDataSource private val local : SettingsDataSource) : SettingsR
         return local.updateSAetting(gameSetting)
     }
 
-    override fun getNextAvailableSettings(gameSetting: GameSettings): Single<GameSettings> {
+    override fun getNextAvailableSettings(gameSetting: GameSettings): Single<Pair<GameSettings?, GameSettings?>> {
         return local.getNextAvailableSettings(gameSetting)
     }
 }
