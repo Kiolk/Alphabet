@@ -16,6 +16,15 @@ class AlphabetAdapter(private val context: Context, private var letters : List<L
         }
     }
 
+    override fun getItemViewType(position: Int): Int {
+        return when (letters[position].completedLevel){
+            -1.0f -> NO_GAMES
+            0f -> NO_COMPLETED
+            1f -> ALL_COMPLETED
+            else -> PARTIAL_COMPLETED
+        }
+    }
+
     override fun getItemCount(): Int = letters.size
 
     override fun onBindViewHolder(viewHolder: AlphabetViewHolder, position: Int) {
@@ -25,5 +34,12 @@ class AlphabetAdapter(private val context: Context, private var letters : List<L
     fun setItems(list : List<Letter>){
         letters = list
         notifyDataSetChanged()
+    }
+
+    companion object {
+        const val NO_GAMES = 0
+        const val NO_COMPLETED = 1
+        const val PARTIAL_COMPLETED = 2
+        const val ALL_COMPLETED = 3
     }
 }

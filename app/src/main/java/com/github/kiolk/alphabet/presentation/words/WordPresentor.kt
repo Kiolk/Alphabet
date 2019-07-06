@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.UpdateWordsFromFile
+import com.github.kiolk.alphabet.data.domain.words.GetAlphabetUseCase
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
 import com.github.kiolk.alphabet.data.models.word.Word
@@ -19,6 +20,7 @@ import com.github.kiolk.alphabet.di.modules.AppModule.Companion.WORDS_TAG
 import com.github.kiolk.alphabet.presentation.WordsSet
 import com.github.kiolk.alphabet.presentation.adapters.Topic
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
+import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.Data.alphabet
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
 import javax.inject.Inject
@@ -38,7 +40,8 @@ constructor(private val context: Context,
             private val rxSchedulerProvider: RxSchedulerProvider,
             private val repository: WordsRepository,
             private val settingsRepository: SettingsRepository,
-            private val updateWordsFromFile: UpdateWordsFromFile) : BasePresenter<WordsView>() {
+            private val updateWordsFromFile: UpdateWordsFromFile,
+            private val getAlphabetUseCase: GetAlphabetUseCase) : BasePresenter<WordsView>() {
 
     private lateinit var workSet: MutableList<String>
     private lateinit var currentSet: MutableList<String>
@@ -46,6 +49,9 @@ constructor(private val context: Context,
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
+
+        viewState.initAlphabet()
+
         addDisposable(settingsRepository.getAllSettings()
                 .take(1)
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
@@ -53,8 +59,11 @@ constructor(private val context: Context,
                     currentSet = words.toMutableList()
                     workSet = currentSet
                     viewState.setAvailableTopics(settings)
-                    viewState.setAlphabet(alphabet)
                 }, {}))
+
+        addDisposable(getAlphabetUseCase.execute(GetAlphabetUseCase.Params())
+                .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
+                .subscribe(this::setAlphabet))
     }
 
     fun onLetterSelected(letter: Letter) {
@@ -67,6 +76,10 @@ constructor(private val context: Context,
 
     fun getSelectedSettings(settings: List<GameSettings>){
         viewState.setAvailableTopics(settings)
+    }
+
+    private fun setAlphabet(alphabet: List<Letter>){
+        viewState.setAlphabet(Data.alphabet)
     }
 
     fun updateWords(pathForFile: String) {

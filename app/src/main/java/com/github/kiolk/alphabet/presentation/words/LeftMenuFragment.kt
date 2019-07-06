@@ -35,7 +35,7 @@ class LeftMenuFragment : Fragment() {
                 listener.invoke(letter)
             }
         }
-        val layout = GridLayoutManager(context, 5, GridLayoutManager.VERTICAL, false)
+        val layout = GridLayoutManager(context, 4, GridLayoutManager.VERTICAL, false)
         rwAlphabet.layoutManager = layout
         rwAlphabet.addItemDecoration(AlphabetDecoration())
         rwAlphabet.adapter = alphabetAdapter

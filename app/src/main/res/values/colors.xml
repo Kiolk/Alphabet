@@ -18,4 +18,6 @@
     <color name="general_dark_gray_lock">#6F5A5A5A</color>
 
     <color name="general_white">#ffffff</color>
+    <color name="general_green">#13BE30</color>
+    <color name="general_red">#FF0E0E</color>
 </resources>

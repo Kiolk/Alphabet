@@ -37,7 +37,7 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
     }
 
     class TopicViewHolder(itemView: View, val listener: OnItemClickListener) :BaseViewHolder<GameSettings>(itemView) {
-
+//
         @BindView(R.id.iv_topic_blur_layout)
         lateinit var ivBlur: View
 

@@ -13,6 +13,8 @@ interface WordsView : MvpView {
 
     fun closeMenu()
 
+    fun initAlphabet()
+
     fun setAlphabet(alphabet : List<Letter>)
 
     fun setSelectedLetter(letter : Letter)

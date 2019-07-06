@@ -123,10 +123,13 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         rightMenu.setTopics(topics)
     }
 
-    override fun setAlphabet(alphabet: List<Letter>) {
+    override fun initAlphabet() {
         leftMenu.initAlphabet { letter ->
             presenter.onLetterSelected(letter)
         }
+    }
+
+    override fun setAlphabet(alphabet: List<Letter>) {
         leftMenu.setAlphabet(alphabet)
     }
 
