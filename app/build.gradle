@@ -54,6 +54,8 @@ android {
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
 
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net/words\""
+
             signingConfig signingConfigs.dev
         }
 
@@ -61,6 +63,8 @@ android {
             dimension "version"
             applicationIdSuffix ".qa"
             versionNameSuffix "-qa"
+
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net/words\""
 
             signingConfig signingConfigs.qa
 
@@ -71,6 +75,8 @@ android {
 
         prod{
             dimension "version"
+
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net/words\""
 
             signingConfig signingConfigs.prod
         }
@@ -118,11 +124,6 @@ dependencies {
     implementation 'com.google.dagger:dagger:2.22.1'
     kapt 'com.google.dagger:dagger-compiler:2.22.1'
 
-    //moxy
-    implementation "com.arello-mobile:moxy:1.5.6"
-    implementation "com.arello-mobile:moxy-app-compat:1.5.6"
-    kapt "com.arello-mobile:moxy-compiler:1.5.6"
-
     //buterknife
     implementation "com.jakewharton:butterknife:8.8.1"
     kapt "com.jakewharton:butterknife-compiler:8.8.1"
@@ -138,7 +139,7 @@ dependencies {
     implementation libraries.retrofit
     implementation libraries.retrofitGsonConverter
     implementation libraries.retrofitRxJavaAdapter
-//
+
     implementation libraries.room
     implementation libraries.roomRxJav2
     kapt libraries.roomCompiler
@@ -157,6 +158,9 @@ dependencies {
     implementation libraries.conductor
     implementation libraries.conductorSupport
     implementation libraries.conductorDialog
+
+    //stecho
+    implementation libraries.stecho
 
     implementation "com.android.support:design:28.0.0"
     implementation "com.android.support:cardview-v7:28.0.0"
