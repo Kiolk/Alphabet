@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.data.source.words
 
 import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.word.RemoteWord
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
 import io.reactivex.Completable
@@ -15,4 +16,6 @@ interface WordsDataSource {
     fun selectWords(settings: GameSettings): Flowable<List<Word>>
     fun getWordsByTags(query : String) : Flowable<List<Word>>
     fun isSettingsAvailable(gameSettings: GameSettings): Flowable<List<Word>>
+
+    fun getAllDbWords(): Flowable<List<Word>>
 }

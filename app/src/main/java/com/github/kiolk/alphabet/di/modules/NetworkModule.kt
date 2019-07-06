@@ -13,8 +13,10 @@ import dagger.Provides
 import okhttp3.Cache
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import retrofit2.CallAdapter
 import retrofit2.Converter
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.StringBuilder
 import java.util.concurrent.TimeUnit
@@ -40,6 +42,10 @@ class NetworkModule {
     @Singleton
     @Provides
     fun provideOkHttpCache(context: Context): Cache = Cache(context.cacheDir, 10 * 1024 * 1024L)
+
+    @Singleton
+    @Provides
+    fun provideCallAddapter(): CallAdapter.Factory = RxJava2CallAdapterFactory.create()
 
     @Singleton
     @Provides
@@ -69,12 +75,14 @@ class NetworkModule {
     @Provides
     fun provideRetrofit(@Named(API_URL) baseApi: String,
                         converterFactory: Converter.Factory,
-                        okhhtpClient: OkHttpClient): Retrofit{
+                        okhhtpClient: OkHttpClient,
+                        callAdapterFactory: CallAdapter.Factory): Retrofit{
         val builder = Retrofit.Builder()
 
         return builder
                 .baseUrl(baseApi)
                 .client(okhhtpClient)
+                .addCallAdapterFactory(callAdapterFactory)
                 .addConverterFactory(converterFactory)
                 .build()
     }

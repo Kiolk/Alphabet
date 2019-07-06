@@ -12,7 +12,9 @@ import com.github.kiolk.alphabet.data.source.words.RealWordsRepository
 import com.github.kiolk.alphabet.data.source.words.WordsDataSource
 import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource
+import com.github.kiolk.alphabet.data.source.words.remote.RemoteWordsDataSource
 import com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource
+import com.github.kiolk.alphabet.di.qualifaiers.RemoteDataSource
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
@@ -24,6 +26,11 @@ abstract class DataSourceModule {
     @Singleton
     @Binds
     abstract fun provideLocalWordsDataSource(dataSource: LocalWordsDataSource): WordsDataSource
+
+    @RemoteDataSource
+    @Singleton
+    @Binds
+    abstract fun provideRemoteWordsDataSource(dataSource: RemoteWordsDataSource): WordsDataSource
 
     @Singleton
     @Binds

@@ -54,7 +54,7 @@ android {
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
 
-            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net/words\""
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
 
             signingConfig signingConfigs.dev
         }
@@ -64,7 +64,7 @@ android {
             applicationIdSuffix ".qa"
             versionNameSuffix "-qa"
 
-            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net/words\""
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
 
             signingConfig signingConfigs.qa
 
@@ -76,7 +76,7 @@ android {
         prod{
             dimension "version"
 
-            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net/words\""
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
 
             signingConfig signingConfigs.prod
         }

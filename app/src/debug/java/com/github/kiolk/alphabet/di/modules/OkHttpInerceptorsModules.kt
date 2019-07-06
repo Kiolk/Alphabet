@@ -3,6 +3,7 @@ package com.github.kiolk.alphabet.di.modules
 import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.github.kiolk.alphabet.di.qualifaiers.OkHttpInterceptors
+import com.github.kiolk.alphabet.di.qualifaiers.OkHttpNetworkInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoSet
@@ -23,7 +24,7 @@ class OkHttpInerceptorsModules : BaseInterceptorModule() {
 
     @Singleton
     @IntoSet
-    @OkHttpInterceptors
+    @OkHttpNetworkInterceptor
     @Provides
     fun provideHtttpNetworkInterceptor() : Interceptor = StethoInterceptor()
 

@@ -19,4 +19,6 @@ interface WordsRepository {
     fun getWordsByTag(query : String) : Flowable<List<Word>>
 
     fun isSettingsAvailable(gameSettings: GameSettings): Flowable<List<Word>>
+
+    fun getAllDbWords(): Flowable<List<Word>>
 }

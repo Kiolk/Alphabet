@@ -2,6 +2,7 @@ package com.github.kiolk.alphabet.presentation.splash
 
 import android.content.SharedPreferences
 import android.net.Uri
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
 import com.github.kiolk.alphabet.data.models.game.GameSettings

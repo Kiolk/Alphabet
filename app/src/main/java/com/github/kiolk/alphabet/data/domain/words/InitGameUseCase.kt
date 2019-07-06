@@ -9,24 +9,11 @@ import javax.inject.Inject
 
 class InitGameUseCase
 @Inject
-constructor(private val wordsRepository: WordsRepository,
-            private val settingsRepository: SettingsRepository) : UseCase<Completable, InitGameUseCase.Params> {
+constructor(private val wordsRepository: WordsRepository) : UseCase<Completable, InitGameUseCase.Params> {
 
     override fun execute(params: Params): Completable {
         return wordsRepository.setWordList(testSetOfWord)
-//                .concatWith {
-//                            val allSettings: MutableList<GameSettings> = mutableListOf()
-//                            for (letter in alphabet) {
-//                                testSettings.forEach { allSettings.add(GameSettings(it.title, it.pictureUrl, it.queryRegex, "%${letter.letterValue}%", it.thirdQuery, 4, false, false)) }
-//                            }
-//
-//                           return settingsRepository.setSettings(allSettings.filter {
-//                               val words = wordsRepository.isSettingsAvailable(it)
-//                                words.size > 3
-//
-//                            })
-//                }
-
+//        return wordsRepository.getAllDbWords().take(1).flatMapCompletable { words -> wordsRepository.setWordList(words)}
     }
 
     class Params

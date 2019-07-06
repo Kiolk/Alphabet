@@ -7,6 +7,7 @@ import com.github.kiolk.alphabet.data.source.words.WordsDataSource
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import java.lang.Exception
+import java.lang.UnsupportedOperationException
 import javax.inject.Inject
 
 class LocalWordsDataSource
@@ -49,5 +50,9 @@ constructor(private val dao : DaoWords,
 
     override fun isSettingsAvailable(gameSettings: GameSettings): Flowable<List<Word>> {
        return  wordDao.getSelectedBySettingsWords(gameSettings.queryRegex, gameSettings.secondQuery, gameSettings.thirdQuery)
+    }
+
+    override fun getAllDbWords(): Flowable<List<Word>> {
+        throw UnsupportedOperationException()
     }
 }
