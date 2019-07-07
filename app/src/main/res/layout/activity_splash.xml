@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/colorAccent">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageView
         android:layout_width="0dp"
@@ -16,5 +15,4 @@
         app:layout_constraintDimensionRatio="H, 1:1"
         android:src="@drawable/ic_alphabet_logo"
         tools:ignore="ContentDescription" />
-
 </android.support.constraint.ConstraintLayout>

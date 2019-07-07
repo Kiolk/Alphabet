@@ -1,7 +1,7 @@
 package com.github.kiolk.alphabet.presentation.adapters
 
 import android.content.Context
-import android.support.v7.widget.CardView
+import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -37,35 +37,33 @@ class TopicAdapter(val topics: List<GameSettings>, val context: Context, val lis
     }
 
     class TopicViewHolder(itemView: View, val listener: OnItemClickListener) :BaseViewHolder<GameSettings>(itemView) {
-//
-        @BindView(R.id.iv_topic_blur_layout)
-        lateinit var ivBlur: View
 
         @BindView(R.id.gi_topic_item)
         lateinit var giTopic: GameIndicator
 
-        @BindView(R.id.cv_topic)
-        lateinit var cvCard: CardView
+        @BindView(R.id.cl_topic_item_container)
+        lateinit var clContainer: ConstraintLayout
 
         override fun onBindViewHolder(data: GameSettings) {
             giTopic.setGameSchema(data.gameSchema)
 
             if (itemViewType == AVAILABLE) {
                 itemView.setOnClickListener { listener.onItemClick(data) }
-                ivBlur.visibility = View.GONE
-                cvCard.isEnabled = true
-                cvCard.isClickable = true
+                clContainer.background = getContext().resources.getDrawable(R.drawable.bg_topic_round_blue)
+                giTopic.setCorrect(false)
+                clContainer.isEnabled = true
+                clContainer.isClickable = true
             } else if(itemViewType == UNAVAILABLE) {
-                ivBlur.visibility = View.VISIBLE
-                ivBlur.background = getContext().resources.getDrawable(R.drawable.bg_gray_lock)
-                cvCard.isClickable = false
-                cvCard.isEnabled = false
+                giTopic.setCorrect(false)
+                clContainer.background = getContext().resources.getDrawable(R.drawable.bg_topic_round_light_blue)
+                clContainer.isClickable = false
+                clContainer.isEnabled = false
             }else if(itemViewType == COMPLETED){
+                giTopic.setCorrect(true)
                 itemView.setOnClickListener { listener.onItemClick(data) }
-                ivBlur.visibility = View.VISIBLE
-                ivBlur.background = getContext().resources.getDrawable(R.drawable.bg_completed)
-                cvCard.isEnabled = true
-                cvCard.isClickable = true
+                clContainer.background = getContext().resources.getDrawable(R.drawable.bg_topic_round_blue)
+                clContainer.isEnabled = true
+                clContainer.isClickable = true
             }
         }
     }

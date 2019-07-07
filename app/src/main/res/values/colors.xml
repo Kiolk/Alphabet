@@ -20,4 +20,6 @@
     <color name="general_white">#ffffff</color>
     <color name="general_green">#13BE30</color>
     <color name="general_red">#FF0E0E</color>
+    <color name="general_blue">#3249F0</color>
+    <color name="general_light_blue">#A3AEFC</color>
 </resources>

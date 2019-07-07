@@ -12,8 +12,8 @@ class InitGameUseCase
 constructor(private val wordsRepository: WordsRepository) : UseCase<Completable, InitGameUseCase.Params> {
 
     override fun execute(params: Params): Completable {
-        return wordsRepository.setWordList(testSetOfWord)
-//        return wordsRepository.getAllDbWords().take(1).flatMapCompletable { words -> wordsRepository.setWordList(words)}
+//        return wordsRepository.setWordList(testSetOfWord)
+        return wordsRepository.getAllDbWords().take(1).flatMapCompletable { words -> wordsRepository.setWordList(words.union(testSetOfWord).toList())}
     }
 
     class Params

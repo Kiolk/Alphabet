@@ -1,41 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/cv_letter_item"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:clickable="true"
-    android:focusable="true"
-    android:stateListAnimator="@animator/button_elevation"
-    app:cardCornerRadius="5dp">
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:stateListAnimator="@animator/button_elevation"
+android:id="@+id/cl_letter_item_container"
+tools:background="@drawable/bg_letter_round_gray">
 
-    <android.support.constraint.ConstraintLayout
-        android:id="@+id/cl_letter_item_container"
+<LinearLayout
+    android:layout_width="0dp"
+    android:layout_height="0dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintDimensionRatio="H,1:1"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <TextView
+        android:id="@+id/tw_alphabet_letter"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:background="@color/colorAccent">
-
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintDimensionRatio="H,1:1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <TextView
-                android:id="@+id/tw_alphabet_letter"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:fontFamily="@font/bebas_bold"
-                android:minHeight="20sp"
-                android:textColor="@color/general_white"
-                android:textSize="55sp"
-                tools:text="A" />
-        </FrameLayout>
-    </android.support.constraint.ConstraintLayout>
-</android.support.v7.widget.CardView>
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:fontFamily="@font/bebas_bold"
+        android:minHeight="20sp"
+        android:textColor="@color/general_white"
+        android:textSize="55sp"
+        tools:text="A" />
+</LinearLayout>
+</android.support.constraint.ConstraintLayout>
