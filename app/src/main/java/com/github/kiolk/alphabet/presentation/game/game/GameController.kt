@@ -164,7 +164,7 @@ class GameController : BaseController, GameView {
         router.getControllerWithTag(GamePreviewController.TAG)?.let { router.popController(it) }
         router.pushController(RouterTransaction.with(GamePreviewController(gameSettings))
                 .pushChangeHandler(HorizontalChangeHandler())
-                .popChangeHandler(HorizontalChangeHandler()))
+                .popChangeHandler(HorizontalChangeHandler()).tag(GamePreviewController.TAG))
         router.getControllerWithTag(GameController.TAG)?.let { router.popController(it) }
     }
 
