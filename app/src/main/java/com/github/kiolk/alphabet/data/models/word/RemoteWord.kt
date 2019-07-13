@@ -13,5 +13,5 @@ data class RemoteWord(
         val tag: String)
 
 fun RemoteWord.toWord(): Word{
-        return Word(value, syllables, image, listOf(tag))
+        return Word(value, syllables, image, tag)
 }

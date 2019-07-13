@@ -14,12 +14,15 @@ data class Word(
         val value: String,
         @ColumnInfo(name = "word_by_syllables")
         val syllables: String,
-        @ColumnInfo(name = "word_image")
+        @ColumnInfo(name = WORD_IMAGE)
         val image: String,
         @ColumnInfo(name = TAGS)
-        val tags: List<String>) : Parcelable{
-        companion object {
-            const val WORD_MEAN : String = "word_mean"
-                const val TAGS : String = "tags"
-        }
+        val tags: String,
+        @ColumnInfo(name = "read")
+        var read: Int = 0) : Parcelable {
+    companion object {
+        const val WORD_MEAN: String = "word_mean"
+        const val TAGS: String = "tags"
+        const val WORD_IMAGE: String = "word_image"
+    }
 }

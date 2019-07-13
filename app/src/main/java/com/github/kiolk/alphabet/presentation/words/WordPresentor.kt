@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.UpdateWordsFromFile
+import com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase
 import com.github.kiolk.alphabet.data.domain.words.GetAlphabetUseCase
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
@@ -41,7 +42,8 @@ constructor(private val context: Context,
             private val repository: WordsRepository,
             private val settingsRepository: SettingsRepository,
             private val updateWordsFromFile: UpdateWordsFromFile,
-            private val getAlphabetUseCase: GetAlphabetUseCase) : BasePresenter<WordsView>() {
+            private val getAlphabetUseCase: GetAlphabetUseCase,
+private val getActualTopicUseCase: GetActualTopicUseCase) : BasePresenter<WordsView>() {
 
     private lateinit var workSet: MutableList<String>
     private lateinit var currentSet: MutableList<String>
@@ -64,6 +66,12 @@ constructor(private val context: Context,
         addDisposable(getAlphabetUseCase.execute(GetAlphabetUseCase.Params())
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
                 .subscribe(this::setAlphabet))
+
+        addDisposable(getActualTopicUseCase.execute(GetActualTopicUseCase.Params())
+                .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
+                .subscribe({topics -> topics.forEach {
+                   Log.d("MyLogs", "topic $it")
+                } }))
     }
 
     fun onLetterSelected(letter: Letter) {

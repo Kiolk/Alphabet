@@ -20,7 +20,7 @@ class CsvParser {
                 while(scanner.hasNextLine()){
                     line = scanner.nextLine()
                     val values = line.split(",")
-                    val word = Word(values[0], values[1], values[2], listOf(values[3]))
+                    val word = Word(values[0], values[1], values[2], values[3])
                     words.add(word)
                 }
             } catch (e: Exception) {

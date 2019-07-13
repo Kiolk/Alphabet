@@ -1,11 +1,15 @@
 package com.github.kiolk.alphabet.data.source.words.local
 
 import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
+import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
+import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
 import com.github.kiolk.alphabet.data.source.words.WordsDataSource
 import io.reactivex.Completable
 import io.reactivex.Flowable
+import io.reactivex.Single
 import java.lang.Exception
 import java.lang.UnsupportedOperationException
 import javax.inject.Inject
@@ -54,5 +58,32 @@ constructor(private val dao : DaoWords,
 
     override fun getAllDbWords(): Flowable<List<Word>> {
         throw UnsupportedOperationException()
+    }
+
+    override fun updateWord(word: Word): Completable {
+        return Completable.create {
+            try {
+                wordDao.updateWord(word)
+                it.onComplete()
+            }catch (e: Exception){
+                it.onError(e)
+            }
+        }
+    }
+
+    override fun getAvailableTopics(): Single<List<String>> {
+        return wordDao.getAvailableTopic()
+    }
+
+    override fun countTotalWordsTopic(): Flowable<List<TotalWordsTopic>> {
+        return wordDao.countTotalWordsTopic()
+    }
+
+    override fun countReadWordsTopic(): Flowable<List<TotalReadWordsTopic>> {
+        return wordDao.countReadTotalWordsTopic()
+    }
+
+    override fun getTopicsWithPhoto(): Flowable<List<TopicWithPhoto>> {
+        return wordDao.getTopicsWithImage()
     }
 }

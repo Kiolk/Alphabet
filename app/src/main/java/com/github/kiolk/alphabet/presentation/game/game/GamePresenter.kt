@@ -4,6 +4,7 @@ import android.os.Handler
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.UpdateGameUseCase
+import com.github.kiolk.alphabet.data.domain.words.UpdateCorrectWordUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
@@ -20,7 +21,8 @@ constructor(private val result: GameResult,
             private val soundManager: SoundManager,
             private val updateGameUseCase: UpdateGameUseCase,
             private val rxSchedulerProvider: RxSchedulerProvider,
-            private val settingsRepository: SettingsRepository) : BasePresenter<GameView>() {
+            private val settingsRepository: SettingsRepository,
+            private val updateCorrectWordUseCase: UpdateCorrectWordUseCase) : BasePresenter<GameView>() {
 
     private var counter: Int = 0
     private var isWordVisible : Boolean = true
@@ -40,14 +42,17 @@ constructor(private val result: GameResult,
             return
         }
 
-        if (word.equals(result.gameItems.get(counter).currentWord)) {
+        val current = result.gameItems.get(counter).currentWord
+
+        if (word == current) {
             soundManager.playCorrect()
             ++result.correctAnswers
+            updtaeCorrectWord(current)
         } else {
             soundManager.playWrong()
             ++result.wrongAnswers
         }
-        viewState.setAnswer(word, result.gameItems.get(counter).currentWord)
+        viewState.setAnswer(word, current)
         viewState.showTapButton()
         viewState.showWord()
         isWordAnswered = true
@@ -139,5 +144,11 @@ constructor(private val result: GameResult,
             viewState.showBlurHolder()
         }
         isWordVisible = !isWordVisible
+    }
+
+    private fun updtaeCorrectWord(word: Word){
+        addDisposable(updateCorrectWordUseCase.execute(UpdateCorrectWordUseCase.Params(word))
+                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                .subscribe())
     }
 }
