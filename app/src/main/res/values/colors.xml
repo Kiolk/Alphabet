@@ -10,6 +10,7 @@
     <color name="soglasnye">#0727FF</color>
     <color name="bg_right_menu">#CCC9C9</color>
     <color name="bg_left_menu">#CCC9C9</color>
+    <color name="transparent">#00000000</color>
 
     <color name="general_orange">#febe46</color>
     <color name="general_gray">#c6c2c1</color>
@@ -20,6 +21,6 @@
     <color name="general_white">#ffffff</color>
     <color name="general_green">#13BE30</color>
     <color name="general_red">#FF0E0E</color>
-    <color name="general_blue">#3249F0</color>
+    <color name="general_blue">#4885ED</color>
     <color name="general_light_blue">#A3AEFC</color>
 </resources>

@@ -3,6 +3,7 @@ package com.github.kiolk.alphabet.presentation.dialogs
 import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.OnClick
@@ -23,6 +24,15 @@ class EndGameDialog : BaseInfoDialog {
 
     @BindView(R.id.tv_game_end_result)
     lateinit var tvResult: TextView
+
+    @BindView(R.id.iv_left_start)
+    lateinit var ivLeftStar: ImageView
+
+    @BindView(R.id.iv_right_star)
+    lateinit var ivRightStar: ImageView
+
+    @BindView(R.id.iv_central_star)
+    lateinit var ivCentralStar: ImageView
 
     lateinit var listener: OnEndDialogClickListener
 
@@ -47,12 +57,18 @@ class EndGameDialog : BaseInfoDialog {
         when (stats.stars) {
             0 -> {
                 tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_not_complete, stats.asked.toString(), stats.correct.toString())
+                ivCentralStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
+                ivRightStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
+                ivLeftStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
             }
             1 -> {
                 tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_complete, stats.asked.toString(), stats.correct.toString())
+                ivCentralStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
+                ivRightStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
             }
             2 -> {
                 tvResult.text =activity?.baseContext?.resources?.getString(R.string.end_game_good, stats.asked.toString(), stats.correct.toString())
+                ivRightStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
             }
             3 -> {
                 tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_excellent, stats.asked.toString(), stats.correct.toString())

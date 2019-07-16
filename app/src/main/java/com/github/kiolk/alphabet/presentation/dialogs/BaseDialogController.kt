@@ -48,7 +48,7 @@ abstract class BaseDialogController(args: Bundle) : DialogController(args) {
             val params = WindowManager.LayoutParams()
             params.copyFrom(it.attributes)
             params.windowAnimations = R.style.AppTheme_Dialog
-            params.dimAmount = 0.2f
+            params.dimAmount = 0.7f
             params.flags = params.flags or WindowManager.LayoutParams.FLAG_DIM_BEHIND
             it.attributes = params
         }
