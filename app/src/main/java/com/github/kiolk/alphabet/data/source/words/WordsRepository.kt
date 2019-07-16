@@ -36,4 +36,6 @@ interface WordsRepository {
     fun countReadWordsTopic(): Flowable<List<TotalReadWordsTopic>>
 
     fun getTopicsWithPhoto(): Flowable<List<TopicWithPhoto>>
+
+    fun getTopicWords(topic: Topic): Flowable<List<Word>>
 }

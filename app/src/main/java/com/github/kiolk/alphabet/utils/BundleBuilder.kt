@@ -10,7 +10,7 @@ class BundleBuilder(private val bundle : Bundle) {
         return this
     }
 
-    fun setParseleable(key : String, value : Parcelable) : BundleBuilder{
+    fun setParseleable(key : String, value : Parcelable?) : BundleBuilder{
         bundle.putParcelable(key, value)
         return this
     }

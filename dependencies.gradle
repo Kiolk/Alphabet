@@ -12,6 +12,7 @@ ext.versions = [
         conductorDialog: '1.0.0',
 
         stecho         : '1.5.1',
+        timber         : '4.7.1',
 ]
 
 ext.libraries = [
@@ -39,4 +40,6 @@ ext.libraries = [
         conductorDialog         : "com.github.mkhytarmkhoian:conductor-dialog:$versions.conductorDialog",
 
         stecho                  : "com.facebook.stetho:stetho-okhttp3:$versions.stecho",
+
+        timber                  : "com.jakewharton.timber:timber:$versions.timber"
 ]

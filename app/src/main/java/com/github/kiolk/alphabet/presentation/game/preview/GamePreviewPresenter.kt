@@ -34,10 +34,10 @@ class GamePreviewPresenter
     }
 
     fun onWordSuccess(wordList: List<Word>) {
-        gameSet = prepareGameSetUseCase.execute(PrepareGameSetUseCase.Params(gameSettings, wordList)).toTypedArray()
+//        gameSet = prepareGameSetUseCase.execute(PrepareGameSetUseCase.Params(gameSettings, wordList)).toTypedArray()
     }
 
     fun onStartClick() {
-        viewState.startGame(GameResult(gameSettings, gameSet, 0, 0))
+//        viewState.startGame(GameResult(gameSettings, gameSet, 0, 0))
     }
 }

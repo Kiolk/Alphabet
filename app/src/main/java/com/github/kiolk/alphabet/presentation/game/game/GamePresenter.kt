@@ -4,10 +4,12 @@ import android.os.Handler
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.UpdateGameUseCase
+import com.github.kiolk.alphabet.data.domain.words.PrepareGameUseCase
 import com.github.kiolk.alphabet.data.domain.words.UpdateCorrectWordUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
+import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
@@ -22,7 +24,8 @@ constructor(private val result: GameResult,
             private val updateGameUseCase: UpdateGameUseCase,
             private val rxSchedulerProvider: RxSchedulerProvider,
             private val settingsRepository: SettingsRepository,
-            private val updateCorrectWordUseCase: UpdateCorrectWordUseCase) : BasePresenter<GameView>() {
+            private val updateCorrectWordUseCase: UpdateCorrectWordUseCase,
+            private val prepareGameUseCase: PrepareGameUseCase) : BasePresenter<GameView>() {
 
     private var counter: Int = 0
     private var isWordVisible : Boolean = true
@@ -69,8 +72,11 @@ constructor(private val result: GameResult,
             viewState.setWord(result.gameItems.get(counter).currentWord.value)
             isWordVisible = true
         } else {
-//            viewState.showResult(result)
-            showResult()
+            if(result.gameSettings != null){
+                showResult(result.gameSettings)
+            }else if(result.topic != null){
+//                showTopicResult(result.topic)
+            }
         }
     }
 
@@ -79,27 +85,29 @@ constructor(private val result: GameResult,
     }
 
     fun onRepeatClick() {
-        viewState.startGame(result.gameSettings)
+//        addDisposable(prepareGameUseCase.execute(PrepareGameUseCase(result.gameSettings))
+//                .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
+//                .subscribe({
+//                    viewState.startGame(it)
+//                }))
     }
 
     fun onNextClick(){
         nextAvailableGame?.let { viewState.startGame(it) }
     }
 
-    private fun showResult() {
+    private fun showResult(gameSettings: GameSettings) {
         val isCompleted = result.correctAnswers / result.gameItems.size > 0.75
         if (isCompleted) {
-            result.gameSettings.isCompleted = isCompleted
+            gameSettings.isCompleted = isCompleted
 
-            addDisposable(updateGameUseCase.execute(UpdateGameUseCase.Params(result.gameSettings))
+            addDisposable(updateGameUseCase.execute(UpdateGameUseCase.Params(gameSettings))
                     .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
                     .subscribe(this::onNextAvailableGame, this::onErrorAvailableGame))
         }else{
-            addDisposable(settingsRepository.getNextAvailableSettings(result.gameSettings)
+            addDisposable(settingsRepository.getNextAvailableSettings(gameSettings)
                     .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
                     .subscribe(this::onNextAvailableGame, this::onErrorAvailableGame))
-//            val stats = GameStats(result.gameItems.size, result.correctAnswers, 0)
-//            viewState.showResult(stats)
         }
     }
 

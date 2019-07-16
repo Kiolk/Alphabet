@@ -8,34 +8,60 @@ import java.util.*
 
 class PrepareGameSetUseCase : UseCase<List<GameItem>, PrepareGameSetUseCase.Params> {
 
-    override fun execute(params: Params): List<GameItem> {
-        val selectedWords  = mutableListOf<Word>()
-        val randomList = params.words.toMutableList().randomize()
+//    override fun execute(params: Params): List<GameItem> {
+//        val selectedWords  = mutableListOf<Word>()
+//        val randomList = params.words.toMutableList().randomize()
+//
+//        while(selectedWords.size != params.settings.numberAskedWords){
+//            val newWord = randomList.get(Random().nextInt(params.settings.numberAskedWords))
+//            if(!selectedWords.contains(newWord)){
+//                selectedWords.add(newWord)
+//            }
+//        }
+//
+//        val gameSet = mutableListOf<GameItem>()
+//
+//        for(word in selectedWords){
+//            val photoItems = mutableListOf<Word>()
+//            photoItems.add(word)
+//
+//            while(photoItems.size != 4){
+//                val image = params.words.get(Random().nextInt(params.words.size))
+//                if(!photoItems.contains(image)){
+//                    photoItems.add(image)
+//                }
+//            }
+//            gameSet.add(GameItem(word, photoItems.randomize()))
+//        }
+//
+//        return gameSet.randomize()
+//    }
 
-        while(selectedWords.size != params.settings.numberAskedWords){
-            val newWord = randomList.get(Random().nextInt(params.settings.numberAskedWords))
-            if(!selectedWords.contains(newWord)){
-                selectedWords.add(newWord)
-            }
-        }
+    override fun execute(params: Params): List<GameItem> {
+        val askedWords = params.words
+                .sortedBy { it.read }
+                .subList(0, params.askedWords)
+                .toMutableList()
+                .randomize()
 
         val gameSet = mutableListOf<GameItem>()
 
-        for(word in selectedWords){
+        for (word in askedWords) {
             val photoItems = mutableListOf<Word>()
             photoItems.add(word)
 
-            while(photoItems.size != 4){
+            while (photoItems.size != 4) {
                 val image = params.words.get(Random().nextInt(params.words.size))
-                if(!photoItems.contains(image)){
+                if (!photoItems.contains(image)) {
                     photoItems.add(image)
                 }
             }
+
             gameSet.add(GameItem(word, photoItems.randomize()))
         }
 
         return gameSet.randomize()
     }
 
-    data class Params(val settings : GameSettings, val words : List<Word>)
+    data class Params(val askedWords: Int, val words: List<Word>)
 }

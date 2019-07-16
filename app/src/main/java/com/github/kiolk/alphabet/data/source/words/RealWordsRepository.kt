@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.data.source.words
 
 import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
 import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
@@ -65,5 +66,9 @@ constructor(@LocalDataSource private val local: WordsDataSource,
 
     override fun getTopicsWithPhoto(): Flowable<List<TopicWithPhoto>> {
         return local.getTopicsWithPhoto()
+    }
+
+    override fun getTopicWords(topic: Topic): Flowable<List<Word>>{
+        return local.getTopicWords(topic)
     }
 }

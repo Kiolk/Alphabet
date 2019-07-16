@@ -30,7 +30,7 @@ constructor(private val result: GameResult,
         if (isCompleted) {
             viewState.showCongratulations(R.string.title_game_result_congratulations)
             viewState.setNextButtonTitle(R.string.text_game_result_next)
-            result.gameSettings.isCompleted = isCompleted
+//            result.gameSettings.isCompleted = isCompleted
 
 //            addDisposable(updateGameUseCase.execute(UpdateGameUseCase.Params(result.gameSettings))
 //                    .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
@@ -39,7 +39,7 @@ constructor(private val result: GameResult,
             viewState.showCongratulations(R.string.title_game_result_sad)
             viewState.setNextButtonTitle(R.string.text_game_result_repeat)
             viewState.setNextButtonEnable()
-            game = result.gameSettings
+//            game = result.gameSettings
         }
     }
 

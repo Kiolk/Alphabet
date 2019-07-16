@@ -22,8 +22,10 @@ import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.App
 import com.github.kiolk.alphabet.R
+import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
+import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BaseView
 import com.github.kiolk.alphabet.presentation.common.CharactersLayout
@@ -89,6 +91,11 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
             menuLeft.showContent(true)
             return
         }
+
+        if(router.backstack.size == 1){
+            presenter.showWordsTopic()
+        }
+
         if (!router.handleBack()) {
             presenter.onBackPressed()
         }
@@ -104,12 +111,20 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
                 .popChangeHandler(VerticalChangeHandler()))
     }
 
-    override fun setTopic(gameSettings: GameSettings) {
+    override fun onStartTopic(gameResult: GameResult) {
         router.getControllerWithTag(GamePreviewController.TAG)?.let { router.popController(it) }
-        router.pushController(RouterTransaction.with(GamePreviewController(gameSettings))
+        router.pushController(RouterTransaction.with(GameController(gameResult))
                 .popChangeHandler(VerticalChangeHandler())
                 .pushChangeHandler(VerticalChangeHandler()).tag(GamePreviewController.TAG))
         closeMenu()
+    }
+
+    override fun onTopicClick(gameSettings: GameSettings) {
+        presenter.onTopicClick(gameSettings)
+    }
+
+    override fun onWordsTopicClick(topic: Topic) {
+        presenter.onWordsTopicClick(topic)
     }
 
     override fun setSelectedLetter(letter: Letter) {
@@ -121,6 +136,10 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
     override fun setAvailableTopics(topics: List<GameSettings>) {
         rightMenu.setTopics(topics)
+    }
+
+    override fun setWordTopics(topics: List<Topic>) {
+        rightMenu.setWordsTopic(topics)
     }
 
     override fun initAlphabet() {

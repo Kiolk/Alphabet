@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.data.source.words.remote
 
 import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
 import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
@@ -63,6 +64,10 @@ constructor (private val remote: WordsService) : WordsDataSource {
     }
 
     override fun getTopicsWithPhoto(): Flowable<List<TopicWithPhoto>> {
+        throw UnsupportedOperationException()
+    }
+
+    override fun getTopicWords(topic: Topic): Flowable<List<Word>> {
         throw UnsupportedOperationException()
     }
 }

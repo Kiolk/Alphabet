@@ -21,6 +21,7 @@ import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
+import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
@@ -36,7 +37,8 @@ import com.github.kiolk.alphabet.utils.BundleBuilder
 class GameController : BaseController, GameView {
 
     constructor(result: GameResult) : super(BundleBuilder(Bundle())
-            .setParseleable(BUNDLE_GAME_SETTINGS, result).build())
+            .setParseleable(BUNDLE_GAME_SETTINGS, result)
+            .build())
 
     constructor(args: Bundle) : super(args)
 

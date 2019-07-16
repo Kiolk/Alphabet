@@ -30,11 +30,15 @@ constructor(private val wordsRepository: WordsRepository) : UseCase<Flowable<Lis
                                         ?: 0, available.total)
                             }.map { withoutPhoto ->
                                 Topic(withPhoto.firstOrNull { topic -> topic.topic == withoutPhoto.title }?.image
-                                        ?: "hh", withoutPhoto.title, withoutPhoto.read, withoutPhoto.total)
+                                        ?: EMPTY_HOLDER, withoutPhoto.title, withoutPhoto.read, withoutPhoto.total)
                             }
                 })
 
     }
 
     class Params
+
+    companion object {
+        private const val EMPTY_HOLDER = "https://media-prideofmaui.netdna-ssl.com/blog/wp-content/uploads/2014/10/Top-10-Animals-in-Maui_Hawaiian-Owl-aka-Pueo-header.jpg"
+    }
 }

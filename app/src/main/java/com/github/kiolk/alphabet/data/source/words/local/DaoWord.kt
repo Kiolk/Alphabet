@@ -43,4 +43,7 @@ interface DaoWord {
 
     @Query("SELECT word_image, tags FROM Word WHERE tags LIKE word_mean")
     fun getTopicsWithImage(): Flowable<List<TopicWithPhoto>>
+
+    @Query("SELECT * FROM Word WHERE :topic LIKE tags")
+    fun getTopicWords(topic: String): Flowable<List<Word>>
 }

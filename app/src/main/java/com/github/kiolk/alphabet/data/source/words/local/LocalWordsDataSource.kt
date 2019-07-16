@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.data.source.words.local
 
 import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
 import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
@@ -85,5 +86,9 @@ constructor(private val dao : DaoWords,
 
     override fun getTopicsWithPhoto(): Flowable<List<TopicWithPhoto>> {
         return wordDao.getTopicsWithImage()
+    }
+
+    override fun getTopicWords(topic: Topic): Flowable<List<Word>> {
+        return wordDao.getTopicWords(topic.title)
     }
 }
