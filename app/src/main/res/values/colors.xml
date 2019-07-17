@@ -19,8 +19,10 @@
     <color name="general_dark_gray_lock">#6F5A5A5A</color>
 
     <color name="general_white">#ffffff</color>
-    <color name="general_green">#13BE30</color>
-    <color name="general_red">#FF0E0E</color>
+    <color name="general_green">#3CBA54</color>
+    <color name="general_transparent_green">#AB3CBA54</color>
+    <color name="general_red">#DB3236</color>
+    <color name="general_transparent_red">#ABDB3236</color>
     <color name="general_blue">#4885ED</color>
     <color name="general_light_blue">#A3AEFC</color>
 </resources>

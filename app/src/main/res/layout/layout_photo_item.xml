@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:clickable="true"
-    android:focusable="true">
+    android:focusable="true"
+    app:cardCornerRadius="10dp">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <FrameLayout
         android:layout_width="0dp"
@@ -19,16 +24,33 @@
         <ImageView
             android:id="@+id/select_item_photo"
             android:layout_width="match_parent"
-            android:scaleType="centerCrop"
+            android:layout_height="match_parent"
             android:background="@drawable/bg_round_squera"
-            tools:src="@drawable/image"
-            android:layout_height="match_parent" />
+            android:scaleType="centerCrop"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/image" />
 
         <ImageView
-            android:id="@+id/result_item_photo"
+            android:id="@+id/iv_item_photo_correct"
             android:layout_width="match_parent"
-            android:visibility="gone"
             android:layout_height="match_parent"
-            tools:src="@drawable/ic_sun"/>
+            android:background="@color/general_transparent_green"
+            android:scaleType="center"
+            android:src="@drawable/ic_correct_mark"
+            android:visibility="gone"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/iv_item_photo_wrong"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/general_transparent_red"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_cross"
+            android:visibility="gone"
+            tools:ignore="ContentDescription"
+            tools:visibility="visible" />
     </FrameLayout>
-</android.support.constraint.ConstraintLayout>
+    </android.support.constraint.ConstraintLayout>
+</android.support.v7.widget.CardView>

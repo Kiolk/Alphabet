@@ -40,4 +40,8 @@ interface GameView : BaseView {
     fun hideWord()
 
     fun startGame(gameSettings: GameSettings)
+
+    fun setStep(step: String)
+
+    fun setLetter(letter: String)
 }

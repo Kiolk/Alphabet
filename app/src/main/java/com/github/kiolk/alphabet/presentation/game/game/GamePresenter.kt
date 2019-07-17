@@ -38,6 +38,9 @@ constructor(private val result: GameResult,
 
         counter = result.gameItems.size
         onNextWordPress()
+
+        result.gameSettings?.gameSchema?.letterValue?.let { viewState.setLetter(it) }
+        setStep()
     }
 
     fun onCheckAnswer(word: Word) {
@@ -62,6 +65,7 @@ constructor(private val result: GameResult,
     }
 
     fun onNextWordPress() {
+        setStep()
         if (counter > 0) {
             --counter
             Handler().postDelayed({
@@ -158,5 +162,9 @@ constructor(private val result: GameResult,
         addDisposable(updateCorrectWordUseCase.execute(UpdateCorrectWordUseCase.Params(word))
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe())
+    }
+
+    private fun setStep(){
+        viewState.setStep("${result.gameItems.size - counter}/${result.gameItems.size}")
     }
 }

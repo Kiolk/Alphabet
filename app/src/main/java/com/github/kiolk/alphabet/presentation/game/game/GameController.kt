@@ -42,8 +42,11 @@ class GameController : BaseController, GameView {
 
     constructor(args: Bundle) : super(args)
 
-    @BindView(R.id.chars_layout)
-    lateinit var charsLayout: CharactersLayout
+    @BindView(R.id.tv_game_screen_letter)
+    lateinit var tvLetter: TextView
+
+    @BindView(R.id.tv_game_screen_step)
+    lateinit var tvStep: TextView
 
     @BindView(R.id.rw_words_photos)
     lateinit var wordsPhotots: RecyclerView
@@ -141,6 +144,14 @@ class GameController : BaseController, GameView {
     override fun hideWord() {
         ivWordBlur.setImageBitmap(activity?.baseContext?.let { BlurBuilder.blur(it, tvWord) })
         ivWordBlur.visibility = View.VISIBLE
+    }
+
+    override fun setStep(step: String) {
+        tvStep.text = step
+    }
+
+    override fun setLetter(letter: String) {
+        tvLetter.text = letter
     }
 
     override fun showResult(current: GameStats) {

@@ -12,8 +12,11 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
     @BindView(R.id.select_item_photo)
     lateinit var ivWordPicture : ImageView
 
-    @BindView(R.id.result_item_photo)
+    @BindView(R.id.iv_item_photo_correct)
     lateinit var ivResult : ImageView
+
+    @BindView(R.id.iv_item_photo_wrong)
+    lateinit var ivWrong: ImageView
 
     override fun onBindViewHolder(data: Word) {
         Glide.with(getContext())
@@ -26,12 +29,13 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
 
         if(itemViewType == SelectPhotoAdapter.CORRECT){
             ivResult.visibility = View.VISIBLE
-            ivResult.setImageDrawable(getContext().resources.getDrawable(R.drawable.ic_sun))
+            ivWrong.visibility = View.GONE
         }else if(itemViewType == SelectPhotoAdapter.WRONG_ANSWER){
-            ivResult.visibility = View.VISIBLE
-            ivResult.setImageDrawable(getContext().resources.getDrawable(R.drawable.ic_sad))
+            ivResult.visibility = View.GONE
+            ivWrong.visibility = View.VISIBLE
         }else{
             ivResult.visibility = View.GONE
+            ivWrong.visibility = View.GONE
         }
     }
 }
