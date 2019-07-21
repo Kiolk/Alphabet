@@ -19,6 +19,8 @@ import com.bluelinelabs.conductor.ChangeHandlerFrameLayout
 import com.bluelinelabs.conductor.Conductor
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
+import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
+import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.App
 import com.github.kiolk.alphabet.R
@@ -29,6 +31,7 @@ import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BaseView
 import com.github.kiolk.alphabet.presentation.common.CharactersLayout
+import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
 import com.github.kiolk.alphabet.presentation.game.game.GameController
 import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.presentation.home.HomeController
@@ -92,6 +95,11 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
             return
         }
 
+        if(router.backstack[0].tag() == EndGameDialog.TAG){
+            (router.getControllerWithTag(GameController.TAG) as? GameController)?.closeGame()
+            return
+        }
+
         if(router.backstack.size == 1){
             presenter.showWordsTopic()
         }
@@ -114,8 +122,8 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     override fun onStartTopic(gameResult: GameResult) {
         router.getControllerWithTag(GamePreviewController.TAG)?.let { router.popController(it) }
         router.pushController(RouterTransaction.with(GameController(gameResult))
-                .popChangeHandler(VerticalChangeHandler())
-                .pushChangeHandler(VerticalChangeHandler()).tag(GamePreviewController.TAG))
+                .popChangeHandler(FadeChangeHandler())
+                .pushChangeHandler(FadeChangeHandler()).tag(GameController.TAG))
         closeMenu()
     }
 

@@ -9,6 +9,7 @@ import butterknife.BindView
 import butterknife.OnClick
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameStats
+import com.github.kiolk.alphabet.presentation.game.game.GameController
 import com.github.kiolk.alphabet.utils.getString
 
 class EndGameDialog : BaseInfoDialog {
@@ -49,37 +50,37 @@ class EndGameDialog : BaseInfoDialog {
     override fun onViewBound(view: View) {
         super.onViewBound(view)
 
-        dialog?.let { isCancelable = true }
+        dialog?.let { isCancelable = false }
         val stats = args.getParcelable(BUNDLE_GAME_STATS) as GameStats
 
 //        tvResult.text =  activity?.baseContext?.resources?.getString(R.string.end_game_not_complete, "${stats.asked.toString()}/${stats.correct.toString()}")
 
         when (stats.stars) {
             0 -> {
-                tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_not_complete, stats.asked.toString(), stats.correct.toString())
+                tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_not_complete, stats.correct.toString(), stats.asked.toString())
                 ivCentralStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
                 ivRightStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
                 ivLeftStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
             }
             1 -> {
-                tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_complete, stats.asked.toString(), stats.correct.toString())
+                tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_complete, stats.correct.toString(), stats.asked.toString())
                 ivCentralStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
                 ivRightStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
             }
             2 -> {
-                tvResult.text =activity?.baseContext?.resources?.getString(R.string.end_game_good, stats.asked.toString(), stats.correct.toString())
+                tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_good, stats.correct.toString(), stats.asked.toString())
                 ivRightStar.setImageDrawable(resources?.getDrawable(R.drawable.ic_gray_star))
             }
             3 -> {
-                tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_excellent, stats.asked.toString(), stats.correct.toString())
+                tvResult.text = activity?.baseContext?.resources?.getString(R.string.end_game_excellent, stats.correct.toString(), stats.asked.toString())
             }
         }
 
-        if(stats.isPreview){
+        if (stats.isPreview) {
             ivbPreview.visibility = View.VISIBLE
         }
 
-        if(stats.isNext){
+        if (stats.isNext) {
             ivbNext.visibility = View.VISIBLE
         }
     }
@@ -105,7 +106,7 @@ class EndGameDialog : BaseInfoDialog {
     }
 
     @OnClick(R.id.btn_end_game_preview)
-    fun onPreviewClick(){
+    fun onPreviewClick() {
         listener.onPreview()
         router.popController(this)
     }
@@ -113,6 +114,7 @@ class EndGameDialog : BaseInfoDialog {
     companion object {
 
         private const val BUNDLE_GAME_STATS = "BUNDLE_GAME_STATS"
+        const val TAG = "EndGameDialog"
 
         fun getInstance(current: GameStats, listener: OnEndDialogClickListener): EndGameDialog {
             val bundle = Bundle()

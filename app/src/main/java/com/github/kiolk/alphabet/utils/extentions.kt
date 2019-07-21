@@ -2,9 +2,14 @@ package com.github.kiolk.alphabet.utils
 
 import android.content.Context
 import android.content.res.Resources
+import android.graphics.Color
 import android.graphics.Point
 import android.support.annotation.StringRes
+import android.text.SpannableStringBuilder
+import android.text.Spanned
+import android.text.style.ForegroundColorSpan
 import android.view.WindowManager
+import android.widget.TextView
 import com.bluelinelabs.conductor.Controller
 import java.util.*
 

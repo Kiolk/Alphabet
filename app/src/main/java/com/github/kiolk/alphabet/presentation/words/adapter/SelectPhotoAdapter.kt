@@ -14,6 +14,7 @@ class SelectPhotoAdapter
     private var userAnswerPosition : Int = -1
     private var correctPosition : Int = - 1
     var isEnableSelected : Boolean = false
+    private var isVisible: Boolean = false
 
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): SelectPhotoViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.layout_photo_item, null, false)
@@ -39,6 +40,10 @@ class SelectPhotoAdapter
     }
 
     override fun getItemViewType(position: Int): Int {
+        if(!isVisible){
+            return HIDE
+        }
+
         return when(position){
             correctPosition -> CORRECT
             userAnswerPosition -> WRONG_ANSWER
@@ -49,6 +54,16 @@ class SelectPhotoAdapter
     fun setCorrectAnswer(userAnswer : Word, correct : Word){
         userAnswerPosition = list.indexOf(userAnswer)
         correctPosition = list.indexOf(correct)
+        notifyDataSetChanged()
+    }
+
+    fun show(){
+        isVisible = true
+        notifyDataSetChanged()
+    }
+
+    fun hide(){
+        isVisible = false
         notifyDataSetChanged()
     }
 
@@ -63,5 +78,6 @@ class SelectPhotoAdapter
         const val NORMAL_TYPE = 0
         const val WRONG_ANSWER = 1
         const val CORRECT = 2
+        const val HIDE = 3
     }
 }

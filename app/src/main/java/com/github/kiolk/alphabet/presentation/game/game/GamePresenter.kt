@@ -14,6 +14,9 @@ import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.alphabet.utils.numberOfStars
+import com.github.kiolk.alphabet.utils.selectLetter
+import timber.log.Timber
 import javax.inject.Inject
 
 @InjectViewState
@@ -28,8 +31,10 @@ constructor(private val result: GameResult,
             private val prepareGameUseCase: PrepareGameUseCase) : BasePresenter<GameView>() {
 
     private var counter: Int = 0
-    private var isWordVisible : Boolean = true
-    private var isWordAnswered : Boolean = false
+    private val total: Int by lazy { result.gameItems.size }
+    private var step: Int = 0
+    private var isWordVisible: Boolean = true
+    private var isWordAnswered: Boolean = false
     private var nextAvailableGame: GameSettings? = null
     private var previewsGame: GameSettings? = null
 
@@ -38,13 +43,11 @@ constructor(private val result: GameResult,
 
         counter = result.gameItems.size
         onNextWordPress()
-
         result.gameSettings?.gameSchema?.letterValue?.let { viewState.setLetter(it) }
-        setStep()
     }
 
     fun onCheckAnswer(word: Word) {
-        if(isWordVisible){
+        if (isWordVisible) {
             return
         }
 
@@ -65,39 +68,34 @@ constructor(private val result: GameResult,
     }
 
     fun onNextWordPress() {
-        setStep()
         if (counter > 0) {
+            setStep()
             --counter
-            Handler().postDelayed({
-                viewState.showBlurHolder()
-            }, 500)
-//            viewState.showBlurHolder()
+            viewState.hideImages()
             viewState.setWordPictures(result.gameItems.get(counter).photoItems)
-            viewState.setWord(result.gameItems.get(counter).currentWord.value)
+            val word = result.gameItems.get(counter).currentWord.value
+            val letter = result.gameSettings?.gameSchema?.letterValue ?: ""
+            viewState.setWord(selectLetter(word, letter))
             isWordVisible = true
         } else {
-            if(result.gameSettings != null){
+            if (result.gameSettings != null) {
                 showResult(result.gameSettings)
-            }else if(result.topic != null){
+            } else if (result.topic != null) {
 //                showTopicResult(result.topic)
             }
         }
     }
 
-    fun onPreviewClick(){
-        previewsGame?.let { viewState.startGame(it) }
+    fun onPreviewClick() {
+        previewsGame?.let { startGame(it) }
     }
 
     fun onRepeatClick() {
-//        addDisposable(prepareGameUseCase.execute(PrepareGameUseCase(result.gameSettings))
-//                .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
-//                .subscribe({
-//                    viewState.startGame(it)
-//                }))
+        result.gameSettings?.let { startGame(it) }
     }
 
-    fun onNextClick(){
-        nextAvailableGame?.let { viewState.startGame(it) }
+    fun onNextClick() {
+        nextAvailableGame?.let { startGame(it) }
     }
 
     private fun showResult(gameSettings: GameSettings) {
@@ -108,20 +106,20 @@ constructor(private val result: GameResult,
             addDisposable(updateGameUseCase.execute(UpdateGameUseCase.Params(gameSettings))
                     .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
                     .subscribe(this::onNextAvailableGame, this::onErrorAvailableGame))
-        }else{
+        } else {
             addDisposable(settingsRepository.getNextAvailableSettings(gameSettings)
                     .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
                     .subscribe(this::onNextAvailableGame, this::onErrorAvailableGame))
         }
     }
 
-    fun onNextAvailableGame(gamePair: Pair<GameSettings?, GameSettings?> ){
+    fun onNextAvailableGame(gamePair: Pair<GameSettings?, GameSettings?>) {
         this.nextAvailableGame = gamePair.second
         this.previewsGame = gamePair.first
-        val stats = GameStats(result.gameItems.size, result.correctAnswers, 1,
+        val stats = GameStats(result.gameItems.size, result.correctAnswers, numberOfStars(result.correctAnswers, result.gameItems.size),
                 gamePair.first != null, gamePair.second != null)
 
-        if(nextAvailableGame != null){
+        if (nextAvailableGame != null) {
             nextAvailableGame?.isAvailable = true
             addDisposable(settingsRepository.updateSetting(nextAvailableGame!!)
                     .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
@@ -131,7 +129,7 @@ constructor(private val result: GameResult,
         viewState.showResult(stats)
     }
 
-    fun onErrorAvailableGame(throwable: Throwable){
+    fun onErrorAvailableGame(throwable: Throwable) {
         viewState.showLevelComplete()
     }
 
@@ -144,27 +142,39 @@ constructor(private val result: GameResult,
     }
 
     fun onWordClick() {
-        if(isWordAnswered){
+        if (isWordAnswered) {
             return
         }
 
-        if(isWordVisible){
+        if (isWordVisible) {
             viewState.hideWord()
             viewState.hideBlurHolder()
-        }else{
+            viewState.showImages()
+        } else {
             viewState.showWord()
-            viewState.showBlurHolder()
+            viewState.hideImages()
         }
         isWordVisible = !isWordVisible
     }
 
-    private fun updtaeCorrectWord(word: Word){
+    private fun updtaeCorrectWord(word: Word) {
         addDisposable(updateCorrectWordUseCase.execute(UpdateCorrectWordUseCase.Params(word))
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe())
     }
 
-    private fun setStep(){
-        viewState.setStep("${result.gameItems.size - counter}/${result.gameItems.size}")
+    private fun setStep() {
+        ++step
+        viewState.setStep("$step/$total")
+    }
+
+    private fun startGame(gameSettings: GameSettings) {
+        addDisposable(prepareGameUseCase.execute(PrepareGameUseCase.Params(gameSettings))
+                .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
+                .subscribe({
+                    viewState.closeGame()
+                    viewState.startGame(it)
+                }, Timber::e))
+
     }
 }

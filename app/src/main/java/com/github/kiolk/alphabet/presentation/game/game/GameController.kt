@@ -3,6 +3,7 @@ package com.github.kiolk.alphabet.presentation.game.game
 import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,20 +16,16 @@ import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bluelinelabs.conductor.RouterTransaction
+import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
-import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
-import com.github.kiolk.alphabet.presentation.common.CharactersLayout
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
-import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
-import com.github.kiolk.alphabet.presentation.game.result.ResultController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.BlurBuilder
@@ -102,25 +99,11 @@ class GameController : BaseController, GameView {
         btnOnNext.isEnabled = false
     }
 
-    override fun setWord(word: String) {
-//        charsLayout.setWord(word)
-        tvWord.text = word
-    }
-
-//    override fun showResult(resullt: GameResult) {
-//        router.pushController(RouterTransaction.with(ResultController(resullt))
-//                .pushChangeHandler(HorizontalChangeHandler())
-//                .popChangeHandler(HorizontalChangeHandler()).tag(ResultController.TAG))
-//        router.getControllerWithTag(TAG)?.let { router.popController(it) }
-//    }
-
-    override fun showBlurHolder() {
-        vBlure.visibility = View.VISIBLE
-        vBlure.setImageBitmap(activity?.baseContext?.let { BlurBuilder.blur(it, wordsPhotots) })
+    override fun setWord(spannable: SpannableStringBuilder) {
+        tvWord.setText(spannable)
     }
 
     override fun hideBlurHolder() {
-        vBlure.visibility = View.GONE
         adapter.isEnableSelected = false
     }
 
@@ -146,6 +129,14 @@ class GameController : BaseController, GameView {
         ivWordBlur.visibility = View.VISIBLE
     }
 
+    override fun showImages() {
+        adapter.show()
+    }
+
+    override fun hideImages() {
+        adapter.hide()
+    }
+
     override fun setStep(step: String) {
         tvStep.text = step
     }
@@ -155,9 +146,9 @@ class GameController : BaseController, GameView {
     }
 
     override fun showResult(current: GameStats) {
-        val endGameController = EndGameDialog.getInstance(current, object : EndGameDialog.OnEndDialogClickListener{
+        val endGameController = EndGameDialog.getInstance(current, object : EndGameDialog.OnEndDialogClickListener {
             override fun onRepeat() {
-               presenter.onRepeatClick()
+                presenter.onRepeatClick()
             }
 
             override fun onNext() {
@@ -170,15 +161,23 @@ class GameController : BaseController, GameView {
         })
         router.pushController(RouterTransaction.with(endGameController)
                 .popChangeHandler(VerticalChangeHandler())
-                .pushChangeHandler(VerticalChangeHandler(false)))
+                .pushChangeHandler(VerticalChangeHandler(false)).tag(EndGameDialog.TAG))
     }
 
-    override fun startGame(gameSettings: GameSettings) {
-        router.getControllerWithTag(GamePreviewController.TAG)?.let { router.popController(it) }
-        router.pushController(RouterTransaction.with(GamePreviewController(gameSettings))
-                .pushChangeHandler(HorizontalChangeHandler())
-                .popChangeHandler(HorizontalChangeHandler()).tag(GamePreviewController.TAG))
-        router.getControllerWithTag(GameController.TAG)?.let { router.popController(it) }
+    override fun startGame(gameResult: GameResult) {
+        router.getControllerWithTag(GameController.TAG)?.let {
+            router.popToTag(GameController.TAG)
+            router.pushController(RouterTransaction.with(GameController(gameResult))
+                    .pushChangeHandler(FadeChangeHandler())
+                    .popChangeHandler(FadeChangeHandler()).tag(GameController.TAG))
+            router.popController(it)
+        }
+    }
+
+    override fun closeGame() {
+        router.getControllerWithTag(GameController.TAG)?.let {
+            router.popToTag(GameController.TAG)
+        }
     }
 
     override fun showLevelComplete() {

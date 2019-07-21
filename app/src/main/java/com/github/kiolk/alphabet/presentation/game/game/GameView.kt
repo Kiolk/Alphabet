@@ -1,8 +1,10 @@
 package com.github.kiolk.alphabet.presentation.game.game
 
+import android.text.SpannableStringBuilder
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
 import com.github.kiolk.alphabet.data.models.word.Word
@@ -11,7 +13,7 @@ import com.github.kiolk.alphabet.presentation.base.BaseView
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface GameView : BaseView {
 
-    fun setWord(word: String)
+    fun setWord(spannable: SpannableStringBuilder)
 
     fun setWordPictures(list: List<Word>)
 
@@ -25,9 +27,6 @@ interface GameView : BaseView {
 
     fun showLevelComplete()
 
-    @StateStrategyType(OneExecutionStateStrategy::class)
-    fun showBlurHolder()
-
     fun hideBlurHolder()
 
     fun showTapButton()
@@ -36,12 +35,18 @@ interface GameView : BaseView {
 
     fun showWord()
 
+    fun showImages()
+
+    fun hideImages()
+
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun hideWord()
 
-    fun startGame(gameSettings: GameSettings)
+    fun startGame(gameResult: GameResult)
 
     fun setStep(step: String)
 
     fun setLetter(letter: String)
+
+    fun closeGame()
 }

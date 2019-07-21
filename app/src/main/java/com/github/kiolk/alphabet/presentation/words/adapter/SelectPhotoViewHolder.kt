@@ -18,6 +18,9 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
     @BindView(R.id.iv_item_photo_wrong)
     lateinit var ivWrong: ImageView
 
+    @BindView(R.id.iv_item_photo_close)
+    lateinit var ivClose: ImageView
+
     override fun onBindViewHolder(data: Word) {
         Glide.with(getContext())
                 .load(data.image)
@@ -27,12 +30,16 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
             listener(data)
         }
 
+        ivClose.visibility = View.GONE
+
         if(itemViewType == SelectPhotoAdapter.CORRECT){
             ivResult.visibility = View.VISIBLE
             ivWrong.visibility = View.GONE
         }else if(itemViewType == SelectPhotoAdapter.WRONG_ANSWER){
             ivResult.visibility = View.GONE
             ivWrong.visibility = View.VISIBLE
+        }else if(itemViewType == SelectPhotoAdapter.HIDE){
+           ivClose.visibility = View.VISIBLE
         }else{
             ivResult.visibility = View.GONE
             ivWrong.visibility = View.GONE
