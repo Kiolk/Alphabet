@@ -18,7 +18,7 @@ android {
         applicationId "com.github.kiolk.alphabetg"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 3
+        versionCode 4
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -68,7 +68,8 @@ android {
 
             signingConfig signingConfigs.qa
 
-            ext.betaDistributionReleaseNotes = "\"${formReleaseNote}\""
+//            ext.betaDistributionReleaseNotes = "\"${formReleaseNote}\""
+            ext.betaDistributionReleaseNotes = "\"${release_v_1_0}\""
             ext.betaDistributionEmails = "tyteishi@gmail.com"
             ext.betaDistributionGroupAliases = "Alphabet-Dev-Team"
         }
@@ -107,6 +108,10 @@ android {
 task uploadeToCrashlytics{
     def commit = getCurrentCommit()
 
+//    printl ( "1. Changed endgame dialog.\n" +
+//            "2. Changed game screen(added step logic)\n" +
+//            "3. Added game by words topics (but not completely correct working)\n" +
+//            "4. Updated logic for showing screens.")
 //    if(commit.matches("(.*)[B,b]ump(.*)")){
         dependsOn("assembleQaRelease")
         dependsOn('crashlyticsUploadDistributionQaRelease')
