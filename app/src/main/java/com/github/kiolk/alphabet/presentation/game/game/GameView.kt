@@ -25,8 +25,6 @@ interface GameView : BaseView {
 
     fun showResult(current: GameStats)
 
-    fun showLevelComplete()
-
     fun hideBlurHolder()
 
     fun showTapButton()

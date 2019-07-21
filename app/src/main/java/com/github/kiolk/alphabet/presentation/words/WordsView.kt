@@ -6,6 +6,7 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
+import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 

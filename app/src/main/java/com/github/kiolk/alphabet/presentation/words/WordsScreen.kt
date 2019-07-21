@@ -27,6 +27,7 @@ import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
+import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BaseView
@@ -163,6 +164,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     override fun closeMenu() {
         menuLeft.showContent()
     }
+
 
     @ProvidePresenter
     fun providePresenter(): WordPresentor {

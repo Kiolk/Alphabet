@@ -44,7 +44,7 @@ class GameSettingBuilder {
     fun build(): GameSettings{
         return GameSettings("$title $letter", "", formWordLenght(), formNumberOfLeters(),
                 formPostion(), 4, false, false,
-                GameSchema(numberOfLetters, letter, position.value, lettersInWord), level)
+                GameSchema(numberOfLetters, letter, position.value, lettersInWord), level, 0)
     }
 
     private fun formWordLenght(): String{

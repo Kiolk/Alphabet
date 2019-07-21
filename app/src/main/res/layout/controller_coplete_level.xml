@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/bg_round_white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="H,1:1.3">
+
+        <TextView
+            android:id="@+id/tv_complete_level_title"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="24sp"
+            android:fontFamily="@font/bebas_bold"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/iv_complete_level_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Віньшуем, вы дасягнулі новага узроўня"/>
+
+        <ImageView
+            android:id="@+id/iv_complete_level_image"
+            android:gravity="center"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_complete_level_title"
+            app:layout_constraintBottom_toTopOf="@+id/tv_complete_level_name"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_duck"/>
+
+        <TextView
+            android:id="@+id/tv_complete_level_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:textSize="24sp"
+            android:fontFamily="@font/bebas_bold"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_complete_level_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Цяперы вы kачка"/>
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

@@ -3,6 +3,8 @@ apply from : "dependencies.gradle"
 
 apply from: 'scripts/customFunctions.gradle'
 
+apply from: 'notes/releaseNotes.gradle'
+
 buildscript {
     repositories {
         google()

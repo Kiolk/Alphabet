@@ -4,6 +4,10 @@ import com.github.kiolk.alphabet.data.source.game.GameDataSourse
 import com.github.kiolk.alphabet.data.source.game.GameRepository
 import com.github.kiolk.alphabet.data.source.game.RealGameRepository
 import com.github.kiolk.alphabet.data.source.game.local.LocalGameRepository
+import com.github.kiolk.alphabet.data.source.player.PlayerDataSource
+import com.github.kiolk.alphabet.data.source.player.PlayerRepository
+import com.github.kiolk.alphabet.data.source.player.RealPlayerrepository
+import com.github.kiolk.alphabet.data.source.player.local.LocalPlayerDataSource
 import com.github.kiolk.alphabet.data.source.settings.RealSettingrepository
 import com.github.kiolk.alphabet.data.source.settings.SettingsDataSource
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
@@ -53,4 +57,12 @@ abstract class DataSourceModule {
     @Singleton
     @Binds
     abstract fun provideGameResult(datatasource: LocalGameRepository) : GameDataSourse
+
+    @Singleton
+    @Binds
+    abstract fun provideRealPlayerDataSource(dataSource: LocalPlayerDataSource): PlayerDataSource
+
+    @Singleton
+    @Binds
+    abstract fun provideRealPlayerRepository(repository: RealPlayerrepository): PlayerRepository
 }

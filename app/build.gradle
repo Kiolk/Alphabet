@@ -108,10 +108,6 @@ android {
 task uploadeToCrashlytics{
     def commit = getCurrentCommit()
 
-//    printl ( "1. Changed endgame dialog.\n" +
-//            "2. Changed game screen(added step logic)\n" +
-//            "3. Added game by words topics (but not completely correct working)\n" +
-//            "4. Updated logic for showing screens.")
 //    if(commit.matches("(.*)[B,b]ump(.*)")){
         dependsOn("assembleQaRelease")
         dependsOn('crashlyticsUploadDistributionQaRelease')

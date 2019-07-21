@@ -1,0 +1,7 @@
+ext.release_v_1_0 = { ->
+    def note = "1. Changed endgame dialog.\n" +
+"2. Changed game screen(added step logic)\n" +
+"3. Added game by words topics (but not completely correct working)\n" +
+"4. Updated logic for showing screens."
+    return note
+}

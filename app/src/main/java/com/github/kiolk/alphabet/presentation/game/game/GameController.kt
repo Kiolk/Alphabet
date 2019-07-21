@@ -180,10 +180,6 @@ class GameController : BaseController, GameView {
         }
     }
 
-    override fun showLevelComplete() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
-
     @OnClick(R.id.tv_game_read_word)
     fun onWordClick() {
         presenter.onWordClick()

@@ -2,13 +2,17 @@ package com.github.kiolk.alphabet.presentation.game.game
 
 import android.os.Handler
 import com.arellomobile.mvp.InjectViewState
+import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.UpdateGameUseCase
+import com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase
+import com.github.kiolk.alphabet.data.domain.player.UpdatePlayerStarsUseCase
 import com.github.kiolk.alphabet.data.domain.words.PrepareGameUseCase
 import com.github.kiolk.alphabet.data.domain.words.UpdateCorrectWordUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
+import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
@@ -17,6 +21,7 @@ import com.github.kiolk.alphabet.utils.RxSchedulerProvider
 import com.github.kiolk.alphabet.utils.numberOfStars
 import com.github.kiolk.alphabet.utils.selectLetter
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @InjectViewState
@@ -28,7 +33,9 @@ constructor(private val result: GameResult,
             private val rxSchedulerProvider: RxSchedulerProvider,
             private val settingsRepository: SettingsRepository,
             private val updateCorrectWordUseCase: UpdateCorrectWordUseCase,
-            private val prepareGameUseCase: PrepareGameUseCase) : BasePresenter<GameView>() {
+            private val prepareGameUseCase: PrepareGameUseCase,
+            private val updatePlayerStarsUseCase: UpdatePlayerStarsUseCase,
+            private val checkNextLevelUseCase: CheckNextLevelUseCase) : BasePresenter<GameView>() {
 
     private var counter: Int = 0
     private val total: Int by lazy { result.gameItems.size }
@@ -99,9 +106,15 @@ constructor(private val result: GameResult,
     }
 
     private fun showResult(gameSettings: GameSettings) {
-        val isCompleted = result.correctAnswers / result.gameItems.size > 0.75
+        val isCompleted = result.correctAnswers / result.gameItems.size > 0.5
         if (isCompleted) {
             gameSettings.isCompleted = isCompleted
+            val getStars = numberOfStars(result.correctAnswers, result.correctAnswers + result.wrongAnswers)
+
+            if(getStars > gameSettings.stars){
+                updateProfile(getStars - gameSettings.stars)
+                gameSettings.stars = getStars
+            }
 
             addDisposable(updateGameUseCase.execute(UpdateGameUseCase.Params(gameSettings))
                     .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
@@ -111,6 +124,22 @@ constructor(private val result: GameResult,
                     .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
                     .subscribe(this::onNextAvailableGame, this::onErrorAvailableGame))
         }
+    }
+
+    private fun updateProfile(addStars: Int) {
+        addDisposable(checkNextLevelUseCase.execute(CheckNextLevelUseCase.Params(addStars))
+                .delay(50, TimeUnit.MILLISECONDS)
+                .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
+                .subscribe(this::onAcceptNextLevel, Timber::e))
+
+        addDisposable(updatePlayerStarsUseCase.execute(UpdatePlayerStarsUseCase.Params(addStars))
+                .delay(1, TimeUnit.SECONDS)
+                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                .subscribe())
+    }
+
+    private fun onAcceptNextLevel(level: Level){
+        viewState.showCompleteLevelDialog(level)
     }
 
     fun onNextAvailableGame(gamePair: Pair<GameSettings?, GameSettings?>) {
@@ -127,10 +156,11 @@ constructor(private val result: GameResult,
         }
 
         viewState.showResult(stats)
+//        viewState.showCompleteLevelDialog(Level(R.drawable.ic_duck,"Kachka"))
     }
 
     fun onErrorAvailableGame(throwable: Throwable) {
-        viewState.showLevelComplete()
+//        viewState.showLevelComplete()
     }
 
     fun onTapClick() {

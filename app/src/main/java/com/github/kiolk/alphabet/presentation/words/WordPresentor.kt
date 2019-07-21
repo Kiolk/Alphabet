@@ -5,6 +5,7 @@ import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase
 import com.github.kiolk.alphabet.data.domain.UpdateWordsFromFile
+import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
 import com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase
 import com.github.kiolk.alphabet.data.domain.topics.PrepareTopicUseCase
 import com.github.kiolk.alphabet.data.domain.words.GetAlphabetUseCase
@@ -12,6 +13,7 @@ import com.github.kiolk.alphabet.data.domain.words.PrepareGameUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
+import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
@@ -42,22 +44,12 @@ constructor(private val context: Context,
 
         viewState.initAlphabet()
 
-//        addDisposable(settingsRepository.getAllSettings()
-//                .take(1)
-//                .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
-//                .subscribe(this::setAvailablTopics, Timber::e))
-
         addDisposable(getAlphabetUseCase.execute(GetAlphabetUseCase.Params())
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
                 .subscribe(this::setAlphabet))
 
         showWordsTopic()
     }
-
-//    override fun attachView(view: WordsView?) {
-//        super.attachView(view)
-//        showWordsTopic()
-//    }
 
     fun onLetterSelected(letter: Letter) {
         isMainScreenOpened = false

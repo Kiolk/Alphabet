@@ -29,4 +29,6 @@ data class GameSettings(
         @Embedded(prefix = "schema_")
         var gameSchema: GameSchema,
         @ColumnInfo(name = "level")
-        val level: Int): Parcelable
+        val level: Int,
+        @ColumnInfo(name = "stars")
+        var stars: Int) : Parcelable

@@ -4,6 +4,7 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import com.github.kiolk.alphabet.data.database.AppDatabase
+import com.github.kiolk.alphabet.data.source.player.local.PlayerDao
 import com.github.kiolk.alphabet.data.source.settings.local.SettingsDao
 import com.github.kiolk.alphabet.data.source.words.local.DaoWord
 import com.github.kiolk.alphabet.data.source.words.local.DaoWords
@@ -32,6 +33,10 @@ class DbModule {
     @Singleton
     @Provides
     fun provideSettingsDao(database: AppDatabase) : SettingsDao = database.settingsDao()
+
+    @Singleton
+    @Provides
+    fun providePlayerDao(database: AppDatabase): PlayerDao = database.playerDao()
 
     companion object {
         const val DATABASE_NAME : String = "words.db"
