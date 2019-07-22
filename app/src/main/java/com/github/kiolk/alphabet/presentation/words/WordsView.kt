@@ -31,4 +31,6 @@ interface WordsView : MvpView {
     fun showMain()
 
     fun onStartTopic(gameResult: GameResult)
+
+    fun setStatusBarColor(coloRes: Int){}
 }

@@ -19,6 +19,9 @@ interface  BaseView : MvpView {
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showCompleteLevelDialog(level: Level){}
 
+    @StateStrategyType(AddToEndSingleStrategy::class)
+    fun setStatusBarColor(coloRes: Int){}
+
     companion object {
         private const val SHOW_PROGRESS_TAG = "SHOW_PROGRESS_TAG"
     }

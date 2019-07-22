@@ -3,6 +3,7 @@ package com.github.kiolk.alphabet.presentation.words
 import android.content.Context
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
+import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase
 import com.github.kiolk.alphabet.data.domain.UpdateWordsFromFile
 import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
@@ -41,7 +42,6 @@ constructor(private val context: Context,
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-
         viewState.initAlphabet()
 
         addDisposable(getAlphabetUseCase.execute(GetAlphabetUseCase.Params())

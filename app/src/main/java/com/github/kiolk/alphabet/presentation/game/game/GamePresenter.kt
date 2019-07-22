@@ -47,10 +47,16 @@ constructor(private val result: GameResult,
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
+        viewState.setStatusBarColor(R.color.general_dark_blue)
 
         counter = result.gameItems.size
         onNextWordPress()
         result.gameSettings?.gameSchema?.letterValue?.let { viewState.setLetter(it) }
+    }
+
+    override fun attachView(view: GameView?) {
+        super.attachView(view)
+        viewState.setStatusBarColor(R.color.general_dark_blue)
     }
 
     fun onCheckAnswer(word: Word) {

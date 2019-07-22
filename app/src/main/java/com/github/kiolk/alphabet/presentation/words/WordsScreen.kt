@@ -2,12 +2,16 @@ package com.github.kiolk.alphabet.presentation.words
 
 import android.app.Activity
 import android.content.Intent
+import android.content.pm.ActivityInfo
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import android.support.annotation.RequiresApi
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.util.Log
+import android.view.WindowManager
 import android.widget.Button
 import butterknife.BindView
 import butterknife.ButterKnife
@@ -62,6 +66,15 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        }
+
+
         ButterKnife.bind(this)
 
         leftMenu = LeftMenuFragment()
@@ -96,12 +109,12 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
             return
         }
 
-        if(router.backstack[0].tag() == EndGameDialog.TAG){
+        if (router.backstack[0].tag() == EndGameDialog.TAG) {
             (router.getControllerWithTag(GameController.TAG) as? GameController)?.closeGame()
             return
         }
 
-        if(router.backstack.size == 1){
+        if (router.backstack.size == 1) {
             presenter.showWordsTopic()
         }
 
@@ -199,6 +212,11 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
         cursor.moveToFirst();
         return cursor.getString(column_index)
+    }
+
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    override fun setStatusBarColor(colorRes: Int) {
+        window.statusBarColor = resources.getColor(colorRes)
     }
 
     companion object {

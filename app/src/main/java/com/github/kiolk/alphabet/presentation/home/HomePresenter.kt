@@ -2,6 +2,7 @@ package com.github.kiolk.alphabet.presentation.home
 
 import android.content.Context
 import com.arellomobile.mvp.InjectViewState
+import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.letter.Letter
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.CsvParser
@@ -20,5 +21,10 @@ constructor(private val context : Context, private val letter : Letter): BasePre
         val words = CsvParser.parserToWords(path ?: "")
 
         viewState.setTitle(letter.letter)
+    }
+
+    override fun attachView(view: HomeView?) {
+        super.attachView(view)
+        viewState.setStatusBarColor(R.color.general_dark_orange)
     }
 }
