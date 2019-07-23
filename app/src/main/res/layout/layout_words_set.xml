@@ -5,33 +5,60 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="2dp"
-    app:cardCornerRadius="10dp">
+    app:cardCornerRadius="30dp">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/general_dark_gray">
+        android:clipToPadding="false"
+        android:background="@color/general_white">
 
-        <ImageView
-            android:id="@+id/iv_topic_picture"
+        <FrameLayout
+            android:id="@+id/fl_topic_picture_layout"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:scaleType="center"
-            app:layout_constraintDimensionRatio="H, 2:1"
+            android:elevation="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@color/general_dark_blue"
+            app:layout_constraintDimensionRatio="H, 3:1"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/peacock" />
+            app:layout_constraintRight_toRightOf="parent">
+            <ImageView
+                android:id="@+id/iv_topic_picture"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="center"
+                tools:src="@drawable/peacock" />
+        </FrameLayout>
+
 
         <TextView
             android:id="@+id/tv_topic_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:fontFamily="@font/bebas_regular"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
             android:layout_height="wrap_content"
-            android:textSize="50dp"
+            android:textColor="@color/general_blue"
+            android:textSize="40dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_topic_picture"
+            app:layout_constraintTop_toBottomOf="@id/fl_topic_picture_layout"
             tools:text="Жывелы 5/30" />
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:background="@color/general_dark_gray_lock"
+            app:layout_constraintTop_toBottomOf="@+id/tv_topic_title"            >
+
+            <View
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:background="@drawable/bg_round_blue"/>
+
+        </FrameLayout>
 
         <ProgressBar
             android:id="@+id/pb_topic_progress"
@@ -39,6 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="20dp"
             android:progress="30"
+            android:visibility="gone"
             app:layout_constraintTop_toBottomOf="@+id/tv_topic_title" />
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
