@@ -94,6 +94,7 @@ constructor(private val result: GameResult,
             if (result.gameSettings != null) {
                 showResult(result.gameSettings)
             } else if (result.topic != null) {
+                viewState.showCompleteTopicDialog(result.topic, false)
 //                showTopicResult(result.topic)
             }
         }
@@ -211,6 +212,15 @@ constructor(private val result: GameResult,
                     viewState.closeGame()
                     viewState.startGame(it)
                 }, Timber::e))
+
+    }
+
+    fun onCloseDialog() {
+        viewState.pop()
+    }
+
+    fun onCloseGameClick() {
+//        viewState.onCloseGame()
 
     }
 }

@@ -25,6 +25,7 @@ constructor(private val wordsRepository: WordsRepository) : UseCase<Flowable<Lis
         return Flowable.zip(totalWordsByTopic, readWordsByTopic, topicWithPhoto,
                 Function3<List<TotalWordsTopic>, List<TotalReadWordsTopic>, List<TopicWithPhoto>, List<Topic>> { total, read, withPhoto ->
                     return@Function3 total.map { topic -> Topic("", topic.topic, 0, topic.total) }
+                            .filter{ topic -> topic.total >= MIN_WORDS_IN_TOPIC}
                             .map { available ->
                                 Topic(available.picture, available.title, read.firstOrNull { topic -> topic.topic == available.title }?.read
                                         ?: 0, available.total)
@@ -40,5 +41,6 @@ constructor(private val wordsRepository: WordsRepository) : UseCase<Flowable<Lis
 
     companion object {
         private const val EMPTY_HOLDER = "https://media-prideofmaui.netdna-ssl.com/blog/wp-content/uploads/2014/10/Top-10-Animals-in-Maui_Hawaiian-Owl-aka-Pueo-header.jpg"
+        private const val MIN_WORDS_IN_TOPIC = 4
     }
 }

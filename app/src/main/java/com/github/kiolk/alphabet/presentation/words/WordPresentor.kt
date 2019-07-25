@@ -22,6 +22,7 @@ import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import io.reactivex.disposables.Disposable
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -39,6 +40,7 @@ constructor(private val context: Context,
             private val prepareTopicUseCase: PrepareTopicUseCase) : BasePresenter<WordsView>() {
 
     private var isMainScreenOpened: Boolean = true
+    private var wordsTopicDisposable: Disposable? = null
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -60,6 +62,10 @@ constructor(private val context: Context,
     }
 
     fun getSelectedSettings(settings: List<GameSettings>) {
+        wordsTopicDisposable?.let {
+            it.dispose()
+        }
+
         viewState.setAvailableTopics(settings)
     }
 
@@ -90,10 +96,11 @@ constructor(private val context: Context,
     }
 
     fun showWordsTopic() {
-        addDisposable(getActualTopicUseCase.execute(GetActualTopicUseCase.Params())
-                .take(1)
+        wordsTopicDisposable = getActualTopicUseCase.execute(GetActualTopicUseCase.Params())
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
-                .subscribe(this::setTopics))
+                .subscribe(this::setTopics, Timber::e)
+
+        addDisposable(wordsTopicDisposable)
     }
 
     fun onTopicClick(gameSettings: GameSettings) {

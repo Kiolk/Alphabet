@@ -27,6 +27,10 @@ abstract class BaseController : ButterknifeController, BaseView {
                 .popChangeHandler(FadeChangeHandler()))
     }
 
+    override fun pop() {
+        router.popCurrentController()
+    }
+
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun setStatusBarColor(coloRes: Int){
         (activity as? WordsScreen)?.setStatusBarColor(coloRes)

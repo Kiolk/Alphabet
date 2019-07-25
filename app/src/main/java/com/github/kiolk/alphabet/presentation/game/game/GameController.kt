@@ -22,9 +22,11 @@ import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameStats
+import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
+import com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
@@ -172,6 +174,20 @@ class GameController : BaseController, GameView {
                     .popChangeHandler(FadeChangeHandler()).tag(GameController.TAG))
             router.popController(it)
         }
+    }
+
+    override fun showCompleteTopicDialog(topic: Topic, isGame: Boolean) {
+            val dialog = CompleteTopicDialog.getInstance(topic){
+                if(isGame){
+                    presenter.onCloseGameClick()
+                }else{
+                    presenter.onCloseDialog()
+                }
+            }
+
+            router.pushController(RouterTransaction.with(dialog)
+                    .pushChangeHandler(FadeChangeHandler())
+                    .popChangeHandler(FadeChangeHandler()))
     }
 
     override fun closeGame() {
