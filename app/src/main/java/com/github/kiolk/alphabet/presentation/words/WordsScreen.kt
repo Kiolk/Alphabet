@@ -97,12 +97,6 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         }
     }
 
-    override fun showProgress() {
-    }
-
-    override fun hideProgress() {
-    }
-
     override fun onBackPressed() {
         if (menuLeft.isSecondaryMenuShowing || menuLeft.isMenuShowing) {
             menuLeft.showContent(true)
@@ -129,8 +123,8 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
     override fun showMain() {
         router.setRoot(RouterTransaction.with(MainController())
-                .pushChangeHandler(VerticalChangeHandler())
-                .popChangeHandler(VerticalChangeHandler()))
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler()))
     }
 
     override fun onStartTopic(gameResult: GameResult) {
@@ -151,8 +145,8 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
     override fun setSelectedLetter(letter: Letter) {
         router.setRoot(RouterTransaction.with(HomeController(letter))
-                .popChangeHandler(VerticalChangeHandler())
-                .pushChangeHandler(VerticalChangeHandler()))
+                .popChangeHandler(FadeChangeHandler())
+                .pushChangeHandler(FadeChangeHandler()))
         closeMenu()
     }
 

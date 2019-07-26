@@ -46,7 +46,7 @@ class RightMenuFragment : Fragment() {
         rwBooksList.visibility = View.VISIBLE
         rwWordsTopic.visibility = View.GONE
 
-        rwBooksList.layoutManager = GridLayoutManager(context, 2, GridLayout.VERTICAL, false)//LinearLayoutManager(context)
+        rwBooksList.layoutManager = GridLayoutManager(context, 2, GridLayout.VERTICAL, false)
         rwBooksList.adapter = context?.let {
             TopicAdapter(topics, it, object : TopicAdapter.OnItemClickListener {
                 override fun onItemClick(settings: GameSettings) {

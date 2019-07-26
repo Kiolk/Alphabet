@@ -7,4 +7,5 @@ import kotlinx.android.parcel.Parcelize
 data class Letter(val letter : String,
                   val letterValue : String,
                   val image : String,
-                  var completedLevel: Float = -1.0f) : Parcelable
+                  var completedLevel: Float = -1.0f,
+                  val letterWord: String) : Parcelable

@@ -1,6 +1,5 @@
 package com.github.kiolk.alphabet.presentation.game.game
 
-import android.os.Handler
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.SoundManager
@@ -13,7 +12,6 @@ import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
 import com.github.kiolk.alphabet.data.models.level.Level
-import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
