@@ -9,18 +9,16 @@ import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.level.LevelTypes
+import com.github.kiolk.alphabet.presentation.views.LevelLebel
 
 class CompleteLevelDialog: BaseInfoDialog {
     constructor(args: Bundle): super(args)
 
-    @BindView(R.id.iv_complete_level_image)
-    lateinit var ivLevelImage: ImageView
+    @BindView(R.id.ll_complete_level_label)
+    lateinit var llLable: LevelLebel
 
     @BindView(R.id.tv_complete_level_name)
     lateinit var tvLevelName: TextView
-
-    @BindView(R.id.tv_complete_level_stars_indicator)
-    lateinit var tvStarsIndicator: TextView
 
     override fun getLayout(): Int = R.layout.controller_coplete_level
 
@@ -32,13 +30,8 @@ class CompleteLevelDialog: BaseInfoDialog {
         val level: Level = args.getParcelable(BUNDLE_LEVEL) as Level
 
         tvLevelName.text = "Цяпер ты ${level.title}"
-        ivLevelImage.setImageResource(level.image)
-        tvStarsIndicator.text = LevelTypes.getLevel(level).needStars.toString()
-
-        Glide.with(ivLevelImage.context)
-                .load(level.image)
-                .into(ivLevelImage)
-
+        llLable.setLevelImage(level.image)
+        llLable.setLevel(LevelTypes.getLevel(level).needStars.toString())
     }
 
     companion object {

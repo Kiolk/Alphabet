@@ -3,7 +3,7 @@ package com.github.kiolk.alphabet.presentation.main
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
-import com.github.kiolk.alphabet.data.models.level.Level
+import com.github.kiolk.alphabet.data.models.level.LevelViewModel
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
 import javax.inject.Inject
@@ -27,8 +27,20 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
         viewState.setStatusBarColor(R.color.general_gray)
     }
 
-    private fun setPlayerLevel(levle: Level){
-        viewState.showLevelImage(levle.image)
-        viewState.showLevelTitle(levle.title)
+    private fun setPlayerLevel(model: LevelViewModel) {
+        viewState.showLevelImage(model.currentLevel.image)
+        viewState.showLevelTitle(model.currentLevel.title)
+        val levelStart = model.levelStart
+        viewState.setLevelStart(levelStart.toString())
+        val levelEnd = model.levelEnd
+        viewState.setLevelEnd(levelEnd.toString())
+        val stars = model.stars
+        viewState.setCurrentStars(stars.toString())
+
+        var progress = 0
+        levelEnd?.let {
+            progress = (((stars - levelStart) / (it - levelStart).toFloat()) * 100).toInt()
+        }
+        viewState.setPorgress(progress)
     }
 }

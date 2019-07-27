@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="StyledProgressBar">
+        <attr name="backgroundLayer" format="integer"/>
+        <attr name="foregroundLayer" format="integer"/>
+        <attr name="foregroundFinalLaer" format="integer"/>
+    </declare-styleable>
+</resources>

@@ -13,8 +13,12 @@ enum class LevelTypes(val level: Level, var needStars: Int) {
         fun acceptNextLevel(before: Int, after: Int): LevelTypes?{
             return values().firstOrNull{ level -> level.needStars >= before && level.needStars < after}}
 
-        fun getLevel(stars: Int): Level {
-            return values().last{ levelTypes ->  stars > levelTypes.needStars}.level
+        fun getLevel(stars: Int): LevelTypes {
+            return values().last{ levelTypes ->  stars > levelTypes.needStars}
+        }
+
+        fun getNextLevel(stars: Int): LevelTypes?{
+            return values().lastOrNull { levelTypes -> stars < levelTypes.needStars}
         }
 
         fun getLevel(level: Level): LevelTypes {

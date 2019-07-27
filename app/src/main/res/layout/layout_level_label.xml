@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="200dp"
+    android:layout_height="200dp">
+
+    <View
+        android:id="@+id/v_complete_level_blue_round"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/bg_full_round_blue"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="parent" />
+
+    <ImageView
+        android:id="@+id/iv_level_image"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="23dp"
+        android:gravity="center"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_duck"
+        app:layout_constraintBottom_toBottomOf="@+id/v_complete_level_blue_round"
+        app:layout_constraintLeft_toLeftOf="@+id/v_complete_level_blue_round"
+        app:layout_constraintRight_toRightOf="@+id/v_complete_level_blue_round"
+        app:layout_constraintTop_toTopOf="@+id/v_complete_level_blue_round" />
+
+    <ImageView
+        android:id="@+id/iv_complete_level_central_star"
+        android:layout_width="40dp"
+        android:layout_height="48dp"
+        android:src="@drawable/ic_big_star"
+        app:layout_constraintBottom_toBottomOf="@+id/v_complete_level_blue_round"
+        app:layout_constraintLeft_toLeftOf="@+id/v_complete_level_blue_round"
+        app:layout_constraintRight_toRightOf="@+id/v_complete_level_blue_round"
+        app:layout_constraintTop_toBottomOf="@+id/v_complete_level_blue_round" />
+
+    <TextView
+        android:id="@+id/tv_level_stars_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/proxima"
+        android:gravity="center"
+        android:textColor="@color/general_white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_complete_level_central_star"
+        app:layout_constraintRight_toRightOf="@+id/iv_complete_level_central_star"
+        app:layout_constraintTop_toTopOf="@+id/iv_complete_level_central_star"
+        tools:text="5" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="11dp"
+        android:src="@drawable/ic_yellow_star"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"
+        app:layout_constraintRight_toLeftOf="@+id/iv_complete_level_central_star" />
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="3dp"
+        android:layout_marginBottom="11dp"
+        android:src="@drawable/ic_yellow_star"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"
+        app:layout_constraintLeft_toRightOf="@+id/iv_complete_level_central_star" />
+</android.support.constraint.ConstraintLayout>
