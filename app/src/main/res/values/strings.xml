@@ -12,6 +12,7 @@
     <string name="end_game_complete">Выканана\n%1$s/%2$s</string>
     <string name="end_game_good">Малайчына\n%1$s/%2$s</string>
     <string name="end_game_excellent">Выдатна\n%1$s/%2$s</string>
+    <string name="photo_question_placeholder">\?</string>
 
     <string-array name="words">
         <item>дом</item>

@@ -52,12 +52,17 @@
             tools:ignore="ContentDescription"
             tools:visibility="visible" />
 
-        <ImageView
-            android:id="@+id/iv_item_photo_close"
+        <TextView
+            android:id="@+id/tv_item_photo_close"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="centerInside"
-            android:background="@color/general_red"
+            android:gravity="center"
+            android:text="@string/photo_question_placeholder"
+            android:textSize="130sp"
+            android:fontFamily="@font/bebas_bold"
+            android:textColor="@color/general_blue"
+            android:background="@color/general_white"
             tools:ignore="ContentDescription" />
     </FrameLayout>
     </android.support.constraint.ConstraintLayout>

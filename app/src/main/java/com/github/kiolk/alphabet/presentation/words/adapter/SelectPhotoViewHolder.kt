@@ -2,6 +2,7 @@ package com.github.kiolk.alphabet.presentation.words.adapter
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import butterknife.BindView
 import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
@@ -18,8 +19,8 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
     @BindView(R.id.iv_item_photo_wrong)
     lateinit var ivWrong: ImageView
 
-    @BindView(R.id.iv_item_photo_close)
-    lateinit var ivClose: ImageView
+    @BindView(R.id.tv_item_photo_close)
+    lateinit var ivClose: TextView
 
     override fun onBindViewHolder(data: Word) {
         Glide.with(getContext())
