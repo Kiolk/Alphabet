@@ -13,6 +13,7 @@
     <color name="transparent">#00000000</color>
 
     <color name="general_orange">#febe46</color>
+    <color name="general_text_orange">#F4C20D</color>
     <color name="general_dark_orange">#F8A60F</color>
 
 
@@ -29,6 +30,7 @@
 
     <color name="general_blue">#4885ED</color>
     <color name="general_dark_blue">#0953DB</color>
+    <color name="general_shine_blue">#84C4FE</color>
 
     <color name="general_light_blue">#A3AEFC</color>
 </resources>

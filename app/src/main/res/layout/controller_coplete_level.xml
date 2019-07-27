@@ -1,60 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
         android:background="@drawable/bg_round_white"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_height="0dp"
-        app:layout_constraintDimensionRatio="H,1:1.3">
+        app:layout_constraintDimensionRatio="H,1:1.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tv_complete_level_title"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textSize="24sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="80dp"
             android:fontFamily="@font/bebas_bold"
             android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/iv_complete_level_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Віньшуем, вы дасягнулі новага узроўня"/>
+            android:text="Віньшуем, вы дасягнулі новага узроўня"
+            android:textColor="@color/general_blue"
+            android:textSize="22sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/v_complete_level_blue_round"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:background="@drawable/bg_full_round_blue"
+            app:layout_constraintBottom_toTopOf="@+id/tv_complete_level_name"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_complete_level_title" />
 
         <ImageView
             android:id="@+id/iv_complete_level_image"
-            android:gravity="center"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv_complete_level_title"
-            app:layout_constraintBottom_toTopOf="@+id/tv_complete_level_name"
+            android:layout_marginTop="23dp"
+            android:layout_marginBottom="23dp"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:gravity="center"
             android:scaleType="centerInside"
-            android:src="@drawable/ic_duck"/>
+            android:src="@drawable/ic_duck"
+            app:layout_constraintBottom_toBottomOf="@+id/v_complete_level_blue_round"
+            app:layout_constraintLeft_toLeftOf="@+id/v_complete_level_blue_round"
+            app:layout_constraintRight_toRightOf="@+id/v_complete_level_blue_round"
+            app:layout_constraintTop_toTopOf="@+id/v_complete_level_blue_round" />
+
+        <ImageView
+            android:id="@+id/iv_complete_level_central_star"
+            android:layout_width="40dp"
+            android:layout_height="48dp"
+            android:src="@drawable/ic_big_star"
+            app:layout_constraintLeft_toLeftOf="@+id/v_complete_level_blue_round"
+            app:layout_constraintRight_toRightOf="@+id/v_complete_level_blue_round"
+            app:layout_constraintTop_toBottomOf="@+id/v_complete_level_blue_round"
+            app:layout_constraintBottom_toBottomOf="@+id/v_complete_level_blue_round"/>
+
+        <TextView
+            android:id="@+id/tv_complete_level_stars_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            tools:text="5"
+            android:textSize="20sp"
+            android:fontFamily="@font/proxima"
+            android:textColor="@color/general_white"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"
+            app:layout_constraintTop_toTopOf="@+id/iv_complete_level_central_star"
+            app:layout_constraintRight_toRightOf="@+id/iv_complete_level_central_star"
+            app:layout_constraintLeft_toLeftOf="@+id/iv_complete_level_central_star"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_yellow_star"
+            android:layout_marginEnd="3dp"
+            android:layout_marginBottom="11dp"
+            app:layout_constraintRight_toLeftOf="@+id/iv_complete_level_central_star"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"/>
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="16dp"
+            android:src="@drawable/ic_yellow_star"
+            android:layout_marginStart="3dp"
+            android:layout_marginBottom="11dp"
+            app:layout_constraintLeft_toRightOf="@+id/iv_complete_level_central_star"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"/>
 
         <TextView
             android:id="@+id/tv_complete_level_name"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:textSize="24sp"
-            android:fontFamily="@font/bebas_bold"
-            android:gravity="center"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_complete_level_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Цяперы вы kачка"/>
+            android:layout_marginStart="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="35dp"
+            android:layout_marginBottom="50dp"
+            android:fontFamily="@font/bebas_bold"
+            android:gravity="center"
+            android:text="Цяперы вы kачка"
+            android:textColor="@color/general_text_orange"
+            android:textSize="34sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
     </android.support.constraint.ConstraintLayout>
 </android.support.constraint.ConstraintLayout>

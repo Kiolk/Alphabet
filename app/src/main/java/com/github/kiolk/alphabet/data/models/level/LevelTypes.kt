@@ -16,5 +16,9 @@ enum class LevelTypes(val level: Level, var needStars: Int) {
         fun getLevel(stars: Int): Level {
             return values().last{ levelTypes ->  stars > levelTypes.needStars}.level
         }
+
+        fun getLevel(level: Level): LevelTypes {
+            return values().first { type -> type.level == level }
+        }
     }
 }

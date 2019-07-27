@@ -8,6 +8,7 @@ import butterknife.BindView
 import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.level.Level
+import com.github.kiolk.alphabet.data.models.level.LevelTypes
 
 class CompleteLevelDialog: BaseInfoDialog {
     constructor(args: Bundle): super(args)
@@ -17,6 +18,9 @@ class CompleteLevelDialog: BaseInfoDialog {
 
     @BindView(R.id.tv_complete_level_name)
     lateinit var tvLevelName: TextView
+
+    @BindView(R.id.tv_complete_level_stars_indicator)
+    lateinit var tvStarsIndicator: TextView
 
     override fun getLayout(): Int = R.layout.controller_coplete_level
 
@@ -29,6 +33,7 @@ class CompleteLevelDialog: BaseInfoDialog {
 
         tvLevelName.text = "Цяпер ты ${level.title}"
         ivLevelImage.setImageResource(level.image)
+        tvStarsIndicator.text = LevelTypes.getLevel(level).needStars.toString()
 
         Glide.with(ivLevelImage.context)
                 .load(level.image)
