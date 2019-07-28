@@ -34,6 +34,7 @@ import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.BlurBuilder
 import com.github.kiolk.alphabet.utils.BundleBuilder
+import com.github.kiolk.alphabet.utils.toPx
 
 class GameController : BaseController, GameView {
 
@@ -146,7 +147,13 @@ class GameController : BaseController, GameView {
     }
 
     override fun setLetter(letter: String) {
-        tvLetter.text = letter
+
+        if(letter.length > 2){
+            tvLetter.text = letter
+            tvLetter.textSize = 16.toPx.toFloat()
+        }else{
+            tvLetter.text = letter.toUpperCase()
+        }
     }
 
     override fun showResult(current: GameStats) {

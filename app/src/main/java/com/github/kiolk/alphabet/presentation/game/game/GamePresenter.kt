@@ -49,7 +49,12 @@ constructor(private val result: GameResult,
 
         counter = result.gameItems.size
         onNextWordPress()
-        result.gameSettings?.gameSchema?.letterValue?.let { viewState.setLetter(it) }
+        if(result.gameSettings != null){
+            result.gameSettings?.gameSchema?.letterValue?.let { viewState.setLetter(it) }
+        }else{
+
+            result.topic?.title?.let { viewState.setLetter(it) }
+        }
     }
 
     override fun attachView(view: GameView?) {

@@ -1,10 +1,12 @@
 package com.github.kiolk.alphabet.presentation.dialogs
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
+import butterknife.OnClick
 import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.level.Level
@@ -25,13 +27,18 @@ class CompleteLevelDialog: BaseInfoDialog {
     override fun onViewBound(view: View) {
         super.onViewBound(view)
 
-        dialog?.let { isCancelable = true }
+        dialog?.setCancelable(true)
 
         val level: Level = args.getParcelable(BUNDLE_LEVEL) as Level
 
         tvLevelName.text = "Цяпер ты ${level.title}"
         llLable.setLevelImage(level.image)
         llLable.setLevel(LevelTypes.getLevel(level).needStars.toString())
+    }
+
+    @OnClick(R.id.btn_complete_topic)
+    fun onOkPress(){
+        router.popCurrentController()
     }
 
     companion object {

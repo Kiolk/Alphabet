@@ -32,7 +32,7 @@ class CompleteTopicDialog: BaseInfoDialog {
     override fun onViewBound(view: View) {
         super.onViewBound(view)
 
-        dialog?.let { isCancelable }
+        dialog?.setCancelable(true)
 
         val topic = args.getParcelable(BUNDLE_TOPIC) as Topic
 
@@ -47,7 +47,6 @@ class CompleteTopicDialog: BaseInfoDialog {
     fun onOkPress(){
         Log.d("MyLogs", "Calls on press")
         router.popCurrentController()
-//        listener.invoke()
     }
 
     override fun onDestroy() {
