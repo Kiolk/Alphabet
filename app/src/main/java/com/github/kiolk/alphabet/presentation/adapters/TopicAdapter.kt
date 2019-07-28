@@ -12,9 +12,9 @@ import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.presentation.views.GameIndicator
 import com.github.kiolk.alphabet.presentation.words.adapter.BaseViewHolder
 
-class TopicAdapter(val topics: List<GameSettings>, val context: Context, val listener: OnItemClickListener) : RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
+class TopicAdapter(val topics: List<GameSettings>, val listener: OnItemClickListener) : RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): TopicAdapter.TopicViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.layout_topic, p0, false)
+        val view = LayoutInflater.from(p0.context).inflate(R.layout.layout_topic, p0, false)
         return TopicViewHolder(view, listener)
     }
 

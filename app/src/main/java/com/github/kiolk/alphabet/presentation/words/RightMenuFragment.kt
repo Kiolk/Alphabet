@@ -29,10 +29,14 @@ class RightMenuFragment : Fragment() {
 
     private lateinit var wordsTopicAdapter: WordsTopicAdapter
 
+    private var initial: Boolean = false
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.lyaout_right_menu, container, false)
         ButterKnife.bind(this, view)
         rwBooksList.addItemDecoration(TopicDecoration())
+
+        initial = true
 
         rwWordsTopic.layoutManager = LinearLayoutManager(context, LinearLayout.VERTICAL, false)
         wordsTopicAdapter = WordsTopicAdapter{
@@ -47,19 +51,20 @@ class RightMenuFragment : Fragment() {
         rwWordsTopic.visibility = View.GONE
 
         rwBooksList.layoutManager = GridLayoutManager(context, 2, GridLayout.VERTICAL, false)
-        rwBooksList.adapter = context?.let {
-            TopicAdapter(topics, it, object : TopicAdapter.OnItemClickListener {
-                override fun onItemClick(settings: GameSettings) {
-                    (activity as MenuListenerView).onTopicClick(settings)
-                }
-            })
-        }
+        val adapter = TopicAdapter(topics, object : TopicAdapter.OnItemClickListener {
+            override fun onItemClick(settings: GameSettings) {
+                (activity as MenuListenerView).onTopicClick(settings)
+            }
+        })
+
+        rwBooksList.adapter = adapter
     }
 
     fun setWordsTopic(topics: List<Topic>){
         rwBooksList.visibility = View.GONE
         rwWordsTopic.visibility = View.VISIBLE
 
-        wordsTopicAdapter.setResources(topics)
+        wordsTopicAdapter.setResources(topics, initial)
+        initial = false
     }
 }

@@ -12,6 +12,7 @@ import com.github.kiolk.alphabet.data.models.word.Word
 
 interface WordsView : MvpView {
 
+    @StateStrategyType(OneExecutionStateStrategy::class)
     fun setAvailableTopics(topics : List<GameSettings>)
 
     fun setWordTopics(topics: List<Topic>)

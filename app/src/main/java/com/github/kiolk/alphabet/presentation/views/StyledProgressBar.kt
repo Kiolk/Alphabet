@@ -16,8 +16,9 @@ class StyledProgressBar : ConstraintLayout {
     private lateinit var tvFinalValue: TextView
     private lateinit var tvInitialValue: TextView
     private lateinit var tvTarget: TextView
-    private var currentWidth: Int = 0
-    private var currentMinWidth: Int = 0
+    private lateinit var clContainer: ConstraintLayout
+    private var currentWidth: Int = 869
+    private var currentMinWidth: Int = 100
     private lateinit var listenerBackgroubd: ViewTreeObserver.OnGlobalLayoutListener
     private lateinit var listenerForeground: ViewTreeObserver.OnGlobalLayoutListener
     private var backgroundRes: Int = 0
@@ -46,7 +47,7 @@ class StyledProgressBar : ConstraintLayout {
         foregroundRes = typedArray.getInt(R.styleable.StyledProgressBar_foregroundLayer, R.drawable.bg_progress_foreground)
         foregroundFinal = typedArray.getInt(R.styleable.StyledProgressBar_foregroundFinalLaer, R.drawable.bg_progress_foreground)
         LayoutInflater.from(context).inflate(R.layout.layout_styled_progress_bar, this)
-
+        typedArray.recycle()
     }
 
     override fun onFinishInflate() {
@@ -56,6 +57,7 @@ class StyledProgressBar : ConstraintLayout {
         tvFinalValue = findViewById(R.id.tv_final_position)
         tvInitialValue = findViewById(R.id.tv_initial_position)
         tvTarget = findViewById(R.id.tv_target_position)
+        clContainer = findViewById(R.id.c_progress_container)
 
         vBackground.background = resources.getDrawable(backgroundRes)
         vForeground.background = resources.getDrawable(foregroundRes)
@@ -92,6 +94,28 @@ class StyledProgressBar : ConstraintLayout {
         tvFinalValue.text = final
     }
 
+    fun setBaseBackground(resId: Int){
+        backgroundRes = resId
+        vBackground.background = resources.getDrawable(resId)
+    }
+
+    fun setBaseForeground(resId: Int){
+        foregroundRes = resId
+        vForeground.background = resources.getDrawable(resId)
+    }
+
+    fun setCompleteForeground(resId: Int){
+        foregroundFinal = resId
+    }
+
+    fun setInitialWidth(width: Int){
+        currentWidth = width
+    }
+
+    fun setHeight(height: Int){
+        clContainer.layoutParams.height = height
+    }
+
     private fun calculateProgress(progress: Int): Int {
         val progressWidth = currentWidth * (progress / 100f)
 
@@ -105,10 +129,10 @@ class StyledProgressBar : ConstraintLayout {
 
         if(progress == 100){
             tvInitialValue.setTextColor(resources.getColor(R.color.general_transparent_text_white))
-            vForeground.background = resources.getDrawable(foregroundFinal)
+            vForeground.background = resources.getDrawable(foregroundRes)
         }else{
             tvInitialValue.setTextColor(resources.getColor(R.color.general_white))
-            vForeground.background = resources.getDrawable(foregroundRes)
+            vForeground.background = resources.getDrawable(foregroundFinal)
         }
 
         return Math.max(progressWidth.toInt(), currentMinWidth)

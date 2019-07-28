@@ -77,10 +77,6 @@ constructor(private val context: Context,
         viewState.setWordTopics(topics)
     }
 
-    private fun setAvailablTopics(topics: List<GameSettings>) {
-        viewState.setAvailableTopics(topics)
-    }
-
     fun updateWords(pathForFile: String) {
         addDisposable(updateWordsFromFile.execute(UpdateWordsFromFile.Params(pathForFile)).compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe({ Log.d("MyLogs", "Succes") }, { Log.d("MyLogs", "Error$it") }))
