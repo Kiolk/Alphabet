@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.SpannableStringBuilder
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
+import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.BlurBuilder
@@ -178,16 +180,23 @@ class GameController : BaseController, GameView {
 
     override fun showCompleteTopicDialog(topic: Topic, isGame: Boolean) {
             val dialog = CompleteTopicDialog.getInstance(topic){
+                Log.d("MyLogs", "Call too")
                 if(isGame){
                     presenter.onCloseGameClick()
-                }else{
-                    presenter.onCloseDialog()
                 }
+//                else{
+////                    presenter.onCloseDialog()
+//                    presenter.onCloseGameClick()
+//                }
             }
 
             router.pushController(RouterTransaction.with(dialog)
                     .pushChangeHandler(FadeChangeHandler())
                     .popChangeHandler(FadeChangeHandler()))
+    }
+
+    override fun onCloseGame() {
+        router.popToTag(MainController.TAG, FadeChangeHandler())
     }
 
     override fun closeGame() {

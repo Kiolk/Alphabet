@@ -6,11 +6,11 @@ import android.text.Spanned
 import android.text.style.ForegroundColorSpan
 
 fun selectLetter(text: String, letter: String): SpannableStringBuilder{
-    val spannableBuilder = SpannableStringBuilder(text)
+    val spannableBuilder = SpannableStringBuilder(text.toUpperCase())
     val indexes = mutableListOf<Int>()
 
     text.filterIndexed { index, c ->
-        if(c.toString() == letter){
+        if(c.toString() == letter || c.toString() == letter.toUpperCase()){
             indexes.add(index)
         }
         c.toString() == letter

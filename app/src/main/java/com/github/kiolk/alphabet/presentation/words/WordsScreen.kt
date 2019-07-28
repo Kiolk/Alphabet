@@ -93,7 +93,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
         router = Conductor.attachRouter(this, findViewById(R.id.general_controller_container), savedInstanceState)
         if (!router.hasRootController()) {
-            router.setRoot(RouterTransaction.with(MainController()))
+            router.setRoot(RouterTransaction.with(MainController()).tag((MainController.TAG)))
         }
     }
 
@@ -124,7 +124,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     override fun showMain() {
         router.setRoot(RouterTransaction.with(MainController())
                 .pushChangeHandler(FadeChangeHandler())
-                .popChangeHandler(FadeChangeHandler()))
+                .popChangeHandler(FadeChangeHandler()).tag(MainController.TAG))
     }
 
     override fun onStartTopic(gameResult: GameResult) {

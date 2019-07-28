@@ -45,7 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/proxima"
+        android:fontFamily="@font/proxima_nowa_extra_condensed"
         android:gravity="center"
         android:textColor="@color/general_white"
         android:textSize="20sp"

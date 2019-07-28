@@ -49,5 +49,8 @@ interface GameView : BaseView {
 
     fun closeGame()
 
+    @StateStrategyType(OneExecutionStateStrategy::class)
     fun showCompleteTopicDialog(topic: Topic, isGame: Boolean)
+
+    fun onCloseGame()
 }

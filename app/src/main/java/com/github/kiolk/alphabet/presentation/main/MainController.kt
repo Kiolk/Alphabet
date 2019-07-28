@@ -62,4 +62,8 @@ class MainController : BaseController, MainView {
                 .plusMainPresenter()
                 .presenter
     }
+
+    companion object {
+        const val TAG = "MainController"
+    }
 }

@@ -34,7 +34,7 @@
             android:id="@+id/tv_game_indicator_latter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/bebas_bold"
+            android:fontFamily="@font/proxima_nowa_extra_condensed"
             android:gravity="center"
             android:textColor="@color/general_white"
             android:textSize="100sp"
@@ -105,7 +105,7 @@
             android:layout_marginTop="10dp"
             android:textSize="24sp"
             app:layout_constraintTop_toTopOf="parent"
-            android:fontFamily="@font/bebas_bold"
+            android:fontFamily="@font/proxima_nowa_extra_condensed"
             app:layout_constraintLeft_toLeftOf="@+id/tv_game_indicator_latter"
             app:layout_constraintRight_toRightOf="@+id/tv_game_indicator_latter"
             tools:text="x4"
@@ -113,7 +113,7 @@
 
         <TextView
             android:id="@+id/tv_game_indicator_word_length"
-            android:fontFamily="@font/bebas_bold"
+            android:fontFamily="@font/proxima_nowa_extra_condensed"
             app:layout_constraintLeft_toLeftOf="@+id/tv_game_indicator_latter"
             app:layout_constraintRight_toRightOf="@+id/tv_game_indicator_latter"
             tools:text="4"

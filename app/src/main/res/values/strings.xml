@@ -14,6 +14,9 @@
     <string name="end_game_excellent">Выдатна\n%1$s/%2$s</string>
     <string name="photo_question_placeholder">\?</string>
 
+    <!-- dialog_complete_topic -->
+    <string name="complete_level_template">Тэма \"%1$s\" выканана</string>
+
     <string-array name="words">
         <item>дом</item>
         <item>кот</item>

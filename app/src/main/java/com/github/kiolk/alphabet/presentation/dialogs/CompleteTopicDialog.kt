@@ -1,11 +1,13 @@
 package com.github.kiolk.alphabet.presentation.dialogs
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.OnClick
+import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.topic.Topic
 
@@ -31,10 +33,25 @@ class CompleteTopicDialog: BaseInfoDialog {
         super.onViewBound(view)
 
         dialog?.let { isCancelable }
+
+        val topic = args.getParcelable(BUNDLE_TOPIC) as Topic
+
+        tvDescription.text =resources?.getString(R.string.complete_level_template, "Tets")
+
+        Glide.with(ivTopicImage)
+                .load(topic.picture)
+                .into(ivTopicImage)
     }
 
     @OnClick(R.id.btn_complete_topic)
     fun onOkPress(){
+        Log.d("MyLogs", "Calls on press")
+        router.popCurrentController()
+//        listener.invoke()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
         listener.invoke()
     }
 

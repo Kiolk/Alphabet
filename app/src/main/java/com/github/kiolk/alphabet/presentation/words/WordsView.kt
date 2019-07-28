@@ -31,6 +31,7 @@ interface WordsView : MvpView {
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showMain()
 
+    @StateStrategyType(OneExecutionStateStrategy::class)
     fun onStartTopic(gameResult: GameResult)
 
     fun setStatusBarColor(coloRes: Int){}

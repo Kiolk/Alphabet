@@ -92,8 +92,7 @@ constructor(private val result: GameResult,
             if (result.gameSettings != null) {
                 showResult(result.gameSettings)
             } else if (result.topic != null) {
-                viewState.showCompleteTopicDialog(result.topic, false)
-//                showTopicResult(result.topic)
+                viewState.showCompleteTopicDialog(result.topic, true)
             }
         }
     }
@@ -218,7 +217,6 @@ constructor(private val result: GameResult,
     }
 
     fun onCloseGameClick() {
-//        viewState.onCloseGame()
-
+        viewState.onCloseGame()
     }
 }
