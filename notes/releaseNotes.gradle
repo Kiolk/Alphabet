@@ -5,3 +5,12 @@ ext.release_v_1_0 = { ->
 "4. Updated logic for showing screens."
     return note
 }
+
+ext.release_v_1_1 = { ->
+    def note = "1. Added complete level dialog.\n" +
+            "2. Updated splash screen and logic with status bar\n" +
+            "3. Refactored logic and layout of Main screen\n" +
+            "4. Refactored Home screen with letter card\n" +
+            "5. Added and implemented StyledProgressBar."
+    return note
+}

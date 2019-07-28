@@ -18,7 +18,7 @@ android {
         applicationId "com.github.kiolk.alphabetg"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 4
+        versionCode 5
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -69,7 +69,7 @@ android {
             signingConfig signingConfigs.qa
 
 //            ext.betaDistributionReleaseNotes = "\"${formReleaseNote}\""
-            ext.betaDistributionReleaseNotes = "\"${release_v_1_0}\""
+            ext.betaDistributionReleaseNotes = "\"${release_v_1_1}\""
             ext.betaDistributionEmails = "tyteishi@gmail.com"
             ext.betaDistributionGroupAliases = "Alphabet-Dev-Team"
         }
