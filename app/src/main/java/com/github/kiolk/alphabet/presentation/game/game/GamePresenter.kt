@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.presentation.game.game
 
+import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.SoundManager
@@ -115,7 +116,7 @@ constructor(private val result: GameResult,
     }
 
     private fun showResult(gameSettings: GameSettings) {
-        val isCompleted = result.correctAnswers / result.gameItems.size > 0.5
+        val isCompleted = result.correctAnswers / result.gameItems.size.toFloat() > 0.5
         if (isCompleted) {
             gameSettings.isCompleted = isCompleted
             val getStars = numberOfStars(result.correctAnswers, result.correctAnswers + result.wrongAnswers)
@@ -140,15 +141,20 @@ constructor(private val result: GameResult,
                 .delay(50, TimeUnit.MILLISECONDS)
                 .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
                 .subscribe(this::onAcceptNextLevel, Timber::e))
+    }
 
-        addDisposable(updatePlayerStarsUseCase.execute(UpdatePlayerStarsUseCase.Params(addStars))
+    private fun onAcceptNextLevel(result: Pair<Level?, Int>){
+        val level = result.first
+        val stars = result.second
+
+        addDisposable(updatePlayerStarsUseCase.execute(UpdatePlayerStarsUseCase.Params(stars))
                 .delay(1, TimeUnit.SECONDS)
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe())
-    }
 
-    private fun onAcceptNextLevel(level: Level){
-        viewState.showCompleteLevelDialog(level)
+        if(level!= null){
+            viewState.showCompleteLevelDialog(level)
+        }
     }
 
     fun onNextAvailableGame(gamePair: Pair<GameSettings?, GameSettings?>) {

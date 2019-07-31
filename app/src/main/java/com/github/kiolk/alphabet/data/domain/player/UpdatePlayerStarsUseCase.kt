@@ -7,7 +7,7 @@ import javax.inject.Inject
 
 class UpdatePlayerStarsUseCase
 @Inject
-constructor(private val playerRepository: PlayerRepository): UseCase<Completable,UpdatePlayerStarsUseCase.Params> {
+constructor(private val playerRepository: PlayerRepository) : UseCase<Completable, UpdatePlayerStarsUseCase.Params> {
 
     override fun execute(params: Params): Completable {
         return playerRepository.getPlayer("Main")

@@ -29,6 +29,10 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
     }
 
     private fun setPlayerLevel(model: LevelViewModel) {
+        if(model.stars == 0){
+//            showWelcomeTour()
+        }
+
         viewState.showLevelImage(model.currentLevel.image)
         viewState.showLevelTitle(model.currentLevel.title)
         val levelStart = model.levelStart

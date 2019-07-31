@@ -21,7 +21,7 @@ data class GameSettings(
         @ColumnInfo(name = "third_query")
         val thirdQuery: String,
         @ColumnInfo(name = "number_asked")
-        val numberAskedWords: Int,
+        var numberAskedWords: Int,
         @ColumnInfo(name = "isAvailable")
         var isAvailable: Boolean,
         @ColumnInfo(name = "isCompleted")

@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.data.models.game
 
+import com.github.kiolk.alphabet.utils.Constants.MIN_WORDS_IN_GAME
 import java.lang.StringBuilder
 
 class GameSettingBuilder {
@@ -9,7 +10,7 @@ class GameSettingBuilder {
     private var lettersInWord: Int = 0
     private var position: Position = Position.START
     private var title: String = ""
-    private var level: Int = 0;
+    private var level: Int = 0
 
     fun setTitle(title: String): GameSettingBuilder{
         this.title = title
@@ -43,7 +44,7 @@ class GameSettingBuilder {
 
     fun build(): GameSettings{
         return GameSettings("$title $letter", "", formWordLenght(), formNumberOfLeters(),
-                formPostion(), 4, false, false,
+                formPostion(), MIN_WORDS_IN_GAME, false, false,
                 GameSchema(numberOfLetters, letter, position.value, lettersInWord), level, 0)
     }
 

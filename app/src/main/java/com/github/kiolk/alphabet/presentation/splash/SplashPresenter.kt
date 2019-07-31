@@ -4,12 +4,15 @@ import android.content.SharedPreferences
 import android.net.Uri
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
+import com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
+import com.github.kiolk.alphabet.utils.Constants.MAX_WORDS_IN_GAME
+import com.github.kiolk.alphabet.utils.Constants.MIN_WORDS_IN_GAME
 import com.github.kiolk.alphabet.utils.CsvParser
 import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
@@ -23,7 +26,8 @@ constructor(private val initGameUseCase: InitGameUseCase,
             private val rxSchedulerProvider: RxSchedulerProvider,
             private val wordsRepository: WordsRepository,
             private val settingsRepository: SettingsRepository,
-            private val sharedPreferences: SharedPreferences) : BasePresenter<SplashView>() {
+            private val sharedPreferences: SharedPreferences,
+            private val configureLevelsUseCase: ConfigureLevelsUseCase) : BasePresenter<SplashView>() {
 
     private var counter = 0
     private lateinit var allSettings: MutableList<GameSettings>
@@ -35,7 +39,7 @@ constructor(private val initGameUseCase: InitGameUseCase,
         val isInited = sharedPreferences.getBoolean(KEY_INITED, false)
 
         if (isInited) {
-           openMainScreen()
+            configuerLevels()
         } else {
             addDisposable(initGameUseCase.execute(InitGameUseCase.Params())
                     .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
@@ -64,7 +68,7 @@ constructor(private val initGameUseCase: InitGameUseCase,
     }
 
     fun availableWords(words: List<Word>) {
-        if (words.size > 3) {
+        if (words.size >= MIN_WORDS_IN_GAME) {
             val needAddSettings = allSettings[counter]
 
             if (availableSettings.size != 0 && needAddSettings.gameSchema.letterValue != availableSettings[availableSettings.size - 1].gameSchema.letterValue) {
@@ -72,6 +76,8 @@ constructor(private val initGameUseCase: InitGameUseCase,
             } else if (availableSettings.size == 0) {
                 needAddSettings.isAvailable = true
             }
+
+            needAddSettings.numberAskedWords = setAsckedWords(words.size)
 
             availableSettings.add(needAddSettings)
         }
@@ -87,6 +93,20 @@ constructor(private val initGameUseCase: InitGameUseCase,
 
     fun setSettings() {
         addDisposable(settingsRepository.setSettings(availableSettings)
+                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                .subscribe(this::configuerLevels))
+    }
+
+    private fun setAsckedWords(total: Int): Int{
+        if(total < MAX_WORDS_IN_GAME){
+            return MIN_WORDS_IN_GAME
+        }else{
+            return Math.min((total * 0.5f).toInt(), MAX_WORDS_IN_GAME)
+        }
+    }
+
+    private fun configuerLevels(){
+        addDisposable(configureLevelsUseCase.execute(ConfigureLevelsUseCase.Params())
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe(this::openMainScreen))
     }

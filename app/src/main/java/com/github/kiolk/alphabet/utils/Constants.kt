@@ -43,12 +43,19 @@ object Data{
     )
 
     val gameSettingsPatterns: List<GameSettingBuilder> = listOf<GameSettingBuilder>(
-            GameSettingBuilder().setTitle("Тры").setLettersInWord(3).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(1),
-            GameSettingBuilder().setTitle("Чатыры").setLettersInWord(4).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(2),
-            GameSettingBuilder().setTitle("Пяць").setLettersInWord(5).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(3),
-            GameSettingBuilder().setTitle("Шэсць").setLettersInWord(6).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(4),
-            GameSettingBuilder().setTitle("Літара").setPosition(GameSettingBuilder.Position.ANY).setGameLevel(5),
-            GameSettingBuilder().setTitle("Пачатак").setPosition(GameSettingBuilder.Position.START).setGameLevel(6)
+            GameSettingBuilder().setTitle("Пач").setLettersInWord(3).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(0),
+            GameSettingBuilder().setTitle("Пачатак").setPosition(GameSettingBuilder.Position.START).setGameLevel(1),
+            GameSettingBuilder().setTitle("Канец").setPosition(GameSettingBuilder.Position.END).setGameLevel(2),
+            GameSettingBuilder().setTitle("Сяпэдзіна").setPosition(GameSettingBuilder.Position.INSIDE).setGameLevel(3),
+            GameSettingBuilder().setTitle("Дзве").setNumberOfLetters(2).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(4),
+            GameSettingBuilder().setTitle("Тры").setNumberOfLetters(3).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(5),
+            GameSettingBuilder().setTitle("Чатыры").setNumberOfLetters(4).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(6)
+//            GameSettingBuilder().setTitle("Тры").setLettersInWord(3).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(1),
+//            GameSettingBuilder().setTitle("Чатыры").setLettersInWord(4).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(2),
+//            GameSettingBuilder().setTitle("Пяць").setLettersInWord(5).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(3),
+//            GameSettingBuilder().setTitle("Шэсць").setLettersInWord(6).setPosition(GameSettingBuilder.Position.ANY).setGameLevel(4),
+//            GameSettingBuilder().setTitle("Літара").setPosition(GameSettingBuilder.Position.ANY).setGameLevel(5),
+//            GameSettingBuilder().setTitle("Пачатак").setPosition(GameSettingBuilder.Position.START).setGameLevel(6)
     )
 
     val testSetOfWord = listOf<Word>(
