@@ -50,9 +50,9 @@ constructor(private val result: GameResult,
 
         counter = result.gameItems.size
         onNextWordPress()
-        if(result.gameSettings != null){
+        if (result.gameSettings != null) {
             result.gameSettings?.gameSchema?.letterValue?.let { viewState.setLetter(it) }
-        }else{
+        } else {
 
             result.topic?.title?.let { viewState.setLetter(it) }
         }
@@ -121,7 +121,7 @@ constructor(private val result: GameResult,
             gameSettings.isCompleted = isCompleted
             val getStars = numberOfStars(result.correctAnswers, result.correctAnswers + result.wrongAnswers)
 
-            if(getStars > gameSettings.stars){
+            if (getStars > gameSettings.stars) {
                 updateProfile(getStars - gameSettings.stars)
                 gameSettings.stars = getStars
             }
@@ -143,7 +143,7 @@ constructor(private val result: GameResult,
                 .subscribe(this::onAcceptNextLevel, Timber::e))
     }
 
-    private fun onAcceptNextLevel(result: Pair<Level?, Int>){
+    private fun onAcceptNextLevel(result: Pair<Level?, Int>) {
         val level = result.first
         val stars = result.second
 
@@ -152,7 +152,7 @@ constructor(private val result: GameResult,
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe())
 
-        if(level!= null){
+        if (level != null) {
             viewState.showCompleteLevelDialog(level)
         }
     }

@@ -31,7 +31,7 @@ class CompleteLevelDialog: BaseInfoDialog {
 
         val level: Level = args.getParcelable(BUNDLE_LEVEL) as Level
 
-        tvLevelName.text = "Цяпер ты ${level.title}"
+        tvLevelName.text = "${level.title}"
         llLable.setLevelImage(level.image)
         llLable.setLevel(LevelTypes.getLevel(level).needStars.toString())
     }

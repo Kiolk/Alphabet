@@ -16,7 +16,7 @@
         android:layout_marginTop="50dp"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
         android:textColor="@color/general_blue"
-        android:text="Твой узровень:"/>
+        android:text="Узровень:"/>
 
     <com.github.kiolk.alphabet.presentation.views.LevelLebel
         android:id="@+id/ll_main_level_label"
@@ -35,7 +35,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
-        android:text="Качўа"
+        android:text="Качка"
         android:textAllCaps="true"
         android:textColor="@color/general_red"
         android:textSize="40sp"
@@ -65,8 +65,18 @@
         android:id="@+id/tv_main_level_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:textSize="32sp"
         android:gravity="center"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
-        android:text="Ведаеш мову як качка"/>
+        android:text="Мой родны кут, як ты мне мілы!..
+Забыць цябе не маю сілы!"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintRight_toRightOf="@id/tv_main_level_description"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_level_description"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"
+        android:text="Якуб Колас"/>
 </android.support.constraint.ConstraintLayout>
