@@ -10,6 +10,7 @@ import butterknife.OnClick
 import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.level.Level
+import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.data.models.level.LevelTypes
 import com.github.kiolk.alphabet.presentation.views.LevelLebel
 
@@ -29,11 +30,11 @@ class CompleteLevelDialog: BaseInfoDialog {
 
         dialog?.setCancelable(true)
 
-        val level: Level = args.getParcelable(BUNDLE_LEVEL) as Level
+        val level: LevelType = args.getParcelable(BUNDLE_LEVEL) as LevelType
 
-        tvLevelName.text = "${level.title}"
-        llLable.setLevelImage(level.image)
-        llLable.setLevel(LevelTypes.getLevel(level).needStars.toString())
+        tvLevelName.text = "${level.name}"
+        llLable.setLevelImage(level.imageId)
+        llLable.setLevel(level.needStars.toString())
     }
 
     @OnClick(R.id.btn_complete_topic)
@@ -44,7 +45,7 @@ class CompleteLevelDialog: BaseInfoDialog {
     companion object {
         private const val BUNDLE_LEVEL = "BUNDLE_LEVEL"
 
-        fun getInstance(level: Level): CompleteLevelDialog{
+        fun getInstance(level: LevelType): CompleteLevelDialog{
             val bundle = Bundle()
             bundle.putParcelable(BUNDLE_LEVEL, level)
             return CompleteLevelDialog(bundle)

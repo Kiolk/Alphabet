@@ -13,6 +13,7 @@ import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
 import com.github.kiolk.alphabet.data.models.level.Level
+import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
@@ -143,7 +144,7 @@ constructor(private val result: GameResult,
                 .subscribe(this::onAcceptNextLevel, Timber::e))
     }
 
-    private fun onAcceptNextLevel(result: Pair<Level?, Int>) {
+    private fun onAcceptNextLevel(result: Pair<LevelType?, Int>) {
         val level = result.first
         val stars = result.second
 

@@ -18,22 +18,4 @@ enum class LevelTypes(val level: Level, var needStars: Int) {
     DONKEY(Level(R.drawable.ic_donkey, "Вослік"), 25),
     ELEPHANT(Level(R.drawable.ic_elephant, "Слон"), 25),
     WARLUS(Level(R.drawable.ic_walrus, "Морж"), 25);
-
-    companion object {
-        fun acceptNextLevel(before: Int, after: Int): LevelTypes?{
-            return values().firstOrNull{ level -> level.needStars > before && level.needStars <= after}}
-
-        fun getLevel(stars: Int): LevelTypes {
-            return values().lastOrNull{ levelTypes ->  stars >= levelTypes.needStars} ?: DUCK
-        }
-
-        fun getNextLevel(stars: Int): LevelTypes?{
-            val levels = values().filter { levelTypes -> stars < levelTypes.needStars}
-            return if(levels.isNotEmpty()) levels[0] else WARLUS
-        }
-
-        fun getLevel(level: Level): LevelTypes {
-            return values().first { type -> type.level == level }
-        }
-    }
 }

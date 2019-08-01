@@ -36,48 +36,4 @@ class AppModule(context : Context) {
     @Provides
     fun provideSharedPreferences(context: Context): SharedPreferences = context.getSharedPreferences("GameSettings", Context.MODE_PRIVATE)
 
-    @Named(WORDS_TAG)
-    @Singleton
-    @Provides
-    fun provideWords() : Array<String> = context.resources.getStringArray(R.array.words)
-
-    @Named(SYLLABLES_TAG)
-    @Singleton
-    @Provides
-    fun provideSyllables() : Array<String> = context.resources.getStringArray(R.array.syllable)
-
-    @Named(THREE_LATTERS_WORD)
-    @Singleton
-    @Provides
-    fun provideThreeLattersWords() : Array<String> = context.resources.getStringArray(R.array.short_words)
-
-    @Named(FOR_CHAR_WORDS)
-    @Singleton
-    @Provides
-    fun provideForCharWords() : Array<String> = context.resources.getStringArray(R.array.forCahrWords)
-
-    @Named(ONE_FROM)
-    @Singleton
-    @Provides
-    fun provideOneFrom() : Array<String> = context.resources.getStringArray(R.array.fourCharOne)
-
-    @Named(FIVE_CHAR)
-    @Singleton
-    @Provides
-    fun provideFiveChar() : Array<String> = context.resources.getStringArray(R.array.fiveChar)
-
-    @Named(SIX_CHAR)
-    @Singleton
-    @Provides
-    fun provideSixChar() : Array<String> = context.resources.getStringArray(R.array.sixChar)
-
-    companion object {
-        const val WORDS_TAG : String = "WORDS_SET"
-        const val SYLLABLES_TAG : String = "SYLLABLES_TAG"
-        const val THREE_LATTERS_WORD : String = "THREE_LATTERS_WORD"
-        const val FOR_CHAR_WORDS : String = "FOR_CHAR_WORDS"
-        const val ONE_FROM : String = "ONE_FROM"
-        const val FIVE_CHAR : String = "FIVE_CHAR"
-        const val SIX_CHAR : String = "SIX_CHAR"
-    }
 }

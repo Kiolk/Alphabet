@@ -33,8 +33,8 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
 //            showWelcomeTour()
         }
 
-        viewState.showLevelImage(model.currentLevel.image)
-        viewState.showLevelTitle(model.currentLevel.title)
+        viewState.showLevelImage(model.currentLevel.imageId)
+        viewState.showLevelTitle(model.currentLevel.name)
         val levelStart = model.levelStart
         viewState.setLevelStart(levelStart.toString())
         val levelEnd = model.levelEnd

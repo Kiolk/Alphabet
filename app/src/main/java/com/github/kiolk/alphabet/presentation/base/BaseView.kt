@@ -6,6 +6,7 @@ import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.level.Level
+import com.github.kiolk.alphabet.data.models.level.LevelType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface  BaseView : MvpView {
@@ -17,7 +18,7 @@ interface  BaseView : MvpView {
     fun hideProgress(){}
 
     @StateStrategyType(OneExecutionStateStrategy::class)
-    fun showCompleteLevelDialog(level: Level){}
+    fun showCompleteLevelDialog(level: LevelType){}
 
     @StateStrategyType(AddToEndSingleStrategy::class)
     fun setStatusBarColor(coloRes: Int){}

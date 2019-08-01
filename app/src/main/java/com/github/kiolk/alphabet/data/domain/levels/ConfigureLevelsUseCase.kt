@@ -1,14 +1,17 @@
 package com.github.kiolk.alphabet.data.domain.levels
 
 import com.github.kiolk.alphabet.data.domain.UseCase
+import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.data.models.level.LevelTypes
+import com.github.kiolk.alphabet.data.source.levels.LevelRepository
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import io.reactivex.Completable
 import javax.inject.Inject
 
 class ConfigureLevelsUseCase
 @Inject
-constructor(private val settingsRepository: SettingsRepository) : UseCase<Completable, ConfigureLevelsUseCase.Params> {
+constructor(private val settingsRepository: SettingsRepository,
+            private val levelRepository: LevelRepository) : UseCase<Completable, ConfigureLevelsUseCase.Params> {
 
     override fun execute(params: Params): Completable {
         return settingsRepository.getAllSettings()
@@ -20,15 +23,20 @@ constructor(private val settingsRepository: SettingsRepository) : UseCase<Comple
                     val restOfGames = games - levels * gamePerLevel
                     var counter = 0
                     val lastLevel = LevelTypes.values().last()
+
+                    val configureLevels = mutableListOf<LevelType>()
                     LevelTypes.values().forEach { level ->
-                        LevelTypes.getLevel(level.level).needStars = counter
-                        level.needStars = counter
+                        var item = LevelType(level.level.image, level.name, counter, "", "")
                         counter += gamePerLevel
 
                         if (lastLevel == level) {
-                            LevelTypes.getLevel(level.level).needStars = counter + restOfGames
+                            item = LevelType(level.level.image, level.name, counter + restOfGames, "", "")
                         }
+
+                        configureLevels.add(item)
                     }
+
+                    levelRepository.addLevels(configureLevels)
                     return@flatMapCompletable Completable.complete()
                 }
     }
