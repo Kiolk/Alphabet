@@ -16,4 +16,8 @@
 
     <!-- dialog_complete_topic -->
     <string name="complete_level_template">Тэма \"%1$s\" выканана</string>
+
+    <!-- controller_rate_dialog -->
+    <string name="btn_rate_later">Пазней</string>
+    <string name="btn_rate_now">Ацаніць</string>
 </resources>

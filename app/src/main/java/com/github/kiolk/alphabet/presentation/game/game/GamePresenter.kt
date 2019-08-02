@@ -5,6 +5,7 @@ import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.UpdateGameUseCase
+import com.github.kiolk.alphabet.data.domain.levels.RateUseCase
 import com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase
 import com.github.kiolk.alphabet.data.domain.player.UpdatePlayerStarsUseCase
 import com.github.kiolk.alphabet.data.domain.words.PrepareGameUseCase
@@ -35,7 +36,8 @@ constructor(private val result: GameResult,
             private val updateCorrectWordUseCase: UpdateCorrectWordUseCase,
             private val prepareGameUseCase: PrepareGameUseCase,
             private val updatePlayerStarsUseCase: UpdatePlayerStarsUseCase,
-            private val checkNextLevelUseCase: CheckNextLevelUseCase) : BasePresenter<GameView>() {
+            private val checkNextLevelUseCase: CheckNextLevelUseCase,
+            private val rateUseCase: RateUseCase) : BasePresenter<GameView>() {
 
     private var counter: Int = 0
     private val total: Int by lazy { result.gameItems.size }
@@ -154,6 +156,7 @@ constructor(private val result: GameResult,
                 .subscribe())
 
         if (level != null) {
+            rateUseCase.execute(RateUseCase.Params())
             viewState.showCompleteLevelDialog(level)
         }
     }

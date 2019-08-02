@@ -8,8 +8,26 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rw_left_menu_alphabet"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="10dp"
         android:overScrollMode="never"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/tv_left_menu_settings"/>
+
+    <TextView
+        android:id="@+id/tv_left_menu_settings"
+        android:layout_width="0dp"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:padding="5dp"
+        android:background="@color/general_dark_gray"
+        android:drawableLeft="@drawable/ic_settings_cog"
+        android:layout_margin="5dp"
+        android:layout_height="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:text="Налады"/>
 </android.support.constraint.ConstraintLayout>

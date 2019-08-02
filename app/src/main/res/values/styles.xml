@@ -17,4 +17,11 @@
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowFullscreen">false</item>
     </style>
+
+    <style name="AppTheme.DialogButton">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+        <item name="android:textColor">@color/general_blue</item>
+        <item name="android:textSize">@dimen/dialog_button_text</item>
+    </style>
 </resources>

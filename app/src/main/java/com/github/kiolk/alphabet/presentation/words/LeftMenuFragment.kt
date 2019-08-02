@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Switch
+import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
 import butterknife.OnCheckedChanged
+import butterknife.OnClick
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.letter.Letter
 import com.github.kiolk.alphabet.presentation.words.adapter.alphabet.AlphabetAdapter
@@ -20,6 +22,9 @@ class LeftMenuFragment : Fragment() {
 
     @BindView(R.id.rw_left_menu_alphabet)
     lateinit var rwAlphabet : RecyclerView
+
+    @BindView(R.id.tv_left_menu_settings)
+    lateinit var btnSettings: TextView
 
     private lateinit var alphabetAdapter : AlphabetAdapter
 
@@ -39,6 +44,11 @@ class LeftMenuFragment : Fragment() {
         rwAlphabet.layoutManager = layout
         rwAlphabet.addItemDecoration(AlphabetDecoration())
         rwAlphabet.adapter = alphabetAdapter
+    }
+
+    @OnClick(R.id.tv_left_menu_settings)
+    fun onSettingsClick(){
+        (activity as? WordsScreen)?.showSettings()
     }
 
     fun setAlphabet(list : List<Letter>){

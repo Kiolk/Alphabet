@@ -16,6 +16,7 @@ import com.github.kiolk.alphabet.utils.Constants.MIN_WORDS_IN_GAME
 import com.github.kiolk.alphabet.utils.CsvParser
 import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import timber.log.Timber
 import java.io.File
 import javax.inject.Inject
 
@@ -43,7 +44,7 @@ constructor(private val initGameUseCase: InitGameUseCase,
         } else {
             addDisposable(initGameUseCase.execute(InitGameUseCase.Params())
                     .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                    .subscribe(this::initSettings))
+                    .subscribe(this::initSettings, Timber::e))
         }
     }
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/bg_round_white"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="H,1.2:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/rate_picture"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/rate"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/btn_rate_later"
+            style="@style/AppTheme.DialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_horisontal_button_dialog"
+            android:layout_marginLeft="@dimen/margin_horisontal_button_dialog"
+            android:layout_marginBottom="@dimen/margin_bottom_button_dialog"
+            android:text="@string/btn_rate_later"
+            app:layout_constraintBottom_toBottomOf="@+id/rate_picture"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
+        <TextView
+            android:id="@+id/btn_rate_now"
+            style="@style/AppTheme.DialogButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_horisontal_button_dialog"
+            android:layout_marginLeft="@dimen/margin_horisontal_button_dialog"
+            android:layout_marginBottom="@dimen/margin_bottom_button_dialog"
+            android:text="@string/btn_rate_now"
+            app:layout_constraintBottom_toBottomOf="@+id/rate_picture"
+            app:layout_constraintLeft_toRightOf="@+id/btn_rate_later" />
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>

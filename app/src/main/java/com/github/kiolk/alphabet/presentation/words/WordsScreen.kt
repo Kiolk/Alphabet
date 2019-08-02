@@ -37,6 +37,7 @@ import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BaseView
 import com.github.kiolk.alphabet.presentation.common.CharactersLayout
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
+import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
 import com.github.kiolk.alphabet.presentation.game.game.GameController
 import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.presentation.home.HomeController
@@ -211,6 +212,12 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun setStatusBarColor(colorRes: Int) {
         window.statusBarColor = resources.getColor(colorRes)
+    }
+
+    fun showSettings() {
+        router.pushController(RouterTransaction.with(RateDialog())
+                .pushChangeHandler((VerticalChangeHandler()))
+                .popChangeHandler(VerticalChangeHandler()))
     }
 
     companion object {
