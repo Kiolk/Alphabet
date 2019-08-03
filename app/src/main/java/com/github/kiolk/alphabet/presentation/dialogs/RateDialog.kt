@@ -29,4 +29,8 @@ class RateDialog : BaseInfoDialog(Bundle()){
     fun onRateNow() {
         router.popCurrentController()
     }
+
+    companion object {
+        const val TAG = "RateDialog"
+    }
 }

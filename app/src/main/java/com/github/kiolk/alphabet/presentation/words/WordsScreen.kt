@@ -42,6 +42,7 @@ import com.github.kiolk.alphabet.presentation.game.game.GameController
 import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.presentation.home.HomeController
 import com.github.kiolk.alphabet.presentation.main.MainController
+import com.github.kiolk.alphabet.presentation.settings.SettingsController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.CsvParser
@@ -215,9 +216,11 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     fun showSettings() {
-        router.pushController(RouterTransaction.with(RateDialog())
-                .pushChangeHandler((VerticalChangeHandler()))
-                .popChangeHandler(VerticalChangeHandler()))
+        router.popToTag(MainController.TAG)
+        router.pushController(RouterTransaction.with(SettingsController())
+                .pushChangeHandler((FadeChangeHandler()))
+                .popChangeHandler(FadeChangeHandler()).tag(SettingsController.TAG))
+        closeMenu()
     }
 
     companion object {

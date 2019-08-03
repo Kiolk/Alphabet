@@ -9,6 +9,7 @@ import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule
+import com.github.kiolk.alphabet.presentation.settings.about.AboutPresenter
 import dagger.Component
 import javax.inject.Singleton
 
@@ -33,4 +34,8 @@ interface ApplicationComponent {
     fun plusSplashPresenter() : SplashPresenterComponent
 
     fun plusMainPresenter(): MainPresenterComponent
+
+    fun plusSettingsPresenter(): SettingsPresenterComponent
+
+    fun plusAboutPresenter(): AboutPresenterComponent
 }
