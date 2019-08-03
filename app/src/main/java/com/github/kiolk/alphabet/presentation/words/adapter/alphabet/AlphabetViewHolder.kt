@@ -23,15 +23,21 @@ class AlphabetViewHolder(itemView: View, val listener: ((Letter) -> Unit)) : Bas
             listener.invoke(data)
         }
 
+        clContainer.isEnabled = true
+        clContainer.isClickable = true
+        clContainer.isFocusable = true
+
         when (data.completedLevel) {
-            -1f -> clContainer.background = getContext().resources.getDrawable(R.drawable.bg_letter_round_gray)
+            -1f -> {
+                clContainer.isEnabled = false
+                clContainer.isClickable = false
+                clContainer.isFocusable = false
+                clContainer.background = getContext().resources.getDrawable(R.drawable.bg_letter_round_gray)
+                tvLetter.setOnClickListener {  }
+            }
             0f -> clContainer.background = getContext().resources.getDrawable(R.drawable.bg_letter_round_red)
             1f -> clContainer.background = getContext().resources.getDrawable(R.drawable.bg_letter_round_green)
             else -> clContainer.background = getContext().resources.getDrawable(R.drawable.bg_letter_round_yellow)
         }
-
-        clContainer.isEnabled = true
-        clContainer.isClickable = true
-        clContainer.isFocusable = true
     }
 }

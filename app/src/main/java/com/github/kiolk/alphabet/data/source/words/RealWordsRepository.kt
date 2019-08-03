@@ -33,7 +33,7 @@ constructor(@LocalDataSource private val local: WordsDataSource,
     }
 
     override fun selectWords(settings: GameSettings): Flowable<List<Word>> {
-        return local.selectWords(settings)
+        return local.selectWords(settings).map { words -> words.filter { word -> Word.checkDoubleLetter(word, settings) } }
     }
 
     override fun getWordsByTag(query: String): Flowable<List<Word>> {
@@ -41,7 +41,7 @@ constructor(@LocalDataSource private val local: WordsDataSource,
     }
 
     override fun isSettingsAvailable(gameSettings: GameSettings): Flowable<List<Word>> {
-        return local.isSettingsAvailable(gameSettings)
+        return local.isSettingsAvailable(gameSettings).map { words -> words.filter { word -> Word.checkDoubleLetter(word, gameSettings) } }
     }
 
     override fun getAllDbWords(): Flowable<List<Word>> {
@@ -68,7 +68,7 @@ constructor(@LocalDataSource private val local: WordsDataSource,
         return local.getTopicsWithPhoto()
     }
 
-    override fun getTopicWords(topic: Topic): Flowable<List<Word>>{
+    override fun getTopicWords(topic: Topic): Flowable<List<Word>> {
         return local.getTopicWords(topic)
     }
 }
