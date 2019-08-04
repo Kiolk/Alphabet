@@ -15,7 +15,7 @@ constructor(private val context: Context) : UseCase<Unit, RateUseCase.Params> {
         val appPackage = "com.findervest.android"//"com.findervest"// context.packageName
         val uri = Uri.parse("market://details?id=" + appPackage)
         val intent = Intent(Intent.ACTION_VIEW, uri)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY or Intent.FLAG_ACTIVITY_NEW_DOCUMENT or Intent.FLAG_ACTIVITY_MULTIPLE_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         try {
             context.applicationContext.startActivity(intent)
         } catch (ex: ActivityNotFoundException) {

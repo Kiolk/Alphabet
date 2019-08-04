@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.presentation.dialogs
 
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.view.View
 import android.widget.TextView
 import butterknife.BindView
@@ -16,7 +17,7 @@ class RateDialog : BaseInfoDialog(Bundle()){
     override fun onViewBound(view: View) {
         super.onViewBound(view)
 
-        dialog?.let { isCancelable = false }
+        dialog?.let { isCancelable = true }
     }
 
     @OnClick(R.id.btn_rate_now)
