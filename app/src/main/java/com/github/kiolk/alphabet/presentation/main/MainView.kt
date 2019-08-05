@@ -17,5 +17,9 @@ interface MainView: BaseView {
 
     fun setLevelEnd(value: String)
 
-    fun setPorgress(progress: Int)
+    fun setProgress(progress: Int)
+
+    fun setSentence(sentence: String)
+
+    fun setAuthor(author: String)
 }

@@ -41,16 +41,18 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
         viewState.setLevelEnd(levelEnd.toString())
         val stars = model.stars
         viewState.setCurrentStars(stars.toString())
+        viewState.setSentence(model.currentLevel.sentence)
+        viewState.setAuthor(model.currentLevel.author)
 
         var progress = 0
         levelEnd?.let {
 
             try {
                 progress = (((stars - levelStart) / (it - levelStart).toFloat()) * 100).toInt()
-                viewState.setPorgress(progress)
+                viewState.setProgress(progress)
             }catch (ex: Exception){
                 progress = 100
-                viewState.setPorgress(progress)
+                viewState.setProgress(progress)
             }
         }
 

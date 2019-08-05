@@ -23,9 +23,6 @@ class LeftMenuFragment : Fragment() {
     @BindView(R.id.rw_left_menu_alphabet)
     lateinit var rwAlphabet : RecyclerView
 
-    @BindView(R.id.tv_left_menu_settings)
-    lateinit var btnSettings: TextView
-
     private lateinit var alphabetAdapter : AlphabetAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -44,11 +41,6 @@ class LeftMenuFragment : Fragment() {
         rwAlphabet.layoutManager = layout
         rwAlphabet.addItemDecoration(AlphabetDecoration())
         rwAlphabet.adapter = alphabetAdapter
-    }
-
-    @OnClick(R.id.tv_left_menu_settings)
-    fun onSettingsClick(){
-        (activity as? WordsScreen)?.showSettings()
     }
 
     fun setAlphabet(list : List<Letter>){

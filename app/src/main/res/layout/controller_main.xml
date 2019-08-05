@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_main_level_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/margin_setting_icon"
+        android:src="@drawable/ic_settings"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
 
     <TextView
         android:id="@+id/tv_maine_level_title"
         android:layout_width="wrap_content"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="wrap_content"
-        android:textSize="30sp"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
+        android:text="Узровень:"
         android:textColor="@color/general_blue"
-        android:text="Узровень:"/>
+        android:textSize="30sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <com.github.kiolk.alphabet.presentation.views.LevelLebel
         android:id="@+id/ll_main_level_label"
         android:layout_width="200dp"
-        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_height="200dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/tv_main_level_name"
-        app:layout_constraintTop_toBottomOf="@+id/tv_maine_level_title"
-        android:layout_height="200dp"/>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_maine_level_title" />
 
     <TextView
         android:id="@+id/tv_main_level_name"
@@ -35,7 +45,6 @@
         android:layout_height="42dp"
         android:layout_marginTop="60dp"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
-        android:text="Качка"
         android:textAllCaps="true"
         android:textColor="@color/general_red"
         android:textSize="40sp"
@@ -43,40 +52,53 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Качка" />
 
     <com.github.kiolk.alphabet.presentation.views.StyledProgressBar
         android:id="@+id/pb_maine_level_progress"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:layout_marginLeft="44dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="44dp"
         android:clipChildren="true"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginRight="44dp"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_level_name" />
 
     <TextView
+        android:id="@+id/tv_main_level_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:background="@drawable/bg_round_sentence"
+        android:elevation="2dp"
+        android:fontFamily="@font/product_sans_regular"
+        android:gravity="center"
+        android:paddingLeft="12dp"
+        android:paddingTop="20dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="20dp"
+        android:textColor="@color/general_blue"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pb_maine_level_progress"
-        android:id="@+id/tv_main_level_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="32sp"
-        android:gravity="center"
-        android:fontFamily="@font/proxima_nowa_extra_condensed"
-        android:text="Мой родны кут, як ты мне мілы!..
-Забыць цябе не маю сілы!"/>
+        tools:text="Мой родны кут, як ты мне мілы!..
+Забыць цябе не маю сілы!" />
 
     <TextView
+        android:id="@+id/tv_main_level_author"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/product_sans_regular"
+        android:textColor="@color/gray_text"
+        android:textSize="18sp"
         app:layout_constraintRight_toRightOf="@id/tv_main_level_description"
         app:layout_constraintTop_toBottomOf="@+id/tv_main_level_description"
-        android:layout_marginTop="20dp"
-        android:textSize="24sp"
-        android:text="Якуб Колас"/>
+        tools:text="Якуб Колас" />
 </android.support.constraint.ConstraintLayout>

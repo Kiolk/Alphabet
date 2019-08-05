@@ -21,13 +21,14 @@ class RateDialog : BaseInfoDialog(Bundle()){
     }
 
     @OnClick(R.id.btn_rate_now)
-    fun onRateLate() {
+    fun onRateNow() {
         val rateUseCase = activity?.baseContext?.let { RateUseCase(it) }
         rateUseCase?.execute(RateUseCase.Params())
+        router.popCurrentController()
     }
 
     @OnClick(R.id.btn_rate_later)
-    fun onRateNow() {
+    fun onRateLate() {
         router.popCurrentController()
     }
 

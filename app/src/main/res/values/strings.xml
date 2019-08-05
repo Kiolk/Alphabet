@@ -20,4 +20,10 @@
     <!-- controller_rate_dialog -->
     <string name="btn_rate_later">Пазней</string>
     <string name="btn_rate_now">Ацаніць</string>
+    <string name="rate_dialog_title">Вам падабаецца дадатак?</string>
+    <string name="setting_reset_progress">Скінуць прагрэсс</string>
+    <string name="setting_rate_app">Ацаніць</string>
+    <string name="how_help">Як дапамагчы праекту</string>
+    <string name="setting_about">Пра дадатак</string>
+    <string name="setting_thanks">Падзякі</string>
 </resources>

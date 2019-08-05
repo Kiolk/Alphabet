@@ -1,37 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <Button
+        style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Скінуць прагрэсс"/>
+        android:text="@string/setting_reset_progress" />
 
     <Button
         android:id="@+id/btn_settings_rate"
+        style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Ацаніць"/>
+        android:text="@string/setting_rate_app" />
 
     <Button
+        style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Як дапамагчы праекту"/>
+        android:text="@string/how_help" />
 
     <Button
         android:id="@+id/btn_settings_about"
+        style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Пра дадатак"/>
+        android:text="@string/setting_about" />
 
     <Button
+        style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="Падзякі"/>
+        android:text="@string/setting_thanks" />
 </LinearLayout>
