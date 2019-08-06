@@ -22,4 +22,14 @@ interface MainView: BaseView {
     fun setSentence(sentence: String)
 
     fun setAuthor(author: String)
+
+    @StateStrategyType(AddToEndSingleStrategy::class, tag = GAME_END_TAG)
+    fun showEdnGameLayout()
+
+    @StateStrategyType(AddToEndSingleStrategy::class, tag = GAME_END_TAG)
+    fun hideEndGameLayout()
+
+    companion object{
+        private const val GAME_END_TAG = "GAME_END_TAG"
+    }
 }

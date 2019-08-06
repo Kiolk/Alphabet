@@ -21,7 +21,7 @@ constructor(private val playerRepository: PlayerRepository,
                  val current = levelRepository.getLevel(player.stars)
                  val next = levelRepository.getNextLevel(player.stars)
 
-                 return@flatMapPublisher Flowable.just(LevelViewModel(player.stars, current.needStars, next.needStars, current))}
+                 return@flatMapPublisher Flowable.just(LevelViewModel(player.stars, current.needStars, next.needStars, current, current == next))}
    }
 
    class Params

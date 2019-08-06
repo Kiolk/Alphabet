@@ -33,4 +33,11 @@
         <item name="android:textSize">24sp</item>
         <item name="android:background">@drawable/bg_menu_button</item>
     </style>
+
+    <style name="AppTheme.EndGameButton">
+        <item name="android:textColor">@color/general_blue</item>
+        <item name="android:textSize">@dimen/text_size_end_game_button</item>
+        <item name="android:padding">@dimen/padding_end_gamer_button</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+    </style>
 </resources>

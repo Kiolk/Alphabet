@@ -44,11 +44,15 @@ constructor(private val initGameUseCase: InitGameUseCase,
         } else {
             addDisposable(initGameUseCase.execute(InitGameUseCase.Params())
                     .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                    .subscribe(this::initSettings, Timber::e))
+                    .subscribe(this::initSettings, this::initSettingError))
         }
     }
 
-    fun initSettings() {
+    private fun initSettingError(throwable: Throwable){
+        Timber.e(throwable)
+    }
+
+    private fun initSettings() {
         allSettings = mutableListOf()
         availableSettings = mutableListOf()
         for (letter in Data.alphabet) {

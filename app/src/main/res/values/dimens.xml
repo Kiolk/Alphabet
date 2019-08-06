@@ -6,4 +6,6 @@
     <dimen name="margin_bottom_button_dialog">14dp</dimen>
     <dimen name="margin_horisontal_button_dialog">26dp</dimen>
     <dimen name="margin_setting_icon">20dp</dimen>
+    <dimen name="text_size_end_game_button">20sp</dimen>
+    <dimen name="padding_end_gamer_button">10dp</dimen>
 </resources>

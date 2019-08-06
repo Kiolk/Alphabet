@@ -1,7 +1,9 @@
 package com.github.kiolk.alphabet.presentation.main
 
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import butterknife.BindView
@@ -30,6 +32,12 @@ class MainController : BaseController, MainView {
 
     @BindView(R.id.tv_main_level_author)
     lateinit var tvAuthor: TextView
+
+    @BindView(R.id.cl_maine_level_final_container)
+    lateinit var endGameLayout: ConstraintLayout
+
+    @BindView(R.id.cl_main_level_base_container)
+    lateinit var maunLayout: ConstraintLayout
 
     constructor() : super()
     constructor(args: Bundle) : super(args)
@@ -72,9 +80,29 @@ class MainController : BaseController, MainView {
         tvAuthor.text = author
     }
 
-    @OnClick(R.id.iv_main_level_setting)
+    override fun showEdnGameLayout() {
+        endGameLayout.visibility = View.VISIBLE
+        maunLayout.visibility = View.GONE
+    }
+
+    override fun hideEndGameLayout() {
+        endGameLayout.visibility = View.GONE
+        maunLayout.visibility = View.VISIBLE
+    }
+
+    @OnClick(R.id.iv_main_level_setting, R.id.iv_main_level_end_setting)
     fun onSettingsPress(){
         (activity as? WordsScreen)?.showSettings()
+    }
+
+    @OnClick(R.id.btn_main_level_restart)
+    fun onRestartPress(){
+
+    }
+
+    @OnClick(R.id.btn_main_level_rate)
+    fun onRatePress(){
+
     }
 
     @ProvidePresenter

@@ -26,4 +26,7 @@
     <string name="how_help">Як дапамагчы праекту</string>
     <string name="setting_about">Пра дадатак</string>
     <string name="setting_thanks">Падзякі</string>
+    <string name="btn_end_game_restart">Пачаць спачатку</string>
+    <string name="btn_end_game_rate">Ацаніць дадатак</string>
+    <string name="text_end_game_congratulations">Віньшуем! Гульня паспяхова пройдзена!</string>
 </resources>

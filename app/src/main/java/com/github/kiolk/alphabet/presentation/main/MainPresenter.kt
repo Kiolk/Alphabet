@@ -29,6 +29,11 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
     }
 
     private fun setPlayerLevel(model: LevelViewModel) {
+        if(model.isGameEnd){
+            viewState.showEdnGameLayout()
+            return
+        }
+
         if(model.stars == 0){
 //            showWelcomeTour()
         }
