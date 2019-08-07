@@ -29,4 +29,5 @@
     <string name="btn_end_game_restart">Пачаць спачатку</string>
     <string name="btn_end_game_rate">Ацаніць дадатак</string>
     <string name="text_end_game_congratulations">Віньшуем! Гульня паспяхова пройдзена!</string>
+    <string name="title_about">Пра дадатак</string>
 </resources>
