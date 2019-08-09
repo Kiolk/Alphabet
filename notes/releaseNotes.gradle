@@ -14,3 +14,11 @@ ext.release_v_1_1 = { ->
             "5. Added and implemented StyledProgressBar."
     return note
 }
+
+ext.release_v_1_2 = { ->
+    def note = "1. Added setting button.\n" +
+            "2. Added setting menu and some screens\n" +
+            "3. Updated bussines logic of application\n" +
+            "4. Refactoreds some layouts"
+    return note
+}
