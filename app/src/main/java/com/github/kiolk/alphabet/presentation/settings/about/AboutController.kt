@@ -11,7 +11,6 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 
-
 class AboutController: BaseController, AboutView {
 
     @BindView(R.id.tv_about_version)

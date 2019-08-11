@@ -8,6 +8,7 @@ import butterknife.BindView
 import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
@@ -15,6 +16,8 @@ import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
 import com.github.kiolk.alphabet.presentation.settings.about.AboutController
+import com.github.kiolk.alphabet.presentation.settings.help.HelpController
+import com.github.kiolk.alphabet.presentation.settings.policy.PolicyController
 
 class SettingsController : BaseController, SettingsView {
 
@@ -39,6 +42,22 @@ class SettingsController : BaseController, SettingsView {
         router.pushController(RouterTransaction.with(AboutController())
                 .pushChangeHandler((FadeChangeHandler()))
                 .popChangeHandler(FadeChangeHandler()).tag(AboutController.TAG))
+    }
+
+    @OnClick(R.id.btn_settings_help)
+    fun onHelpPress(){
+        router.pushController(RouterTransaction.with(HelpController())
+                .popChangeHandler(FadeChangeHandler())
+                .pushChangeHandler(FadeChangeHandler())
+                .tag(HelpController.TAG))
+    }
+
+    @OnClick(R.id.btn_settings_policy)
+    fun onPolicyPress(){
+        router.pushController(RouterTransaction.with(PolicyController())
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler())
+                .tag(PolicyController.TAG))
     }
 
     @ProvidePresenter

@@ -38,4 +38,8 @@ interface ApplicationComponent {
     fun plusSettingsPresenter(): SettingsPresenterComponent
 
     fun plusAboutPresenter(): AboutPresenterComponent
+
+    fun plusHelpPresenter(): HelpPresenterComponent
+
+    fun plusPolicyPresenter(): PolicyPresenterComponent
 }

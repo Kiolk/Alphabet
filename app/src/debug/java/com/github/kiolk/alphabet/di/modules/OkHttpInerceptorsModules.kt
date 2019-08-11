@@ -1,6 +1,5 @@
 package com.github.kiolk.alphabet.di.modules
 
-import com.facebook.stetho.Stetho
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.github.kiolk.alphabet.di.qualifaiers.OkHttpInterceptors
 import com.github.kiolk.alphabet.di.qualifaiers.OkHttpNetworkInterceptor
