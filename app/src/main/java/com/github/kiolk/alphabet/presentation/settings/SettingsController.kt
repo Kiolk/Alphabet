@@ -18,6 +18,8 @@ import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
 import com.github.kiolk.alphabet.presentation.settings.about.AboutController
 import com.github.kiolk.alphabet.presentation.settings.help.HelpController
 import com.github.kiolk.alphabet.presentation.settings.policy.PolicyController
+import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksController
+import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksPresenter
 
 class SettingsController : BaseController, SettingsView {
 
@@ -59,6 +61,15 @@ class SettingsController : BaseController, SettingsView {
                 .popChangeHandler(FadeChangeHandler())
                 .tag(PolicyController.TAG))
     }
+
+    @OnClick(R.id.btn_settings_thanks)
+    fun onThanksPress(){
+        router.pushController(RouterTransaction.with(ThanksController())
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler())
+                .tag(ThanksController.TAG))
+    }
+
 
     @ProvidePresenter
     fun providePresenter(): SettingsPresenter {

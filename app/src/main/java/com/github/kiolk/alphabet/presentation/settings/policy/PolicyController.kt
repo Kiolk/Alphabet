@@ -4,13 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 
-class PolicyController: BaseController {
-
-    private lateinit var presenter: PolicyPresenter
+class PolicyController: BaseController,PolicyView {
+    @InjectPresenter
+    lateinit var presenter: PolicyPresenter
 
     constructor(): super()
     constructor(args: Bundle) : super(args)

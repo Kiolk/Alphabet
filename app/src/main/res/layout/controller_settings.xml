@@ -32,6 +32,7 @@
         android:text="@string/setting_about" />
 
     <Button
+        android:id="@+id/btn_settings_thanks"
         style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
