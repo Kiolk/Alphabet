@@ -6,6 +6,7 @@ import android.content.Context
 import com.github.kiolk.alphabet.data.database.AppDatabase
 import com.github.kiolk.alphabet.data.source.levels.local.LevelDao
 import com.github.kiolk.alphabet.data.source.player.local.PlayerDao
+import com.github.kiolk.alphabet.data.source.settings.local.BackupSettingDao
 import com.github.kiolk.alphabet.data.source.settings.local.SettingsDao
 import com.github.kiolk.alphabet.data.source.words.local.DaoWord
 import com.github.kiolk.alphabet.data.source.words.local.DaoWords
@@ -42,6 +43,10 @@ class DbModule {
     @Singleton
     @Provides
     fun provideLevelDao(database: AppDatabase): LevelDao = database.levelDao()
+
+    @Singleton
+    @Provides
+    fun provideBackupSetting(database: AppDatabase): BackupSettingDao = database.backupDao()
     companion object {
         const val DATABASE_NAME : String = "words.db"
     }

@@ -4,7 +4,7 @@
     package="com.github.kiolk.alphabet">
 
     <application
-            android:name=".ReleaseApp"
+            android:name=".DebugApp"
             tools:replace="android:name">
     </application>
 </manifest>

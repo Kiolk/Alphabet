@@ -31,4 +31,8 @@ constructor(@LocalDataSource private val local : SettingsDataSource) : SettingsR
     override fun getNextAvailableSettings(gameSetting: GameSettings): Single<Pair<GameSettings?, GameSettings?>> {
         return local.getNextAvailableSettings(gameSetting)
     }
+
+    override fun getBackup(): Single<List<GameSettings>> = local.getBackup()
+
+    override fun setBackUp(settings: List<GameSettings>): Completable = local.setBackUp(settings)
 }

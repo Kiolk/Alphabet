@@ -1,6 +1,9 @@
 package com.github.kiolk.alphabet.data.source.settings.local
 
+import android.util.Log
 import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.alphabet.data.models.game.toBackupSettings
+import com.github.kiolk.alphabet.data.models.game.toGameSattings
 import com.github.kiolk.alphabet.data.models.letter.Letter
 import com.github.kiolk.alphabet.data.models.throwables.NoGameSettings
 import com.github.kiolk.alphabet.data.source.settings.SettingsDataSource
@@ -13,7 +16,7 @@ import javax.inject.Inject
 
 class LocalSettingsDataSource
 @Inject
-constructor(private val settingDao: SettingsDao) : SettingsDataSource {
+constructor(private val settingDao: SettingsDao, private val backupDao: BackupSettingDao) : SettingsDataSource {
 
     override fun setSettings(settings: List<GameSettings>): Completable {
         return Completable.create {
@@ -58,6 +61,25 @@ constructor(private val settingDao: SettingsDao) : SettingsDataSource {
 //                }
             }catch (e: Throwable){
                 it.onError(e)
+            }
+        }
+    }
+
+    override fun getBackup(): Single<List<GameSettings>> {
+        return backupDao.getBackupSetting().map { settings ->
+            settings.map { it.toGameSattings() }
+        }
+    }
+
+    override fun setBackUp(settings: List<GameSettings>): Completable {
+        Log.d("MyLogs", settings.size.toString())
+        return Completable.create{
+            try{
+                backupDao.setSettingBackup(settings.map { it.toBackupSettings() })
+                it.onComplete()
+            }catch (ex: Throwable){
+                Log.e("MyLogs", ex.message)
+                it.onError(ex)
             }
         }
     }

@@ -5,6 +5,7 @@ import android.net.Uri
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase
+import com.github.kiolk.alphabet.data.domain.settings.InitSettingsUseCase
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
@@ -28,7 +29,8 @@ constructor(private val initGameUseCase: InitGameUseCase,
             private val wordsRepository: WordsRepository,
             private val settingsRepository: SettingsRepository,
             private val sharedPreferences: SharedPreferences,
-            private val configureLevelsUseCase: ConfigureLevelsUseCase) : BasePresenter<SplashView>() {
+            private val configureLevelsUseCase: ConfigureLevelsUseCase,
+            private val initSettingsUseCase: InitSettingsUseCase) : BasePresenter<SplashView>() {
 
     private var counter = 0
     private lateinit var allSettings: MutableList<GameSettings>
@@ -97,7 +99,7 @@ constructor(private val initGameUseCase: InitGameUseCase,
     }
 
     fun setSettings() {
-        addDisposable(settingsRepository.setSettings(availableSettings)
+        addDisposable(initSettingsUseCase.execute(InitSettingsUseCase.Params(availableSettings))
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
                 .subscribe(this::configuerLevels))
     }

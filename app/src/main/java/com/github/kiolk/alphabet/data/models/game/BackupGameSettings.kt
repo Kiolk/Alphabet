@@ -5,10 +5,10 @@ import android.os.Parcelable
 import com.github.kiolk.alphabet.data.database.converters.ListConverter
 import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "Settings")
+@Entity(tableName = "BackupSettings")
 @TypeConverters(ListConverter::class)
 @Parcelize
-data class GameSettings(
+data class BackupGameSettings(
         @PrimaryKey
         @ColumnInfo(name = "title")
         val title: String,
@@ -33,8 +33,8 @@ data class GameSettings(
         @ColumnInfo(name = "stars")
         var stars: Int) : Parcelable
 
-fun GameSettings.toBackupSettings(): BackupGameSettings {
-    return BackupGameSettings(this.title, this.pictureUrl, this.queryRegex,
-            this.secondQuery, this.thirdQuery, this.numberAskedWords,
-            this.isAvailable, this.isCompleted, this.gameSchema, this.level, this.stars)
+fun BackupGameSettings.toGameSattings(): GameSettings{
+        return GameSettings(this.title, this.pictureUrl, this.queryRegex,
+                this.secondQuery, this.thirdQuery, this.numberAskedWords,
+                this.isAvailable, this.isCompleted, this.gameSchema, this.level, this.stars)
 }
