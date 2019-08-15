@@ -31,4 +31,8 @@
     <string name="text_end_game_congratulations">Віньшуем! Гульня паспяхова пройдзена!</string>
     <string name="title_about">Пра дадатак</string>
     <string name="setting_privacy_policy">Палітыка прыватнасці</string>
+    <string name="confirm_button_dialog">Так</string>
+    <string name="cancel_button_dialog">Адмяніць</string>
+    <string name="reset_dialog_title">Скінуць бягучы прагрэс?</string>
+    <string name="reset_dialog_description">Усе прачытаныя словы, выкананыя тэмы і дасягнутыя узроўні будуць скінуты. Вы пачнеце гульню нанова.</string>
 </resources>

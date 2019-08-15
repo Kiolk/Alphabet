@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <Button
+        android:id="@+id/brn_setting_reset_game"
         style="@style/AppTheme.MenuButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

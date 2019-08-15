@@ -15,6 +15,8 @@ import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
+import com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog
+import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.settings.about.AboutController
 import com.github.kiolk.alphabet.presentation.settings.help.HelpController
 import com.github.kiolk.alphabet.presentation.settings.policy.PolicyController
@@ -70,6 +72,23 @@ class SettingsController : BaseController, SettingsView {
                 .tag(ThanksController.TAG))
     }
 
+    @OnClick(R.id.brn_setting_reset_game)
+    fun onResetClick(){
+        router.pushController((RouterTransaction.with(ResetGameDialog.getInstance {
+            presenter.onResetPress()
+        }))
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler())
+                .tag(ResetGameDialog.TAG))
+    }
+
+    override fun openMainScreen() {
+        router.setRoot(RouterTransaction.with(MainController())
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler())
+                .tag(MainController.TAG))
+
+    }
 
     @ProvidePresenter
     fun providePresenter(): SettingsPresenter {
