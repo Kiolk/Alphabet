@@ -13,6 +13,7 @@ ext.versions = [
 
         stecho         : '1.5.1',
         timber         : '4.7.1',
+        chromeTabs     : '1.1.2',
 ]
 
 ext.libraries = [
@@ -41,5 +42,6 @@ ext.libraries = [
 
         stecho                  : "com.facebook.stetho:stetho-okhttp3:$versions.stecho",
 
-        timber                  : "com.jakewharton.timber:timber:$versions.timber"
+        timber                  : "com.jakewharton.timber:timber:$versions.timber",
+        chromeTabs              : "saschpe.android:customtabs:$versions.chromeTabs"
 ]

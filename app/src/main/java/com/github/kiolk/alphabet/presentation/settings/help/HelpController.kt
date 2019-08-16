@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.presentation.settings.help
 
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
+import com.github.kiolk.alphabet.utils.openUrl
 import kotlinx.android.synthetic.main.controller_help.view.*
 
 class HelpController: BaseController, HelpView {
@@ -29,7 +31,7 @@ class HelpController: BaseController, HelpView {
 
     @OnClick(R.id.ll_help_add)
     fun onAddWordsPress(){
-
+        openUrl("https://github.com/Kiolk/Alphabet/blob/develop/docs/Words.md")
     }
 
     @OnClick(R.id.ll_help_finance)
