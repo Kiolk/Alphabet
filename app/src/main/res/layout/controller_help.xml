@@ -1,6 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_help_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.2" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_help_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8" />
+
+    <LinearLayout
+        android:id="@+id/ll_help_improve"
+        style="@style/AppTheme.HelpButtonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="0dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@+id/ll_help_finance"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_help_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_help_right"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/AppTheme.HelpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_code"
+            android:drawableLeft="@drawable/ic_code"
+            android:text="@string/improve_code_help" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_help_finance"
+        style="@style/AppTheme.HelpButtonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toTopOf="@+id/ll_help_add"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_help_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_help_right"
+        app:layout_constraintTop_toBottomOf="@+id/ll_help_improve">
+
+        <TextView
+            style="@style/AppTheme.HelpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_finance"
+            android:drawableLeft="@drawable/ic_finance"
+            android:text="@string/finance_help" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_help_add"
+        style="@style/AppTheme.HelpButtonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/ll_help_communicate"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_help_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_help_right"
+        app:layout_constraintTop_toBottomOf="@+id/ll_help_finance"
+        app:layout_constraintVertical_chainStyle="packed">
+
+        <TextView
+            style="@style/AppTheme.HelpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_add"
+            android:drawableLeft="@drawable/ic_add"
+            android:text="@string/add_button_help" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_help_communicate"
+        style="@style/AppTheme.HelpButtonLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:orientation="horizontal"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@+id/guideline_help_left"
+        app:layout_constraintRight_toRightOf="@+id/guideline_help_right"
+        app:layout_constraintTop_toBottomOf="@+id/ll_help_add">
+
+        <TextView
+            style="@style/AppTheme.HelpButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_telegram"
+            android:drawableLeft="@drawable/ic_telegram"
+            android:text="@string/communicate_button_help" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

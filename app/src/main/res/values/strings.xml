@@ -35,4 +35,10 @@
     <string name="cancel_button_dialog">Адмяніць</string>
     <string name="reset_dialog_title">Скінуць бягучы прагрэс?</string>
     <string name="reset_dialog_description">Усе прачытаныя словы, выкананыя тэмы і дасягнутыя узроўні будуць скінуты. Вы пачнеце гульню нанова.</string>
+
+    <!-- controller_help_dialog  -->
+    <string name="improve_code_help">Палепшыць код</string>
+    <string name="finance_help">Падтрымаць</string>
+    <string name="add_button_help">Дадаць новыя словы</string>
+    <string name="communicate_button_help">Звязацца з намі</string>
 </resources>

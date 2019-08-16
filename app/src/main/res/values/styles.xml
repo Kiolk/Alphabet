@@ -40,4 +40,26 @@
         <item name="android:padding">@dimen/padding_end_gamer_button</item>
         <item name="android:fontFamily">@font/product_sans_regular</item>
     </style>
+
+    <style name="AppTheme.HelpButton">
+        <item name="android:drawablePadding">10dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:fontFamily">@font/product_sans_regular</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:layout_marginStart">10dp</item>
+    </style>
+
+    <style name="AppTheme.HelpButtonLayout">
+        <item name="android:background">@drawable/bg_big_round_white</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:layout_marginTop">40dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingTop">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:paddingStart">16dp</item>
+        <item name="android:stateListAnimator">@animator/button_elevation</item>
+    </style>
 </resources>
