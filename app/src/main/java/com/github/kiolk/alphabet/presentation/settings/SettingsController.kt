@@ -59,7 +59,7 @@ class SettingsController : BaseController, SettingsView {
 
     @OnClick(R.id.btn_settings_policy)
     fun onPolicyPress(){
-        openUrl("d")
+        openUrl("https://github.com/Kiolk/Alphabet/blob/develop/docs/PrivacyPolicyEn.md")
 //        router.pushController(RouterTransaction.with(PolicyController())
 //                .pushChangeHandler(FadeChangeHandler())
 //                .popChangeHandler(FadeChangeHandler())
