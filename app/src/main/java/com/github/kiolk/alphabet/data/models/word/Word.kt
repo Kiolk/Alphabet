@@ -1,6 +1,9 @@
 package com.github.kiolk.alphabet.data.models.word
 
-import android.arch.persistence.room.*
+import android.arch.persistence.room.ColumnInfo
+import android.arch.persistence.room.Entity
+import android.arch.persistence.room.PrimaryKey
+import android.arch.persistence.room.TypeConverters
 import android.os.Parcelable
 import com.github.kiolk.alphabet.data.database.converters.ListConverter
 import com.github.kiolk.alphabet.data.models.game.GameSettings
@@ -21,7 +24,9 @@ data class Word(
         @ColumnInfo(name = TAGS)
         val tags: String,
         @ColumnInfo(name = "read")
-        var read: Int = 0) : Parcelable {
+        var read: Int = 0,
+        @ColumnInfo(name = "author")
+        val author: String = "") : Parcelable {
     companion object {
         const val WORD_MEAN: String = "word_mean"
         const val TAGS: String = "tags"

@@ -22,6 +22,7 @@ import com.github.kiolk.alphabet.presentation.settings.help.HelpController
 import com.github.kiolk.alphabet.presentation.settings.policy.PolicyController
 import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksController
 import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksPresenter
+import com.github.kiolk.alphabet.utils.openUrl
 
 class SettingsController : BaseController, SettingsView {
 
@@ -58,10 +59,11 @@ class SettingsController : BaseController, SettingsView {
 
     @OnClick(R.id.btn_settings_policy)
     fun onPolicyPress(){
-        router.pushController(RouterTransaction.with(PolicyController())
-                .pushChangeHandler(FadeChangeHandler())
-                .popChangeHandler(FadeChangeHandler())
-                .tag(PolicyController.TAG))
+        openUrl("d")
+//        router.pushController(RouterTransaction.with(PolicyController())
+//                .pushChangeHandler(FadeChangeHandler())
+//                .popChangeHandler(FadeChangeHandler())
+//                .tag(PolicyController.TAG))
     }
 
     @OnClick(R.id.btn_settings_thanks)

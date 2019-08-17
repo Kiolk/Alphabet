@@ -16,6 +16,7 @@ import saschpe.android.customtabs.CustomTabsHelper
 import saschpe.android.customtabs.WebViewFallback
 import timber.log.Timber
 import java.io.NotActiveException
+import java.lang.StringBuilder
 import java.util.*
 import java.util.regex.Pattern
 
@@ -83,4 +84,10 @@ fun Controller.sendEmail(email: String){
     intent.putExtra(Intent.EXTRA_TEXT, "")
 
     activity?.startActivity(Intent.createChooser(intent, "Даслаць ліст"))
+}
+
+fun List<String>.toContentString(): String{
+    val stringBundleBuilder = StringBuilder()
+    forEach { if(it.isNotEmpty() && it.isNotBlank()) stringBundleBuilder.append(it).append(", ") }
+    return stringBundleBuilder.substring(0 , stringBundleBuilder.length - 2).toString()
 }

@@ -10,8 +10,10 @@ data class RemoteWord(
         @SerializedName("image")
         val image: String,
         @SerializedName("tag")
-        val tag: String)
+        val tag: String,
+        @SerializedName("image_author")
+        val author: String?)
 
-fun RemoteWord.toWord(): Word{
-        return Word(value, syllables, image, tag)
+fun RemoteWord.toWord(): Word {
+    return Word(value, syllables, image, tag, 0, author ?: "")
 }

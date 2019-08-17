@@ -45,4 +45,7 @@
     <!-- controller_about.xml  -->
     <string name="develop_title_about">Распрацоўка:</string>
     <string name="design_title_about">Дызайн:</string>
+
+    <!-- controller_thanks.xml  -->
+    <string name="author_title_thanks">У дадатку выкарыстоўваюцца матэр\'ялы:</string>
 </resources>
