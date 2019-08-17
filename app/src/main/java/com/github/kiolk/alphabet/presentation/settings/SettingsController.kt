@@ -50,6 +50,7 @@ class SettingsController : BaseController, SettingsView {
     }
 
     @OnClick(R.id.btn_settings_help)
+
     fun onHelpPress(){
         router.pushController(RouterTransaction.with(HelpController())
                 .popChangeHandler(FadeChangeHandler())
