@@ -41,4 +41,8 @@
     <string name="finance_help">Падтрымаць</string>
     <string name="add_button_help">Дадаць новыя словы</string>
     <string name="communicate_button_help">Звязацца з намі</string>
+
+    <!-- controller_about.xml  -->
+    <string name="develop_title_about">Распрацоўка:</string>
+    <string name="design_title_about">Дызайн:</string>
 </resources>

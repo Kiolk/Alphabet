@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.utils
 
 import android.content.Context
+import android.content.Intent
 import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.graphics.Point
@@ -72,4 +73,14 @@ fun Context.openUrl(url: String) {
     } catch (ex: NotActiveException) {
         Timber.e(ex)
     }
+}
+
+fun Controller.sendEmail(email: String){
+    val intent = Intent(Intent.ACTION_SEND)
+    intent.type = "plain/text"
+    intent.putExtra(Intent.EXTRA_EMAIL, arrayOf(email))
+    intent.putExtra(Intent.EXTRA_SUBJECT, "")
+    intent.putExtra(Intent.EXTRA_TEXT, "")
+
+    activity?.startActivity(Intent.createChooser(intent, "Даслаць ліст"))
 }

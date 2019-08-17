@@ -6,10 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import butterknife.BindView
+import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
+import com.github.kiolk.alphabet.utils.openUrl
+import com.github.kiolk.alphabet.utils.sendEmail
 
 class AboutController: BaseController, AboutView {
 
@@ -27,6 +30,21 @@ class AboutController: BaseController, AboutView {
 
     override fun setAppVersion(version: String) {
         tvVersion.text = version
+    }
+
+    @OnClick(R.id.tv_developer_mail_about)
+    fun onDeveloperEmailPress(){
+        sendEmail("tyteishi@gmail.com")
+    }
+
+    @OnClick(R.id.tv_designer_first_link_about)
+    fun onDesignerFirstLinkOpen(){
+        openUrl("t.me/kravets")
+    }
+
+    @OnClick(R.id.tv_designer_second_link_about)
+    fun onDesignerSecondLinkOpen(){
+        openUrl("behance.net/ikravets")
     }
 
     @ProvidePresenter
