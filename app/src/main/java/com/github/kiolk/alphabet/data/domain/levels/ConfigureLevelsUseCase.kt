@@ -26,7 +26,7 @@ constructor(private val settingsRepository: SettingsRepository,
 
                     val configureLevels = mutableListOf<LevelType>()
                     LevelTypes.values().forEach { level ->
-                        var item = LevelType(level.level.image, level.name, counter, level.sentence, level.author)
+                        var item = LevelType(level.level.image, level.level.title, counter, level.sentence, level.author)
                         counter += gamePerLevel
 
                         if (lastLevel == level) {

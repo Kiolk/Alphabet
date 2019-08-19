@@ -156,7 +156,6 @@ constructor(private val result: GameResult,
                 .subscribe())
 
         if (level != null) {
-            rateUseCase.execute(RateUseCase.Params())
             viewState.showCompleteLevelDialog(level)
         }
     }

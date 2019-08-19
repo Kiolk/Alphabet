@@ -36,7 +36,7 @@ class CompleteTopicDialog: BaseInfoDialog {
 
         val topic = args.getParcelable(BUNDLE_TOPIC) as Topic
 
-        tvDescription.text =resources?.getString(R.string.complete_level_template, "Tets")
+        tvDescription.text =resources?.getString(R.string.complete_level_template, topic.title)
 
         Glide.with(ivTopicImage)
                 .load(topic.picture)
@@ -45,7 +45,6 @@ class CompleteTopicDialog: BaseInfoDialog {
 
     @OnClick(R.id.btn_complete_topic)
     fun onOkPress(){
-        Log.d("MyLogs", "Calls on press")
         router.popCurrentController()
     }
 
