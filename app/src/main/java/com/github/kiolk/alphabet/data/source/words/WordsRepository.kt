@@ -38,4 +38,6 @@ interface WordsRepository {
     fun getTopicsWithPhoto(): Flowable<List<TopicWithPhoto>>
 
     fun getTopicWords(topic: Topic): Flowable<List<Word>>
+
+    fun getRundomWordByLetter(letter: String): Single<Word>
 }

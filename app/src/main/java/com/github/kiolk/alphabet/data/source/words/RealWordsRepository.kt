@@ -12,13 +12,14 @@ import com.github.kiolk.alphabet.di.qualifaiers.RemoteDataSource
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
-import org.intellij.lang.annotations.Flow
 import javax.inject.Inject
 
 class RealWordsRepository
 @Inject
 constructor(@LocalDataSource private val local: WordsDataSource,
             @RemoteDataSource private val remote: WordsDataSource) : WordsRepository {
+
+    private var wordsCache: List<Word>? = null
 
     override fun getWordsSet(title: String): Flowable<List<String>> {
         return local.getWordsSet(title)
@@ -70,5 +71,27 @@ constructor(@LocalDataSource private val local: WordsDataSource,
 
     override fun getTopicWords(topic: Topic): Flowable<List<Word>> {
         return local.getTopicWords(topic)
+    }
+
+    override fun getRundomWordByLetter(letter: String): Single<Word> {
+        if (wordsCache == null) {
+            return local.getAllDbWords()
+                    .map { words ->
+                        wordsCache = words
+                        Single.just(getRandomWord(letter))
+                    }
+                    .blockingFirst()
+        }
+
+        return Single.just(getRandomWord(letter))
+    }
+
+    private fun getRandomWord(letter: String): Word {
+        var filteredWords = wordsCache?.filter { word -> word.value.first().toString() == letter && word.value.length <= 6 }
+        if (filteredWords != null && filteredWords.isEmpty()) {
+            filteredWords = wordsCache?.filter { word -> word.value.contains(letter) && word.value.length <= 6 }
+        }
+
+        return filteredWords?.random() ?: Word("Буквар", "Бук-вар", "", "")
     }
 }

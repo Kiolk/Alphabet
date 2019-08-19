@@ -51,12 +51,12 @@
         android:layout_marginTop="20dp"
         android:elevation="4dp"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
-        tools:text="A"
         android:textColor="@color/general_blue"
         android:textSize="120sp"
         app:layout_constraintLeft_toLeftOf="@id/guideline_home_left"
         app:layout_constraintRight_toRightOf="@id/guideline_home_right"
-        app:layout_constraintTop_toTopOf="@id/guideline_home_top" />
+        app:layout_constraintTop_toTopOf="@id/guideline_home_top"
+        tools:text="A" />
 
     <ImageView
         android:id="@+id/iv_home_image"
@@ -64,24 +64,27 @@
         android:layout_height="0dp"
         android:layout_margin="20dp"
         android:elevation="4dp"
-        tools:src="@drawable/ic_gray_star"
         app:layout_constraintBottom_toTopOf="@+id/tv_home_example_word"
         app:layout_constraintLeft_toLeftOf="@id/guideline_home_left"
         app:layout_constraintRight_toRightOf="@id/guideline_home_right"
-        app:layout_constraintTop_toBottomOf="@+id/tv_home_letter_title" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_home_letter_title"
+        tools:src="@drawable/ic_gray_star" />
 
     <TextView
         android:id="@+id/tv_home_example_word"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp"
         android:elevation="4dp"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
-        tools:text="Zorka"
+        android:gravity="center"
         android:textColor="@color/general_orange"
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="@+id/guideline_home_bottom"
         app:layout_constraintLeft_toLeftOf="@+id/guideline_home_left"
-        app:layout_constraintRight_toRightOf="@+id/guideline_home_right" />
+        app:layout_constraintRight_toRightOf="@+id/guideline_home_right"
+        tools:text="Zorka" />
 
 </android.support.constraint.ConstraintLayout>

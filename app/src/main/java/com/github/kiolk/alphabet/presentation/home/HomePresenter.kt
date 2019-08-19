@@ -2,21 +2,33 @@ package com.github.kiolk.alphabet.presentation.home
 
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
+import com.github.kiolk.alphabet.data.domain.words.GetRandomWordUseCase
 import com.github.kiolk.alphabet.data.models.letter.Letter
+import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
+import com.github.kiolk.alphabet.utils.RxSchedulerProvider
 import com.github.kiolk.alphabet.utils.selectLetter
+import timber.log.Timber
 import javax.inject.Inject
 
 @InjectViewState
 class HomePresenter
 @Inject
-constructor(private val letter : Letter): BasePresenter<HomeView>() {
+constructor(private val letter : Letter,
+            private val rxSchedulerProvider: RxSchedulerProvider,
+            private val getRandomWordUseCase: GetRandomWordUseCase): BasePresenter<HomeView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
+        addDisposable(getRandomWordUseCase.execute(GetRandomWordUseCase.Params(letter.letter))
+                .compose(rxSchedulerProvider.getIoToMainTransformerSingle())
+                .subscribe(this::onGetLetterSuccess, Timber::e))
+    }
+
+    private fun onGetLetterSuccess(word: Word){
         viewState.setTitle(letter.letter)
-        viewState.setLetterImage("https://avatars.mds.yandex.net/get-pdb/1662775/e8d48978-4d45-450d-ba01-635328d96340/s1200?webp=false")//(letter.image)
-        viewState.setExample(selectLetter(letter.letterWord.toLowerCase(), letter.letterValue))
+        viewState.setLetterImage(word.image)
+        viewState.setExample(selectLetter(word.value.toLowerCase(), letter.letterValue))
     }
 
     override fun attachView(view: HomeView?) {

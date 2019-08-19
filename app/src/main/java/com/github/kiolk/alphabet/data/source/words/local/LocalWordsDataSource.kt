@@ -58,7 +58,7 @@ constructor(private val dao : DaoWords,
     }
 
     override fun getAllDbWords(): Flowable<List<Word>> {
-        throw UnsupportedOperationException()
+        return wordDao.getAllWords() //throw UnsupportedOperationException()
     }
 
     override fun updateWord(word: Word): Completable {

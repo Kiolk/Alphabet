@@ -6,7 +6,6 @@ import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
 import com.github.kiolk.alphabet.data.models.level.LevelViewModel
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
-import java.lang.Exception
 import javax.inject.Inject
 
 @InjectViewState

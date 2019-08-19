@@ -44,7 +44,7 @@ class HomeController : BaseController, HomeView {
     }
 
     override fun setExample(spannable: SpannableStringBuilder) {
-        tvExampleWord.setText(spannable)
+        tvExampleWord.text = spannable
     }
 
     override fun setLetterImage(source: String) {
