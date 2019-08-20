@@ -130,7 +130,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     override fun onStartTopic(gameResult: GameResult) {
-        router.getControllerWithTag(GamePreviewController.TAG)?.let { router.popController(it) }
+        router.getControllerWithTag(GameController.TAG)?.let { router.popController(it) }
         router.pushController(RouterTransaction.with(GameController(gameResult))
                 .popChangeHandler(FadeChangeHandler())
                 .pushChangeHandler(FadeChangeHandler()).tag(GameController.TAG))
@@ -146,6 +146,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
     }
 
     override fun setSelectedLetter(letter: Letter) {
+        router.popToTag(MainController.TAG)
         router.setRoot(RouterTransaction.with(HomeController(letter))
                 .popChangeHandler(FadeChangeHandler())
                 .pushChangeHandler(FadeChangeHandler()))
