@@ -129,10 +129,11 @@ class StyledProgressBar : ConstraintLayout {
 
         if(progress == 100){
             tvInitialValue.setTextColor(resources.getColor(R.color.general_transparent_text_white))
-            vForeground.background = resources.getDrawable(foregroundRes)
+            vForeground.background = resources.getDrawable(foregroundFinal)
+            vBackground.background = resources.getDrawable(foregroundFinal)
         }else{
             tvInitialValue.setTextColor(resources.getColor(R.color.general_white))
-            vForeground.background = resources.getDrawable(foregroundFinal)
+            vForeground.background = resources.getDrawable(foregroundRes)
         }
 
         return Math.max(progressWidth.toInt(), currentMinWidth)
