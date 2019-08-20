@@ -3,6 +3,7 @@ package com.github.kiolk.alphabet.presentation.words
 import android.content.Context
 import android.util.Log
 import com.arellomobile.mvp.InjectViewState
+import com.crashlytics.android.Crashlytics
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase
 import com.github.kiolk.alphabet.data.domain.UpdateWordsFromFile

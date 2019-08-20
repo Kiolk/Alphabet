@@ -45,7 +45,13 @@ constructor(@LocalDataSource private val local: WordsDataSource,
         return local.isSettingsAvailable(gameSettings).map { words -> words.filter { word -> Word.checkDoubleLetter(word, gameSettings) } }
     }
 
-    override fun getAllDbWords(): Flowable<List<Word>> {
+    override fun getAllDbWords(forceUpdate: Boolean): Flowable<List<Word>> {
+//        return if(forceUpdate){
+//            remote.getAllDbWords()
+//        }else{
+//            local.getAllDbWords()
+//        }
+
         return remote.getAllDbWords()
     }
 

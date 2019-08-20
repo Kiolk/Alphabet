@@ -1,6 +1,7 @@
 package com.github.kiolk.alphabet.presentation.words.adapter.topic
 
 import android.text.InputType
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.ProgressBar
@@ -32,7 +33,7 @@ class TopicViewHolder(itemView: View, val listener: (Topic) -> Unit): BaseViewHo
         val title = "${data.title} ${data.read}/${data.total}"
         tvTopicTitle.inputType = InputType.TYPE_TEXT_FLAG_CAP_WORDS
         tvTopicTitle.text = title
-
+        Log.d("MyLogs", data.toString())
         pbProgressTopic.setHeight(30.toPx)
         pbProgressTopic.setBaseBackground(R.drawable.bg_progress_square_background)
         pbProgressTopic.setBaseForeground(R.drawable.bg_progress_square_foreground)

@@ -25,7 +25,7 @@ interface WordsRepository {
 
     fun isSettingsAvailable(gameSettings: GameSettings): Flowable<List<Word>>
 
-    fun getAllDbWords(): Flowable<List<Word>>
+    fun getAllDbWords(forceUpdate: Boolean = true): Flowable<List<Word>>
 
     fun updateWord(word: Word): Completable
 

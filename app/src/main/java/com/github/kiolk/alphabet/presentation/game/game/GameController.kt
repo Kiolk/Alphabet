@@ -191,10 +191,6 @@ class GameController : BaseController, GameView {
                 if(isGame){
                     presenter.onCloseGameClick()
                 }
-//                else{
-////                    presenter.onCloseDialog()
-//                    presenter.onCloseGameClick()
-//                }
             }
 
             router.pushController(RouterTransaction.with(dialog)

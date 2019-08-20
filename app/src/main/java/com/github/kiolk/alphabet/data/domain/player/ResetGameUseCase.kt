@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.data.domain.player
 
+import android.util.Log
 import com.github.kiolk.alphabet.data.domain.UseCase
 import com.github.kiolk.alphabet.data.models.player.Player
 import com.github.kiolk.alphabet.data.source.player.PlayerRepository
@@ -19,7 +20,13 @@ constructor(private val wordsRepository: WordsRepository,
         return wordsRepository.getAllDbWords()
                 .take(1)
                 .map { words ->
-                    words.forEach { word -> word.read = 0 }
+                    Log.d("MyLogs", words.toString())
+                    var counter = 0
+                    words.forEach { word -> word.read = 0
+                    counter++
+                    Log.d("MyLogs", counter.toString())
+                    }
+                    Log.d("MyLogs", words.toString())
                     return@map words
                 }
                 .flatMapCompletable { words ->
