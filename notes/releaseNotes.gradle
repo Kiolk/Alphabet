@@ -22,3 +22,11 @@ ext.release_v_1_2 = { ->
             "4. Refactoreds some layouts"
     return note
 }
+
+ext.release_v_1_3 = { ->
+    def note = "1. Updated settings layouts and logic.\n" +
+            "2. Added restart game logic\n" +
+            "3. Added logic for show random letter word\n" +
+            "4. Disable hardcoded words"
+    return note
+}

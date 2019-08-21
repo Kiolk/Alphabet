@@ -146,7 +146,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/proxima_nowa_extra_condensed"
         android:gravity="center"
-        android:text="Туту будзе інфармацыя пра дадатак"
+        tools:text="Туту будзе інфармацыя пра дадатак"
         android:textColor="@color/general_black"
         android:textSize="26sp"
         app:layout_constraintBottom_toBottomOf="parent"
