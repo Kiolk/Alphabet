@@ -82,7 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:visibility="visible"
-        tools:visibility="gone">
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/iv_main_level_setting"
@@ -118,20 +118,25 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tv_maine_level_title" />
 
+        <android.support.constraint.Guideline
+            android:id="@+id/guideline_word_center"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.45"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
         <TextView
             android:id="@+id/tv_main_level_name"
             android:layout_width="wrap_content"
             android:layout_height="42dp"
-            android:layout_marginTop="60dp"
             android:fontFamily="@font/proxima_nowa_extra_condensed"
             android:textAllCaps="true"
             android:textColor="@color/general_red"
             android:textSize="40sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline_word_center"
             tools:text="Качка" />
 
         <com.github.kiolk.alphabet.presentation.views.StyledProgressBar

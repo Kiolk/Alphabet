@@ -69,9 +69,9 @@ android {
             signingConfig signingConfigs.qa
 
 //            ext.betaDistributionReleaseNotes = "\"${formReleaseNote}\""
-            ext.betaDistributionReleaseNotes = "\"${release_v_1_2}\""
+            ext.betaDistributionReleaseNotes = "\"${release_v_1_3}\""
             ext.betaDistributionEmails = "tyteishi@gmail.com"
-            ext.betaDistributionGroupAliases = "Alphabet-Dev-Team"
+            ext.betaDistributionGroupAliases = "Alphabet-Dev-Team, Alphabet-Qa-Team"
         }
 
         prod{

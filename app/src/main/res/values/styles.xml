@@ -8,6 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AppTheme.SplashTheme">
+        <item name="android:windowBackground">@drawable/bg_splash</item>
+        <item name="android:statusBarColor">@color/general_white</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    
     <style name="AppTheme.Dialog">
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="android:background">@null</item>

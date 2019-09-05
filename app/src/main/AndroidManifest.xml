@@ -19,10 +19,10 @@
         <activity android:name="com.github.kiolk.alphabet.MainActivity">
         </activity>
         <activity android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen"/>
-        <activity android:name="com.github.kiolk.alphabet.presentation.splash.SplashController">
+        <activity android:name="com.github.kiolk.alphabet.presentation.splash.SplashController"
+            android:theme="@style/AppTheme.SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
