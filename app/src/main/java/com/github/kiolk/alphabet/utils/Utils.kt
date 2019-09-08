@@ -14,4 +14,7 @@ object Constants{
     const val MIN_WORDS_IN_GAME = 5
     const val MAX_WORDS_IN_GAME = 10
     const val ALPHABET_TELEGRAM = "https://telegram.me/YauhenSlizh"
+    const val ADD_WORDS_LINK = "https://github.com/Kiolk/Alphabet/blob/develop/docs/Words.md"
+    const val FINANCE_HELP_LINK = "https://github.com/Kiolk/Alphabet/blob/develop/docs/FinanceHelp.md"
+    const val IMPROVE_CODE_LINK = "https://github.com/Kiolk/Alphabet/blob/develop/docs/ImproveCode.md"
 }

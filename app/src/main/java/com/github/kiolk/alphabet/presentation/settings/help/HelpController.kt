@@ -39,17 +39,17 @@ class HelpController: BaseController, HelpView {
 
     @OnClick(R.id.ll_help_add)
     fun onAddWordsPress(){
-        openUrl("https://github.com/Kiolk/Alphabet/blob/develop/docs/Words.md")
+        openUrl(Constants.ADD_WORDS_LINK)
     }
 
     @OnClick(R.id.ll_help_finance)
     fun onFinancePress(){
-        openUrl("https://github.com/Kiolk/Alphabet/blob/develop/docs/FinanceHelp.md")
+        openUrl(Constants.FINANCE_HELP_LINK)
     }
 
     @OnClick(R.id.ll_help_improve)
     fun onImprovePress(){
-        openUrl("https://github.com/Kiolk/Alphabet/blob/develop/docs/ImproveCode.md")
+        openUrl(Constants.IMPROVE_CODE_LINK)
     }
 
     @ProvidePresenter
