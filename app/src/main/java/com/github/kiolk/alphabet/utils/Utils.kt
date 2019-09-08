@@ -13,4 +13,5 @@ fun numberOfStars(correct: Int, total: Int): Int{
 object Constants{
     const val MIN_WORDS_IN_GAME = 5
     const val MAX_WORDS_IN_GAME = 10
+    const val ALPHABET_TELEGRAM = "https://telegram.me/YauhenSlizh"
 }

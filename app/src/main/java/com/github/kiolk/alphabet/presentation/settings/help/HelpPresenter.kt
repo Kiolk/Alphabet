@@ -8,5 +8,7 @@ import javax.inject.Inject
 class HelpPresenter
 @Inject
 constructor(): BasePresenter<HelpView>() {
-
+    fun onCommunicatePress() {
+        viewState.openTelegram()
+    }
 }

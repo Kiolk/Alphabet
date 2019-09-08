@@ -8,4 +8,6 @@ import com.github.kiolk.alphabet.presentation.base.BaseView
 interface AboutView: BaseView {
 
     fun setAppVersion(version: String)
+
+    fun setAppName()
 }

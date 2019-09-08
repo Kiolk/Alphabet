@@ -11,6 +11,7 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
+import com.github.kiolk.alphabet.utils.getContext
 import com.github.kiolk.alphabet.utils.openUrl
 import com.github.kiolk.alphabet.utils.sendEmail
 
@@ -18,6 +19,9 @@ class AboutController: BaseController, AboutView {
 
     @BindView(R.id.tv_about_version)
     lateinit var tvVersion: TextView
+
+    @BindView(R.id.tv_about_title)
+    lateinit var tvAboutTitle: TextView
 
     constructor(): super()
 
@@ -30,6 +34,10 @@ class AboutController: BaseController, AboutView {
 
     override fun setAppVersion(version: String) {
         tvVersion.text = version
+    }
+
+    override fun setAppName() {
+        tvAboutTitle.text = getContext().resources.getString(R.string.app_name)
     }
 
     @OnClick(R.id.tv_developer_mail_about)

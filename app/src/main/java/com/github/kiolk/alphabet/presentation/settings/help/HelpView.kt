@@ -6,5 +6,5 @@ import com.github.kiolk.alphabet.presentation.base.BaseView
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface HelpView: BaseView{
-
+    fun openTelegram()
 }

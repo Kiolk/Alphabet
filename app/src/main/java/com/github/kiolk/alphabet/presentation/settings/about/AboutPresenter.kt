@@ -14,5 +14,6 @@ constructor() : BasePresenter<AboutView>() {
         super.onFirstViewAttach()
 
         viewState.setAppVersion(BuildConfig.VERSION_NAME)
+        viewState.setAppName()
     }
 }
