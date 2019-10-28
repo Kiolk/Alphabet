@@ -41,6 +41,10 @@
     <string name="finance_help">Падтрымаць</string>
     <string name="add_button_help">Дадаць новыя словы</string>
     <string name="communicate_button_help">Звязацца з намі</string>
+    <string name="share_button_help">Падзяліцца з сябрамі</string>
+    <string name="share_subject">Падзяліцца спасылкай з сябрамі</string>
+    <string name="launch_you_app">Усталюй свой лемантар:</string>
+    <string name="choose_how_send">Абяры як даслаць</string>
 
     <!-- controller_about.xml  -->
     <string name="develop_title_about">Распрацоўка:</string>

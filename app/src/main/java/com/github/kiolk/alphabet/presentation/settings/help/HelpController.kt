@@ -4,6 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.support.v7.widget.ActivityChooserView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,8 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.utils.Constants
+import com.github.kiolk.alphabet.utils.getContext
+import com.github.kiolk.alphabet.utils.getString
 import com.github.kiolk.alphabet.utils.openUrl
 import kotlinx.android.synthetic.main.controller_help.view.*
 
@@ -30,6 +33,14 @@ class HelpController: BaseController, HelpView {
     override fun openTelegram() {
         val telegramIntent = Intent(Intent.ACTION_VIEW, Uri.parse(Constants.ALPHABET_TELEGRAM))
         activity?.startActivity(telegramIntent)
+    }
+
+    override fun shareLink(link: String) {
+        val intent = Intent(Intent.ACTION_SEND)
+        intent.type = "text/plaine"
+        intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.share_subject))
+        intent.putExtra(Intent.EXTRA_TEXT, "${getString(R.string.launch_you_app)} $link")
+        startActivity(Intent.createChooser(intent, getString(R.string.choose_how_send)))
     }
 
     @OnClick(R.id.ll_help_communicate)
@@ -50,6 +61,11 @@ class HelpController: BaseController, HelpView {
     @OnClick(R.id.ll_help_improve)
     fun onImprovePress(){
         openUrl(Constants.IMPROVE_CODE_LINK)
+    }
+
+    @OnClick(R.id.ll_help_share)
+    fun onSharePress(){
+        presenter.onSharePress()
     }
 
     @ProvidePresenter

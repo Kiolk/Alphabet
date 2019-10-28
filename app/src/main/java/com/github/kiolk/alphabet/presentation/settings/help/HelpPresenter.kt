@@ -11,4 +11,9 @@ constructor(): BasePresenter<HelpView>() {
     fun onCommunicatePress() {
         viewState.openTelegram()
     }
+
+    fun onSharePress() {
+        //TODO replace on correct link
+        viewState.shareLink("https://play.google.com/store/apps/details?id=com.triposo.droidguide.belarus&hl=en")
+    }
 }
