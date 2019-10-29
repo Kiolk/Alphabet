@@ -105,6 +105,11 @@ class EndGameDialog : BaseInfoDialog {
         router.popController(this)
     }
 
+    @OnClick(R.id.btn_end_game_close)
+    fun onCloseClick(){
+        router.popToRoot()
+    }
+
     @OnClick(R.id.btn_end_game_preview)
     fun onPreviewClick() {
         listener.onPreview()
