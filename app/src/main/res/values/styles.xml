@@ -75,4 +75,13 @@
         <item name="android:layout_marginTop">31dp</item>
         <item name="android:textColor">@color/general_black</item>
     </style>
+
+    <!-- layout_game_indicator.xml -->
+
+    <style name="StarIndicatorStyle">
+        <item name="android:layout_width">@dimen/image_size_star_indicator</item>
+        <item name="android:layout_height">@dimen/image_size_star_indicator</item>
+        <item name="android:layout_marginTop">@dimen/margin_top_star_indicator</item>
+        <item name="android:contentDescription">@string/description_game_indicator_star</item>
+    </style>
 </resources>

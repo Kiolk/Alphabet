@@ -21,6 +21,10 @@ class GameIndicator : LinearLayout {
     private lateinit var tvCounter: TextView
     private lateinit var tvWordLenght: TextView
     private lateinit var ivCorrectIndicator: ImageView
+    private lateinit var ivFirstStar: ImageView
+    private lateinit var ivSecondStar: ImageView
+    private lateinit var ivThirdStar: ImageView
+
 
     constructor(context: Context?) : super(context) {
         init(null)
@@ -52,6 +56,10 @@ class GameIndicator : LinearLayout {
         tvCounter = findViewById(R.id.tv_game_indicator_counter)
         tvWordLenght = findViewById(R.id.tv_game_indicator_word_length)
         ivCorrectIndicator = findViewById(R.id.iv_game_indicator_correct)
+        ivFirstStar = findViewById(R.id.iv_game_indicator_first_star)
+        ivSecondStar = findViewById(R.id.iv_game_indicator_second_star)
+        ivThirdStar = findViewById(R.id.iv_game_indicator_third_star)
+
     }
 
     fun setLtter(letter: String) {
@@ -90,10 +98,10 @@ class GameIndicator : LinearLayout {
     }
 
     fun setCorrect(isCorrect: Boolean) {
-        ivCorrectIndicator.visibility = if (isCorrect) View.VISIBLE else View.GONE
+        ivCorrectIndicator.visibility = if (isCorrect) View.GONE else View.GONE
     }
 
-    fun setGameSchema(schema: GameSchema) {
+    fun setGameSchema(schema: GameSchema, stars: Int) {
 
         setLtter(schema.letterValue)
 
@@ -108,6 +116,27 @@ class GameIndicator : LinearLayout {
 
         if (schema.numberOfLetters > 1) {
             setIndicator(schema.numberOfLetters.toString())
+        }
+
+        ivFirstStar.visibility = View.INVISIBLE
+        ivSecondStar.visibility = View.INVISIBLE
+        ivThirdStar.visibility = View.INVISIBLE
+
+
+        when (stars) {
+            1 -> {
+                ivFirstStar.visibility = View.VISIBLE
+            }
+            2 -> {
+                ivFirstStar.visibility = View.VISIBLE
+                ivSecondStar.visibility = View.VISIBLE
+            }
+            3 -> {
+                ivFirstStar.visibility = View.VISIBLE
+                ivSecondStar.visibility = View.VISIBLE
+                ivThirdStar.visibility = View.VISIBLE
+
+            }
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.github.kiolk.alphabet.presentation.adapters
 
-import android.content.Context
 import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -45,7 +44,7 @@ class TopicAdapter(val topics: List<GameSettings>, val listener: OnItemClickList
         lateinit var clContainer: ConstraintLayout
 
         override fun onBindViewHolder(data: GameSettings) {
-            giTopic.setGameSchema(data.gameSchema)
+            giTopic.setGameSchema(data.gameSchema, data.stars )
 
             if (itemViewType == AVAILABLE) {
                 itemView.setOnClickListener { listener.onItemClick(data) }
