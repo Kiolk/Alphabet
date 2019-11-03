@@ -21,6 +21,7 @@ constructor(private val getAllImageAuthorsUseCase: GetAllImageAuthorsUseCase,
     }
 
     private fun onAuthorsSuccess(authors: List<String>){
+        viewState.hideProgress()
         viewState.showAuthors(authors)
     }
 }

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import butterknife.BindView
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -17,6 +18,9 @@ class ThanksController: BaseController, ThanksView {
     @BindView(R.id.tv_thanks_authors)
     lateinit var authorsView: TextView
 
+    @BindView(R.id.pb_thanks)
+    lateinit var progress: ProgressBar
+
     @InjectPresenter
     lateinit var presenter: ThanksPresenter
 
@@ -27,6 +31,14 @@ class ThanksController: BaseController, ThanksView {
 
     override fun showAuthors(authors: List<String>) {
         authorsView.text = authors.toContentString()
+    }
+
+    override fun showProgress() {
+        progress.visibility = View.VISIBLE
+    }
+
+    override fun hideProgress() {
+        progress.visibility = View.GONE
     }
 
     @ProvidePresenter
