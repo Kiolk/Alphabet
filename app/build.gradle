@@ -12,6 +12,10 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
+def keysPropertiesFile = rootProject.file("keys.properties")
+def keysProperties = new Properties()
+keysProperties.load(new FileInputStream(keysPropertiesFile))
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -41,10 +45,10 @@ android {
         }
 
         prod{
-            storeFile file("../keys/prod.jks")
-            storePassword "asdfREWQ1234"
-            keyAlias "alphabet-prod-key"
-            keyPassword "jkdlf39JHUi09"
+            storeFile file("../keys/prod/prod.jks")
+            storePassword keysProperties["STORE_PASSWORD"]
+            keyAlias keysProperties["STORE_ALIAS"]
+            keyPassword keysProperties["KEY_PRIVATE_PASSWORD"]
         }
     }
 
@@ -121,6 +125,7 @@ task uploadeToCrashlytics{
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 
@@ -170,6 +175,7 @@ dependencies {
     implementation libraries.timber
 
     //chromeTabs
+    //noinspection GradleCompatible
     implementation libraries.chromeTabs
 
     implementation "com.android.support:design:28.0.0"

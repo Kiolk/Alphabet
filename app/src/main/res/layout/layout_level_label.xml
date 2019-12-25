@@ -62,7 +62,8 @@
         android:layout_marginBottom="11dp"
         android:src="@drawable/ic_yellow_star"
         app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"
-        app:layout_constraintRight_toLeftOf="@+id/iv_complete_level_central_star" />
+        app:layout_constraintRight_toLeftOf="@+id/iv_complete_level_central_star"
+        android:layout_marginRight="3dp" />
 
     <ImageView
         android:layout_width="15dp"
@@ -71,5 +72,6 @@
         android:layout_marginBottom="11dp"
         android:src="@drawable/ic_yellow_star"
         app:layout_constraintBottom_toBottomOf="@+id/iv_complete_level_central_star"
-        app:layout_constraintLeft_toRightOf="@+id/iv_complete_level_central_star" />
+        app:layout_constraintLeft_toRightOf="@+id/iv_complete_level_central_star"
+        android:layout_marginLeft="3dp" />
 </android.support.constraint.ConstraintLayout>
