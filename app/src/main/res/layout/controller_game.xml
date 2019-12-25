@@ -105,7 +105,7 @@
         android:id="@+id/iv_word_blur"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_margin="5dp"
+        android:layout_margin="2dp"
         app:layout_constraintLeft_toLeftOf="@+id/tv_game_read_word"
         app:layout_constraintRight_toRightOf="@+id/tv_game_read_word"
         app:layout_constraintTop_toTopOf="@id/tv_game_read_word"

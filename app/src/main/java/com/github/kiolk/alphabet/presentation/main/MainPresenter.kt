@@ -3,28 +3,34 @@ package com.github.kiolk.alphabet.presentation.main
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
+import com.github.kiolk.alphabet.data.domain.player.ResetGameUseCase
 import com.github.kiolk.alphabet.data.models.level.LevelViewModel
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import timber.log.Timber
 import javax.inject.Inject
 
 @InjectViewState
 class MainPresenter
 @Inject
 constructor(private val rxSchedulerProvider: RxSchedulerProvider,
-            private val getCurrentLevelUseCase: GetCurrentLevelUseCase) : BasePresenter<MainView>() {
+            private val getCurrentLevelUseCase: GetCurrentLevelUseCase,
+            private val resetGameUseCase: ResetGameUseCase) : BasePresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
-
         addDisposable(getCurrentLevelUseCase.execute((GetCurrentLevelUseCase.Params()))
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
-                .subscribe(this::setPlayerLevel))
+                .subscribe(this::setPlayerLevel) {setPlayerLevelError()})
     }
 
     override fun attachView(view: MainView?) {
         super.attachView(view)
         viewState.setStatusBarColor(R.color.general_gray)
+    }
+
+    private fun setPlayerLevelError(){
+        viewState.showEdnGameLayout()
     }
 
     private fun setPlayerLevel(model: LevelViewModel) {
@@ -60,5 +66,19 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
             }
         }
 
+    }
+
+    fun onResetPress() {
+        addDisposable(resetGameUseCase.execute(ResetGameUseCase.Params())
+                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                .subscribe(this::onResetSuccess, this::onResetError))
+    }
+
+    private fun onResetSuccess(){
+        viewState.onResetSuccess()
+    }
+
+    private fun onResetError(ex: Throwable){
+        Timber.e(ex)
     }
 }

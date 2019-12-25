@@ -13,7 +13,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="H, 1:1"
-        android:src="@drawable/ic_alphabet_logo"
+        android:src="@drawable/ic_logo_l"
         tools:ignore="ContentDescription"
         android:visibility="invisible"/>
 </android.support.constraint.ConstraintLayout>

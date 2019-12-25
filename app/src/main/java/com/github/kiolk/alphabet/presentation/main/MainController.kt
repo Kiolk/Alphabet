@@ -10,8 +10,12 @@ import butterknife.BindView
 import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.bluelinelabs.conductor.RouterTransaction
+import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
+import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
+import com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog
 import com.github.kiolk.alphabet.presentation.views.LevelLebel
 import com.github.kiolk.alphabet.presentation.views.StyledProgressBar
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
@@ -90,19 +94,33 @@ class MainController : BaseController, MainView {
         maunLayout.visibility = View.VISIBLE
     }
 
+    override fun onResetSuccess() {
+        router.popToRoot()
+        router.pushController(RouterTransaction.with(MainController())
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler()).tag(TAG))
+    }
+
     @OnClick(R.id.iv_main_level_setting, R.id.iv_main_level_end_setting)
-    fun onSettingsPress(){
+    fun onSettingsPress() {
         (activity as? WordsScreen)?.showSettings()
     }
 
     @OnClick(R.id.btn_main_level_restart)
-    fun onRestartPress(){
-
+    fun onRestartPress() {
+        router.pushController((RouterTransaction.with(ResetGameDialog.getInstance {
+            presenter.onResetPress()
+        }))
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler())
+                .tag(ResetGameDialog.TAG))
     }
 
     @OnClick(R.id.btn_main_level_rate)
-    fun onRatePress(){
-
+    fun onRatePress() {
+        router.pushController(RouterTransaction.with(RateDialog())
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler()).tag(RateDialog.TAG))
     }
 
     @ProvidePresenter

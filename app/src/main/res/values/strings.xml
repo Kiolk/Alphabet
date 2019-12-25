@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Alphabet</string>
+    <string name="app_name">Lemantar</string>
 
     <!-- controller_game_result.xml -->
     <string name="title_game_result_congratulations">Перамога</string>
@@ -53,6 +53,7 @@
     <!-- controller_thanks.xml  -->
     <string name="author_title_thanks">У дадатку выкарыстоўваюцца матэр\'ялы:</string>
 
-    <!-- layout)game_indicator.xml -->
+    <!-- layout_game_indicator.xml -->
     <string name="description_game_indicator_star">star</string>
+    <string name="level_title">Узровень:</string>
 </resources>

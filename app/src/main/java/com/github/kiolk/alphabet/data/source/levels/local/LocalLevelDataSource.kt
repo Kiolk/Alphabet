@@ -15,7 +15,7 @@ constructor(private val levelDao: LevelDao): LevelDataSource {
 
     override fun getLevel(stars: Int): LevelType {
         val levels = levelDao.getAllLevel()
-        return levels.lastOrNull{ level ->  stars >= level.needStars} ?: levels.get(0)
+        return levels.lastOrNull{ level ->  stars >= level.needStars} ?: levels[0]
     }
 
     override fun getNextLevel(stars: Int): LevelType {

@@ -23,6 +23,8 @@ interface MainView: BaseView {
 
     fun setAuthor(author: String)
 
+    fun onResetSuccess()
+
     @StateStrategyType(AddToEndSingleStrategy::class, tag = GAME_END_TAG)
     fun showEdnGameLayout()
 

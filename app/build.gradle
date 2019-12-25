@@ -21,6 +21,8 @@ android {
         versionCode 6
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "PRICVACY_POLICY", "\"github.com/Kiolk/Alphabet/blob/develop/docs/PrivacyPolicyEn.md\""
     }
 
     signingConfigs{

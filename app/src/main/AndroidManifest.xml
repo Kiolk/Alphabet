@@ -10,7 +10,7 @@
     <application
         android:name="com.github.kiolk.alphabet.App"
         android:allowBackup="true"
-        android:icon="@drawable/ic_alphabet_logo"
+        android:icon="@drawable/ic_logo_l"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"

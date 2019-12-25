@@ -12,6 +12,7 @@ import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
+import com.github.kiolk.alphabet.BuildConfig
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
@@ -51,7 +52,7 @@ class SettingsController : BaseController, SettingsView {
 
     @OnClick(R.id.btn_settings_help)
 
-    fun onHelpPress(){
+    fun onHelpPress() {
         router.pushController(RouterTransaction.with(HelpController())
                 .popChangeHandler(FadeChangeHandler())
                 .pushChangeHandler(FadeChangeHandler())
@@ -59,16 +60,12 @@ class SettingsController : BaseController, SettingsView {
     }
 
     @OnClick(R.id.btn_settings_policy)
-    fun onPolicyPress(){
-        openUrl("https://github.com/Kiolk/Alphabet/blob/develop/docs/PrivacyPolicyEn.md")
-//        router.pushController(RouterTransaction.with(PolicyController())
-//                .pushChangeHandler(FadeChangeHandler())
-//                .popChangeHandler(FadeChangeHandler())
-//                .tag(PolicyController.TAG))
+    fun onPolicyPress() {
+        openUrl(BuildConfig.PRICVACY_POLICY)
     }
 
     @OnClick(R.id.btn_settings_thanks)
-    fun onThanksPress(){
+    fun onThanksPress() {
         router.pushController(RouterTransaction.with(ThanksController())
                 .pushChangeHandler(FadeChangeHandler())
                 .popChangeHandler(FadeChangeHandler())
@@ -76,7 +73,7 @@ class SettingsController : BaseController, SettingsView {
     }
 
     @OnClick(R.id.brn_setting_reset_game)
-    fun onResetClick(){
+    fun onResetClick() {
         router.pushController((RouterTransaction.with(ResetGameDialog.getInstance {
             presenter.onResetPress()
         }))

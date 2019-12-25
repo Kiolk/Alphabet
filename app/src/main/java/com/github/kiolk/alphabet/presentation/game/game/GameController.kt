@@ -148,10 +148,10 @@ class GameController : BaseController, GameView {
 
     override fun setLetter(letter: String) {
 
-        if(letter.length > 2){
+        if (letter.length > 2) {
             tvLetter.text = letter
             tvLetter.textSize = 16.toPx.toFloat()
-        }else{
+        } else {
             tvLetter.text = letter.toUpperCase()
         }
     }
@@ -176,26 +176,25 @@ class GameController : BaseController, GameView {
     }
 
     override fun startGame(gameResult: GameResult) {
-        router.getControllerWithTag(GameController.TAG)?.let {
-            router.popToTag(GameController.TAG)
+        router.getControllerWithTag(TAG)?.let {
+            router.popToTag(TAG)
             router.pushController(RouterTransaction.with(GameController(gameResult))
                     .pushChangeHandler(FadeChangeHandler())
-                    .popChangeHandler(FadeChangeHandler()).tag(GameController.TAG))
+                    .popChangeHandler(FadeChangeHandler()).tag(TAG))
             router.popController(it)
         }
     }
 
     override fun showCompleteTopicDialog(topic: Topic, isGame: Boolean) {
-            val dialog = CompleteTopicDialog.getInstance(topic){
-                Log.d("MyLogs", "Call too")
-                if(isGame){
-                    presenter.onCloseGameClick()
-                }
+        val dialog = CompleteTopicDialog.getInstance(topic) {
+            if (isGame) {
+                presenter.onCloseGameClick()
             }
+        }
 
-            router.pushController(RouterTransaction.with(dialog)
-                    .pushChangeHandler(FadeChangeHandler())
-                    .popChangeHandler(FadeChangeHandler()))
+        router.pushController(RouterTransaction.with(dialog)
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler()))
     }
 
     override fun onCloseGame() {
@@ -203,8 +202,8 @@ class GameController : BaseController, GameView {
     }
 
     override fun closeGame() {
-        router.getControllerWithTag(GameController.TAG)?.let {
-            router.popToTag(GameController.TAG)
+        router.getControllerWithTag(TAG)?.let {
+            router.popToTag(TAG)
         }
     }
 

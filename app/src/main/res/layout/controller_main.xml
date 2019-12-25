@@ -100,7 +100,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:fontFamily="@font/proxima_nowa_extra_condensed"
-            android:text="Узровень:"
+            android:text="@string/level_title"
             android:textColor="@color/general_blue"
             android:textSize="30sp"
             app:layout_constraintLeft_toLeftOf="parent"

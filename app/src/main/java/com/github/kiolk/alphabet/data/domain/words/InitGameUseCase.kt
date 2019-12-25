@@ -4,7 +4,6 @@ import com.github.kiolk.alphabet.data.domain.UseCase
 import com.github.kiolk.alphabet.data.models.player.Player
 import com.github.kiolk.alphabet.data.source.player.PlayerRepository
 import com.github.kiolk.alphabet.data.source.words.WordsRepository
-import com.github.kiolk.alphabet.utils.Data.testSetOfWord
 import io.reactivex.Completable
 import javax.inject.Inject
 
