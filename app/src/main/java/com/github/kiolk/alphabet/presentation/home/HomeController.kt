@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.presentation.home
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
@@ -11,11 +12,16 @@ import butterknife.BindView
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.DataSource
+import com.bumptech.glide.load.engine.GlideException
+import com.bumptech.glide.request.RequestListener
+import com.bumptech.glide.request.target.Target
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.letter.Letter
 import com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.utils.BundleBuilder
+import io.supercharge.shimmerlayout.ShimmerLayout
 
 class HomeController : BaseController, HomeView {
 
@@ -27,6 +33,9 @@ class HomeController : BaseController, HomeView {
 
     @BindView(R.id.tv_home_example_word)
     lateinit var tvExampleWord: TextView
+
+    @BindView(R.id.sl_preview_item_load_progress)
+    lateinit var slLoadProgress: ShimmerLayout
 
     @InjectPresenter
     lateinit var presenter: HomePresenter
@@ -48,8 +57,22 @@ class HomeController : BaseController, HomeView {
     }
 
     override fun setLetterImage(source: String) {
+        slLoadProgress.visibility = View.VISIBLE
+        slLoadProgress.startShimmerAnimation()
         Glide.with(ivLetterImage)
                 .load(source)
+                .addListener(object: RequestListener<Drawable> {
+                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
+                        slLoadProgress.visibility = View.INVISIBLE
+                        return false
+                    }
+
+                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
+                        slLoadProgress.visibility = View.INVISIBLE
+                        return false
+                    }
+                })
+                .error(R.drawable.ic_image_error)
                 .into(ivLetterImage)
     }
 
