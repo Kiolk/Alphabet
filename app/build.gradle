@@ -12,9 +12,9 @@ repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
-def keysPropertiesFile = rootProject.file("keys.properties")
-def keysProperties = new Properties()
-keysProperties.load(new FileInputStream(keysPropertiesFile))
+//def keysPropertiesFile = rootProject.file("keys.properties")
+//def keysProperties = new Properties()
+//keysProperties.load(new FileInputStream(keysPropertiesFile))
 
 android {
     compileSdkVersion 28
@@ -45,10 +45,10 @@ android {
         }
 
         prod{
-            storeFile file("../keys/prod/prod.jks")
-            storePassword keysProperties["STORE_PASSWORD"]
-            keyAlias keysProperties["STORE_ALIAS"]
-            keyPassword keysProperties["KEY_PRIVATE_PASSWORD"]
+//            storeFile file("../keys/prod/prod.jks")
+//            storePassword keysProperties["STORE_PASSWORD"]
+//            keyAlias keysProperties["STORE_ALIAS"]
+//            keyPassword keysProperties["KEY_PRIVATE_PASSWORD"]
         }
     }
 
