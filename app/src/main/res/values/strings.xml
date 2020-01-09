@@ -31,6 +31,7 @@
     <string name="text_end_game_congratulations">Віншуем! Гульня паспяхова пройдзена!</string>
     <string name="title_about">Пра дадатак</string>
     <string name="setting_privacy_policy">Палітыка прыватнасці</string>
+    <string name="setting_share">Падзяліцца</string>
     <string name="confirm_button_dialog">Так</string>
     <string name="cancel_button_dialog">Адмяніць</string>
     <string name="reset_dialog_title">Скінуць бягучы прагрэс?</string>
@@ -56,4 +57,5 @@
     <!-- layout_game_indicator.xml -->
     <string name="description_game_indicator_star">star</string>
     <string name="level_title">Узровень:</string>
+    <string name="setting_share_with_freands">Падзяліцца з сябрамі</string>
 </resources>

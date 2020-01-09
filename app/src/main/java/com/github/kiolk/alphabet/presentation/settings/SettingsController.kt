@@ -21,6 +21,7 @@ import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.settings.about.AboutController
 import com.github.kiolk.alphabet.presentation.settings.help.HelpController
 import com.github.kiolk.alphabet.presentation.settings.policy.PolicyController
+import com.github.kiolk.alphabet.presentation.settings.share.ShareController
 import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksController
 import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksPresenter
 import com.github.kiolk.alphabet.utils.openUrl
@@ -51,7 +52,6 @@ class SettingsController : BaseController, SettingsView {
     }
 
     @OnClick(R.id.btn_settings_help)
-
     fun onHelpPress() {
         router.pushController(RouterTransaction.with(HelpController())
                 .popChangeHandler(FadeChangeHandler())
@@ -80,6 +80,14 @@ class SettingsController : BaseController, SettingsView {
                 .pushChangeHandler(FadeChangeHandler())
                 .popChangeHandler(FadeChangeHandler())
                 .tag(ResetGameDialog.TAG))
+    }
+
+    @OnClick(R.id.btn_share)
+    fun onShareClick(){
+        router.pushController(RouterTransaction.with(ShareController())
+                .pushChangeHandler(FadeChangeHandler())
+                .popChangeHandler(FadeChangeHandler())
+                .tag(ShareController.TAG))
     }
 
     override fun openMainScreen() {
