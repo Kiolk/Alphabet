@@ -24,8 +24,8 @@ android {
         applicationId "com.github.kiolk.alphabet"
         minSdkVersion 16
         targetSdkVersion 28
-        versionCode 8
-        versionName "1.0"
+        versionCode 10
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "PRICVACY_POLICY", "\"github.com/Kiolk/Alphabet/blob/develop/docs/PrivacyPolicyEn.md\""
