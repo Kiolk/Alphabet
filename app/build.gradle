@@ -51,6 +51,11 @@ android {
 //            storePassword keysProperties["STORE_PASSWORD"]
 //            keyAlias keysProperties["STORE_ALIAS"]
 //            keyPassword keysProperties["KEY_PRIVATE_PASSWORD"]
+
+            storeFile file("../keys/prod.jks")
+            storePassword "alphabet-prod-key"
+            keyAlias "alphabet-prod-key"
+            keyPassword "alphabet-prod-key"
         }
     }
 
