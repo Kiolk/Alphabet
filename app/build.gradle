@@ -8,6 +8,8 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'io.fabric'
 
+apply plugin: 'com.google.firebase.appdistribution'
+
 repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
@@ -74,10 +76,17 @@ android {
 
             signingConfig signingConfigs.qa
 
-//            ext.betaDistributionReleaseNotes = "\"${formReleaseNote}\""
             ext.betaDistributionReleaseNotes = "\"${release_v_1_3}\""
             ext.betaDistributionEmails = "tyteishi@gmail.com"
             ext.betaDistributionGroupAliases = "Alphabet-Dev-Team, Alphabet-Qa-Team"
+
+            firebaseAppDistribution{
+                appId "1:108001020388:android:6c0e8fd9f37ec1ad105ff1"
+                serviceCredentialsFile="secrets/alphabet-project-belarus-2dc41d2a19b4.json"
+//                releaseNotesFile="../release_notes/1_1_0.txt"
+                testers="tyteishi@gmail.com"
+                groups=" LemantarQa "
+            }
         }
 
         prod{
@@ -196,6 +205,7 @@ dependencies {
     }
 }
 
+apply plugin: 'com.google.gms.google-services'
 //configurations.all {
 //    resolutionStrategy {
 //        force libraries.okHttp

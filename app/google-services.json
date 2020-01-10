@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "108001020388",
+    "firebase_url": "https://alphabet-project-belarus.firebaseio.com",
+    "project_id": "alphabet-project-belarus",
+    "storage_bucket": "alphabet-project-belarus.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108001020388:android:f329be945b60465f105ff1",
+        "android_client_info": {
+          "package_name": "com.github.kiolk.alphabet"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108001020388-mofr395mh50oa6fq4bvs5jm2betv64ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgd8rLQIK6UMxi9jrvTGQ67pRItLPWPfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108001020388-mofr395mh50oa6fq4bvs5jm2betv64ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108001020388:android:639b73858503b8e7105ff1",
+        "android_client_info": {
+          "package_name": "com.github.kiolk.alphabet.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108001020388-mofr395mh50oa6fq4bvs5jm2betv64ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgd8rLQIK6UMxi9jrvTGQ67pRItLPWPfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108001020388-mofr395mh50oa6fq4bvs5jm2betv64ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108001020388:android:6c0e8fd9f37ec1ad105ff1",
+        "android_client_info": {
+          "package_name": "com.github.kiolk.alphabet.qa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108001020388-mofr395mh50oa6fq4bvs5jm2betv64ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgd8rLQIK6UMxi9jrvTGQ67pRItLPWPfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108001020388-mofr395mh50oa6fq4bvs5jm2betv64ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
