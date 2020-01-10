@@ -22,8 +22,7 @@
         android:id="@+id/btn_share_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="18dp"
-        android:layout_marginLeft="18dp"
+        android:padding="18dp"
         android:src="@drawable/ic_back"
         app:layout_constraintBottom_toBottomOf="@+id/tv_share_title"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -38,6 +37,7 @@
         app:layout_constraintGuide_percent="0.6" />
 
     <ImageView
+        android:id="@+id/iv_share_qr_code"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginLeft="63dp"
@@ -50,6 +50,7 @@
         tools:ignore="ContentDescription" />
 
     <Button
+        android:id="@+id/btn_share_link"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
