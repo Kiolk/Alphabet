@@ -58,12 +58,34 @@
         app:layout_constraintTop_toTopOf="@id/guideline_home_top"
         tools:text="A" />
 
+    <io.supercharge.shimmerlayout.ShimmerLayout
+        android:id="@+id/sl_preview_item_load_progress"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="6dp"
+        android:padding="20dp"
+        android:layout_gravity="center_horizontal"
+        app:layout_constraintLeft_toLeftOf="@+id/iv_home_image"
+        app:layout_constraintTop_toTopOf="@+id/iv_home_image"
+        app:layout_constraintRight_toRightOf="@+id/iv_home_image"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_home_image"
+        app:shimmer_animation_duration="1200">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_image"
+            tools:ignore="ContentDescription" />
+    </io.supercharge.shimmerlayout.ShimmerLayout>
+
     <ImageView
         android:id="@+id/iv_home_image"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="20dp"
         android:elevation="4dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/tv_home_example_word"
         app:layout_constraintLeft_toLeftOf="@id/guideline_home_left"
         app:layout_constraintRight_toRightOf="@id/guideline_home_right"
@@ -86,5 +108,4 @@
         app:layout_constraintLeft_toLeftOf="@+id/guideline_home_left"
         app:layout_constraintRight_toRightOf="@+id/guideline_home_right"
         tools:text="Zorka" />
-
 </android.support.constraint.ConstraintLayout>
