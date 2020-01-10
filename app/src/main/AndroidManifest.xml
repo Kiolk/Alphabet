@@ -19,7 +19,7 @@
         <activity android:name="com.github.kiolk.alphabet.MainActivity">
         </activity>
         <activity android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen"/>
-        <activity android:name="com.github.kiolk.alphabet.presentation.splash.SplashController"
+        <activity android:name="com.github.kiolk.alphabet.presentation.splash.SplashActivity"
             android:theme="@style/AppTheme.SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -13,7 +13,7 @@ import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.BaseView
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
 
-class SplashController : MvpAppCompatActivity(), SplashView, BaseView {
+class SplashActivity : MvpAppCompatActivity(), SplashView, BaseView {
 
     @InjectPresenter
     lateinit var presenter: SplashPresenter

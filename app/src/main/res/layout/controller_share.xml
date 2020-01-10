@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_share_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:fontFamily="@font/product_sans_regular"
+        android:text="@string/setting_share"
+        android:textColor="@color/gray_text"
+        android:textSize="34sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/btn_share_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="18dp"
+        android:src="@drawable/ic_back"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_share_title"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_share_title"
+        tools:ignore="ContentDescription" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline_share_middle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.6" />
+
+    <ImageView
+        android:id="@+id/iv_share_qr_code"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="63dp"
+        android:layout_marginRight="63dp"
+        android:src="@drawable/ic_qr"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_share_middle"
+        app:layout_constraintDimensionRatio="H, 1:1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <Button
+        android:id="@+id/btn_share_link"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/bg_round_white"
+        android:elevation="2dp"
+        android:textAllCaps="false"
+        android:padding="20dp"
+        android:text="@string/setting_share_with_freands"
+        android:textColor="@color/general_blue"
+        android:textSize="24sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_share_middle" />
+</android.support.constraint.ConstraintLayout>

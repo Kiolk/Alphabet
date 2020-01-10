@@ -44,4 +44,6 @@ interface ApplicationComponent {
     fun plusPolicyPresenter(): PolicyPresenterComponent
 
     fun plusThanksPresenter(): ThanksPresenterComponenet
+
+    fun plusSharePresenter(): SharePresenterComponent
 }
