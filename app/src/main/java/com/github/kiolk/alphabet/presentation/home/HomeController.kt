@@ -63,12 +63,18 @@ class HomeController : BaseController, HomeView {
                 .load(source)
                 .addListener(object: RequestListener<Drawable> {
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        slLoadProgress.visibility = View.INVISIBLE
+                        if(this@HomeController::slLoadProgress.isInitialized){
+                            slLoadProgress.visibility = View.INVISIBLE
+                            slLoadProgress.stopShimmerAnimation()
+                        }
                         return false
                     }
 
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        slLoadProgress.visibility = View.INVISIBLE
+                        if(this@HomeController::slLoadProgress.isInitialized){
+                            slLoadProgress.visibility = View.INVISIBLE
+                            slLoadProgress.stopShimmerAnimation()
+                        }
                         return false
                     }
                 })
