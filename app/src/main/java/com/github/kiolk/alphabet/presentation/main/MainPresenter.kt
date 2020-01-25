@@ -2,6 +2,7 @@ package com.github.kiolk.alphabet.presentation.main
 
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
+import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
 import com.github.kiolk.alphabet.data.domain.player.ResetGameUseCase
 import com.github.kiolk.alphabet.data.models.level.LevelViewModel
@@ -15,13 +16,16 @@ class MainPresenter
 @Inject
 constructor(private val rxSchedulerProvider: RxSchedulerProvider,
             private val getCurrentLevelUseCase: GetCurrentLevelUseCase,
-            private val resetGameUseCase: ResetGameUseCase) : BasePresenter<MainView>() {
+            private val resetGameUseCase: ResetGameUseCase,
+            private val soundManager: SoundManager) : BasePresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         addDisposable(getCurrentLevelUseCase.execute((GetCurrentLevelUseCase.Params()))
                 .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
                 .subscribe(this::setPlayerLevel) {setPlayerLevelError()})
+
+        setSoundState(soundManager.isOff)
     }
 
     override fun attachView(view: MainView?) {
@@ -80,5 +84,17 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
 
     private fun onResetError(ex: Throwable){
         Timber.e(ex)
+    }
+
+    fun onSoundPressed() {
+        setSoundState(soundManager.changeSoundState())
+    }
+
+    private fun setSoundState(isOff: Boolean) {
+        if (isOff) {
+            viewState.setSoundState(R.drawable.ic_sound_off)
+        } else {
+            viewState.setSoundState(R.drawable.ic_sound_on)
+        }
     }
 }
