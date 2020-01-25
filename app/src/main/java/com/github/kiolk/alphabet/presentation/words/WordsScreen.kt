@@ -211,9 +211,10 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
         return cursor.getString(column_index)
     }
 
-    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun setStatusBarColor(colorRes: Int) {
-        window.statusBarColor = resources.getColor(colorRes)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            window.statusBarColor = resources.getColor(colorRes)
+        }
     }
 
     fun showSettings() {
