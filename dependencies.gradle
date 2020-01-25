@@ -1,5 +1,5 @@
 ext.versions = [
-        okHttp         : '3.14.1',
+        okHttp         : '3.12.8',
         retrofit       : '2.5.0',
         room           : '1.1.1',
         rxJava2        : '2.2.8',
