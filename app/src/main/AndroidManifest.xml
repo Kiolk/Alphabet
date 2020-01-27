@@ -16,9 +16,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.github.kiolk.alphabet.MainActivity">
+        <activity android:name="com.github.kiolk.alphabet.MainActivity"
+            android:windowSoftInputMode="adjustPan">
         </activity>
-        <activity android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen"/>
+        <activity android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen"
+            android:windowSoftInputMode="adjustPan"/>
         <activity android:name="com.github.kiolk.alphabet.presentation.splash.SplashActivity"
             android:theme="@style/AppTheme.SplashTheme">
             <intent-filter>

@@ -233,4 +233,8 @@ constructor(private val result: GameResult,
     fun onCloseGameClick() {
         viewState.onCloseGame()
     }
+
+    fun onMistakeClicked() {
+        viewState.showMistakeDialog(result.gameItems[counter])
+    }
 }

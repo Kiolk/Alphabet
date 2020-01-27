@@ -29,6 +29,7 @@
     <color name="general_transparent_green">#AB3CBA54</color>
 
     <color name="gray_text">#6E6E6E</color>
+    <color name="gray_hint_text">#C0BBBB</color>
 
     <color name="general_red">#DB3236</color>
     <color name="general_transparent_red">#ABDB3236</color>
