@@ -5,6 +5,7 @@ import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
 import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
+import com.github.kiolk.alphabet.data.models.word.Mistake
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.word.toWord
 import com.github.kiolk.alphabet.data.models.words.Words
@@ -17,7 +18,7 @@ import javax.inject.Inject
 
 class RemoteWordsDataSource
 @Inject
-constructor (private val remote: WordsService) : WordsDataSource {
+constructor (private val service: WordsService) : WordsDataSource {
 
     override fun getWordsSet(title: String): Flowable<List<String>> {
         throw UnsupportedOperationException()
@@ -44,7 +45,7 @@ constructor (private val remote: WordsService) : WordsDataSource {
     }
 
     override fun getAllDbWords(): Flowable<List<Word>> {
-        return remote.getWords().map { words -> return@map words.map { it.toWord() } }
+        return service.getWords().map { words -> return@map words.map { it.toWord() } }
     }
 
     override fun updateWord(word: Word): Completable {
@@ -69,5 +70,9 @@ constructor (private val remote: WordsService) : WordsDataSource {
 
     override fun getTopicWords(topic: Topic): Flowable<List<Word>> {
         throw UnsupportedOperationException()
+    }
+
+    override fun sendMistake(mistake: Mistake): Completable {
+        return service.sendMistake(mistake)
     }
 }

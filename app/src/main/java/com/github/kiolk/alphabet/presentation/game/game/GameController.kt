@@ -29,7 +29,6 @@ import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
 import com.github.kiolk.alphabet.presentation.dialogs.MistakeDialog
-import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
 import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
@@ -37,7 +36,11 @@ import com.github.kiolk.alphabet.utils.BlurBuilder
 import com.github.kiolk.alphabet.utils.BundleBuilder
 import com.github.kiolk.alphabet.utils.toPx
 
-class GameController : BaseController, GameView {
+interface MistakePablisher{
+    fun publishMistake(word: String, description: String)
+}
+
+class GameController : BaseController, GameView, MistakePablisher {
 
     constructor(result: GameResult) : super(BundleBuilder(Bundle())
             .setParseleable(BUNDLE_GAME_SETTINGS, result)
@@ -204,9 +207,21 @@ class GameController : BaseController, GameView {
     }
 
     override fun showMistakeDialog(gameItem: GameItem) {
-        router.pushController(RouterTransaction.with(MistakeDialog.newInstance(gameItem))
+        router.pushController(RouterTransaction.with(MistakeDialog.newInstance(gameItem, this))
                 .pushChangeHandler(FadeChangeHandler(false))
                 .popChangeHandler(FadeChangeHandler(false)).tag(MistakeDialog.TAG))
+    }
+
+    override fun publishMistake(word: String, description: String) {
+        presenter.publishMistake(word, description)
+    }
+
+    override fun closeMistakeDialog() {
+        (router.getControllerWithTag(MistakeDialog.TAG) as MistakeDialog).showSuccess()
+    }
+
+    override fun showMistakeDialogError(throwable: Throwable) {
+        (router.getControllerWithTag(MistakeDialog.TAG) as MistakeDialog).showError(throwable)
     }
 
     @OnClick(R.id.tv_game_read_word)

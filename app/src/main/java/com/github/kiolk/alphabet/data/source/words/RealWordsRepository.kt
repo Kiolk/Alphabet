@@ -5,6 +5,7 @@ import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
 import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
+import com.github.kiolk.alphabet.data.models.word.Mistake
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
 import com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource
@@ -100,4 +101,6 @@ constructor(@LocalDataSource private val local: WordsDataSource,
 
         return filteredWords?.random() ?: Word("Буквар", "Бук-вар", "", "")
     }
+
+    override fun sendMistake(mistake: Mistake): Completable = remote.sendMistake(mistake)
 }

@@ -5,12 +5,14 @@ import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
 import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
+import com.github.kiolk.alphabet.data.models.word.Mistake
 import com.github.kiolk.alphabet.data.models.word.RemoteWord
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
+import java.lang.UnsupportedOperationException
 
 interface WordsDataSource {
 
@@ -39,4 +41,6 @@ interface WordsDataSource {
     fun getTopicsWithPhoto(): Flowable<List<TopicWithPhoto>>
 
     fun getTopicWords(topic: Topic): Flowable<List<Word>>
+
+    fun sendMistake(mistake: Mistake): Completable = throw UnsupportedOperationException()
 }

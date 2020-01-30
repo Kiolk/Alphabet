@@ -9,6 +9,7 @@ import com.github.kiolk.alphabet.data.domain.levels.RateUseCase
 import com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase
 import com.github.kiolk.alphabet.data.domain.player.UpdatePlayerStarsUseCase
 import com.github.kiolk.alphabet.data.domain.words.PrepareGameUseCase
+import com.github.kiolk.alphabet.data.domain.words.SendMistakeUseCase
 import com.github.kiolk.alphabet.data.domain.words.UpdateCorrectWordUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
@@ -37,7 +38,8 @@ constructor(private val result: GameResult,
             private val prepareGameUseCase: PrepareGameUseCase,
             private val updatePlayerStarsUseCase: UpdatePlayerStarsUseCase,
             private val checkNextLevelUseCase: CheckNextLevelUseCase,
-            private val rateUseCase: RateUseCase) : BasePresenter<GameView>() {
+            private val rateUseCase: RateUseCase,
+            private val sendMistakeUseCase: SendMistakeUseCase) : BasePresenter<GameView>() {
 
     private var counter: Int = 0
     private val total: Int by lazy { result.gameItems.size }
@@ -236,5 +238,11 @@ constructor(private val result: GameResult,
 
     fun onMistakeClicked() {
         viewState.showMistakeDialog(result.gameItems[counter])
+    }
+
+    fun publishMistake(word: String, description: String) {
+        addDisposable(sendMistakeUseCase.execute(SendMistakeUseCase.Params(word, description))
+                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                .subscribe({viewState.closeMistakeDialog()}, {viewState.showMistakeDialogError(it)}))
     }
 }

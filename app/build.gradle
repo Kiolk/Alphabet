@@ -67,7 +67,7 @@ android {
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
 
-            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-pushnotificationsample-1c8c9.cloudfunctions.net\""
 
             signingConfig signingConfigs.dev
         }

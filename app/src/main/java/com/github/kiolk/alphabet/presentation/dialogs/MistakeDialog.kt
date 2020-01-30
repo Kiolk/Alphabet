@@ -10,14 +10,24 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.OnClick
+import com.bluelinelabs.conductor.Controller
 import com.github.kiolk.alphabet.R
+import com.github.kiolk.alphabet.data.domain.words.SendMistakeUseCase
 import com.github.kiolk.alphabet.data.models.game.GameItem
+import com.github.kiolk.alphabet.presentation.game.game.MistakePablisher
 import com.github.kiolk.alphabet.utils.getContext
 import com.github.kiolk.alphabet.utils.hideKeyboardImplicit
 import com.github.kiolk.alphabet.utils.showKeyboardImplicit
+import io.reactivex.disposables.Disposable
 import java.net.UnknownHostException
 
-class MistakeDialog(args: Bundle) : BaseInfoDialog(args) {
+class MistakeDialog : BaseInfoDialog {
+
+    constructor(args: Bundle, target: Controller) : this(args) {
+        targetController = target
+    }
+
+    constructor(args: Bundle) : super(args)
 
     @BindView(R.id.tv_mistake_title)
     lateinit var tvMistakeTitle: TextView
@@ -57,22 +67,22 @@ class MistakeDialog(args: Bundle) : BaseInfoDialog(args) {
             router.popCurrentController()
         } else {
             pbProgress.visibility = View.VISIBLE
-            //TODO implement request logic
-            showSuccess()
+            (targetController as MistakePablisher).publishMistake(args.getParcelable<GameItem>(BUNDLE_GAME_ITEM)?.currentWord?.value ?: "", etMistakeDescription.text.toString())
         }
     }
 
     @OnClick(R.id.btn_cancel_mistake)
     fun onCancel() {
+        etMistakeDescription.hideKeyboardImplicit()
         router.popCurrentController()
     }
 
-    private fun showSuccess() {
+    fun showSuccess() {
         showFinalMessage()
         tvMistakeTitle.setText(R.string.success_publish)
     }
 
-    private fun showError(throwable: Throwable) {
+    fun showError(throwable: Throwable) {
         val res = if (throwable is UnknownHostException) {
             R.string.no_internet_connection_error
         } else {
@@ -96,10 +106,10 @@ class MistakeDialog(args: Bundle) : BaseInfoDialog(args) {
         const val TAG = "MistakeDialog"
         private const val BUNDLE_GAME_ITEM = "BUNDLE_GAME_ITEM"
 
-        fun newInstance(item: GameItem): MistakeDialog {
+        fun newInstance(item: GameItem, target: Controller): MistakeDialog {
             val bundle = Bundle()
             bundle.putParcelable(BUNDLE_GAME_ITEM, item)
-            return MistakeDialog(bundle)
+            return MistakeDialog(bundle, target)
         }
     }
 }

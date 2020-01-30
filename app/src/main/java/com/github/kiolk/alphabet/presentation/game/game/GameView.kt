@@ -57,4 +57,10 @@ interface GameView : BaseView {
 
     @StateStrategyType(OneExecutionStateStrategy::class)
     fun showMistakeDialog(gameItem: GameItem)
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun closeMistakeDialog()
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun showMistakeDialogError(throwable: Throwable)
 }
