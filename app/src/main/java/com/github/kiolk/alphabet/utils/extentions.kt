@@ -9,7 +9,9 @@ import android.net.Uri
 import android.support.annotation.StringRes
 import android.support.customtabs.CustomTabsIntent
 import android.support.v4.content.ContextCompat
+import android.view.View
 import android.view.WindowManager
+import android.view.inputmethod.InputMethodManager
 import com.bluelinelabs.conductor.Controller
 import com.github.kiolk.alphabet.R
 import saschpe.android.customtabs.CustomTabsHelper
@@ -52,6 +54,18 @@ fun Context.getWindowWidth(): Int = getWindowSize().x
 fun Context.getWindowHeight(): Int = getWindowSize().y
 
 fun Controller.getContext() = activity as Context
+
+fun Controller.getSystemService(service: String): Any? = getContext().getSystemService(service)
+
+fun Controller.showKeyboardImplicit() {
+    val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+}
+
+fun View.hideKeyboardImplicit() {
+    val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+    imm.hideSoftInputFromWindow(windowToken, 0)
+}
 
 fun Controller.openUrl(url: String) = getContext().openUrl(url)
 
