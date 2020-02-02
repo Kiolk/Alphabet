@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.text.SpannableStringBuilder
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,9 +17,9 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
-import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.R
+import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameStats
 import com.github.kiolk.alphabet.data.models.topic.Topic
@@ -29,6 +28,7 @@ import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
+import com.github.kiolk.alphabet.presentation.dialogs.MistakeDialog
 import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
 import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
@@ -36,7 +36,11 @@ import com.github.kiolk.alphabet.utils.BlurBuilder
 import com.github.kiolk.alphabet.utils.BundleBuilder
 import com.github.kiolk.alphabet.utils.toPx
 
-class GameController : BaseController, GameView {
+interface MistakePablisher{
+    fun publishMistake(word: String, description: String)
+}
+
+class GameController : BaseController, GameView, MistakePablisher {
 
     constructor(result: GameResult) : super(BundleBuilder(Bundle())
             .setParseleable(BUNDLE_GAME_SETTINGS, result)
@@ -110,11 +114,6 @@ class GameController : BaseController, GameView {
 
     override fun hideBlurHolder() {
         adapter.isEnableSelected = false
-    }
-
-    @OnClick(R.id.iv_game_tap_button)
-    fun onTapClick() {
-        presenter.onTapClick()
     }
 
     override fun showTapButton() {
@@ -207,6 +206,24 @@ class GameController : BaseController, GameView {
         }
     }
 
+    override fun showMistakeDialog(gameItem: GameItem) {
+        router.pushController(RouterTransaction.with(MistakeDialog.newInstance(gameItem, this))
+                .pushChangeHandler(FadeChangeHandler(false))
+                .popChangeHandler(FadeChangeHandler(false)).tag(MistakeDialog.TAG))
+    }
+
+    override fun publishMistake(word: String, description: String) {
+        presenter.publishMistake(word, description)
+    }
+
+    override fun closeMistakeDialog() {
+        (router.getControllerWithTag(MistakeDialog.TAG) as MistakeDialog).showSuccess()
+    }
+
+    override fun showMistakeDialogError(throwable: Throwable) {
+        (router.getControllerWithTag(MistakeDialog.TAG) as MistakeDialog).showError(throwable)
+    }
+
     @OnClick(R.id.tv_game_read_word)
     fun onWordClick() {
         presenter.onWordClick()
@@ -215,6 +232,16 @@ class GameController : BaseController, GameView {
     @OnClick(R.id.btn_word_screen_next_word)
     fun onNextClick() {
         presenter.onNextWordPress()
+    }
+
+    @OnClick(R.id.iv_game_tap_button)
+    fun onTapClick() {
+        presenter.onTapClick()
+    }
+
+    @OnClick(R.id.iv_word_mistake)
+    fun onMistakeClick() {
+        presenter.onMistakeClicked()
     }
 
     @ProvidePresenter

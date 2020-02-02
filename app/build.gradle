@@ -25,7 +25,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 28
         versionCode 12
-        versionName "1.1.1"
+        versionName "1.2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "PRICVACY_POLICY", "\"github.com/Kiolk/Alphabet/blob/develop/docs/PrivacyPolicyEn.md\""
@@ -67,7 +67,7 @@ android {
             applicationIdSuffix ".dev"
             versionNameSuffix "-dev"
 
-            buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
+            buildConfigField "String", "ApiUrl", "\"https://us-central1-pushnotificationsample-1c8c9.cloudfunctions.net\""
 
             signingConfig signingConfigs.dev
         }

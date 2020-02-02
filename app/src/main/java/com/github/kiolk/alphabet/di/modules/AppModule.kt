@@ -30,7 +30,7 @@ class AppModule(context : Context) {
 
     @Singleton
     @Provides
-    fun provideSoundPull(context : Context) : SoundManager  = SoundManager(context)
+    fun provideSoundPull(context : Context, sharedPreferences: SharedPreferences) : SoundManager  = SoundManager(context, sharedPreferences)
 
     @Singleton
     @Provides

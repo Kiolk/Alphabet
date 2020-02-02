@@ -5,6 +5,7 @@ import android.support.constraint.ConstraintLayout
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.OnClick
@@ -19,6 +20,7 @@ import com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog
 import com.github.kiolk.alphabet.presentation.views.LevelLebel
 import com.github.kiolk.alphabet.presentation.views.StyledProgressBar
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
+import com.github.kiolk.alphabet.utils.getContext
 
 class MainController : BaseController, MainView {
 
@@ -42,6 +44,9 @@ class MainController : BaseController, MainView {
 
     @BindView(R.id.cl_main_level_base_container)
     lateinit var maunLayout: ConstraintLayout
+
+    @BindView(R.id.iv_sound_switcher)
+    lateinit var ivSoundButton: ImageView
 
     constructor() : super()
     constructor(args: Bundle) : super(args)
@@ -101,9 +106,18 @@ class MainController : BaseController, MainView {
                 .popChangeHandler(FadeChangeHandler()).tag(TAG))
     }
 
+    override fun setSoundState(drawableId: Int) {
+        ivSoundButton.setImageDrawable(getContext().resources.getDrawable(drawableId))
+    }
+
     @OnClick(R.id.iv_main_level_setting, R.id.iv_main_level_end_setting)
     fun onSettingsPress() {
         (activity as? WordsScreen)?.showSettings()
+    }
+
+    @OnClick(R.id.iv_sound_switcher)
+    fun onSoundPress() {
+        presenter.onSoundPressed()
     }
 
     @OnClick(R.id.btn_main_level_restart)

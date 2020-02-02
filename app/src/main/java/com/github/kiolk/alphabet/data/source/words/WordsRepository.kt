@@ -5,6 +5,7 @@ import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
 import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
+import com.github.kiolk.alphabet.data.models.word.Mistake
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
 import io.reactivex.Completable
@@ -40,4 +41,6 @@ interface WordsRepository {
     fun getTopicWords(topic: Topic): Flowable<List<Word>>
 
     fun getRundomWordByLetter(letter: String): Single<Word>
+
+    fun sendMistake(mistake: Mistake): Completable
 }

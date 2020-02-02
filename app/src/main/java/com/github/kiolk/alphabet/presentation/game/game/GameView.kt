@@ -4,6 +4,7 @@ import android.text.SpannableStringBuilder
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
+import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
@@ -53,4 +54,13 @@ interface GameView : BaseView {
     fun showCompleteTopicDialog(topic: Topic, isGame: Boolean)
 
     fun onCloseGame()
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun showMistakeDialog(gameItem: GameItem)
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun closeMistakeDialog()
+
+    @StateStrategyType(OneExecutionStateStrategy::class)
+    fun showMistakeDialogError(throwable: Throwable)
 }

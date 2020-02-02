@@ -58,4 +58,14 @@
     <string name="description_game_indicator_star">star</string>
     <string name="level_title">Узровень:</string>
     <string name="setting_share_with_freands">Падзяліцца з сябрамі</string>
+    <string name="cancel">Скасаваць</string>
+    <string name="send">Даслаць</string>
+    <string name="describe_mistake_hint">Патлумачце памылку</string>
+
+    <!-- controller_mistake_dialog   -->
+    <string name="ok">Зачыніць</string>
+    <string name="unknown_error">Здарылася нечаканая памылка</string>
+    <string name="no_internet_connection_error">Праверце падключэнне да інтэрнэта</string>
+    <string name="success_publish">Дзякуй!\nВаша паведамленне даслана</string>
+    <string name="mistake_title">Паведаміць пра памылку ў слове \"%s\"</string>
 </resources>

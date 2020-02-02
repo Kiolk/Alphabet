@@ -31,6 +31,8 @@ interface MainView: BaseView {
     @StateStrategyType(AddToEndSingleStrategy::class, tag = GAME_END_TAG)
     fun hideEndGameLayout()
 
+    fun setSoundState(drawableId: Int)
+
     companion object{
         private const val GAME_END_TAG = "GAME_END_TAG"
     }
