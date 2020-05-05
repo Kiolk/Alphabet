@@ -29,6 +29,7 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         buildConfigField "String", "PRICVACY_POLICY", "\"github.com/Kiolk/Alphabet/blob/develop/docs/PrivacyPolicyEn.md\""
+        multiDexEnabled true
     }
 
     signingConfigs{
@@ -47,10 +48,11 @@ android {
         }
 
         prod{
-//            storeFile file("../keys/prod/prod.jks")
-//            storePassword keysProperties["STORE_PASSWORD"]
-//            keyAlias keysProperties["STORE_ALIAS"]
-//            keyPassword keysProperties["KEY_PRIVATE_PASSWORD"]
+//            storeFile file("../keys/prod.jks")
+//            storePassword "asdfREWQ1234"
+//            keyAlias "alphabet-prod-key"
+//            keyPassword "jkdlf39JHUi09"
+
 
             storeFile file("../keys/prod.jks")
             storePassword "alphabet-prod-key"
@@ -68,6 +70,7 @@ android {
             versionNameSuffix "-dev"
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-pushnotificationsample-1c8c9.cloudfunctions.net\""
+            manifestPlaceholders = [enableFacebookSdk:false]
 
             signingConfig signingConfigs.dev
         }
@@ -78,6 +81,7 @@ android {
             versionNameSuffix "-qa"
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
+            manifestPlaceholders = [enableFacebookSdk:false]
 
             signingConfig signingConfigs.qa
 
@@ -98,7 +102,7 @@ android {
             dimension "version"
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
-
+            manifestPlaceholders = [enableFacebookSdk:true]
             signingConfig signingConfigs.prod
         }
     }
@@ -210,6 +214,9 @@ dependencies {
     implementation('com.crashlytics.sdk.android:crashlytics:2.10.1@aar') {
         transitive = true;
     }
+
+    //FacebookSdk
+    implementation 'com.facebook.android:facebook-android-sdk:5.15.3'
 }
 
 apply plugin: 'com.google.gms.google-services'
