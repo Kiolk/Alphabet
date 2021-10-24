@@ -1,6 +1,6 @@
 package com.github.kiolk.alphabet.data.models.topic.local
 
-import android.arch.persistence.room.ColumnInfo
+import androidx.room.ColumnInfo
 import com.github.kiolk.alphabet.data.models.word.Word.Companion.TAGS
 
 data class TotalWordsTopic(

@@ -2,11 +2,9 @@ package com.github.kiolk.alphabet.presentation.base.controller
 
 import android.os.Build
 import android.os.Bundle
-import android.support.annotation.RequiresApi
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.github.kiolk.alphabet.App
-import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.di.compomemts.ApplicationComponent
 import com.github.kiolk.alphabet.presentation.base.BaseView

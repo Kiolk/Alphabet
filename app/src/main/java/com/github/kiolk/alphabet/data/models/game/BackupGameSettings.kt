@@ -1,9 +1,13 @@
 package com.github.kiolk.alphabet.data.models.game
 
-import android.arch.persistence.room.*
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Embedded
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.github.kiolk.alphabet.data.database.converters.ListConverter
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Entity(tableName = "BackupSettings")
 @TypeConverters(ListConverter::class)

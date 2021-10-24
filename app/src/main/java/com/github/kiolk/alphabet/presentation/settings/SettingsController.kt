@@ -4,14 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.BindView
 import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
-import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
-import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.BuildConfig
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
@@ -20,10 +17,8 @@ import com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog
 import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.settings.about.AboutController
 import com.github.kiolk.alphabet.presentation.settings.help.HelpController
-import com.github.kiolk.alphabet.presentation.settings.policy.PolicyController
 import com.github.kiolk.alphabet.presentation.settings.share.ShareController
 import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksController
-import com.github.kiolk.alphabet.presentation.settings.thanks.ThanksPresenter
 import com.github.kiolk.alphabet.utils.openUrl
 
 class SettingsController : BaseController, SettingsView {

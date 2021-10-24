@@ -1,30 +1,30 @@
 package com.github.kiolk.alphabet.presentation.views
 
 import android.content.Context
-import android.support.constraint.ConstraintLayout
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.github.kiolk.alphabet.R
 
-class LevelLebel: ConstraintLayout{
+class LevelLebel : ConstraintLayout {
 
     private lateinit var tvLevelIndicator: TextView
     private lateinit var ivLevelImage: ImageView
 
-    constructor(context: Context?) : super(context) {
+    constructor(context: Context) : super(context) {
         init(null)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?) : super(context, attrs) {
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
         init(attrs)
     }
 
-    constructor(context: Context?, attrs: AttributeSet?, defStyleAttr: Int) : super(
-            context,
-            attrs,
-            defStyleAttr
+    constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int) : super(
+        context,
+        attrs,
+        defStyleAttr
     ) {
         init(attrs)
     }

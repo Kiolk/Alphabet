@@ -1,7 +1,6 @@
 package com.github.kiolk.alphabet.presentation.dialogs
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
@@ -34,7 +33,7 @@ class CompleteTopicDialog: BaseInfoDialog {
 
         dialog?.setCancelable(true)
 
-        val topic = args.getParcelable(BUNDLE_TOPIC) as Topic
+        val topic = args.getParcelable(BUNDLE_TOPIC) as? Topic ?: return
 
         tvDescription.text =resources?.getString(R.string.complete_level_template, topic.title)
 

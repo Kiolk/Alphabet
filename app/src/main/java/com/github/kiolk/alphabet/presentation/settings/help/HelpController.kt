@@ -2,23 +2,17 @@ package com.github.kiolk.alphabet.presentation.settings.help
 
 import android.content.Intent
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
-import android.support.v7.widget.ActivityChooserView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.BindView
 import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.utils.Constants
-import com.github.kiolk.alphabet.utils.getContext
-import com.github.kiolk.alphabet.utils.getString
 import com.github.kiolk.alphabet.utils.openUrl
-import kotlinx.android.synthetic.main.controller_help.view.*
 
 class HelpController: BaseController, HelpView {
 

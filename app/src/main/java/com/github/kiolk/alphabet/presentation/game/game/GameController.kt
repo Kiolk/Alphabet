@@ -1,8 +1,6 @@
 package com.github.kiolk.alphabet.presentation.game.game
 
 import android.os.Bundle
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.text.SpannableStringBuilder
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +9,8 @@ import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.OnClick
 import com.arellomobile.mvp.presenter.InjectPresenter
@@ -247,7 +247,7 @@ class GameController : BaseController, GameView, MistakePablisher {
     @ProvidePresenter
     fun providePresenter(): GamePresenter {
         return getApplicationComponent()
-                .plusGamePresenter(GamePresenterModule(args.getParcelable(BUNDLE_GAME_SETTINGS)))
+            .plusGamePresenter(GamePresenterModule(args.getParcelable(BUNDLE_GAME_SETTINGS)!!))
                 .presenter
     }
 

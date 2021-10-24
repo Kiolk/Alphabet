@@ -1,8 +1,10 @@
 package com.github.kiolk.alphabet.data.source.settings.local
 
-import android.arch.persistence.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
 import com.github.kiolk.alphabet.data.models.game.GameSettings
-import io.reactivex.Completable
 import io.reactivex.Flowable
 
 @Dao

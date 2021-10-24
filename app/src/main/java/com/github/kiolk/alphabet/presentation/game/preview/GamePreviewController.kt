@@ -12,7 +12,6 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule
@@ -36,8 +35,11 @@ class GamePreviewController : BaseController, GamePreviewView {
     @ProvidePresenter
     fun providePresenter(): GamePreviewPresenter {
         return getApplicationComponent()
-                .plusGamePreviewComponent(GamePreviewPresenterModule(
-                        args.getParcelable(BUNDLE_GAME_SETTINGS) as GameSettings))
+            .plusGamePreviewComponent(
+                GamePreviewPresenterModule(
+                    (args.getParcelable(BUNDLE_GAME_SETTINGS) as? GameSettings)!!
+                )
+            )
                 .presenter
     }
 

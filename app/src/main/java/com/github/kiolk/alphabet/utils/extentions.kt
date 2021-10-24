@@ -6,19 +6,17 @@ import android.content.res.Resources
 import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.net.Uri
-import android.support.annotation.StringRes
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.content.ContextCompat
 import android.view.View
 import android.view.WindowManager
 import android.view.inputmethod.InputMethodManager
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import com.bluelinelabs.conductor.Controller
 import com.github.kiolk.alphabet.R
 import saschpe.android.customtabs.CustomTabsHelper
 import saschpe.android.customtabs.WebViewFallback
 import timber.log.Timber
 import java.io.NotActiveException
-import java.lang.StringBuilder
 import java.util.*
 import java.util.regex.Pattern
 
@@ -37,9 +35,10 @@ fun <T> MutableList<T>.randomize(): MutableList<T> {
     return tmp
 }
 
-fun Controller.getString(@StringRes resId: Int) = activity?.baseContext?.getString(resId) ?: ""
+fun Controller.getString(resId: Int) = activity?.baseContext?.getString(resId) ?: ""
 
-fun Controller.getString(@StringRes resId: Int, vararg vararg: Any) = activity?.baseContext?.resources?.getString(resId, vararg)
+fun Controller.getString(resId: Int, vararg vararg: Any) =
+    activity?.baseContext?.resources?.getString(resId, vararg)
         ?: ""
 
 fun Context.getWindowSize(): Point {

@@ -7,15 +7,10 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
-import android.support.annotation.RequiresApi
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.WindowManager
-import android.widget.Button
 import butterknife.BindView
 import butterknife.ButterKnife
-import butterknife.OnClick
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
@@ -24,27 +19,18 @@ import com.bluelinelabs.conductor.Conductor
 import com.bluelinelabs.conductor.Router
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
-import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
-import com.bluelinelabs.conductor.changehandler.VerticalChangeHandler
 import com.github.kiolk.alphabet.App
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
-import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.topic.Topic
-import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.presentation.base.BaseView
-import com.github.kiolk.alphabet.presentation.common.CharactersLayout
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
-import com.github.kiolk.alphabet.presentation.dialogs.RateDialog
 import com.github.kiolk.alphabet.presentation.game.game.GameController
-import com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController
 import com.github.kiolk.alphabet.presentation.home.HomeController
 import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.settings.SettingsController
-import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoAdapter
-import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.CsvParser
 import com.github.kiolk.alphabet.utils.toPx
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
@@ -203,7 +189,7 @@ class WordsScreen : MvpAppCompatActivity(), WordsView, BaseView, MenuListenerVie
 
     fun getRealPathFromURI(contentUri: Uri?): String {
         val proj: String = MediaStore.Images.Media.DATA
-        val cursor = getContentResolver().query(contentUri, arrayOf(proj), null, null, null)
+        val cursor = getContentResolver().query(contentUri!!, arrayOf(proj), null, null, null)
         if (cursor == null) return ""
         val column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
 

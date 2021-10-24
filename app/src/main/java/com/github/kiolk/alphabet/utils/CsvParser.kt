@@ -1,6 +1,5 @@
 package com.github.kiolk.alphabet.utils
 
-import android.util.Log
 import com.github.kiolk.alphabet.data.models.word.Word
 import java.io.BufferedReader
 import java.io.File
@@ -24,7 +23,6 @@ class CsvParser {
                     words.add(word)
                 }
             } catch (e: Exception) {
-Log.d("MyLogs", e.message)
             } finally {
                 reader?.close()
             }

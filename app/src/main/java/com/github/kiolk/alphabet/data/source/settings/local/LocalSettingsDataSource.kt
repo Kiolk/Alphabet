@@ -5,14 +5,11 @@ import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.toBackupSettings
 import com.github.kiolk.alphabet.data.models.game.toGameSattings
 import com.github.kiolk.alphabet.data.models.letter.Letter
-import com.github.kiolk.alphabet.data.models.throwables.NoGameSettings
 import com.github.kiolk.alphabet.data.source.settings.SettingsDataSource
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
-import java.lang.Exception
 import javax.inject.Inject
-
 
 class LocalSettingsDataSource
 @Inject
@@ -74,11 +71,11 @@ constructor(private val settingDao: SettingsDao, private val backupDao: BackupSe
     override fun setBackUp(settings: List<GameSettings>): Completable {
         Log.d("MyLogs", settings.size.toString())
         return Completable.create{
-            try{
+            try {
                 backupDao.setSettingBackup(settings.map { it.toBackupSettings() })
                 it.onComplete()
-            }catch (ex: Throwable){
-                Log.e("MyLogs", ex.message)
+            } catch (ex: Exception) {
+                Log.e("MyLogs", ex.message, ex)
                 it.onError(ex)
             }
         }

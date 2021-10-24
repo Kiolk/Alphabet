@@ -2,7 +2,7 @@ package com.github.kiolk.alphabet.data.models.game
 
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 class GameSchema(
