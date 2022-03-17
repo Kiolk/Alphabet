@@ -20,13 +20,13 @@ android {
         applicationId "com.github.kiolk.alphabet"
         minSdkVersion 16
         targetSdkVersion 30
-        versionCode 13
-        versionName "1.2.0"
+        versionCode 14
+        versionName "1.2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
         multiDexEnabled true
 
-        buildConfigField "String", "PRICVACY_POLICY", "\"github.com/Kiolk/Alphabet/blob/develop/docs/PrivacyPolicyEn.md\""
+        buildConfigField "String", "PRICVACY_POLICY", "\"https://pages.flycricket.io/lemantar-0/terms.html\""
     }
 
     signingConfigs{
