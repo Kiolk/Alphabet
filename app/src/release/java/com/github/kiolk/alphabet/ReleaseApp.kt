@@ -1,6 +1,6 @@
 package com.github.kiolk.alphabet
 
-import com.crashlytics.android.Crashlytics
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 class ReleaseApp: App() {
 
