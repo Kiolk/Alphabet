@@ -18,7 +18,7 @@ android {
     compileSdkVersion 30
     defaultConfig {
         applicationId "com.github.kiolk.alphabet"
-        minSdkVersion 16
+        minSdkVersion 21
         targetSdkVersion 30
         versionCode 14
         versionName "1.2.1"
