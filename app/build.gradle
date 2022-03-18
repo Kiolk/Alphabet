@@ -1,3 +1,6 @@
+import io.gitlab.arturbosch.detekt.Detekt
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
@@ -5,6 +8,7 @@ apply plugin: 'kotlin-parcelize'
 apply plugin: 'com.google.gms.google-services'
 apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.appdistribution'
+apply plugin: "io.gitlab.arturbosch.detekt"
 
 repositories {
     maven { url 'https://maven.fabric.io/public' }
@@ -122,6 +126,22 @@ android {
     lintOptions {
         abortOnError false
     }
+
+    detekt {
+        toolVersion = "1.18.1"
+        config = files("config/detekt/detekt.yml")
+        buildUponDefaultConfig = true
+        baseline = file("${rootProject.projectDir}/app/config/detekt/baseline.xml")
+    }
+
+//    tasks.withType(Detekt).configureEach {
+//        reports {
+//            xml.required.set(true)
+//            html.required.set(true)
+//            txt.required.set(true)
+//            sarif.required.set(true)
+//        }
+//    }
 }
 
 task uploadeToCrashlytics{
@@ -133,6 +153,28 @@ task uploadeToCrashlytics{
 //    }else{
 //        println commit
 //    }
+}
+
+task installLocalGitHook(type: Copy){
+    from new File(rootProject.rootDir, 'scripts/hooks/pre-push')
+    into { new File(rootProject.rootDir, '.git/hooks')}
+    fileMode 0775
+}
+
+preBuild.dependsOn installLocalGitHook
+
+task detektProjectBaseline(type: DetektCreateBaselineTask) {
+    description = "Overrides current baseline."
+    ignoreFailures.set(true)
+    parallel.set(true)
+    buildUponDefaultConfig.set(true)
+    setSource(files(rootDir))
+    config.setFrom(files("$rootProject.projectDir/app/config/detekt/detekt.yml"))
+    baseline.set(file("$rootProject.projectDir/app/config/detekt/baseline.xml"))
+    include("**/*.kt")
+    include("**/*.kts")
+    exclude("**/resources/**")
+    exclude("**/build/**")
 }
 
 dependencies {
@@ -202,6 +244,7 @@ dependencies {
 
     implementation 'com.google.firebase:firebase-crashlytics:18.2.3'
     implementation 'com.google.firebase:firebase-analytics:19.0.2'
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.18.1"
 }
 
 apply plugin: 'com.google.gms.google-services'
