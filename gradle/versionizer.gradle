@@ -1,0 +1,52 @@
+def versionFile = project.file("project.properties")
+
+Version version = Version.read(versionFile)
+ext {
+    versionizerVersionCode = version.code
+    versionizerVersionName = version.name
+    versionizerVersionDb = version.db
+}
+
+tasks.register("incrementVersionForRelease") {
+    group = 'release'
+    description = 'Load information about last release and increase version code'
+    doLast {
+        Version.increment(versionFile)
+    }
+}
+
+class Version {
+    private static final String KEY_NAME = "VERSION_NAME"
+    private static final String KEY_CODE = "VERSION_CODE"
+    private static final String KEY_DB = "VERSION_DB"
+
+    int code
+    String name
+    int db
+
+    static Version increment(File versionFile) {
+        read(versionFile).increment().store(versionFile)
+    }
+
+    static Version read(File versionFile) {
+        Properties properties = new Properties()
+        properties.load(versionFile.newDataInputStream())
+        int versionCode = properties.getProperty(KEY_CODE) as int
+        String versionName = properties.getProperty(KEY_NAME)
+        int versionDb = properties.getProperty(KEY_DB) as int
+        return new Version(code: versionCode, name: versionName, db: versionDb)
+    }
+
+    void store(File versionFile) {
+        Properties properties = new Properties()
+        properties.setProperty(KEY_NAME, "$name")
+        properties.setProperty(KEY_CODE, "$code")
+        properties.setProperty(KEY_DB, "$db")
+        properties.store(versionFile.newDataOutputStream(), null)
+    }
+
+    Version increment() {
+        return new Version(name: name, code: code + 1, db: db + 1)
+    }
+
+}
