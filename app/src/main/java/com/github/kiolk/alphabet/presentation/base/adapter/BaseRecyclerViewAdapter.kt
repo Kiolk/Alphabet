@@ -1,7 +1,7 @@
 package com.github.kiolk.alphabet.presentation.base.adapter
 
 import android.os.Handler
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import com.github.kiolk.alphabet.presentation.words.adapter.BaseViewHolder
 
 abstract class BaseRecyclerViewAdapter<T, VH : BaseViewHolder<*>> : RecyclerView.Adapter<VH>() {

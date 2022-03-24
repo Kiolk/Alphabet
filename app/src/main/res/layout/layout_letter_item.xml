@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="wrap_content"
-android:stateListAnimator="@animator/button_elevation"
-android:id="@+id/cl_letter_item_container"
-tools:background="@drawable/bg_letter_round_gray">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:stateListAnimator="@animator/button_elevation"
+    android:id="@+id/cl_letter_item_container"
+    tools:background="@drawable/bg_letter_round_gray">
 
-<LinearLayout
-    android:layout_width="0dp"
+    <LinearLayout
+        android:layout_width="0dp"
     android:layout_height="0dp"
     app:layout_constraintBottom_toBottomOf="parent"
     app:layout_constraintDimensionRatio="H,1:1"
@@ -28,5 +28,5 @@ tools:background="@drawable/bg_letter_round_gray">
         android:textColor="@color/general_white"
         android:textSize="55sp"
         tools:text="A" />
-</LinearLayout>
-</android.support.constraint.ConstraintLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

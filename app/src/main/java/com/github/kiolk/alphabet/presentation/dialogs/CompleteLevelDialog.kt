@@ -1,17 +1,12 @@
 package com.github.kiolk.alphabet.presentation.dialogs
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
-import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.OnClick
-import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.level.Level
 import com.github.kiolk.alphabet.data.models.level.LevelType
-import com.github.kiolk.alphabet.data.models.level.LevelTypes
 import com.github.kiolk.alphabet.presentation.views.LevelLebel
 
 class CompleteLevelDialog: BaseInfoDialog {
@@ -30,7 +25,7 @@ class CompleteLevelDialog: BaseInfoDialog {
 
         dialog?.setCancelable(true)
 
-        val level: LevelType = args.getParcelable(BUNDLE_LEVEL) as LevelType
+        val level: LevelType = (args.getParcelable(BUNDLE_LEVEL) as? LevelType) ?: return
 
         tvLevelName.text = "${level.name}"
         llLable.setLevelImage(level.imageId)

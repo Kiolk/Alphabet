@@ -1,7 +1,7 @@
 package com.github.kiolk.alphabet.data.models.game
 
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class GameStats(val asked: Int,

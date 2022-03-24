@@ -1,10 +1,8 @@
 package com.github.kiolk.alphabet.presentation.game.preview
 
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase
 import com.github.kiolk.alphabet.data.models.game.GameItem
-import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.words.WordsRepository
@@ -30,7 +28,7 @@ class GamePreviewPresenter
     }
 
     fun onError(throwable: Throwable) {
-        Log.d("MyLogs", throwable.message)
+//        Log.d("MyLogs", throwable.message)
     }
 
     fun onWordSuccess(wordList: List<Word>) {

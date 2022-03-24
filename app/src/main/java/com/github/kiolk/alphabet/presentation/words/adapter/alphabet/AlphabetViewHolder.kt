@@ -1,9 +1,8 @@
 package com.github.kiolk.alphabet.presentation.words.adapter.alphabet
 
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.CardView
 import android.view.View
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import butterknife.BindView
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.letter.Letter

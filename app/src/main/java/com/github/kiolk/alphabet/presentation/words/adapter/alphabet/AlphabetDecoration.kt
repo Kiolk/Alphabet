@@ -1,8 +1,8 @@
 package com.github.kiolk.alphabet.presentation.words.adapter.alphabet
 
 import android.graphics.Rect
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 class AlphabetDecoration : RecyclerView.ItemDecoration() {
 

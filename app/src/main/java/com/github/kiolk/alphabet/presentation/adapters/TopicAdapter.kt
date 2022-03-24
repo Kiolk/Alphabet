@@ -1,10 +1,10 @@
 package com.github.kiolk.alphabet.presentation.adapters
 
-import android.support.constraint.ConstraintLayout
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameSettings

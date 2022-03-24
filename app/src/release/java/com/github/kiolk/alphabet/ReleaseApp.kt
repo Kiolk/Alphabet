@@ -1,7 +1,6 @@
 package com.github.kiolk.alphabet
 
-import com.crashlytics.android.Crashlytics
-import io.fabric.sdk.android.Fabric
+import com.google.firebase.crashlytics.FirebaseCrashlytics
 
 class ReleaseApp: App() {
 
@@ -11,6 +10,6 @@ class ReleaseApp: App() {
     }
 
     private fun intitCrashlitic() {
-        Fabric.with(this, Crashlytics())
+        FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true)
     }
 }

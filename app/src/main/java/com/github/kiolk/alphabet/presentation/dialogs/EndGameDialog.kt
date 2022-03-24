@@ -9,8 +9,6 @@ import butterknife.BindView
 import butterknife.OnClick
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameStats
-import com.github.kiolk.alphabet.presentation.game.game.GameController
-import com.github.kiolk.alphabet.utils.getString
 
 class EndGameDialog : BaseInfoDialog {
 
@@ -51,7 +49,7 @@ class EndGameDialog : BaseInfoDialog {
         super.onViewBound(view)
 
         dialog?.let { isCancelable = false }
-        val stats = args.getParcelable(BUNDLE_GAME_STATS) as GameStats
+        val stats = args.getParcelable(BUNDLE_GAME_STATS) as? GameStats ?: return
 
 //        tvResult.text =  activity?.baseContext?.resources?.getString(R.string.end_game_not_complete, "${stats.asked.toString()}/${stats.correct.toString()}")
 

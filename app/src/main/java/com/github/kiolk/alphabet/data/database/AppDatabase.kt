@@ -1,7 +1,7 @@
 package com.github.kiolk.alphabet.data.database
 
-import android.arch.persistence.room.Database
-import android.arch.persistence.room.RoomDatabase
+import androidx.room.Database
+import androidx.room.RoomDatabase
 import com.github.kiolk.alphabet.data.models.game.BackupGameSettings
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.level.LevelType

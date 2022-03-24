@@ -1,9 +1,12 @@
 package com.github.kiolk.alphabet.data.source.player.local
 
-import android.arch.persistence.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.Update
 import com.github.kiolk.alphabet.data.models.player.Player
 import io.reactivex.Flowable
-import io.reactivex.Single
 
 @Dao
 interface PlayerDao {

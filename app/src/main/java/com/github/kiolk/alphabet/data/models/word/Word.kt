@@ -1,13 +1,13 @@
 package com.github.kiolk.alphabet.data.models.word
 
-import android.arch.persistence.room.ColumnInfo
-import android.arch.persistence.room.Entity
-import android.arch.persistence.room.PrimaryKey
-import android.arch.persistence.room.TypeConverters
 import android.os.Parcelable
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import androidx.room.TypeConverters
 import com.github.kiolk.alphabet.data.database.converters.ListConverter
 import com.github.kiolk.alphabet.data.models.game.GameSettings
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 import java.util.regex.Pattern
 
 @Entity(tableName = "Word")

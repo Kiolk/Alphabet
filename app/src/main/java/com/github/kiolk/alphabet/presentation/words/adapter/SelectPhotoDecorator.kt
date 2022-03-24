@@ -1,8 +1,8 @@
 package com.github.kiolk.alphabet.presentation.words.adapter
 
 import android.graphics.Rect
-import android.support.v7.widget.RecyclerView
 import android.view.View
+import androidx.recyclerview.widget.RecyclerView
 
 class SelectPhotoDecorator(private val padding: Int) : RecyclerView.ItemDecoration() {
 

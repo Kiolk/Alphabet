@@ -12,13 +12,11 @@ import butterknife.BindView
 import butterknife.OnClick
 import com.bluelinelabs.conductor.Controller
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.domain.words.SendMistakeUseCase
 import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.presentation.game.game.MistakePablisher
 import com.github.kiolk.alphabet.utils.getContext
 import com.github.kiolk.alphabet.utils.hideKeyboardImplicit
 import com.github.kiolk.alphabet.utils.showKeyboardImplicit
-import io.reactivex.disposables.Disposable
 import java.net.UnknownHostException
 
 class MistakeDialog : BaseInfoDialog {
@@ -51,9 +49,12 @@ class MistakeDialog : BaseInfoDialog {
     override fun onViewBound(view: View) {
         super.onViewBound(view)
 
-        val gameItem: GameItem = args.getParcelable(BUNDLE_GAME_ITEM) as GameItem
         dialog?.let { isCancelable = true }
-        val text = getContext().resources.getString(R.string.mistake_title, gameItem.currentWord.value.capitalize())
+        val gameItem: GameItem = args.getParcelable(BUNDLE_GAME_ITEM) as? GameItem ?: return
+        val text = getContext().resources.getString(
+            R.string.mistake_title,
+            gameItem.currentWord.value.capitalize()
+        )
         showKeyboardImplicit()
 
         val span = SpannableString(text)

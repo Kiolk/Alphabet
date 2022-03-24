@@ -1,14 +1,10 @@
 package com.github.kiolk.alphabet.presentation.dialogs
 
 import android.os.Bundle
-import android.support.constraint.ConstraintLayout
 import android.view.View
-import android.widget.TextView
-import butterknife.BindView
 import butterknife.OnClick
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.levels.RateUseCase
-import javax.inject.Inject
 
 class RateDialog : BaseInfoDialog(Bundle()){
 

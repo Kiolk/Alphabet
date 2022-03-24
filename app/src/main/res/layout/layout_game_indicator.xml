@@ -5,11 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <android.support.constraint.Guideline
+        <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_horizontal"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -153,5 +153,5 @@
             app:layout_constraintRight_toRightOf="@+id/tv_game_indicator_latter"
             tools:text="4"
             tools:visibility="visible" />
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </merge>

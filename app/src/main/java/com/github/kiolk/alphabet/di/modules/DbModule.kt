@@ -1,8 +1,8 @@
 package com.github.kiolk.alphabet.di.modules
 
-import android.arch.persistence.room.Room
-import android.arch.persistence.room.RoomDatabase
 import android.content.Context
+import androidx.room.Room
+import androidx.room.RoomDatabase
 import com.github.kiolk.alphabet.data.database.AppDatabase
 import com.github.kiolk.alphabet.data.source.levels.local.LevelDao
 import com.github.kiolk.alphabet.data.source.player.local.PlayerDao
