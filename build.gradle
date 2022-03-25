@@ -1,9 +1,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 apply from : "dependencies.gradle"
-
 apply from: 'scripts/customFunctions.gradle'
-
 apply from: 'notes/releaseNotes.gradle'
+
+ext {
+    compileSdkVersion = 31
+    targetSdkVersion = 31
+    minSdkVersion = 21
+    buildToolsVersion = "30.0.3"
+}
 
 buildscript {
     repositories {

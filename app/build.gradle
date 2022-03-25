@@ -18,11 +18,11 @@ repositories {
 //keysProperties.load(new FileInputStream(keysPropertiesFile))
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
         applicationId "com.github.kiolk.alphabet"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 14
         versionName "1.2.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
