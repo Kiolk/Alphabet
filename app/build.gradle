@@ -9,13 +9,15 @@ apply plugin: 'com.google.firebase.crashlytics'
 apply plugin: 'com.google.firebase.appdistribution'
 apply plugin: "io.gitlab.arturbosch.detekt"
 
+apply from: "$rootDir/gradle/versionizer.gradle"
+
 repositories {
     maven { url 'https://maven.fabric.io/public' }
 }
 
-//def keysPropertiesFile = rootProject.file("keys.properties")
-//def keysProperties = new Properties()
-//keysProperties.load(new FileInputStream(keysPropertiesFile))
+ext.lemantarVersionName = ext.versionizerVersionName
+ext.lemantarVersionCode = ext.versionizerVersionCode
+ext.lemantarDbVersion = ext.versionizerVersionDb
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
@@ -23,12 +25,14 @@ android {
         applicationId "com.github.kiolk.alphabet"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode 14
-        versionName "1.2.1"
+        versionCode lemantarVersionCode
+        versionName lemantarVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
 
         buildConfigField "String", "PRICVACY_POLICY", "\"https://pages.flycricket.io/lemantar-0/terms.html\""
+
+        resValue "integer", "db_version", "$lemantarDbVersion"
     }
 
     signingConfigs{
