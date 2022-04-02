@@ -7,11 +7,7 @@ plugins {
 apply from: "$rootDir/gradle/android/android.gradle"
 
 dependencies {
-    implementation project(path: ':common-di')
 
-    implementation Libs.kotlinReflect
+    api Libs.dagger
     kapt Libs.daggerCompailer
-
-    testImplementation TestLibs.mockito
-    testImplementation TestLibs.mockitoKotlin
 }

@@ -1,10 +1,17 @@
 ext.Versions = [
+        kotlinReflect : "1.5.31",
+
         mockito : "3.5.13",
-        mockitoKotlin: "2.2.0"
+        mockitoKotlin: "2.2.0",
+
+        dagger: "2.22.1" //todo up version
 ]
 
 ext.Libs = [
+        dagger: "com.google.dagger:dagger:${Versions.dagger}",
+        daggerCompailer: "com.google.dagger:dagger-compiler:${Versions.dagger}",
 
+        kotlinReflect: "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlinReflect}"
 ]
 
 ext.TestLibs = [
