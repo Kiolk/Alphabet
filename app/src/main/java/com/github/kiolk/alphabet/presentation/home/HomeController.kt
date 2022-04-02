@@ -62,13 +62,38 @@ class HomeController : BaseController, HomeView {
         Glide.with(ivLetterImage)
                 .load(source)
                 .addListener(object: RequestListener<Drawable> {
+<<<<<<< Updated upstream
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+=======
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        slLoadProgress.visibility = View.INVISIBLE
+>>>>>>> Stashed changes
+                        if (this@HomeController::slLoadProgress.isInitialized) {
+                            slLoadProgress.visibility = View.INVISIBLE
+                            slLoadProgress.stopShimmerAnimation()
+                        }
                         return false
                     }
 
+<<<<<<< Updated upstream
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        dataSource: DataSource?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+=======
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        slLoadProgress.visibility = View.INVISIBLE
+>>>>>>> Stashed changes
+                        if (this@HomeController::slLoadProgress.isInitialized) {
+                            slLoadProgress.visibility = View.INVISIBLE
+                            slLoadProgress.stopShimmerAnimation()
+                        }
                         return false
                     }
                 })
@@ -79,7 +104,12 @@ class HomeController : BaseController, HomeView {
     @ProvidePresenter
     fun providePresenter(): HomePresenter {
         return getApplicationComponent()
-                .plusHomePresenter(HomePresenterModule(args.getParcelable(BUNDLE_LETTER) ?: Letter("a", "a", "a", letterWord = "Аўтобус")))
+            .plusHomePresenter(
+                HomePresenterModule(
+                    args.getParcelable(BUNDLE_LETTER)
+                        ?: Letter("a", "a", "a", letterWord = "Аўтобус")
+                )
+            )
                 .presenter
     }
 

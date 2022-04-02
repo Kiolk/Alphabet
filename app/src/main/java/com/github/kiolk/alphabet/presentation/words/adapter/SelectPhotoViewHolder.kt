@@ -38,16 +38,42 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
         Glide.with(getContext())
                 .load(data.image)
                 .addListener(object : RequestListener<Drawable> {
+<<<<<<< Updated upstream
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        if (this@SelectPhotoViewHolder::shimmerLayout.isInitialized) {
+=======
                     override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        shimmerLayout.visibility = View.INVISIBLE
-                        shimmerLayout.stopShimmerAnimation()
+                        if(this@SelectPhotoViewHolder::shimmerLayout.isInitialized){
+>>>>>>> Stashed changes
+                            shimmerLayout.visibility = View.INVISIBLE
+                            shimmerLayout.stopShimmerAnimation()
+                        }
 
                         return false
                     }
 
+<<<<<<< Updated upstream
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        dataSource: DataSource?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        if (this@SelectPhotoViewHolder::shimmerLayout.isInitialized) {
+=======
                     override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        shimmerLayout.visibility = View.INVISIBLE
-                        shimmerLayout.stopShimmerAnimation()
+                        if(this@SelectPhotoViewHolder::shimmerLayout.isInitialized){
+>>>>>>> Stashed changes
+                            shimmerLayout.visibility = View.INVISIBLE
+                            shimmerLayout.stopShimmerAnimation()
+                        }
+
                         return false
                     }
                 })
