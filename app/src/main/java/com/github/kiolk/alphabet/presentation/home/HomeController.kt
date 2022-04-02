@@ -62,16 +62,12 @@ class HomeController : BaseController, HomeView {
         Glide.with(ivLetterImage)
                 .load(source)
                 .addListener(object: RequestListener<Drawable> {
-<<<<<<< Updated upstream
                     override fun onLoadFailed(
                         e: GlideException?,
                         model: Any?,
                         target: Target<Drawable>?,
                         isFirstResource: Boolean
                     ): Boolean {
-=======
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
->>>>>>> Stashed changes
                         if (this@HomeController::slLoadProgress.isInitialized) {
                             slLoadProgress.visibility = View.INVISIBLE
                             slLoadProgress.stopShimmerAnimation()
@@ -79,7 +75,6 @@ class HomeController : BaseController, HomeView {
                         return false
                     }
 
-<<<<<<< Updated upstream
                     override fun onResourceReady(
                         resource: Drawable?,
                         model: Any?,
@@ -87,9 +82,6 @@ class HomeController : BaseController, HomeView {
                         dataSource: DataSource?,
                         isFirstResource: Boolean
                     ): Boolean {
-=======
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
->>>>>>> Stashed changes
                         if (this@HomeController::slLoadProgress.isInitialized) {
                             slLoadProgress.visibility = View.INVISIBLE
                             slLoadProgress.stopShimmerAnimation()
