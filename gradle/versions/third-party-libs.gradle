@@ -1,0 +1,13 @@
+ext.Versions = [
+        mockito : "3.5.13",
+        mockitoKotlin: "2.2.0"
+]
+
+ext.Libs = [
+
+]
+
+ext.TestLibs = [
+        mockito: "org.mockito:mockito-core:${Versions.mockito}",
+        mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
+]
