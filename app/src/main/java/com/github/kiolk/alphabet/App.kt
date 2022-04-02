@@ -6,6 +6,7 @@ import com.github.kiolk.alphabet.di.compomemts.DaggerApplicationComponent
 import com.github.kiolk.alphabet.di.modules.AppModule
 import com.github.kiolk.alphabet.di.modules.DbModule
 import com.github.kiolk.alphabet.di.modules.NetworkModule
+import com.github.kiolk.feature_toggles.di.FeatureToggleComponentHolder
 
 open class App : Application() {
 
@@ -16,11 +17,14 @@ open class App : Application() {
     }
 
     private fun buildAppComponent(): ApplicationComponent {
-        return DaggerApplicationComponent.builder()
-                .appModule(AppModule(this))
-                .dbModule (DbModule())
-                .networkModule(NetworkModule())
-                .build()
+        return DaggerApplicationComponent
+            .factory()
+            .create(
+                FeatureToggleComponentHolder.get(),
+                AppModule(this),
+                DbModule(),
+                NetworkModule()
+            )
     }
 
     companion object {

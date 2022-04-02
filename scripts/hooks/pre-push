@@ -2,13 +2,13 @@
 
 echo "*****Running detekt******"
 
-git stash -q --keep-index
+#git stash -q --keep-index
 
 ./gradlew :app:detekt
 
 status=$?
 
-git stash pop -q
+#git stash pop -q
 
 echo "*****Done with detekt******"
 

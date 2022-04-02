@@ -36,7 +36,7 @@ class FeatureToggleProviderTest {
     }
 
     private fun createProvider(kClass: KClass<out FeatureToggle>): FeatureToggleProvider {
-        val registry: RegistryToggles = RegistryTogglesImpl.apply { addToggle(kClass) }
+        val registry: RegistryToggles = RegistryTogglesImpl().apply { addToggle(kClass) }
         val dataSource: ToggleDataSource = LocalToggleDataSource(registry)
         val repository: ToggleRepository = ToggleRepositoryImpl(dataSource)
 

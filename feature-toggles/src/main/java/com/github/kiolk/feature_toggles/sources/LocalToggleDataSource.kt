@@ -1,9 +1,11 @@
 package com.github.kiolk.feature_toggles.sources
 
 import com.github.kiolk.feature_toggles.base.Toggle
+import javax.inject.Inject
 import kotlin.reflect.full.createInstance
 
-class LocalToggleDataSource(private val registryToggles: RegistryToggles) : ToggleDataSource {
+class LocalToggleDataSource @Inject constructor(private val registryToggles: RegistryToggles) :
+    ToggleDataSource {
 
     private val cache: MutableMap<String, Toggle> = mutableMapOf()
 
