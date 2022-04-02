@@ -62,16 +62,27 @@ class HomeController : BaseController, HomeView {
         Glide.with(ivLetterImage)
                 .load(source)
                 .addListener(object: RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        if(this@HomeController::slLoadProgress.isInitialized){
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        if (this@HomeController::slLoadProgress.isInitialized) {
                             slLoadProgress.visibility = View.INVISIBLE
                             slLoadProgress.stopShimmerAnimation()
                         }
                         return false
                     }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        if(this@HomeController::slLoadProgress.isInitialized){
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        dataSource: DataSource?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        if (this@HomeController::slLoadProgress.isInitialized) {
                             slLoadProgress.visibility = View.INVISIBLE
                             slLoadProgress.stopShimmerAnimation()
                         }
@@ -85,7 +96,12 @@ class HomeController : BaseController, HomeView {
     @ProvidePresenter
     fun providePresenter(): HomePresenter {
         return getApplicationComponent()
-                .plusHomePresenter(HomePresenterModule(args.getParcelable(BUNDLE_LETTER) ?: Letter("a", "a", "a", letterWord = "Аўтобус")))
+            .plusHomePresenter(
+                HomePresenterModule(
+                    args.getParcelable(BUNDLE_LETTER)
+                        ?: Letter("a", "a", "a", letterWord = "Аўтобус")
+                )
+            )
                 .presenter
     }
 

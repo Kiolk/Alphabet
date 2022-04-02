@@ -38,8 +38,13 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
         Glide.with(getContext())
                 .load(data.image)
                 .addListener(object : RequestListener<Drawable> {
-                    override fun onLoadFailed(e: GlideException?, model: Any?, target: Target<Drawable>?, isFirstResource: Boolean): Boolean {
-                        if(this@SelectPhotoViewHolder::shimmerLayout.isInitialized){
+                    override fun onLoadFailed(
+                        e: GlideException?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        if (this@SelectPhotoViewHolder::shimmerLayout.isInitialized) {
                             shimmerLayout.visibility = View.INVISIBLE
                             shimmerLayout.stopShimmerAnimation()
                         }
@@ -47,8 +52,14 @@ class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -
                         return false
                     }
 
-                    override fun onResourceReady(resource: Drawable?, model: Any?, target: Target<Drawable>?, dataSource: DataSource?, isFirstResource: Boolean): Boolean {
-                        if(this@SelectPhotoViewHolder::shimmerLayout.isInitialized){
+                    override fun onResourceReady(
+                        resource: Drawable?,
+                        model: Any?,
+                        target: Target<Drawable>?,
+                        dataSource: DataSource?,
+                        isFirstResource: Boolean
+                    ): Boolean {
+                        if (this@SelectPhotoViewHolder::shimmerLayout.isInitialized) {
                             shimmerLayout.visibility = View.INVISIBLE
                             shimmerLayout.stopShimmerAnimation()
                         }

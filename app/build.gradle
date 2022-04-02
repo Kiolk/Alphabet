@@ -20,11 +20,11 @@ ext.lemantarVersionCode = ext.versionizerVersionCode
 ext.lemantarDbVersion = ext.versionizerVersionDb
 
 android {
-    compileSdkVersion 30
+    compileSdkVersion rootProject.compileSdkVersion
     defaultConfig {
         applicationId "com.github.kiolk.alphabet"
-        minSdkVersion 21
-        targetSdkVersion 30
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode lemantarVersionCode
         versionName lemantarVersionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

@@ -5,7 +5,6 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name="com.github.kiolk.alphabet.App"
@@ -15,13 +14,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:exported="true"
+        android:fullBackupContent="false"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.github.kiolk.alphabet.MainActivity"
-            android:windowSoftInputMode="adjustPan">
-        </activity>
-        <activity android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen"
-            android:windowSoftInputMode="adjustPan"/>
-        <activity android:name="com.github.kiolk.alphabet.presentation.splash.SplashActivity"
+        <activity
+            android:name="com.github.kiolk.alphabet.MainActivity"
+            android:windowSoftInputMode="adjustPan"></activity>
+        <activity
+            android:name="com.github.kiolk.alphabet.presentation.words.WordsScreen"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name="com.github.kiolk.alphabet.presentation.splash.SplashActivity"
+            android:exported="true"
             android:theme="@style/AppTheme.SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
