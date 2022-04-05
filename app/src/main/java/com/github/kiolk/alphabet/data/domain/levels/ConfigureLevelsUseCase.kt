@@ -1,10 +1,10 @@
 package com.github.kiolk.alphabet.data.domain.levels
 
 import com.github.kiolk.alphabet.data.domain.UseCase
-import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.data.models.level.LevelTypes
 import com.github.kiolk.alphabet.data.source.levels.LevelRepository
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
+import com.github.kiolk.common.data.model.level.LevelType
 import io.reactivex.Completable
 import javax.inject.Inject
 

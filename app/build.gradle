@@ -184,24 +184,23 @@ task detektProjectBaseline(type: DetektCreateBaselineTask) {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation project(':feature-toggles')
+    implementation project(':common')
     implementation project(':common-di')
+
+    implementation project(':feature-toggles')
+
     //noinspection GradleCompatible
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation "androidx.constraintlayout:constraintlayout:2.1.1"
     implementation "androidx.cardview:cardview:1.0.0"
     implementation 'io.supercharge:shimmerlayout:2.1.0'
 
-    //Dependency injection
-//    implementation 'com.google.dagger:dagger:2.22.1'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.browser:browser:1.2.0'
-//    kapt 'com.google.dagger:dagger-compiler:2.22.1'
     kapt Libs.daggerCompailer
 
     //buterknife
-    implementation "com.jakewharton:butterknife:10.0.0"
-    kapt "com.jakewharton:butterknife-compiler:10.0.0"
+    kapt Libs.butterknifeCompiler
 
 //    flexbox
     implementation "de.peilicke.sascha:android-customtabs:3.0.3"
@@ -216,25 +215,14 @@ dependencies {
 
     implementation 'com.google.android.flexbox:flexbox:3.0.0'
 
-    implementation "androidx.room:room-runtime:2.3.0"
-    kapt "androidx.room:room-compiler:2.3.0"
-    implementation "androidx.room:room-rxjava2:2.3.0"
+    kapt Libs.roomCompiler
 
     implementation libraries.rxJava2
     implementation libraries.rxKotlin
     implementation libraries.rxAndroid
 
     //moxy
-    implementation libraries.moxy
-    kapt libraries.moxyCompiler
-    implementation ('tech.schoolhelper:moxy-x-androidx:1.7.0'){
-        exclude group: 'tech.schoolhelper', module:'moxy-x'
-    }
-
-    //conductor
-    implementation libraries.conductor
-    implementation libraries.conductorSupport
-    implementation libraries.conductorDialog
+    kapt Libs.moxyCompiler
 
     //stecho
     implementation libraries.stecho

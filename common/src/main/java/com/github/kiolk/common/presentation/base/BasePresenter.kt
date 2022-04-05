@@ -1,4 +1,4 @@
-package com.github.kiolk.alphabet.presentation.base
+package com.github.kiolk.common.presentation.base
 
 import com.arellomobile.mvp.MvpPresenter
 import com.arellomobile.mvp.MvpView

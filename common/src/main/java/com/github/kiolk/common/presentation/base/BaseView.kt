@@ -1,12 +1,10 @@
-package com.github.kiolk.alphabet.presentation.base
+package com.github.kiolk.common.presentation.base
 
 import com.arellomobile.mvp.MvpView
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.level.Level
-import com.github.kiolk.alphabet.data.models.level.LevelType
+import com.github.kiolk.common.data.model.level.LevelType
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface  BaseView : MvpView {

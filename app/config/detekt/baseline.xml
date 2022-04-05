@@ -59,7 +59,7 @@
     <ID>FinalNewline:com.github.kiolk.alphabet.data.models.game.GameType.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.models.letter.Letter.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.models.level.Level.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.data.models.level.LevelType.kt:1</ID>
+    <ID>FinalNewline:com.github.kiolk.common.data.model.level.LevelType.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.models.level.LevelTypes.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.models.level.LevelViewModel.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.models.player.Player.kt:1</ID>
@@ -111,9 +111,15 @@
     <ID>FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.ResultPresenterCompomemt.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.SettingsPresenterComponent.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.SharePresenterComponent.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.SplashPresenterComponent.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.ThanksPresenterComponenet.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.WordsPresenterComponent.kt:1</ID>
+    <ID>
+      FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.SplashPresenterComponent.kt:1
+    </ID>
+    <ID>
+      FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.ThanksPresenterComponenet.kt:1
+    </ID>
+    <ID>
+      FinalNewline:com.github.kiolk.alphabet.di.compomemts.presenters.WordsPresenterComponent.kt:1
+    </ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.AppModule.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.BaseInterceptorModule.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.DataSourceModule.kt:1</ID>
@@ -122,21 +128,28 @@
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.NetworkServicesModule.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.OkHttpInerceptorsModules.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule.kt:1</ID>
+    <ID>
+      FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule.kt:1
+    </ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule.kt:1</ID>
+    <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule.kt:1
+    </ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.OkHttpInterceptors.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.OkHttpNetworkInterceptor.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.RemoteDataSource.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.WordsSet.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.adapters.TopicDecoration.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.base.BasePresenter.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.base.BaseView.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.base.adapter.BaseRecyclerViewAdapter.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.base.controller.ButterknifeController.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.base.controller.MoxyController.kt:1</ID>
+    <ID>FinalNewline:com.github.kiolk.common.presentation.base.BasePresenter.kt:1</ID>
+    <ID>FinalNewline:com.github.kiolk.common.presentation.base.BaseView.kt:1</ID>
+    <ID>
+      FinalNewline:com.github.kiolk.alphabet.presentation.base.adapter.BaseRecyclerViewAdapter.kt:1
+    </ID>
+    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:1
+    </ID>
+    <ID>FinalNewline:com.github.kiolk.common.presentation.controller.ButterknifeController.kt:1
+    </ID>
+    <ID>FinalNewline:com.github.kiolk.common.presentation.controller.MoxyController.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.common.CharactersLayout.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.dialogs.BaseDialogController.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.dialogs.BaseInfoDialog.kt:1</ID>
@@ -149,8 +162,11 @@
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.game.GameController.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.game.GamePresenter.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.game.GameView.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewPresenter.kt:1</ID>
+    <ID>
+      FinalNewline:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController.kt:1
+    </ID>
+    <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewPresenter.kt:1
+    </ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewView.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.result.ResultController.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:1</ID>
@@ -485,32 +501,70 @@
     <ID>NewLineAtEndOfFile:AlphabetDecoration.kt$com.github.kiolk.alphabet.presentation.words.adapter.alphabet.AlphabetDecoration.kt</ID>
     <ID>NewLineAtEndOfFile:AlphabetViewHolder.kt$com.github.kiolk.alphabet.presentation.words.adapter.alphabet.AlphabetViewHolder.kt</ID>
     <ID>NewLineAtEndOfFile:App.kt$com.github.kiolk.alphabet.App.kt</ID>
-    <ID>NewLineAtEndOfFile:AppDatabase.kt$com.github.kiolk.alphabet.data.database.AppDatabase.kt</ID>
+    <ID>NewLineAtEndOfFile:AppDatabase.kt$com.github.kiolk.alphabet.data.database.AppDatabase.kt
+    </ID>
     <ID>NewLineAtEndOfFile:AppModule.kt$com.github.kiolk.alphabet.di.modules.AppModule.kt</ID>
-    <ID>NewLineAtEndOfFile:ApplicationComponent.kt$com.github.kiolk.alphabet.di.compomemts.ApplicationComponent.kt</ID>
-    <ID>NewLineAtEndOfFile:BackupGameSettings.kt$com.github.kiolk.alphabet.data.models.game.BackupGameSettings.kt</ID>
-    <ID>NewLineAtEndOfFile:BackupSettingDao.kt$com.github.kiolk.alphabet.data.source.settings.local.BackupSettingDao.kt</ID>
-    <ID>NewLineAtEndOfFile:BaseController.kt$com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt</ID>
-    <ID>NewLineAtEndOfFile:BaseDialogController.kt$com.github.kiolk.alphabet.presentation.dialogs.BaseDialogController.kt</ID>
-    <ID>NewLineAtEndOfFile:BaseInfoDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.BaseInfoDialog.kt</ID>
-    <ID>NewLineAtEndOfFile:BaseInterceptorModule.kt$com.github.kiolk.alphabet.di.modules.BaseInterceptorModule.kt</ID>
-    <ID>NewLineAtEndOfFile:BasePresenter.kt$com.github.kiolk.alphabet.presentation.base.BasePresenter.kt</ID>
-    <ID>NewLineAtEndOfFile:BaseRecyclerViewAdapter.kt$com.github.kiolk.alphabet.presentation.base.adapter.BaseRecyclerViewAdapter.kt</ID>
-    <ID>NewLineAtEndOfFile:BaseView.kt$com.github.kiolk.alphabet.presentation.base.BaseView.kt</ID>
-    <ID>NewLineAtEndOfFile:BaseViewHolder.kt$com.github.kiolk.alphabet.presentation.words.adapter.BaseViewHolder.kt</ID>
+    <ID>
+      NewLineAtEndOfFile:ApplicationComponent.kt$com.github.kiolk.alphabet.di.compomemts.ApplicationComponent.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BackupGameSettings.kt$com.github.kiolk.alphabet.data.models.game.BackupGameSettings.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BackupSettingDao.kt$com.github.kiolk.alphabet.data.source.settings.local.BackupSettingDao.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BaseController.kt$com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BaseDialogController.kt$com.github.kiolk.alphabet.presentation.dialogs.BaseDialogController.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BaseInfoDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.BaseInfoDialog.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BaseInterceptorModule.kt$com.github.kiolk.alphabet.di.modules.BaseInterceptorModule.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BasePresenter.kt$com.github.kiolk.common.presentation.base.BasePresenter.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:BaseRecyclerViewAdapter.kt$com.github.kiolk.alphabet.presentation.base.adapter.BaseRecyclerViewAdapter.kt
+    </ID>
+    <ID>NewLineAtEndOfFile:BaseView.kt$com.github.kiolk.common.presentation.base.BaseView.kt</ID>
+    <ID>
+      NewLineAtEndOfFile:BaseViewHolder.kt$com.github.kiolk.alphabet.presentation.words.adapter.BaseViewHolder.kt
+    </ID>
     <ID>NewLineAtEndOfFile:BlurBuilder.kt$com.github.kiolk.alphabet.utils.BlurBuilder.kt</ID>
     <ID>NewLineAtEndOfFile:BundleBuilder.kt$com.github.kiolk.alphabet.utils.BundleBuilder.kt</ID>
-    <ID>NewLineAtEndOfFile:ButterknifeController.kt$com.github.kiolk.alphabet.presentation.base.controller.ButterknifeController.kt</ID>
-    <ID>NewLineAtEndOfFile:CharactersLayout.kt$com.github.kiolk.alphabet.presentation.common.CharactersLayout.kt</ID>
-    <ID>NewLineAtEndOfFile:CheckNextLevelUseCase.kt$com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase.kt</ID>
-    <ID>NewLineAtEndOfFile:CompleteLevelDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt</ID>
-    <ID>NewLineAtEndOfFile:CompleteTopicDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt</ID>
-    <ID>NewLineAtEndOfFile:ConfigureLevelsUseCase.kt$com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase.kt</ID>
+    <ID>
+      NewLineAtEndOfFile:ButterknifeController.kt$com.github.kiolk.common.presentation.controller.ButterknifeController.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:CharactersLayout.kt$com.github.kiolk.alphabet.presentation.common.CharactersLayout.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:CheckNextLevelUseCase.kt$com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:CompleteLevelDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:CompleteTopicDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:ConfigureLevelsUseCase.kt$com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase.kt
+    </ID>
     <ID>NewLineAtEndOfFile:Constants.kt$com.github.kiolk.alphabet.utils.Constants.kt</ID>
     <ID>NewLineAtEndOfFile:CsvParser.kt$com.github.kiolk.alphabet.utils.CsvParser.kt</ID>
-    <ID>NewLineAtEndOfFile:DaoWord.kt$com.github.kiolk.alphabet.data.source.words.local.DaoWord.kt</ID>
-    <ID>NewLineAtEndOfFile:DaoWords.kt$com.github.kiolk.alphabet.data.source.words.local.DaoWords.kt</ID>
-    <ID>NewLineAtEndOfFile:DataSourceModule.kt$com.github.kiolk.alphabet.di.modules.DataSourceModule.kt</ID>
+    <ID>NewLineAtEndOfFile:DaoWord.kt$com.github.kiolk.alphabet.data.source.words.local.DaoWord.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:DaoWords.kt$com.github.kiolk.alphabet.data.source.words.local.DaoWords.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:DataSourceModule.kt$com.github.kiolk.alphabet.di.modules.DataSourceModule.kt
+    </ID>
     <ID>NewLineAtEndOfFile:DbModule.kt$com.github.kiolk.alphabet.di.modules.DbModule.kt</ID>
     <ID>NewLineAtEndOfFile:DebugApp.kt$com.github.kiolk.alphabet.DebugApp.kt</ID>
     <ID>NewLineAtEndOfFile:EndGameDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog.kt</ID>
@@ -558,34 +612,69 @@
     <ID>NewLineAtEndOfFile:LevelDataSource.kt$com.github.kiolk.alphabet.data.source.levels.LevelDataSource.kt</ID>
     <ID>NewLineAtEndOfFile:LevelLebel.kt$com.github.kiolk.alphabet.presentation.views.LevelLebel.kt</ID>
     <ID>NewLineAtEndOfFile:LevelRepository.kt$com.github.kiolk.alphabet.data.source.levels.LevelRepository.kt</ID>
-    <ID>NewLineAtEndOfFile:LevelType.kt$com.github.kiolk.alphabet.data.models.level.LevelType.kt</ID>
+    <ID>NewLineAtEndOfFile:LevelType.kt$com.github.kiolk.common.data.model.level.LevelType.kt</ID>
     <ID>NewLineAtEndOfFile:LevelTypes.kt$com.github.kiolk.alphabet.data.models.level.LevelTypes.kt</ID>
     <ID>NewLineAtEndOfFile:LevelViewModel.kt$com.github.kiolk.alphabet.data.models.level.LevelViewModel.kt</ID>
     <ID>NewLineAtEndOfFile:ListConverter.kt$com.github.kiolk.alphabet.data.database.converters.ListConverter.kt</ID>
     <ID>NewLineAtEndOfFile:LocalDataSource.kt$com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource.kt</ID>
     <ID>NewLineAtEndOfFile:LocalGameRepository.kt$com.github.kiolk.alphabet.data.source.game.local.LocalGameRepository.kt</ID>
     <ID>NewLineAtEndOfFile:LocalLevelDataSource.kt$com.github.kiolk.alphabet.data.source.levels.local.LocalLevelDataSource.kt</ID>
-    <ID>NewLineAtEndOfFile:LocalPlayerDataSource.kt$com.github.kiolk.alphabet.data.source.player.local.LocalPlayerDataSource.kt</ID>
-    <ID>NewLineAtEndOfFile:LocalSettingsDataSource.kt$com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt</ID>
-    <ID>NewLineAtEndOfFile:LocalWordsDataSource.kt$com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt</ID>
-    <ID>NewLineAtEndOfFile:MainController.kt$com.github.kiolk.alphabet.presentation.main.MainController.kt</ID>
-    <ID>NewLineAtEndOfFile:MainPresenter.kt$com.github.kiolk.alphabet.presentation.main.MainPresenter.kt</ID>
-    <ID>NewLineAtEndOfFile:MainPresenterComponent.kt$com.github.kiolk.alphabet.di.compomemts.presenters.MainPresenterComponent.kt</ID>
+    <ID>
+      NewLineAtEndOfFile:LocalPlayerDataSource.kt$com.github.kiolk.alphabet.data.source.player.local.LocalPlayerDataSource.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:LocalSettingsDataSource.kt$com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:LocalWordsDataSource.kt$com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:MainController.kt$com.github.kiolk.alphabet.presentation.main.MainController.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:MainPresenter.kt$com.github.kiolk.alphabet.presentation.main.MainPresenter.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:MainPresenterComponent.kt$com.github.kiolk.alphabet.di.compomemts.presenters.MainPresenterComponent.kt
+    </ID>
     <ID>NewLineAtEndOfFile:MainView.kt$com.github.kiolk.alphabet.presentation.main.MainView.kt</ID>
-    <ID>NewLineAtEndOfFile:MenuListenerView.kt$com.github.kiolk.alphabet.presentation.words.MenuListenerView.kt</ID>
+    <ID>
+      NewLineAtEndOfFile:MenuListenerView.kt$com.github.kiolk.alphabet.presentation.words.MenuListenerView.kt
+    </ID>
     <ID>NewLineAtEndOfFile:Mistake.kt$com.github.kiolk.alphabet.data.models.word.Mistake.kt</ID>
-    <ID>NewLineAtEndOfFile:MistakeDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.MistakeDialog.kt</ID>
-    <ID>NewLineAtEndOfFile:MoxyController.kt$com.github.kiolk.alphabet.presentation.base.controller.MoxyController.kt</ID>
-    <ID>NewLineAtEndOfFile:NetworkModule.kt$com.github.kiolk.alphabet.di.modules.NetworkModule.kt</ID>
-    <ID>NewLineAtEndOfFile:NetworkServicesModule.kt$com.github.kiolk.alphabet.di.modules.NetworkServicesModule.kt</ID>
-    <ID>NewLineAtEndOfFile:NoGameSettings.kt$com.github.kiolk.alphabet.data.models.throwables.NoGameSettings.kt</ID>
-    <ID>NewLineAtEndOfFile:OkHttpInerceptorsModules.kt$com.github.kiolk.alphabet.di.modules.OkHttpInerceptorsModules.kt</ID>
-    <ID>NewLineAtEndOfFile:OkHttpInterceptors.kt$com.github.kiolk.alphabet.di.qualifaiers.OkHttpInterceptors.kt</ID>
-    <ID>NewLineAtEndOfFile:OkHttpNetworkInterceptor.kt$com.github.kiolk.alphabet.di.qualifaiers.OkHttpNetworkInterceptor.kt</ID>
+    <ID>
+      NewLineAtEndOfFile:MistakeDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.MistakeDialog.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:MoxyController.kt$com.github.kiolk.common.presentation.controller.MoxyController.kt
+    </ID>
+    <ID>NewLineAtEndOfFile:NetworkModule.kt$com.github.kiolk.alphabet.di.modules.NetworkModule.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:NetworkServicesModule.kt$com.github.kiolk.alphabet.di.modules.NetworkServicesModule.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:NoGameSettings.kt$com.github.kiolk.alphabet.data.models.throwables.NoGameSettings.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:OkHttpInerceptorsModules.kt$com.github.kiolk.alphabet.di.modules.OkHttpInerceptorsModules.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:OkHttpInterceptors.kt$com.github.kiolk.alphabet.di.qualifaiers.OkHttpInterceptors.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:OkHttpNetworkInterceptor.kt$com.github.kiolk.alphabet.di.qualifaiers.OkHttpNetworkInterceptor.kt
+    </ID>
     <ID>NewLineAtEndOfFile:Player.kt$com.github.kiolk.alphabet.data.models.player.Player.kt</ID>
-    <ID>NewLineAtEndOfFile:PlayerDao.kt$com.github.kiolk.alphabet.data.source.player.local.PlayerDao.kt</ID>
-    <ID>NewLineAtEndOfFile:PlayerDataSource.kt$com.github.kiolk.alphabet.data.source.player.PlayerDataSource.kt</ID>
-    <ID>NewLineAtEndOfFile:PlayerRepository.kt$com.github.kiolk.alphabet.data.source.player.PlayerRepository.kt</ID>
+    <ID>
+      NewLineAtEndOfFile:PlayerDao.kt$com.github.kiolk.alphabet.data.source.player.local.PlayerDao.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:PlayerDataSource.kt$com.github.kiolk.alphabet.data.source.player.PlayerDataSource.kt
+    </ID>
+    <ID>
+      NewLineAtEndOfFile:PlayerRepository.kt$com.github.kiolk.alphabet.data.source.player.PlayerRepository.kt
+    </ID>
     <ID>NewLineAtEndOfFile:PolicyController.kt$com.github.kiolk.alphabet.presentation.settings.policy.PolicyController.kt</ID>
     <ID>NewLineAtEndOfFile:PolicyPresenter.kt$com.github.kiolk.alphabet.presentation.settings.policy.PolicyPresenter.kt</ID>
     <ID>NewLineAtEndOfFile:PolicyPresenterComponent.kt$com.github.kiolk.alphabet.di.compomemts.presenters.PolicyPresenterComponent.kt</ID>
@@ -715,7 +804,7 @@
     <ID>NoMultipleSpaces:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:57</ID>
     <ID>NoMultipleSpaces:com.github.kiolk.alphabet.di.modules.AppModule.kt:33</ID>
     <ID>NoMultipleSpaces:com.github.kiolk.alphabet.presentation.WordsSet.kt:5</ID>
-    <ID>NoMultipleSpaces:com.github.kiolk.alphabet.presentation.base.BaseView.kt:12</ID>
+    <ID>NoMultipleSpaces:com.github.kiolk.common.presentation.base.BaseView.kt:12</ID>
     <ID>NoMultipleSpaces:com.github.kiolk.alphabet.presentation.words.adapter.alphabet.AlphabetViewHolder.kt:35</ID>
     <ID>NoSemicolons:com.github.kiolk.alphabet.MainActivity.kt:1</ID>
     <ID>NoSemicolons:com.github.kiolk.alphabet.MainActivity.kt:17</ID>
@@ -728,28 +817,41 @@
     <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase.kt:4</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase.kt:6</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase.kt:8</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase.kt:10</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase.kt:4</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase.kt:5</ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase.kt:10
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase.kt:4
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase.kt:5
+    </ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.ResetGameUseCase.kt:10</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.player.ResetGameUseCase.kt:5</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase.kt:10</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase.kt:11</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase.kt:12</ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase.kt:10
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase.kt:11
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.topics.GetActualTopicUseCase.kt:12
+    </ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.data.domain.topics.PrepareTopicUseCase.kt:6</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.source.player.local.LocalPlayerDataSource.kt:8</ID>
+    <ID>
+      NoUnusedImports:com.github.kiolk.alphabet.data.source.player.local.LocalPlayerDataSource.kt:8
+    </ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.data.source.words.WordsDataSource.kt:9</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:15</ID>
+    <ID>
+      NoUnusedImports:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:15
+    </ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.di.compomemts.ApplicationComponent.kt:12</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.di.compomemts.presenters.GamePreviewComponent.kt:3</ID>
+    <ID>
+      NoUnusedImports:com.github.kiolk.alphabet.di.compomemts.presenters.GamePreviewComponent.kt:3
+    </ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.di.modules.AppModule.kt:11</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.di.modules.AppModule.kt:5</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.di.modules.DataSourceModule.kt:10</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.di.modules.NetworkModule.kt:21</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.di.modules.NetworkModule.kt:4</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule.kt:4</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.base.BaseView.kt:7</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.base.BaseView.kt:8</ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule.kt:4
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.common.presentation.base.BaseView.kt:7</ID>
+    <ID>NoUnusedImports:com.github.kiolk.common.presentation.base.BaseView.kt:8</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.dialogs.BaseInfoDialog.kt:9</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:10</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:11</ID>
@@ -759,10 +861,14 @@
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.game.GamePresenter.kt:17</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.game.GamePresenter.kt:3</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.game.GameView.kt:9</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewView.kt:6</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.result.ResultController.kt:15</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.result.ResultController.kt:21</ID>
-    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:10</ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewView.kt:6
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.result.ResultController.kt:15
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.result.ResultController.kt:21
+    </ID>
+    <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:10
+    </ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:5</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.settings.help.HelpPresenter.kt:4</ID>
     <ID>NoUnusedImports:com.github.kiolk.alphabet.presentation.splash.SplashPresenter.kt:17</ID>
@@ -842,11 +948,11 @@
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.letter.Letter.kt:9</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.Level.kt:7</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.Level.kt:8</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelType.kt:12</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelType.kt:14</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelType.kt:17</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelType.kt:19</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelType.kt:21</ID>
+    <ID>ParameterListWrapping:com.github.kiolk.common.data.model.level.LevelType.kt:12</ID>
+    <ID>ParameterListWrapping:com.github.kiolk.common.data.model.level.LevelType.kt:14</ID>
+    <ID>ParameterListWrapping:com.github.kiolk.common.data.model.level.LevelType.kt:17</ID>
+    <ID>ParameterListWrapping:com.github.kiolk.common.data.model.level.LevelType.kt:19</ID>
+    <ID>ParameterListWrapping:com.github.kiolk.common.data.model.level.LevelType.kt:21</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelViewModel.kt:3</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelViewModel.kt:4</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.level.LevelViewModel.kt:5</ID>
@@ -858,15 +964,33 @@
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.Topic.kt:7</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.Topic.kt:8</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.Topic.kt:9</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto.kt:10</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto.kt:7</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto.kt:9</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic.kt:6</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic.kt:8</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic.kt:9</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic.kt:10</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic.kt:7</ID>
-    <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic.kt:9</ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto.kt:10
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto.kt:7
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto.kt:9
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic.kt:6
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic.kt:8
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic.kt:9
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic.kt:10
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic.kt:7
+    </ID>
+    <ID>
+      ParameterListWrapping:com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic.kt:9
+    </ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.word.Mistake.kt:5</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.word.Mistake.kt:8</ID>
     <ID>ParameterListWrapping:com.github.kiolk.alphabet.data.models.word.Mistake.kt:9</ID>
@@ -1016,24 +1140,46 @@
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.OkHttpInerceptorsModules.kt:20</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.OkHttpInerceptorsModules.kt:24</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.OkHttpInerceptorsModules.kt:28</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule.kt:13</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule.kt:9</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule.kt:13</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule.kt:9</ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule.kt:13
+    </ID>
+    <ID>SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule.kt:9
+    </ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule.kt:13
+    </ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule.kt:9
+    </ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.WordsSet.kt:5</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.adapters.TopicAdapter.kt:38</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:17</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:19</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.base.controller.MoxyController.kt:16</ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:17
+    </ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:19
+    </ID>
+    <ID>SpacingAroundColon:com.github.kiolk.common.presentation.controller.MoxyController.kt:16
+    </ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.BaseInfoDialog.kt:13</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:12</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:13</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:13</ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:12
+    </ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:13
+    </ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:13
+    </ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:13</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:19</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:23</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewPresenter.kt:20</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewView.kt:11</ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewPresenter.kt:20
+    </ID>
+    <ID>
+      SpacingAroundColon:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewView.kt:11
+    </ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.home.HomeController.kt:29</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.home.HomeController.kt:64</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.presentation.home.HomePresenter.kt:17</ID>
@@ -1134,55 +1280,113 @@
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.player.local.LocalPlayerDataSource.kt:46</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.RealSettingrepository.kt:13</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:39</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:41</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:43</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:50</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:51</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:59</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:73</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:27</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:28</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:31</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:42</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:69</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.di.compomemts.presenters.ResultPresenterCompomemt.kt:10</ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:41
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:43
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:50
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:51
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:59
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.settings.local.LocalSettingsDataSource.kt:73
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:27
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:28
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:31
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:42
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource.kt:69
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.di.compomemts.presenters.ResultPresenterCompomemt.kt:10
+    </ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.di.modules.NetworkModule.kt:58</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.di.modules.NetworkModule.kt:62</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.di.modules.NetworkModule.kt:79</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule.kt:9</ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule.kt:9
+    </ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.adapters.TopicAdapter.kt:25</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.adapters.TopicAdapter.kt:27</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.adapters.TopicAdapter.kt:29</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.adapters.TopicAdapter.kt:60</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.BasePresenter.kt:12</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.BaseView.kt:15</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.BaseView.kt:18</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.BaseView.kt:21</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.BaseView.kt:24</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.BaseView.kt:26</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:33</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.controller.MoxyController.kt:12</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.controller.MoxyController.kt:16</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:36</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:43</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:23</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:46</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:58</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog.kt:107</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.base.BasePresenter.kt:12</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.base.BaseView.kt:15</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.base.BaseView.kt:18</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.base.BaseView.kt:21</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.base.BaseView.kt:24</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.base.BaseView.kt:26</ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.base.controller.BaseController.kt:33
+    </ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.controller.MoxyController.kt:12
+    </ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.common.presentation.controller.MoxyController.kt:16
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:36
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog.kt:43
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:23
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:46
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog.kt:58
+    </ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog.kt:107
+    </ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.RateDialog.kt:9</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:19</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:32</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:38</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:19
+    </ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:32
+    </ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:38
+    </ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:42</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt:43</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.game.GameController.kt:39</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.game.GamePresenter.kt:246</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController.kt:66</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultController.kt:89</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:46</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:55</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:56</ID>
-    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:58</ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.game.GameController.kt:39
+    </ID>
+    <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.game.GamePresenter.kt:246
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.preview.GamePreviewController.kt:66
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultController.kt:89
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:46
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:55
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:56
+    </ID>
+    <ID>
+      SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:58
+    </ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:63</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.game.result.ResultPresenter.kt:67</ID>
     <ID>SpacingAroundCurly:com.github.kiolk.alphabet.presentation.home.HomePresenter.kt:28</ID>

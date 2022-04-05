@@ -6,8 +6,8 @@ import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
 import com.github.kiolk.alphabet.data.domain.player.ResetGameUseCase
 import com.github.kiolk.alphabet.data.models.level.LevelViewModel
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.presentation.base.BasePresenter
 import timber.log.Timber
 import javax.inject.Inject
 

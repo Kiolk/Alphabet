@@ -2,7 +2,7 @@ package com.github.kiolk.alphabet.presentation.settings.about
 
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.BuildConfig
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
+import com.github.kiolk.common.presentation.base.BasePresenter
 import javax.inject.Inject
 
 @InjectViewState

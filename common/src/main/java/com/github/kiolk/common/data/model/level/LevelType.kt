@@ -1,4 +1,4 @@
-package com.github.kiolk.alphabet.data.models.level
+package com.github.kiolk.common.data.model.level
 
 import android.os.Parcelable
 import androidx.room.ColumnInfo

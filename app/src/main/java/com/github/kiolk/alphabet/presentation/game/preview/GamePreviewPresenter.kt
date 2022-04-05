@@ -6,8 +6,8 @@ import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.words.WordsRepository
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.presentation.base.BasePresenter
 import javax.inject.Inject
 
 @InjectViewState

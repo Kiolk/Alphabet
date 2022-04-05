@@ -1,17 +1,43 @@
 ext.Versions = [
-        kotlinReflect : "1.5.31",
+        kotlinReflect  : "1.5.31",
 
-        mockito : "3.5.13",
-        mockitoKotlin: "2.2.0",
+        mockito        : "3.5.13",
+        mockitoKotlin  : "2.2.0",
 
-        dagger: "2.22.1" //todo up version
+        dagger         : "2.22.1", //todo up version
+
+        moxy           : '1.5.6',//todo up version
+        moxyAndroidX   : '1.7.0',//todo change general moxy dependencies [https://github.com/moxy-community/Moxy](New Moxy).
+
+        room           : "2.3.0",//todo up version
+
+        conductor      : '2.1.5',
+        conductorDialog: '1.0.0',
+
+        butterknife    : "10.0.0",
 ]
 
 ext.Libs = [
-        dagger: "com.google.dagger:dagger:${Versions.dagger}",
-        daggerCompailer: "com.google.dagger:dagger-compiler:${Versions.dagger}",
+        dagger             : "com.google.dagger:dagger:${Versions.dagger}",
+        daggerCompailer    : "com.google.dagger:dagger-compiler:${Versions.dagger}",
 
-        kotlinReflect: "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlinReflect}"
+        kotlinReflect      : "org.jetbrains.kotlin:kotlin-reflect:${Versions.kotlinReflect}",
+
+        moxy               : "com.arello-mobile:moxy:${Versions.moxy}",
+        moxyAppCompat      : "com.arello-mobile:moxy-app-compat:${Versions.moxy}",
+        moxyCompiler       : "com.arello-mobile:moxy-compiler:${Versions.moxy}",
+        moxyAndroidX       : "tech.schoolhelper:moxy-x-androidx:${Versions.moxyAndroidX}",
+
+        room               : "androidx.room:room-runtime:${Versions.room}",
+        roomRxJava         : "androidx.room:room-rxjava2:${Versions.room}",
+        roomCompiler       : "androidx.room:room-compiler:${Versions.room}",
+
+        conductor          : "com.bluelinelabs:conductor:${Versions.conductor}",
+        conductorSupport   : "com.bluelinelabs:conductor-support:${Versions.conductor}",
+        conductorDialog    : "com.github.mkhytarmkhoian:conductor-dialog:${Versions.conductorDialog}",
+
+        butterknife        : "com.jakewharton:butterknife:${Versions.butterknife}",
+        butterknifeCompiler: "com.jakewharton:butterknife-compiler:${Versions.butterknife}",
 ]
 
 ext.TestLibs = [

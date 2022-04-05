@@ -6,8 +6,6 @@ ext.versions = [
         rxKotlin       : '2.3.0',
         rxAndroid      : '2.1.1',
 
-        moxy           : '1.5.6',
-
         conductor      : '2.1.5',
         conductorDialog: '1.0.0',
 
@@ -31,10 +29,6 @@ ext.libraries = [
         rxJava2                 : "io.reactivex.rxjava2:rxjava:$versions.rxJava2",
         rxKotlin                : "io.reactivex.rxjava2:rxkotlin:$versions.rxKotlin",
         rxAndroid               : "io.reactivex.rxjava2:rxandroid:$versions.rxAndroid",
-
-        moxy                    : "com.arello-mobile:moxy:$versions.moxy",
-        moxyAppCompat           : "com.arello-mobile:moxy-app-compat:$versions.moxy",
-        moxyCompiler            : "com.arello-mobile:moxy-compiler:$versions.moxy",
 
         conductor               : "com.bluelinelabs:conductor:$versions.conductor",
         conductorSupport        : "com.bluelinelabs:conductor-support:$versions.conductor",

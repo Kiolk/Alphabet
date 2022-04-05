@@ -10,8 +10,8 @@ import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.alphabet.App
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.presentation.base.BaseView
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
+import com.github.kiolk.common.presentation.base.BaseView
 
 class SplashActivity : MvpAppCompatActivity(), SplashView, BaseView {
 

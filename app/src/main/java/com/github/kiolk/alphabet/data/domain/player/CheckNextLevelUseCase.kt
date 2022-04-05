@@ -1,15 +1,10 @@
 package com.github.kiolk.alphabet.data.domain.player
 
-import android.util.Log
-import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.UseCase
-import com.github.kiolk.alphabet.data.models.level.Level
-import com.github.kiolk.alphabet.data.models.level.LevelType
-import com.github.kiolk.alphabet.data.models.level.LevelTypes
 import com.github.kiolk.alphabet.data.source.levels.LevelRepository
 import com.github.kiolk.alphabet.data.source.player.PlayerRepository
+import com.github.kiolk.common.data.model.level.LevelType
 import io.reactivex.Single
-import timber.log.Timber
 import javax.inject.Inject
 
 class CheckNextLevelUseCase

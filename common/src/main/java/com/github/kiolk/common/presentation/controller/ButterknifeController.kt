@@ -1,4 +1,4 @@
-package com.github.kiolk.alphabet.presentation.base.controller
+package com.github.kiolk.common.presentation.controller
 
 import android.os.Bundle
 import android.view.LayoutInflater

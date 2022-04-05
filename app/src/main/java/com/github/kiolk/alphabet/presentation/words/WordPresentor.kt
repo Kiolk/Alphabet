@@ -14,9 +14,9 @@ import com.github.kiolk.alphabet.data.models.letter.Letter
 import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.data.source.words.WordsRepository
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.presentation.base.BasePresenter
 import io.reactivex.disposables.Disposable
 import timber.log.Timber
 import javax.inject.Inject

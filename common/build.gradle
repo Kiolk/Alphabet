@@ -1,0 +1,42 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-parcelize'
+}
+
+apply from: "$rootDir/gradle/android/android.gradle"
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation project(':common-di')
+
+    kapt Libs.daggerCompailer
+
+    //moxy
+    api Libs.moxy
+    api (Libs.moxyAndroidX) {
+        exclude group: 'tech.schoolhelper', module:'moxy-x'
+    }
+    kapt Libs.moxyCompiler
+
+    //room
+    api Libs.room
+    api Libs.roomRxJava
+    kapt Libs.roomCompiler
+
+    //buterknife
+    api Libs.butterknife
+    kapt Libs.butterknifeCompiler
+
+    //conductor
+    api Libs.conductor
+    api Libs.conductorSupport
+    api Libs.conductorDialog
+}
