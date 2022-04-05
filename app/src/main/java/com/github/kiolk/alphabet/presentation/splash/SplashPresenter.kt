@@ -20,13 +20,15 @@ import javax.inject.Inject
 @InjectViewState
 class SplashPresenter
 @Inject
-constructor(private val initGameUseCase: InitGameUseCase,
-            private val rxSchedulerProvider: RxSchedulerProvider,
-            private val wordsRepository: WordsRepository,
-            private val settingsRepository: SettingsRepository,
-            private val sharedPreferences: SharedPreferences,
-            private val configureLevelsUseCase: ConfigureLevelsUseCase,
-            private val initSettingsUseCase: InitSettingsUseCase) : BasePresenter<SplashView>() {
+constructor(
+    private val initGameUseCase: InitGameUseCase,
+    private val rxSchedulerProvider: RxSchedulerProvider,
+    private val wordsRepository: WordsRepository,
+    private val settingsRepository: SettingsRepository,
+    private val sharedPreferences: SharedPreferences,
+    private val configureLevelsUseCase: ConfigureLevelsUseCase,
+    private val initSettingsUseCase: InitSettingsUseCase
+) : BasePresenter<SplashView>() {
 
     private var counter = 0
     private lateinit var allSettings: MutableList<GameSettings>
@@ -46,7 +48,7 @@ constructor(private val initGameUseCase: InitGameUseCase,
         }
     }
 
-    private fun initSettingError(throwable: Throwable){
+    private fun initSettingError(throwable: Throwable) {
         Timber.e(throwable)
     }
 
@@ -95,23 +97,27 @@ constructor(private val initGameUseCase: InitGameUseCase,
     }
 
     fun setSettings() {
-        addDisposable(initSettingsUseCase.execute(InitSettingsUseCase.Params(availableSettings))
+        addDisposable(
+            initSettingsUseCase.execute(InitSettingsUseCase.Params(availableSettings))
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe(this::configuerLevels))
+                .subscribe(this::configuerLevels)
+        )
     }
 
-    private fun setAsckedWords(total: Int): Int{
-        if(total < MAX_WORDS_IN_GAME){
+    private fun setAsckedWords(total: Int): Int {
+        if (total < MAX_WORDS_IN_GAME) {
             return MIN_WORDS_IN_GAME
-        }else{
+        } else {
             return Math.min((total * 0.5f).toInt(), MAX_WORDS_IN_GAME)
         }
     }
 
-    private fun configuerLevels(){
-        addDisposable(configureLevelsUseCase.execute(ConfigureLevelsUseCase.Params())
+    private fun configuerLevels() {
+        addDisposable(
+            configureLevelsUseCase.execute(ConfigureLevelsUseCase.Params())
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe(this::openMainScreen))
+                .subscribe(this::openMainScreen)
+        )
     }
 
     private fun openMainScreen() {

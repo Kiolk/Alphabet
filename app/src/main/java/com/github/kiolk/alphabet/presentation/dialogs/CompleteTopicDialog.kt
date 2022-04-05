@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.topic.Topic
 
-class CompleteTopicDialog: BaseInfoDialog {
+class CompleteTopicDialog : BaseInfoDialog {
 
     @BindView(R.id.iv_compete_topic_image)
     lateinit var ivTopicImage: ImageView
@@ -20,7 +20,7 @@ class CompleteTopicDialog: BaseInfoDialog {
 
     lateinit var listener: () -> Unit
 
-    constructor(args: Bundle, acceptListener: () -> Unit) : super(args){
+    constructor(args: Bundle, acceptListener: () -> Unit) : super(args) {
         this.listener = acceptListener
     }
 

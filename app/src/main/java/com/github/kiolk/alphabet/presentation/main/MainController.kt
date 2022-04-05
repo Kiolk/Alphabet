@@ -21,6 +21,7 @@ import com.github.kiolk.alphabet.presentation.views.LevelLebel
 import com.github.kiolk.alphabet.presentation.views.StyledProgressBar
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
 import com.github.kiolk.alphabet.utils.getContext
+import com.github.kiolk.feature_upload_image.presentation.select.SelectImageController
 
 class MainController : BaseController, MainView {
 
@@ -118,16 +119,27 @@ class MainController : BaseController, MainView {
     @OnClick(R.id.iv_sound_switcher)
     fun onSoundPress() {
         presenter.onSoundPressed()
+        openSelectImage()
+    }
+
+    private fun openSelectImage() {
+        router.pushController(
+            RouterTransaction.with(SelectImageController())
+                .pushChangeHandler((FadeChangeHandler()))
+                .popChangeHandler(FadeChangeHandler()).tag(SelectImageController.TAG)
+        )
     }
 
     @OnClick(R.id.btn_main_level_restart)
     fun onRestartPress() {
-        router.pushController((RouterTransaction.with(ResetGameDialog.getInstance {
-            presenter.onResetPress()
-        }))
+        router.pushController(
+            (RouterTransaction.with(ResetGameDialog.getInstance {
+                presenter.onResetPress()
+            }))
                 .pushChangeHandler(FadeChangeHandler())
                 .popChangeHandler(FadeChangeHandler())
-                .tag(ResetGameDialog.TAG))
+                .tag(ResetGameDialog.TAG)
+        )
     }
 
     @OnClick(R.id.btn_main_level_rate)
