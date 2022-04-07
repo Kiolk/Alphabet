@@ -4,4 +4,5 @@ import com.github.kiolk.common.presentation.base.BaseView
 
 interface SelectImageView : BaseView {
 
+    fun selectImageFromGallery()
 }
