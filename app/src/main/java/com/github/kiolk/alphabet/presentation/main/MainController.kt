@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,7 +22,7 @@ import com.github.kiolk.alphabet.presentation.views.LevelLebel
 import com.github.kiolk.alphabet.presentation.views.StyledProgressBar
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
 import com.github.kiolk.alphabet.utils.getContext
-import com.github.kiolk.feature_upload_image.presentation.select.SelectImageController
+import com.github.kiolk.feature_upload_image.presentation.select.SelectImageActivity
 
 class MainController : BaseController, MainView {
 
@@ -123,11 +124,7 @@ class MainController : BaseController, MainView {
     }
 
     private fun openSelectImage() {
-        router.pushController(
-            RouterTransaction.with(SelectImageController())
-                .pushChangeHandler((FadeChangeHandler()))
-                .popChangeHandler(FadeChangeHandler()).tag(SelectImageController.TAG)
-        )
+        activity?.startActivity(Intent(activity, SelectImageActivity::class.java))
     }
 
     @OnClick(R.id.btn_main_level_restart)

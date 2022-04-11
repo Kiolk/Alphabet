@@ -1,11 +1,14 @@
 package com.github.kiolk.feature_upload_image.presentation.select
 
-import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import com.app.imagepickerlibrary.ImagePickerBottomsheet
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.github.kiolk.common.presentation.controller.BaseDaggerController
+import com.github.kiolk.common.utils.fragmentManager
 import com.github.kiolk.feature_upload_image.R
 import com.github.kiolk.feature_upload_image.di.UploadImageComponentHolder
 
@@ -25,15 +28,16 @@ class SelectImageController : BaseDaggerController<SelectImageView, SelectImageP
     }
 
     override fun selectImageFromGallery() {
-        val intent: Intent = Intent()
-        intent.type = "IMAGE_TYPE"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select image"), SELECT_PICTURE_RESULT)
+        val bottomSheet = ImagePickerBottomsheet()
+        bottomSheet.show(this.fragmentManager(), IMAGE_PICKER_TAG)
+    }
+
+    fun onImageSelected(imageUri: Uri) {
+        view?.findViewById<TextView>(R.id.ImageUri)?.text = imageUri.toString()
     }
 
     companion object {
         const val TAG = "SelectImageController"
-        private const val IMAGE_TYPE = "image/*"
-        const val SELECT_PICTURE_RESULT = 1
+        private const val IMAGE_PICKER_TAG = "ImagePickerBottomSheet"
     }
 }

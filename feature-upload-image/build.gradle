@@ -11,6 +11,10 @@ android {
         viewBinding true
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     defaultConfig {
         javaCompileOptions {
             annotationProcessorOptions {
@@ -30,6 +34,7 @@ dependencies {
 
     implementation project(':common')
     implementation project(':common-di')
+    implementation Libs.sSImagePicker
 
     kapt Libs.daggerCompailer
     kapt Libs.moxyCompiler

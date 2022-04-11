@@ -15,6 +15,7 @@ ext.Versions = [
         conductorDialog: '1.0.0',
 
         butterknife    : "10.0.0",
+        sSImagePicker  : "1.8",
 ]
 
 ext.Libs = [
@@ -38,6 +39,8 @@ ext.Libs = [
 
         butterknife        : "com.jakewharton:butterknife:${Versions.butterknife}",
         butterknifeCompiler: "com.jakewharton:butterknife-compiler:${Versions.butterknife}",
+
+        "sSImagePicker"    : "com.github.SimformSolutionsPvtLtd:SSImagePicker:${Versions.sSImagePicker}"
 ]
 
 ext.TestLibs = [

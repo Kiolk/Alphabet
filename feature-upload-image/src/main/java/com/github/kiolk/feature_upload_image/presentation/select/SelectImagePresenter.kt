@@ -7,4 +7,8 @@ import javax.inject.Inject
 @InjectViewState
 class SelectImagePresenter @Inject constructor() : BasePresenter<SelectImageView>() {
 
+    override fun onFirstViewAttach() {
+        super.onFirstViewAttach()
+        viewState.selectImageFromGallery()
+    }
 }

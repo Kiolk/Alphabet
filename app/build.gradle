@@ -130,6 +130,10 @@ android {
         abortOnError false
     }
 
+    dataBinding {
+        enabled = true
+    }
+
     detekt {
         toolVersion = "1.18.1"
         config = files("config/detekt/detekt.yml")
