@@ -1,24 +1,23 @@
 package com.github.kiolk.feature_toggles.sources
 
 import com.github.kiolk.feature_toggles.base.FeatureToggle
-import com.github.kiolk.feature_toggles.toggles.UploadImageFeatureToggle
 import javax.inject.Inject
 import kotlin.reflect.KClass
 
 interface RegistryToggles {
 
-    val toggles: MutableList<KClass<out FeatureToggle>>
+    val toggles: MutableList<KClass<out FeatureToggle<Any>>>
 
-    fun <T : FeatureToggle> addToggle(kClass: KClass<T>)
+    fun <T : FeatureToggle<Any>> addToggle(kClass: KClass<T>)
 }
 
 class RegistryTogglesImpl @Inject constructor() : RegistryToggles {
 
-    override val toggles: MutableList<KClass<out FeatureToggle>> = mutableListOf(
-        UploadImageFeatureToggle::class
+    override val toggles: MutableList<KClass<out FeatureToggle<Any>>> = mutableListOf(
+
     )
 
-    override fun <T : FeatureToggle> addToggle(kClass: KClass<T>) {
+    override fun <T : FeatureToggle<Any>> addToggle(kClass: KClass<T>) {
         toggles.add(kClass)
     }
 }

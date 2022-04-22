@@ -103,13 +103,19 @@ class MainController : BaseController, MainView {
 
     override fun onResetSuccess() {
         router.popToRoot()
-        router.pushController(RouterTransaction.with(MainController())
+        router.pushController(
+            RouterTransaction.with(MainController())
                 .pushChangeHandler(FadeChangeHandler())
-                .popChangeHandler(FadeChangeHandler()).tag(TAG))
+                .popChangeHandler(FadeChangeHandler()).tag(TAG)
+        )
     }
 
     override fun setSoundState(drawableId: Int) {
         ivSoundButton.setImageDrawable(getContext().resources.getDrawable(drawableId))
+    }
+
+    override fun openUploadImageScreen() {
+        activity?.startActivity(Intent(activity, SelectImageActivity::class.java))
     }
 
     @OnClick(R.id.iv_main_level_setting, R.id.iv_main_level_end_setting)
@@ -120,11 +126,6 @@ class MainController : BaseController, MainView {
     @OnClick(R.id.iv_sound_switcher)
     fun onSoundPress() {
         presenter.onSoundPressed()
-        openSelectImage()
-    }
-
-    private fun openSelectImage() {
-        activity?.startActivity(Intent(activity, SelectImageActivity::class.java))
     }
 
     @OnClick(R.id.btn_main_level_restart)

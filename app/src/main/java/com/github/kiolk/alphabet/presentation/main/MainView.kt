@@ -33,7 +33,9 @@ interface MainView: BaseView {
 
     fun setSoundState(drawableId: Int)
 
-    companion object{
+    fun openUploadImageScreen()
+
+    companion object {
         private const val GAME_END_TAG = "GAME_END_TAG"
     }
 }

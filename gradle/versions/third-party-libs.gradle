@@ -16,6 +16,9 @@ ext.Versions = [
 
         butterknife    : "10.0.0",
         sSImagePicker  : "1.8",
+        rxAndroid      : '2.1.1',
+
+        firebaseConfig       : '21.0.2',
 ]
 
 ext.Libs = [
@@ -40,7 +43,11 @@ ext.Libs = [
         butterknife        : "com.jakewharton:butterknife:${Versions.butterknife}",
         butterknifeCompiler: "com.jakewharton:butterknife-compiler:${Versions.butterknife}",
 
-        "sSImagePicker"    : "com.github.SimformSolutionsPvtLtd:SSImagePicker:${Versions.sSImagePicker}"
+        "sSImagePicker"    : "com.github.SimformSolutionsPvtLtd:SSImagePicker:${Versions.sSImagePicker}",
+
+        rxAndroid          : "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}",
+
+        firebaseConfig     : "com.google.firebase:firebase-config-ktx:${Versions.firebaseConfig}"
 ]
 
 ext.TestLibs = [

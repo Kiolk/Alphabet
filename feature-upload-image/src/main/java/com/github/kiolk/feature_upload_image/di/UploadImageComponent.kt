@@ -24,7 +24,7 @@ internal interface UploadImageComponentInternal : UploadImageComponent {
     }
 }
 
-internal object UploadImageComponentHolder : FeatureComponentHolder<UploadImageComponent>() {
+object UploadImageComponentHolder : FeatureComponentHolder<UploadImageComponent>() {
 
     override fun build(): UploadImageComponent {
         return DaggerUploadImageComponentInternal

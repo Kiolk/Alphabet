@@ -1,7 +1,6 @@
 package com.github.kiolk.common.presentation.controller
 
 import android.os.Bundle
-import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.github.kiolk.common.presentation.base.BasePresenter
 import com.github.kiolk.common.presentation.base.BaseView
 
@@ -13,10 +12,10 @@ abstract class BaseDaggerController<V : BaseView, out T : BasePresenter<V>> : Bi
 
     protected abstract fun preparePresenter(): T
 
-    @ProvidePresenter
-    fun providePresenter(): T {
-        return preparePresenter()
-    }
+//    @ProvidePresenter
+//    fun providePresenter(): T {
+//        return preparePresenter()
+//    }
 
     override fun pop() {
         router.popCurrentController()

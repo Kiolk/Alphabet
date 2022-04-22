@@ -1,4 +1,4 @@
-package com.github.kiolk.alphabet.data.domain
+package com.github.kiolk.common.domain.base
 
 interface UseCase<T, Params> {
 

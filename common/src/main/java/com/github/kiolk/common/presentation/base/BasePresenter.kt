@@ -9,7 +9,7 @@ abstract class BasePresenter<T : MvpView> : MvpPresenter<T>() {
 
     private val compositeDisposable: CompositeDisposable = CompositeDisposable()
 
-    protected fun addDisposable(disposable: Disposable?){
+    fun addDisposable(disposable: Disposable?) {
         disposable?.let { compositeDisposable.add(it) }
     }
 
@@ -17,4 +17,8 @@ abstract class BasePresenter<T : MvpView> : MvpPresenter<T>() {
         super.onDestroy()
         compositeDisposable.dispose()
     }
+}
+
+fun Disposable.addToDisposable(basePresenter: BasePresenter<*>) {
+    basePresenter.addDisposable(this)
 }

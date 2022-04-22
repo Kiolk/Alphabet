@@ -12,6 +12,8 @@ dependencies {
     implementation Libs.kotlinReflect
     kapt Libs.daggerCompailer
 
+    implementation Libs.firebaseConfig
+
     testImplementation TestLibs.mockito
     testImplementation TestLibs.mockitoKotlin
 }

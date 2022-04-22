@@ -6,7 +6,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import com.github.kiolk.alphabet.BuildConfig
-import com.github.kiolk.alphabet.data.domain.UseCase
+import com.github.kiolk.common.domain.base.UseCase
 import javax.inject.Inject
 
 class RateUseCase

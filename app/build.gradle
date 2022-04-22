@@ -73,6 +73,7 @@ android {
             versionNameSuffix "-dev"
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-pushnotificationsample-1c8c9.cloudfunctions.net\""
+            buildConfigField "String", "ImageStoreRootPath", "\"dev/\""
 
             signingConfig signingConfigs.dev
         }
@@ -83,6 +84,7 @@ android {
             versionNameSuffix "-qa"
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
+            buildConfigField "String", "ImageStoreRootPath", "\"qa/\""
 
             signingConfig signingConfigs.qa
 
@@ -103,6 +105,7 @@ android {
             dimension "version"
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
+            buildConfigField "String", "ImageStoreRootPath", "\"prod/\""
 
             signingConfig signingConfigs.prod
         }

@@ -7,7 +7,6 @@ import com.github.kiolk.alphabet.data.source.game.local.LocalGameRepository
 import com.github.kiolk.alphabet.data.source.levels.LevelDataSource
 import com.github.kiolk.alphabet.data.source.levels.LevelRepository
 import com.github.kiolk.alphabet.data.source.levels.RealLevelRepository
-import com.github.kiolk.alphabet.data.source.levels.RealLevelRepository_Factory
 import com.github.kiolk.alphabet.data.source.levels.local.LocalLevelDataSource
 import com.github.kiolk.alphabet.data.source.player.PlayerDataSource
 import com.github.kiolk.alphabet.data.source.player.PlayerRepository
@@ -22,8 +21,8 @@ import com.github.kiolk.alphabet.data.source.words.WordsDataSource
 import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.alphabet.data.source.words.local.LocalWordsDataSource
 import com.github.kiolk.alphabet.data.source.words.remote.RemoteWordsDataSource
-import com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource
-import com.github.kiolk.alphabet.di.qualifaiers.RemoteDataSource
+import com.github.kiolk.common_di.qualifiers.LocalDataSource
+import com.github.kiolk.common_di.qualifiers.RemoteDataSource
 import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton

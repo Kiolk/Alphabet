@@ -22,6 +22,7 @@ import com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule
 import com.github.kiolk.feature_toggles.di.FeatureToggleComponent
+import com.github.kiolk.feature_upload_image.di.UploadImageComponent
 import dagger.Component
 import javax.inject.Singleton
 
@@ -33,7 +34,8 @@ import javax.inject.Singleton
         DbModule::class,
         NetworkModule::class],
     dependencies = [
-        FeatureToggleComponent::class
+        FeatureToggleComponent::class,
+        UploadImageComponent::class
     ]
 )
 interface ApplicationComponent {
@@ -69,6 +71,7 @@ interface ApplicationComponent {
     @Component.Factory
     interface Factory {
         fun create(
+            uploadImageComponent: UploadImageComponent,
             featureToggleComponent: FeatureToggleComponent,
             appModule: AppModule,
             dbModule: DbModule,

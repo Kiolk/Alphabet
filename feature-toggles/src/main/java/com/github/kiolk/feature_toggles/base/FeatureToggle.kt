@@ -1,14 +1,13 @@
 package com.github.kiolk.feature_toggles.base
 
-abstract class FeatureToggle : Toggle {
+abstract class FeatureToggle<T> : Toggle<T> {
 
-    abstract val name: String
+    abstract val defaultValue: T
 
-    protected open val enable: Boolean? = null
+    override var value: T = defaultValue
+        get() {
+            return field ?: defaultValue
+        }
 
-    protected open val defaultValue: Boolean = false
-
-    override fun isEnable(): Boolean {
-        return enable ?: defaultValue
-    }
+    abstract fun getType(): ValueToggleType
 }

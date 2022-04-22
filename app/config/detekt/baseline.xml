@@ -30,7 +30,7 @@
     <ID>FinalNewline:com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.domain.UpdateGameUseCase.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.domain.UpdateWordsFromFile.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.data.domain.UseCase.kt:1</ID>
+    <ID>FinalNewline:com.github.kiolk.common.domain.base.UseCase.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.domain.levels.RateUseCase.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.data.domain.player.CheckNextLevelUseCase.kt:1</ID>
@@ -134,10 +134,10 @@
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule.kt:1
     </ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource.kt:1</ID>
+      <ID>FinalNewline:com.github.kiolk.common_di.qualifiers.LocalDataSource.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.OkHttpInterceptors.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.OkHttpNetworkInterceptor.kt:1</ID>
-    <ID>FinalNewline:com.github.kiolk.alphabet.di.qualifaiers.RemoteDataSource.kt:1</ID>
+      <ID>FinalNewline:com.github.kiolk.common_di.qualifiers.RemoteDataSource.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.WordsSet.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.alphabet.presentation.adapters.TopicDecoration.kt:1</ID>
     <ID>FinalNewline:com.github.kiolk.common.presentation.base.BasePresenter.kt:1</ID>
@@ -616,7 +616,9 @@
     <ID>NewLineAtEndOfFile:LevelTypes.kt$com.github.kiolk.alphabet.data.models.level.LevelTypes.kt</ID>
     <ID>NewLineAtEndOfFile:LevelViewModel.kt$com.github.kiolk.alphabet.data.models.level.LevelViewModel.kt</ID>
     <ID>NewLineAtEndOfFile:ListConverter.kt$com.github.kiolk.alphabet.data.database.converters.ListConverter.kt</ID>
-    <ID>NewLineAtEndOfFile:LocalDataSource.kt$com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource.kt</ID>
+      <ID>
+          NewLineAtEndOfFile:LocalDataSource.kt$com.github.kiolk.common_di.qualifiers.LocalDataSource.kt
+      </ID>
     <ID>NewLineAtEndOfFile:LocalGameRepository.kt$com.github.kiolk.alphabet.data.source.game.local.LocalGameRepository.kt</ID>
     <ID>NewLineAtEndOfFile:LocalLevelDataSource.kt$com.github.kiolk.alphabet.data.source.levels.local.LocalLevelDataSource.kt</ID>
     <ID>
@@ -690,7 +692,9 @@
     <ID>NewLineAtEndOfFile:RealSettingrepository.kt$com.github.kiolk.alphabet.data.source.settings.RealSettingrepository.kt</ID>
     <ID>NewLineAtEndOfFile:RealWordsRepository.kt$com.github.kiolk.alphabet.data.source.words.RealWordsRepository.kt</ID>
     <ID>NewLineAtEndOfFile:ReleaseApp.kt$com.github.kiolk.alphabet.ReleaseApp.kt</ID>
-    <ID>NewLineAtEndOfFile:RemoteDataSource.kt$com.github.kiolk.alphabet.di.qualifaiers.RemoteDataSource.kt</ID>
+      <ID>
+          NewLineAtEndOfFile:RemoteDataSource.kt$com.github.kiolk.common_di.qualifiers.RemoteDataSource.kt
+      </ID>
     <ID>NewLineAtEndOfFile:RemoteWord.kt$com.github.kiolk.alphabet.data.models.word.RemoteWord.kt</ID>
     <ID>NewLineAtEndOfFile:RemoteWordsDataSource.kt$com.github.kiolk.alphabet.data.source.words.remote.RemoteWordsDataSource.kt</ID>
     <ID>NewLineAtEndOfFile:ResetGameDialog.kt$com.github.kiolk.alphabet.presentation.dialogs.ResetGameDialog.kt</ID>
@@ -739,7 +743,7 @@
     <ID>NewLineAtEndOfFile:UpdateGameUseCase.kt$com.github.kiolk.alphabet.data.domain.UpdateGameUseCase.kt</ID>
     <ID>NewLineAtEndOfFile:UpdatePlayerStarsUseCase.kt$com.github.kiolk.alphabet.data.domain.player.UpdatePlayerStarsUseCase.kt</ID>
     <ID>NewLineAtEndOfFile:UpdateWordsFromFile.kt$com.github.kiolk.alphabet.data.domain.UpdateWordsFromFile.kt</ID>
-    <ID>NewLineAtEndOfFile:UseCase.kt$com.github.kiolk.alphabet.data.domain.UseCase.kt</ID>
+      <ID>NewLineAtEndOfFile:UseCase.kt$com.github.kiolk.common.domain.base.UseCase.kt</ID>
     <ID>NewLineAtEndOfFile:Utils.kt$com.github.kiolk.alphabet.utils.Utils.kt</ID>
     <ID>NewLineAtEndOfFile:Words.kt$com.github.kiolk.alphabet.data.models.words.Words.kt</ID>
     <ID>NewLineAtEndOfFile:WordsDataSource.kt$com.github.kiolk.alphabet.data.source.words.WordsDataSource.kt</ID>
@@ -1085,7 +1089,7 @@
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.data.database.AppDatabase.kt:25</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.data.database.AppDatabase.kt:27</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.data.domain.UpdateGameUseCase.kt:10</ID>
-    <ID>SpacingAroundColon:com.github.kiolk.alphabet.data.domain.UseCase.kt:5</ID>
+      <ID>SpacingAroundColon:com.github.kiolk.common.domain.base.UseCase.kt:5</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.data.domain.settings.InitSettingsUseCase.kt:11</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.data.domain.words.GetRandomWordUseCase.kt:11</ID>
     <ID>SpacingAroundColon:com.github.kiolk.alphabet.data.models.game.GameItem.kt:10</ID>

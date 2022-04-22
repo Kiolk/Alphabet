@@ -1,8 +1,8 @@
 package com.github.kiolk.feature_toggles.base
 
-interface Toggle<T> {
+interface Config<T> {
 
     val name: String
 
-    var value: T
+    val value: T
 }

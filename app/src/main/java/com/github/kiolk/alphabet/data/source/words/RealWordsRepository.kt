@@ -8,8 +8,8 @@ import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
 import com.github.kiolk.alphabet.data.models.word.Mistake
 import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.models.words.Words
-import com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource
-import com.github.kiolk.alphabet.di.qualifaiers.RemoteDataSource
+import com.github.kiolk.common_di.qualifiers.LocalDataSource
+import com.github.kiolk.common_di.qualifiers.RemoteDataSource
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
