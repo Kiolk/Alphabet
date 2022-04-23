@@ -22,8 +22,11 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
         addDisposable(getCurrentLevelUseCase.execute((GetCurrentLevelUseCase.Params()))
-                .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
-                .subscribe(this::setPlayerLevel) {setPlayerLevelError()})
+            .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
+            .subscribe(this::setPlayerLevel) {
+                setPlayerLevelError()
+            }
+        )
 
         setSoundState(soundManager.isOff)
     }
@@ -34,7 +37,6 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
     }
 
     private fun setPlayerLevelError(){
-        viewState.showEdnGameLayout()
     }
 
     private fun setPlayerLevel(model: LevelViewModel) {
