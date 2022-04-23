@@ -7,18 +7,22 @@ import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
 import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
 import com.github.kiolk.alphabet.data.models.word.Mistake
 import com.github.kiolk.alphabet.data.models.word.Word
-import com.github.kiolk.alphabet.data.models.word.toWord
 import com.github.kiolk.alphabet.data.models.words.Words
 import com.github.kiolk.alphabet.data.source.words.WordsDataSource
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.FirebaseDatabase
+import io.reactivex.BackpressureStrategy
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single
-import java.lang.UnsupportedOperationException
+import io.reactivex.subjects.PublishSubject
+import timber.log.Timber
 import javax.inject.Inject
 
 class RemoteWordsDataSource
 @Inject
-constructor (private val service: WordsService) : WordsDataSource {
+constructor(private val service: WordsService, private val database: FirebaseDatabase) :
+    WordsDataSource {
 
     override fun getWordsSet(title: String): Flowable<List<String>> {
         throw UnsupportedOperationException()
@@ -45,7 +49,20 @@ constructor (private val service: WordsService) : WordsDataSource {
     }
 
     override fun getAllDbWords(): Flowable<List<Word>> {
-        return service.getWords().map { words -> return@map words.map { it.toWord() } }
+        val wordsRef = database.getReference(ROOT_DATABASE_CHILD_KEY)
+        val subject: PublishSubject<List<Word>> = PublishSubject.create()
+
+        wordsRef.get().addOnSuccessListener {
+            val words: List<Word> = it.children.map { wordDataSnapshot ->
+                wordDataSnapshot.toWord()
+            }
+            subject.onNext(words)
+        }.addOnFailureListener {
+            Timber.d(it)
+            subject.onNext(emptyList())
+        }
+
+        return subject.toFlowable(BackpressureStrategy.BUFFER)
     }
 
     override fun updateWord(word: Word): Completable {
@@ -75,4 +92,19 @@ constructor (private val service: WordsService) : WordsDataSource {
     override fun sendMistake(mistake: Mistake): Completable {
         return service.sendMistake(mistake)
     }
+
+    private companion object {
+        const val ROOT_DATABASE_CHILD_KEY = "words"
+    }
+}
+
+fun DataSnapshot.toWord(): Word {
+    return Word(
+        this.child("value").value.toString(),
+        this.child("syllables").value.toString(),
+        this.child("image").value.toString(),
+        this.child("tag").value.toString(),
+        0,
+        this.child("image_author").value.toString()
+    )
 }

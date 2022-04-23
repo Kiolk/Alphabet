@@ -10,6 +10,9 @@ import com.github.kiolk.alphabet.data.source.settings.local.BackupSettingDao
 import com.github.kiolk.alphabet.data.source.settings.local.SettingsDao
 import com.github.kiolk.alphabet.data.source.words.local.DaoWord
 import com.github.kiolk.alphabet.data.source.words.local.DaoWords
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ktx.database
+import com.google.firebase.ktx.Firebase
 import dagger.Module
 import dagger.Provides
 import javax.inject.Singleton
@@ -47,7 +50,14 @@ class DbModule {
     @Singleton
     @Provides
     fun provideBackupSetting(database: AppDatabase): BackupSettingDao = database.backupDao()
+
     companion object {
-        const val DATABASE_NAME : String = "words.db"
+        const val DATABASE_NAME: String = "words.db"
+    }
+
+    @Singleton
+    @Provides
+    fun provideFirebaseDataBase(): FirebaseDatabase {
+        return Firebase.database
     }
 }
