@@ -1,11 +1,10 @@
 package com.github.kiolk.alphabet.presentation.splash
 
 import android.content.SharedPreferences
-import android.net.Uri
-import android.util.Log
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase
 import com.github.kiolk.alphabet.data.domain.settings.InitSettingsUseCase
+import com.github.kiolk.alphabet.data.domain.words.InitGameDatabase
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
@@ -14,23 +13,24 @@ import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.Constants.MAX_WORDS_IN_GAME
 import com.github.kiolk.alphabet.utils.Constants.MIN_WORDS_IN_GAME
-import com.github.kiolk.alphabet.utils.CsvParser
 import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
 import timber.log.Timber
-import java.io.File
 import javax.inject.Inject
 
 @InjectViewState
 class SplashPresenter
 @Inject
-constructor(private val initGameUseCase: InitGameUseCase,
-            private val rxSchedulerProvider: RxSchedulerProvider,
-            private val wordsRepository: WordsRepository,
-            private val settingsRepository: SettingsRepository,
-            private val sharedPreferences: SharedPreferences,
-            private val configureLevelsUseCase: ConfigureLevelsUseCase,
-            private val initSettingsUseCase: InitSettingsUseCase) : BasePresenter<SplashView>() {
+constructor(
+    private val initGameUseCase: InitGameUseCase,
+    private val rxSchedulerProvider: RxSchedulerProvider,
+    private val wordsRepository: WordsRepository,
+    private val settingsRepository: SettingsRepository,
+    private val sharedPreferences: SharedPreferences,
+    private val configureLevelsUseCase: ConfigureLevelsUseCase,
+    private val initSettingsUseCase: InitSettingsUseCase,
+    private val initDataBaseUseCase: InitGameDatabase
+) : BasePresenter<SplashView>() {
 
     private var counter = 0
     private lateinit var allSettings: MutableList<GameSettings>
@@ -44,14 +44,24 @@ constructor(private val initGameUseCase: InitGameUseCase,
         if (isInited) {
             configuerLevels()
         } else {
-            addDisposable(initGameUseCase.execute(InitGameUseCase.Params())
-                    .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                    .subscribe(this::initSettings, this::initSettingError))
+            addDisposable(
+                initGameUseCase.execute(InitGameUseCase.Params())
+                    .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
+                    .subscribe(this::words, this::initSettingError)
+            )
         }
     }
 
-    private fun initSettingError(throwable: Throwable){
+    private fun initSettingError(throwable: Throwable) {
         Timber.e(throwable)
+    }
+
+    private fun words(words: List<Word>) {
+        addDisposable(
+            initDataBaseUseCase.execute(InitGameDatabase.Params(words))
+                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                .subscribe(this::initSettings, this::initSettingError)
+        )
     }
 
     private fun initSettings() {
