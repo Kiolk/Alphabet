@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase
 import com.github.kiolk.alphabet.data.domain.settings.InitSettingsUseCase
+import com.github.kiolk.alphabet.data.domain.words.InitGameDatabase
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
 import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.word.Word
@@ -27,7 +28,8 @@ constructor(
     private val settingsRepository: SettingsRepository,
     private val sharedPreferences: SharedPreferences,
     private val configureLevelsUseCase: ConfigureLevelsUseCase,
-    private val initSettingsUseCase: InitSettingsUseCase
+    private val initSettingsUseCase: InitSettingsUseCase,
+    private val initDataBaseUseCase: InitGameDatabase
 ) : BasePresenter<SplashView>() {
 
     private var counter = 0
@@ -42,14 +44,24 @@ constructor(
         if (isInited) {
             configuerLevels()
         } else {
-            addDisposable(initGameUseCase.execute(InitGameUseCase.Params())
-                    .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                    .subscribe(this::initSettings, this::initSettingError))
+            addDisposable(
+                initGameUseCase.execute(InitGameUseCase.Params())
+                    .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
+                    .subscribe(this::words, this::initSettingError)
+            )
         }
     }
 
     private fun initSettingError(throwable: Throwable) {
         Timber.e(throwable)
+    }
+
+    private fun words(words: List<Word>) {
+        addDisposable(
+            initDataBaseUseCase.execute(InitGameDatabase.Params(words))
+                .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
+                .subscribe(this::initSettings, this::initSettingError)
+        )
     }
 
     private fun initSettings() {

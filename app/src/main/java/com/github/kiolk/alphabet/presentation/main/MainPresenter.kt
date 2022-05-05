@@ -28,7 +28,10 @@ constructor(
         super.onFirstViewAttach()
         addDisposable(getCurrentLevelUseCase.execute((GetCurrentLevelUseCase.Params()))
             .compose(rxSchedulerProvider.goIoToMainTransformerFloweable())
-            .subscribe(this::setPlayerLevel) { setPlayerLevelError() })
+            .subscribe(this::setPlayerLevel) {
+                setPlayerLevelError()
+            }
+        )
 
         setSoundState(soundManager.isOff)
     }
@@ -39,7 +42,6 @@ constructor(
     }
 
     private fun setPlayerLevelError(){
-        viewState.showEdnGameLayout()
     }
 
     private fun setPlayerLevel(model: LevelViewModel) {
