@@ -4,7 +4,7 @@ echo "*****Running detekt******"
 
 #git stash -q --keep-index
 
-./gradlew :app:detekt
+#./gradlew :app:detekt
 
 status=$?
 
