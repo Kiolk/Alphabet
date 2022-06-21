@@ -4,10 +4,10 @@ import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.UpdateGameUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.throwables.NoGameSettings
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.data.model.word.GameSettings
 import com.github.kiolk.common.presentation.base.BasePresenter
 import javax.inject.Inject
 

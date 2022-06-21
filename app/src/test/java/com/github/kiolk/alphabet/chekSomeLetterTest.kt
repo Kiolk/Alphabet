@@ -1,8 +1,8 @@
 package com.github.kiolk.alphabet
 
-import com.github.kiolk.alphabet.data.models.game.GameSchema
-import com.github.kiolk.alphabet.data.models.game.GameSettings
-import com.github.kiolk.alphabet.data.models.word.Word
+import com.github.kiolk.common.data.model.word.GameSchema
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Word
 import junit.framework.Assert.assertEquals
 import org.junit.Test
 

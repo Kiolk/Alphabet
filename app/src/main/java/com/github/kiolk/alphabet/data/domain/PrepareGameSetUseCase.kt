@@ -1,8 +1,8 @@
 package com.github.kiolk.alphabet.data.domain
 
 import com.github.kiolk.alphabet.data.models.game.GameItem
-import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.utils.randomize
+import com.github.kiolk.common.data.model.word.Word
 import com.github.kiolk.common.domain.base.UseCase
 import java.util.*
 

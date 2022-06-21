@@ -3,7 +3,7 @@ package com.github.kiolk.alphabet.presentation.game.result
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.OneExecutionStateStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.common.data.model.word.GameSettings
 import com.github.kiolk.common.presentation.base.BaseView
 
 @StateStrategyType(AddToEndSingleStrategy::class)

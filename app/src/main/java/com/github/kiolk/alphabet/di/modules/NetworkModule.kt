@@ -1,11 +1,11 @@
 package com.github.kiolk.alphabet.di.modules
 
 import android.content.Context
-import android.telephony.gsm.GsmCellLocation
 import com.github.kiolk.alphabet.BuildConfig
-import com.github.kiolk.alphabet.di.modules.NetworkModule.Companion.API_URL
 import com.github.kiolk.alphabet.di.qualifaiers.OkHttpInterceptors
 import com.github.kiolk.alphabet.di.qualifaiers.OkHttpNetworkInterceptor
+import com.github.kiolk.common.data.holders.AppInfoComponentHolder
+import com.github.kiolk.common.data.model.appInfo.AppInfo
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import dagger.Module
@@ -18,7 +18,6 @@ import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.StringBuilder
 import java.util.concurrent.TimeUnit
 import javax.inject.Named
 import javax.inject.Singleton
@@ -80,11 +79,17 @@ class NetworkModule {
         val builder = Retrofit.Builder()
 
         return builder
-                .baseUrl(baseApi)
-                .client(okhhtpClient)
-                .addCallAdapterFactory(callAdapterFactory)
-                .addConverterFactory(converterFactory)
-                .build()
+            .baseUrl(baseApi)
+            .client(okhhtpClient)
+            .addCallAdapterFactory(callAdapterFactory)
+            .addConverterFactory(converterFactory)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun appInfo(): AppInfo {
+        return AppInfoComponentHolder.get().getAppInfo()
     }
 
     companion object {

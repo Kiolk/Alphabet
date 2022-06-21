@@ -74,6 +74,7 @@ android {
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-pushnotificationsample-1c8c9.cloudfunctions.net\""
             buildConfigField "String", "ImageStoreRootPath", "\"dev/\""
+            buildConfigField "String", "WordsStoreRootPath", "\"dev/words\""
 
             signingConfig signingConfigs.dev
         }
@@ -85,6 +86,7 @@ android {
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
             buildConfigField "String", "ImageStoreRootPath", "\"qa/\""
+            buildConfigField "String", "WordsStoreRootPath", "\"dev/words\""
 
             signingConfig signingConfigs.qa
 
@@ -106,6 +108,7 @@ android {
 
             buildConfigField "String", "ApiUrl", "\"https://us-central1-alphabet-project-belarus.cloudfunctions.net\""
             buildConfigField "String", "ImageStoreRootPath", "\"prod/\""
+            buildConfigField "String", "WordsStoreRootPath", "\"prod/words\""
 
             signingConfig signingConfigs.prod
         }

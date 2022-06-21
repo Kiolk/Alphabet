@@ -9,11 +9,13 @@ import android.widget.Toast
 import com.app.imagepickerlibrary.ImagePickerBottomsheet
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import com.github.kiolk.common.data.model.word.Word
 import com.github.kiolk.common.presentation.controller.BaseDaggerController
 import com.github.kiolk.common.utils.fragmentManager
 import com.github.kiolk.common.utils.getContext
 import com.github.kiolk.feature_upload_image.R
 import com.github.kiolk.feature_upload_image.di.UploadImageComponentHolder
+import java.security.AccessController
 
 class SelectImageController : BaseDaggerController<SelectImageView, SelectImagePresenter>(),
     SelectImageView {
@@ -56,6 +58,14 @@ class SelectImageController : BaseDaggerController<SelectImageView, SelectImageP
 
     private fun onErrorUpload(exception: Throwable) {
         Toast.makeText(getContext(), "Error $exception", Toast.LENGTH_LONG).show()
+    }
+
+    override fun successUploadImage(word: Word) {
+        Toast.makeText(
+            getContext(),
+            "Word ${word.value} success updated with image url ${word.images}",
+            Toast.LENGTH_LONG
+        ).show()
     }
 
     companion object {

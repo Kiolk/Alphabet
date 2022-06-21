@@ -7,8 +7,8 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameStats
-import com.github.kiolk.alphabet.data.models.topic.Topic
-import com.github.kiolk.alphabet.data.models.word.Word
+import com.github.kiolk.common.data.model.word.Topic
+import com.github.kiolk.common.data.model.word.Word
 import com.github.kiolk.common.presentation.base.BaseView
 
 @StateStrategyType(AddToEndSingleStrategy::class)

@@ -11,6 +11,9 @@ import com.github.kiolk.alphabet.di.modules.NetworkModule
 import com.github.kiolk.common.data.holders.AppInfoComponent
 import com.github.kiolk.common.data.holders.AppInfoComponentHolder
 import com.github.kiolk.common.data.model.appInfo.AppInfo
+import com.github.kiolk.common.domain.repository.WordsRepositoryComponent
+import com.github.kiolk.common.domain.repository.WordsRepositoryComponentHolder
+import com.github.kiolk.common.domain.repository.word.WordsRepository
 import com.github.kiolk.common_di.commonHolders.ContextComponent
 import com.github.kiolk.common_di.commonHolders.ContextComponentHolder
 import com.github.kiolk.feature_toggles.di.FeatureToggleComponentHolder
@@ -48,9 +51,16 @@ open class App : Application() {
             object : AppInfoComponent {
                 override fun getAppInfo(): AppInfo = AppInfo(
                     isDebug = BuildConfig.DEBUG,
-                    imageStorageRootPath = BuildConfig.ImageStoreRootPath
-
+                    imageStorageRootPath = BuildConfig.ImageStoreRootPath,
+                    databaseRootPath = BuildConfig.WordsStoreRootPath,
                 )
+            }
+        }
+        WordsRepositoryComponentHolder.set {
+            object : WordsRepositoryComponent {
+                override fun getRepository(): WordsRepository {
+                    return component.getWordRepository()
+                }
             }
         }
     }

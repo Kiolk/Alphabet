@@ -8,7 +8,7 @@ import butterknife.BindView
 import butterknife.OnClick
 import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.topic.Topic
+import com.github.kiolk.common.data.model.word.Topic
 
 class CompleteTopicDialog : BaseInfoDialog {
 

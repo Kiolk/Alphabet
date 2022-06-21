@@ -22,9 +22,7 @@ import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.github.kiolk.alphabet.App
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
-import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.presentation.dialogs.EndGameDialog
 import com.github.kiolk.alphabet.presentation.game.game.GameController
 import com.github.kiolk.alphabet.presentation.home.HomeController
@@ -32,6 +30,8 @@ import com.github.kiolk.alphabet.presentation.main.MainController
 import com.github.kiolk.alphabet.presentation.settings.SettingsController
 import com.github.kiolk.alphabet.utils.CsvParser
 import com.github.kiolk.alphabet.utils.toPx
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Topic
 import com.github.kiolk.common.presentation.base.BaseView
 import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu
 

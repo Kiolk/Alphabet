@@ -2,9 +2,9 @@ package com.github.kiolk.alphabet.data.domain.topics
 
 import com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.topic.Topic
-import com.github.kiolk.alphabet.data.source.words.WordsRepository
+import com.github.kiolk.common.data.model.word.Topic
 import com.github.kiolk.common.domain.base.UseCase
+import com.github.kiolk.common.domain.repository.word.WordsRepository
 import io.reactivex.Single
 import javax.inject.Inject
 

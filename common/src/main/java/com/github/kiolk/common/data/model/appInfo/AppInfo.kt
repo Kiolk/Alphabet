@@ -2,5 +2,6 @@ package com.github.kiolk.common.data.model.appInfo
 
 class AppInfo(
     val isDebug: Boolean,
-    val imageStorageRootPath: String
+    val imageStorageRootPath: String,
+    val databaseRootPath: String,
 )

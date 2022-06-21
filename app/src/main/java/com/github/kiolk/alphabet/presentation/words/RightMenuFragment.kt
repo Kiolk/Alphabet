@@ -13,11 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import butterknife.ButterKnife
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.game.GameSettings
-import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.presentation.adapters.TopicAdapter
 import com.github.kiolk.alphabet.presentation.adapters.TopicDecoration
 import com.github.kiolk.alphabet.presentation.words.adapter.topic.WordsTopicAdapter
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Topic
 
 class RightMenuFragment : Fragment() {
 

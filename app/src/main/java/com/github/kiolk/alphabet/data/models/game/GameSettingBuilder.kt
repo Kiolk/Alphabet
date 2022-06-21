@@ -1,7 +1,8 @@
 package com.github.kiolk.alphabet.data.models.game
 
 import com.github.kiolk.alphabet.utils.Constants.MIN_WORDS_IN_GAME
-import java.lang.StringBuilder
+import com.github.kiolk.common.data.model.word.GameSchema
+import com.github.kiolk.common.data.model.word.GameSettings
 
 class GameSettingBuilder {
 
@@ -42,10 +43,12 @@ class GameSettingBuilder {
         return this
     }
 
-    fun build(): GameSettings{
-        return GameSettings("$title $letter", "", formWordLenght(), formNumberOfLeters(),
-                formPostion(), MIN_WORDS_IN_GAME, false, false,
-                GameSchema(numberOfLetters, letter, position.value, lettersInWord), level, 0)
+    fun build(): GameSettings {
+        return GameSettings(
+            "$title $letter", "", formWordLenght(), formNumberOfLeters(),
+            formPostion(), MIN_WORDS_IN_GAME, false, false,
+            GameSchema(numberOfLetters, letter, position.value, lettersInWord), level, 0
+        )
     }
 
     private fun formWordLenght(): String{

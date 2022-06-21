@@ -1,8 +1,7 @@
 package com.github.kiolk.alphabet.data.source.game.local
 
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.source.game.GameDataSourse
-import java.lang.UnsupportedOperationException
+import com.github.kiolk.common.data.model.word.GameSettings
 import javax.inject.Inject
 
 class LocalGameRepository

@@ -1,8 +1,8 @@
 package com.github.kiolk.alphabet.data.domain
 
-import com.github.kiolk.alphabet.data.source.words.RealWordsRepository
 import com.github.kiolk.alphabet.utils.CsvParser
 import com.github.kiolk.common.domain.base.UseCase
+import com.github.kiolk.common.domain.repository.word.RealWordsRepository
 import io.reactivex.Completable
 import javax.inject.Inject
 

@@ -11,14 +11,14 @@ import com.github.kiolk.alphabet.data.domain.words.PrepareGameUseCase
 import com.github.kiolk.alphabet.data.domain.words.SendMistakeUseCase
 import com.github.kiolk.alphabet.data.domain.words.UpdateCorrectWordUseCase
 import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.game.GameStats
-import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
 import com.github.kiolk.alphabet.utils.numberOfStars
 import com.github.kiolk.alphabet.utils.selectLetter
 import com.github.kiolk.common.data.model.level.LevelType
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Word
 import com.github.kiolk.common.presentation.base.BasePresenter
 import timber.log.Timber
 import java.util.concurrent.TimeUnit

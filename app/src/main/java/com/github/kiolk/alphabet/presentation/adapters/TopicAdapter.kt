@@ -7,9 +7,9 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import butterknife.BindView
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.presentation.views.GameIndicator
 import com.github.kiolk.alphabet.presentation.words.adapter.BaseViewHolder
+import com.github.kiolk.common.data.model.word.GameSettings
 
 class TopicAdapter(val topics: List<GameSettings>, val listener: OnItemClickListener) : RecyclerView.Adapter<TopicAdapter.TopicViewHolder>() {
     override fun onCreateViewHolder(p0: ViewGroup, p1: Int): TopicAdapter.TopicViewHolder {

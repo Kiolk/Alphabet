@@ -1,11 +1,11 @@
 package com.github.kiolk.alphabet.data.source.settings.local
 
 import android.util.Log
-import com.github.kiolk.alphabet.data.models.game.GameSettings
-import com.github.kiolk.alphabet.data.models.game.toBackupSettings
-import com.github.kiolk.alphabet.data.models.game.toGameSattings
 import com.github.kiolk.alphabet.data.models.letter.Letter
 import com.github.kiolk.alphabet.data.source.settings.SettingsDataSource
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.toBackupSettings
+import com.github.kiolk.common.data.model.word.toGameSattings
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single

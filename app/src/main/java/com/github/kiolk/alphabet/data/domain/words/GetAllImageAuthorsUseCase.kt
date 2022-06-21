@@ -1,7 +1,7 @@
 package com.github.kiolk.alphabet.data.domain.words
 
-import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.common.domain.base.UseCase
+import com.github.kiolk.common.domain.repository.word.WordsRepository
 import io.reactivex.Single
 import javax.inject.Inject
 

@@ -11,7 +11,7 @@ import com.bumptech.glide.load.engine.GlideException
 import com.bumptech.glide.request.RequestListener
 import com.bumptech.glide.request.target.Target
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.word.Word
+import com.github.kiolk.common.data.model.word.Word
 import io.supercharge.shimmerlayout.ShimmerLayout
 
 class SelectPhotoViewHolder(itemView: View, private val listener: (word: Word) -> Unit) : BaseViewHolder<Word>(itemView) {

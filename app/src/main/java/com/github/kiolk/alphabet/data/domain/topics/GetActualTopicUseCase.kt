@@ -1,11 +1,11 @@
 package com.github.kiolk.alphabet.data.domain.topics
 
-import com.github.kiolk.alphabet.data.models.topic.Topic
-import com.github.kiolk.alphabet.data.models.topic.local.TopicWithPhoto
-import com.github.kiolk.alphabet.data.models.topic.local.TotalReadWordsTopic
-import com.github.kiolk.alphabet.data.models.topic.local.TotalWordsTopic
-import com.github.kiolk.alphabet.data.source.words.WordsRepository
+import com.github.kiolk.common.data.model.word.Topic
+import com.github.kiolk.common.data.model.word.TopicWithPhoto
+import com.github.kiolk.common.data.model.word.TotalReadWordsTopic
+import com.github.kiolk.common.data.model.word.TotalWordsTopic
 import com.github.kiolk.common.domain.base.UseCase
+import com.github.kiolk.common.domain.repository.word.WordsRepository
 import io.reactivex.Flowable
 import io.reactivex.functions.Function3
 import javax.inject.Inject

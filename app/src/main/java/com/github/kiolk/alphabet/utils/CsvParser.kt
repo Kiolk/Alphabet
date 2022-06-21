@@ -1,6 +1,6 @@
 package com.github.kiolk.alphabet.utils
 
-import com.github.kiolk.alphabet.data.models.word.Word
+import com.github.kiolk.common.data.model.word.Word
 import java.io.BufferedReader
 import java.io.File
 import java.util.*

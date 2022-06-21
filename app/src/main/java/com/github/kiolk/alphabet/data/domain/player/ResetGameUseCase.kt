@@ -3,8 +3,8 @@ package com.github.kiolk.alphabet.data.domain.player
 import android.util.Log
 import com.github.kiolk.alphabet.data.source.player.PlayerRepository
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
-import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.common.domain.base.UseCase
+import com.github.kiolk.common.domain.repository.word.WordsRepository
 import io.reactivex.Completable
 import javax.inject.Inject
 

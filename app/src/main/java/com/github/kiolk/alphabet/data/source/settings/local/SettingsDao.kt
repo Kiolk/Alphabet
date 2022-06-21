@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.github.kiolk.alphabet.data.models.game.GameSettings
+import com.github.kiolk.common.data.model.word.GameSettings
 import io.reactivex.Flowable
 
 @Dao

@@ -1,9 +1,8 @@
 package com.github.kiolk.alphabet.utils
 
 import com.github.kiolk.alphabet.data.models.game.GameSettingBuilder
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
-import com.github.kiolk.alphabet.data.models.word.Word
+import com.github.kiolk.common.data.model.word.Word
 
 object Data{
     val alphabet = listOf(Letter("а", "а", "d", letterWord = "Аўтобус"),

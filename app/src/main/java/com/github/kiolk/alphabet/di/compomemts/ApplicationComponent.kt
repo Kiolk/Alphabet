@@ -21,6 +21,7 @@ import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.HomePresenterModule
 import com.github.kiolk.alphabet.di.modules.presenter.ResultPresenterModule
+import com.github.kiolk.common.domain.repository.word.WordsRepository
 import com.github.kiolk.feature_toggles.di.FeatureToggleComponent
 import com.github.kiolk.feature_upload_image.di.UploadImageComponent
 import dagger.Component
@@ -67,6 +68,8 @@ interface ApplicationComponent {
     fun plusThanksPresenter(): ThanksPresenterComponenet
 
     fun plusSharePresenter(): SharePresenterComponent
+
+    fun getWordRepository(): WordsRepository
 
     @Component.Factory
     interface Factory {

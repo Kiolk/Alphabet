@@ -6,14 +6,14 @@ import com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase
 import com.github.kiolk.alphabet.data.domain.settings.InitSettingsUseCase
 import com.github.kiolk.alphabet.data.domain.words.InitGameDatabase
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
-import com.github.kiolk.alphabet.data.models.game.GameSettings
-import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
-import com.github.kiolk.alphabet.data.source.words.WordsRepository
 import com.github.kiolk.alphabet.utils.Constants.MAX_WORDS_IN_GAME
 import com.github.kiolk.alphabet.utils.Constants.MIN_WORDS_IN_GAME
 import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Word
+import com.github.kiolk.common.domain.repository.word.WordsRepository
 import com.github.kiolk.common.presentation.base.BasePresenter
 import timber.log.Timber
 import javax.inject.Inject

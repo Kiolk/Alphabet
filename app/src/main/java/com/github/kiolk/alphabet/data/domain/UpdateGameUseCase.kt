@@ -1,7 +1,7 @@
 package com.github.kiolk.alphabet.data.domain
 
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
+import com.github.kiolk.common.data.model.word.GameSettings
 import com.github.kiolk.common.domain.base.UseCase
 import io.reactivex.Single
 import javax.inject.Inject
