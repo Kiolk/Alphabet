@@ -1,0 +1,19 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply from: "$rootDir/gradle/android/android.gradle"
+
+dependencies {
+    implementation project(path: ':common-di')
+
+    implementation Libs.kotlinReflect
+    kapt Libs.daggerCompailer
+
+    implementation Libs.firebaseConfig
+
+    testImplementation TestLibs.mockito
+    testImplementation TestLibs.mockitoKotlin
+}

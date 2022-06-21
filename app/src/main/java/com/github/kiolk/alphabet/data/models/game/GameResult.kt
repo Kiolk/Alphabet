@@ -1,7 +1,8 @@
 package com.github.kiolk.alphabet.data.models.game
 
 import android.os.Parcelable
-import com.github.kiolk.alphabet.data.models.topic.Topic
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Topic
 import kotlinx.parcelize.Parcelize
 
 @Parcelize

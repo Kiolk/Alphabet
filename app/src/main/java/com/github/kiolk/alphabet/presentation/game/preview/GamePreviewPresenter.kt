@@ -3,11 +3,11 @@ package com.github.kiolk.alphabet.presentation.game.preview
 import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.data.domain.PrepareGameSetUseCase
 import com.github.kiolk.alphabet.data.models.game.GameItem
-import com.github.kiolk.alphabet.data.models.game.GameSettings
-import com.github.kiolk.alphabet.data.models.word.Word
-import com.github.kiolk.alphabet.data.source.words.WordsRepository
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Word
+import com.github.kiolk.common.domain.repository.word.WordsRepository
+import com.github.kiolk.common.presentation.base.BasePresenter
 import javax.inject.Inject
 
 @InjectViewState

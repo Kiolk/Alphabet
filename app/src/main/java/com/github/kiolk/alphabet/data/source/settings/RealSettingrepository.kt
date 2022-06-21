@@ -1,8 +1,8 @@
 package com.github.kiolk.alphabet.data.source.settings
 
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.data.models.letter.Letter
-import com.github.kiolk.alphabet.di.qualifaiers.LocalDataSource
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common_di.qualifiers.LocalDataSource
 import io.reactivex.Completable
 import io.reactivex.Flowable
 import io.reactivex.Single

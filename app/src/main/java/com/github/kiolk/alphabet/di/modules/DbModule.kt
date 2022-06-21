@@ -8,8 +8,9 @@ import com.github.kiolk.alphabet.data.source.levels.local.LevelDao
 import com.github.kiolk.alphabet.data.source.player.local.PlayerDao
 import com.github.kiolk.alphabet.data.source.settings.local.BackupSettingDao
 import com.github.kiolk.alphabet.data.source.settings.local.SettingsDao
-import com.github.kiolk.alphabet.data.source.words.local.DaoWord
-import com.github.kiolk.alphabet.data.source.words.local.DaoWords
+import com.github.kiolk.common.domain.repository.image.source.local.ImageDao
+import com.github.kiolk.common.domain.repository.word.source.local.DaoWord
+import com.github.kiolk.common.domain.repository.word.source.local.DaoWords
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
@@ -60,4 +61,8 @@ class DbModule {
     fun provideFirebaseDataBase(): FirebaseDatabase {
         return Firebase.database
     }
+
+    @Singleton
+    @Provides
+    fun provideImageDao(database: AppDatabase): ImageDao = database.imageDao()
 }

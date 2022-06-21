@@ -4,11 +4,6 @@ import android.os.Bundle
 import android.view.View
 import butterknife.OnClick
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.domain.player.ResetGameUseCase
-import com.github.kiolk.alphabet.utils.RxSchedulerProvider
-import io.reactivex.disposables.Disposable
-import timber.log.Timber
-import javax.inject.Inject
 
 class ResetGameDialog: BaseInfoDialog {
 
@@ -16,7 +11,7 @@ class ResetGameDialog: BaseInfoDialog {
 
     lateinit var listener: () -> Unit
 
-    constructor(args: Bundle, listener: () -> Unit): super(args){
+    constructor(args: Bundle, listener: () -> Unit) : super(args) {
         this.listener = listener
     }
 

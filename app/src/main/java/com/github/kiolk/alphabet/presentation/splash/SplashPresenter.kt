@@ -6,15 +6,15 @@ import com.github.kiolk.alphabet.data.domain.levels.ConfigureLevelsUseCase
 import com.github.kiolk.alphabet.data.domain.settings.InitSettingsUseCase
 import com.github.kiolk.alphabet.data.domain.words.InitGameDatabase
 import com.github.kiolk.alphabet.data.domain.words.InitGameUseCase
-import com.github.kiolk.alphabet.data.models.game.GameSettings
-import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
-import com.github.kiolk.alphabet.data.source.words.WordsRepository
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.Constants.MAX_WORDS_IN_GAME
 import com.github.kiolk.alphabet.utils.Constants.MIN_WORDS_IN_GAME
 import com.github.kiolk.alphabet.utils.Data
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.data.model.word.GameSettings
+import com.github.kiolk.common.data.model.word.Word
+import com.github.kiolk.common.domain.repository.word.WordsRepository
+import com.github.kiolk.common.presentation.base.BasePresenter
 import timber.log.Timber
 import javax.inject.Inject
 
@@ -109,23 +109,27 @@ constructor(
     }
 
     fun setSettings() {
-        addDisposable(initSettingsUseCase.execute(InitSettingsUseCase.Params(availableSettings))
+        addDisposable(
+            initSettingsUseCase.execute(InitSettingsUseCase.Params(availableSettings))
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe(this::configuerLevels))
+                .subscribe(this::configuerLevels)
+        )
     }
 
-    private fun setAsckedWords(total: Int): Int{
-        if(total < MAX_WORDS_IN_GAME){
+    private fun setAsckedWords(total: Int): Int {
+        if (total < MAX_WORDS_IN_GAME) {
             return MIN_WORDS_IN_GAME
-        }else{
+        } else {
             return Math.min((total * 0.5f).toInt(), MAX_WORDS_IN_GAME)
         }
     }
 
-    private fun configuerLevels(){
-        addDisposable(configureLevelsUseCase.execute(ConfigureLevelsUseCase.Params())
+    private fun configuerLevels() {
+        addDisposable(
+            configureLevelsUseCase.execute(ConfigureLevelsUseCase.Params())
                 .compose(rxSchedulerProvider.goIoToMainTransformerComplitable())
-                .subscribe(this::openMainScreen))
+                .subscribe(this::openMainScreen)
+        )
     }
 
     private fun openMainScreen() {

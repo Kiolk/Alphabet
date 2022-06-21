@@ -1,6 +1,6 @@
 package com.github.kiolk.alphabet.data.source.levels
 
-import com.github.kiolk.alphabet.data.models.level.LevelType
+import com.github.kiolk.common.data.model.level.LevelType
 
 interface LevelRepository {
 

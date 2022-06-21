@@ -2,7 +2,7 @@ package com.github.kiolk.alphabet.presentation.main
 
 import com.arellomobile.mvp.viewstate.strategy.AddToEndSingleStrategy
 import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
-import com.github.kiolk.alphabet.presentation.base.BaseView
+import com.github.kiolk.common.presentation.base.BaseView
 
 @StateStrategyType(AddToEndSingleStrategy::class)
 interface MainView: BaseView {
@@ -33,7 +33,9 @@ interface MainView: BaseView {
 
     fun setSoundState(drawableId: Int)
 
-    companion object{
+    fun openUploadImageScreen()
+
+    companion object {
         private const val GAME_END_TAG = "GAME_END_TAG"
     }
 }

@@ -6,18 +6,23 @@ import com.github.kiolk.alphabet.data.SoundManager
 import com.github.kiolk.alphabet.data.domain.player.GetCurrentLevelUseCase
 import com.github.kiolk.alphabet.data.domain.player.ResetGameUseCase
 import com.github.kiolk.alphabet.data.models.level.LevelViewModel
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
+import com.github.kiolk.common.presentation.base.BasePresenter
+import com.github.kiolk.feature_toggles.provider.FeatureToggleProvider
+import com.github.kiolk.feature_toggles.toggles.RemoteUploadImageFeatureToggle
 import timber.log.Timber
 import javax.inject.Inject
 
 @InjectViewState
 class MainPresenter
 @Inject
-constructor(private val rxSchedulerProvider: RxSchedulerProvider,
-            private val getCurrentLevelUseCase: GetCurrentLevelUseCase,
-            private val resetGameUseCase: ResetGameUseCase,
-            private val soundManager: SoundManager) : BasePresenter<MainView>() {
+constructor(
+    private val rxSchedulerProvider: RxSchedulerProvider,
+    private val getCurrentLevelUseCase: GetCurrentLevelUseCase,
+    private val resetGameUseCase: ResetGameUseCase,
+    private val soundManager: SoundManager,
+    private val featureToggleProvider: FeatureToggleProvider
+) : BasePresenter<MainView>() {
 
     override fun onFirstViewAttach() {
         super.onFirstViewAttach()
@@ -90,6 +95,9 @@ constructor(private val rxSchedulerProvider: RxSchedulerProvider,
 
     fun onSoundPressed() {
         setSoundState(soundManager.changeSoundState())
+        if (featureToggleProvider.provide<Boolean>(RemoteUploadImageFeatureToggle::class).value) {
+            viewState.openUploadImageScreen()
+        }
     }
 
     private fun setSoundState(isOff: Boolean) {

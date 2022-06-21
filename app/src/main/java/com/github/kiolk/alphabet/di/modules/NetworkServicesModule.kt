@@ -1,6 +1,6 @@
 package com.github.kiolk.alphabet.di.modules
 
-import com.github.kiolk.alphabet.data.source.words.remote.WordsService
+import com.github.kiolk.common.domain.repository.word.source.remote.WordsService
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

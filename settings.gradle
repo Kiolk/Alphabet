@@ -1,1 +1,5 @@
 include ':app'
+include ':feature-toggles'
+include ':common-di'
+include ':feature-upload-image'
+include ':common'

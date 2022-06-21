@@ -1,7 +1,7 @@
 package com.github.kiolk.alphabet.data.source.levels.local
 
-import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.data.source.levels.LevelDataSource
+import com.github.kiolk.common.data.model.level.LevelType
 import javax.inject.Inject
 
 class LocalLevelDataSource

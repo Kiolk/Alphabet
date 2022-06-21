@@ -13,11 +13,11 @@ import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.HorizontalChangeHandler
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameResult
-import com.github.kiolk.alphabet.data.models.game.GameSettings
 import com.github.kiolk.alphabet.di.modules.presenter.GamePreviewPresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.game.game.GameController
 import com.github.kiolk.alphabet.utils.BundleBuilder
+import com.github.kiolk.common.data.model.word.GameSettings
 
 class GamePreviewController : BaseController, GamePreviewView {
 

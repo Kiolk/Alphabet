@@ -1,27 +1,30 @@
 package com.github.kiolk.alphabet.data.domain.levels
 
-import com.github.kiolk.alphabet.data.domain.UseCase
-import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.data.models.level.LevelTypes
 import com.github.kiolk.alphabet.data.source.levels.LevelRepository
 import com.github.kiolk.alphabet.data.source.settings.SettingsRepository
+import com.github.kiolk.common.data.model.level.LevelType
+import com.github.kiolk.common.domain.base.UseCase
 import io.reactivex.Completable
 import javax.inject.Inject
 
 class ConfigureLevelsUseCase
 @Inject
-constructor(private val settingsRepository: SettingsRepository,
-            private val levelRepository: LevelRepository) : UseCase<Completable, ConfigureLevelsUseCase.Params> {
+constructor(
+    private val settingsRepository: SettingsRepository,
+    private val levelRepository: LevelRepository
+) :
+    UseCase<Completable, ConfigureLevelsUseCase.Params> {
 
     override fun execute(params: Params): Completable {
         return settingsRepository.getAllSettings()
-                .take(1)
-                .flatMapCompletable { settings ->
-                    val games = settings.size * 3
-                    val levels = LevelTypes.values().size
-                    val gamePerLevel = games / levels
-                    val restOfGames = games - levels * gamePerLevel
-                    var counter = 0
+            .take(1)
+            .flatMapCompletable { settings ->
+                val games = settings.size * 3
+                val levels = LevelTypes.values().size
+                val gamePerLevel = games / levels
+                val restOfGames = games - levels * gamePerLevel
+                var counter = 0
                     val lastLevel = LevelTypes.values().last()
 
                     val configureLevels = mutableListOf<LevelType>()

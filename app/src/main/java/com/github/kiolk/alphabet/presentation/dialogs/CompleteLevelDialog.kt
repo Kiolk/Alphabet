@@ -6,8 +6,8 @@ import android.widget.TextView
 import butterknife.BindView
 import butterknife.OnClick
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.presentation.views.LevelLebel
+import com.github.kiolk.common.data.model.level.LevelType
 
 class CompleteLevelDialog: BaseInfoDialog {
     constructor(args: Bundle): super(args)

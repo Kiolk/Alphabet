@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.word.Word
+import com.github.kiolk.common.data.model.word.Word
 
 class SelectPhotoAdapter
 

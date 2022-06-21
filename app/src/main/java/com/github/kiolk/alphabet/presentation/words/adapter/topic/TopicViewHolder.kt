@@ -4,15 +4,14 @@ import android.text.InputType
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
-import android.widget.ProgressBar
 import android.widget.TextView
 import butterknife.BindView
 import com.bumptech.glide.Glide
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.presentation.views.StyledProgressBar
 import com.github.kiolk.alphabet.presentation.words.adapter.BaseViewHolder
 import com.github.kiolk.alphabet.utils.toPx
+import com.github.kiolk.common.data.model.word.Topic
 
 class TopicViewHolder(itemView: View, val listener: (Topic) -> Unit): BaseViewHolder<Topic>(itemView) {
 

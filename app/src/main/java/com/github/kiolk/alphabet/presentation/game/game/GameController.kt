@@ -22,8 +22,6 @@ import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.models.game.GameItem
 import com.github.kiolk.alphabet.data.models.game.GameResult
 import com.github.kiolk.alphabet.data.models.game.GameStats
-import com.github.kiolk.alphabet.data.models.topic.Topic
-import com.github.kiolk.alphabet.data.models.word.Word
 import com.github.kiolk.alphabet.di.modules.presenter.GamePresenterModule
 import com.github.kiolk.alphabet.presentation.base.controller.BaseController
 import com.github.kiolk.alphabet.presentation.dialogs.CompleteTopicDialog
@@ -35,6 +33,8 @@ import com.github.kiolk.alphabet.presentation.words.adapter.SelectPhotoDecorator
 import com.github.kiolk.alphabet.utils.BlurBuilder
 import com.github.kiolk.alphabet.utils.BundleBuilder
 import com.github.kiolk.alphabet.utils.toPx
+import com.github.kiolk.common.data.model.word.Topic
+import com.github.kiolk.common.data.model.word.Word
 
 interface MistakePablisher{
     fun publishMistake(word: String, description: String)

@@ -5,11 +5,12 @@ import android.os.Bundle
 import com.bluelinelabs.conductor.RouterTransaction
 import com.bluelinelabs.conductor.changehandler.FadeChangeHandler
 import com.github.kiolk.alphabet.App
-import com.github.kiolk.alphabet.data.models.level.LevelType
 import com.github.kiolk.alphabet.di.compomemts.ApplicationComponent
-import com.github.kiolk.alphabet.presentation.base.BaseView
 import com.github.kiolk.alphabet.presentation.dialogs.CompleteLevelDialog
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
+import com.github.kiolk.common.data.model.level.LevelType
+import com.github.kiolk.common.presentation.base.BaseView
+import com.github.kiolk.common.presentation.controller.ButterknifeController
 
 abstract class BaseController : ButterknifeController, BaseView {
 

@@ -8,8 +8,8 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.game.GameSchema
 import com.github.kiolk.alphabet.data.models.game.GameSettingBuilder
+import com.github.kiolk.common.data.model.word.GameSchema
 
 class GameIndicator : LinearLayout {
 

@@ -4,10 +4,10 @@ import com.arellomobile.mvp.InjectViewState
 import com.github.kiolk.alphabet.R
 import com.github.kiolk.alphabet.data.domain.words.GetRandomWordUseCase
 import com.github.kiolk.alphabet.data.models.letter.Letter
-import com.github.kiolk.alphabet.data.models.word.Word
-import com.github.kiolk.alphabet.presentation.base.BasePresenter
 import com.github.kiolk.alphabet.utils.RxSchedulerProvider
 import com.github.kiolk.alphabet.utils.selectLetter
+import com.github.kiolk.common.data.model.word.Word
+import com.github.kiolk.common.presentation.base.BasePresenter
 import timber.log.Timber
 import javax.inject.Inject
 

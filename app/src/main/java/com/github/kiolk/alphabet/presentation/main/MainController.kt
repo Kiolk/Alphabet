@@ -1,5 +1,6 @@
 package com.github.kiolk.alphabet.presentation.main
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,6 +22,7 @@ import com.github.kiolk.alphabet.presentation.views.LevelLebel
 import com.github.kiolk.alphabet.presentation.views.StyledProgressBar
 import com.github.kiolk.alphabet.presentation.words.WordsScreen
 import com.github.kiolk.alphabet.utils.getContext
+import com.github.kiolk.feature_upload_image.presentation.select.SelectImageActivity
 
 class MainController : BaseController, MainView {
 
@@ -101,13 +103,19 @@ class MainController : BaseController, MainView {
 
     override fun onResetSuccess() {
         router.popToRoot()
-        router.pushController(RouterTransaction.with(MainController())
+        router.pushController(
+            RouterTransaction.with(MainController())
                 .pushChangeHandler(FadeChangeHandler())
-                .popChangeHandler(FadeChangeHandler()).tag(TAG))
+                .popChangeHandler(FadeChangeHandler()).tag(TAG)
+        )
     }
 
     override fun setSoundState(drawableId: Int) {
         ivSoundButton.setImageDrawable(getContext().resources.getDrawable(drawableId))
+    }
+
+    override fun openUploadImageScreen() {
+        activity?.startActivity(Intent(activity, SelectImageActivity::class.java))
     }
 
     @OnClick(R.id.iv_main_level_setting, R.id.iv_main_level_end_setting)
@@ -122,12 +130,14 @@ class MainController : BaseController, MainView {
 
     @OnClick(R.id.btn_main_level_restart)
     fun onRestartPress() {
-        router.pushController((RouterTransaction.with(ResetGameDialog.getInstance {
-            presenter.onResetPress()
-        }))
+        router.pushController(
+            (RouterTransaction.with(ResetGameDialog.getInstance {
+                presenter.onResetPress()
+            }))
                 .pushChangeHandler(FadeChangeHandler())
                 .popChangeHandler(FadeChangeHandler())
-                .tag(ResetGameDialog.TAG))
+                .tag(ResetGameDialog.TAG)
+        )
     }
 
     @OnClick(R.id.btn_main_level_rate)

@@ -1,0 +1,53 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+apply from: "$rootDir/gradle/android/android.gradle"
+
+android {
+    buildFeatures {
+        viewBinding true
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    defaultConfig {
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moxyReflectorPackage: 'com.github.kiolk.feature_upload_image']
+            }
+        }
+    }
+}
+
+kapt {
+    arguments {
+        arg("moxyReflectorPackage", "com.github.kiolk.feature_upload_image")
+    }
+}
+
+dependencies {
+
+    implementation project(':common')
+    implementation project(':common-di')
+    implementation Libs.sSImagePicker
+    // Import the BoM for the Firebase platform
+    implementation platform('com.google.firebase:firebase-bom:29.3.0')
+
+    // Declare the dependency for the Cloud Storage library
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    implementation 'com.google.firebase:firebase-storage'
+    implementation 'com.google.firebase:firebase-common-ktx:20.1.0'
+    implementation Libs.rxAndroid
+
+
+    kapt Libs.daggerCompailer
+    kapt Libs.moxyCompiler
+
+//    testImplementation TestLibs.mockito
+//    testImplementation TestLibs.mockitoKotlin
+}

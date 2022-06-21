@@ -3,8 +3,8 @@ package com.github.kiolk.alphabet.presentation.words.adapter.topic
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.github.kiolk.alphabet.R
-import com.github.kiolk.alphabet.data.models.topic.Topic
 import com.github.kiolk.alphabet.presentation.base.adapter.BaseRecyclerViewAdapter
+import com.github.kiolk.common.data.model.word.Topic
 
 class WordsTopicAdapter(val listener: ((Topic) -> Unit)): BaseRecyclerViewAdapter<Topic, TopicViewHolder>() {
 
